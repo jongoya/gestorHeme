@@ -1,0 +1,115 @@
+//
+//  AgendaClientItemView.swift
+//  GestorHeme
+//
+//  Created by jon mikel on 08/04/2020.
+//  Copyright © 2020 jon mikel. All rights reserved.
+//
+
+import UIKit
+
+class AgendaClientItemView: UIView {
+    
+    var imageCliente: UIImageView!
+    var nombreCliente: UILabel!
+    var horaServicio: UILabel!
+    
+    var cliente: ClientModel!
+    var delegate: ClientItemViewProtocol!
+
+    init(cliente: ClientModel, delegate: ClientItemViewProtocol) {
+        super.init(frame: .zero)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .white
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clientClicked(_:))))
+        self.cliente = cliente
+        self.delegate = delegate
+        customizeContentView()
+        
+        createContent()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func customizeContentView() {
+        layer.cornerRadius = 10
+        layer.borderColor = UIColor.systemGray4.cgColor
+        layer.borderWidth = 1
+    }
+    
+    func createContent() {
+        addImageView()
+        
+        addNombreCliente()
+        
+        addHoraServicio()
+        
+        setConstraints()
+    }
+    
+    func addImageView() {
+        imageCliente = UIImageView()
+        imageCliente.translatesAutoresizingMaskIntoConstraints = false
+        imageCliente.image = UIImage(named: "user_placeholder")
+        addSubview(imageCliente)
+    }
+    
+    func addNombreCliente() {
+        nombreCliente = UILabel()
+        nombreCliente.translatesAutoresizingMaskIntoConstraints = false
+        nombreCliente.text = cliente.nombre + " " + cliente.apellidos
+        nombreCliente.textColor = .black
+        nombreCliente.font =  UIFont.systemFont(ofSize: 15)
+        addSubview(nombreCliente)
+    }
+    
+    func addHoraServicio() {
+        horaServicio = UILabel()
+        horaServicio.translatesAutoresizingMaskIntoConstraints = false
+        horaServicio.text = "Servicios: " + collectHorasCliente()
+        horaServicio.textColor = .systemGray3
+        horaServicio.font = UIFont.systemFont(ofSize: 14)
+        addSubview(horaServicio)
+    }
+    
+    func collectHorasCliente() -> String {
+        let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: cliente.id)
+        let calendar = Calendar.current
+        
+        var horas: String = ""
+        
+        for service in services {
+            let date: Date = Date(timeIntervalSince1970: TimeInterval(service.fecha))
+            if !calendar.isDateInToday(date) {
+                continue
+            }
+            
+            horas.append(AgendaFunctions.getHoursAndMinutesFromDate(date: Date(timeIntervalSince1970: TimeInterval(service.fecha))) + " ")
+        }
+        
+        return horas
+    }
+    
+    func setConstraints() {
+        imageCliente.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        imageCliente.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        imageCliente.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        imageCliente.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true
+        
+        nombreCliente.leadingAnchor.constraint(equalTo: imageCliente.trailingAnchor, constant: 10).isActive = true
+        nombreCliente.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        nombreCliente.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        
+        horaServicio.topAnchor.constraint(equalTo: nombreCliente.bottomAnchor, constant: 5).isActive = true
+        horaServicio.leadingAnchor.constraint(equalTo: nombreCliente.leadingAnchor).isActive = true
+        horaServicio.trailingAnchor.constraint(equalTo: nombreCliente.trailingAnchor).isActive = true
+    }
+}
+
+extension AgendaClientItemView {
+    @objc func clientClicked(_ sender: UITapGestureRecognizer) {
+        delegate.clientClicked(client: cliente)
+    }
+}
