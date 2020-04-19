@@ -26,7 +26,6 @@ class HemeViewController: UIViewController {
     
     func createObjectsForTableView() {
         hemeModels.removeAll()
-        print("")
         createStockModel()
         createFacturacionModel()
         createCajaModel()
