@@ -29,15 +29,16 @@ class TipoServiciosManager: NSObject {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: TIPOSERVICIOS_ENTITY_NAME)
         fetchRequest.returnsObjectsAsFaults = false
         
-        do {
-            let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
-            for data in results {
-                servicios.append(databaseHelper.parseTipoServiciosCoreObjectToTipoServicioModel(coreObject: data))
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    servicios.append(databaseHelper.parseTipoServiciosCoreObjectToTipoServicioModel(coreObject: data))
+                }
+            } catch {
             }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
+
         return servicios
     }
     
@@ -47,12 +48,17 @@ class TipoServiciosManager: NSObject {
         if getCoreTipoServicioFromDatabase(servicioId: servicio.servicioId).count == 0 {
             let coreService = NSManagedObject(entity: entity!, insertInto: backgroundContext)
             databaseHelper.setCoreDataObjectDataFromTipoServicio(coreDataObject: coreService, newServicio: servicio)
-            do {
-                try backgroundContext.save()
-                return true
-            } catch {
-                return false
+            
+            var result: Bool = false
+            backgroundContext.performAndWait {
+                do {
+                    try backgroundContext.save()
+                    result = true
+                } catch {
+                }
             }
+            
+            return result
         } else {
             return false
         }
@@ -63,10 +69,11 @@ class TipoServiciosManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "servicioId = %f", argumentArray: [servicioId])
         var results: [NSManagedObject] = []
         
-        do {
-            results = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error checking the client in database")
+        mainContext.performAndWait {
+            do {
+                results = try mainContext.fetch(fetchRequest)
+            } catch {
+            }
         }
         
         return results
@@ -76,28 +83,5 @@ class TipoServiciosManager: NSObject {
         let coreTipoServicios: [NSManagedObject] = getCoreTipoServicioFromDatabase(servicioId: servicioId)
         
         return databaseHelper.parseTipoServiciosCoreObjectToTipoServicioModel(coreObject: coreTipoServicios.first!)
-    }
-    
-    func eliminarServicios() -> Bool {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: TIPOSERVICIOS_ENTITY_NAME)
-        //fetchRequest.predicate = NSPredicate(format: "empleadoId = %f", argumentArray: [empleadoId])
-        var results: [NSManagedObject] = []
-        
-        do {
-            results = try backgroundContext.fetch(fetchRequest)
-            
-            if results.count == 0 {
-                return false
-            }
-            
-            for object in results {
-                backgroundContext.delete(object)
-            }
-            
-            try backgroundContext.save()
-            return true
-        } catch {
-            return false
-        }
     }
 }

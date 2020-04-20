@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VHO-gR-5hz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -478,7 +478,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVX-QN-zW1">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVX-QN-zW1">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFa-xc-h8d">
@@ -508,6 +508,7 @@
                     <navigationItem key="navigationItem" id="mjt-2G-anw"/>
                     <connections>
                         <outlet property="scrollContentView" destination="TFa-xc-h8d" id="dH9-dF-1nV"/>
+                        <outlet property="scrollView" destination="eVX-QN-zW1" id="OoU-mb-FqB"/>
                         <segue destination="i7r-FN-DlQ" kind="show" identifier="ColorPickerIdentifier" id="IFA-7a-KPM"/>
                         <segue destination="M46-ZI-8BC" kind="show" identifier="AddEmpleadoIdentifier" id="llf-T4-gX1"/>
                     </connections>
@@ -959,7 +960,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dWh-MB-Hlw"/>
+        <segue reference="IFA-7a-KPM"/>
         <segue reference="ELA-gp-FIe"/>
     </inferredMetricsTieBreakers>
     <resources>

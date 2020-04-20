@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eBx-ls-mns">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -157,6 +157,7 @@
                         <outlet property="filterProfessionalButton" destination="HIl-g9-PWO" id="TNG-Kc-0aI"/>
                         <outlet property="monthCalendar" destination="xHS-6p-Lxb" id="aR9-wd-5Ml"/>
                         <outlet property="scrollContentView" destination="gut-m4-dgG" id="gPt-d7-5nj"/>
+                        <outlet property="scrollView" destination="pxA-he-W19" id="qE6-5a-icj"/>
                         <outlet property="topMonthCalendarConstrain" destination="Ibd-Fg-rEH" id="ViN-1z-E6h"/>
                         <segue destination="qVM-vF-Hw2" kind="show" identifier="ServiceDetailIdentifier" id="3Mh-Dn-qla"/>
                         <segue destination="8uD-hk-Sce" kind="show" identifier="ClientDetailIdentifier" id="0EN-DX-rnx"/>
@@ -2905,7 +2906,7 @@
         <segue reference="eoI-MQ-e1M"/>
         <segue reference="OA7-dY-Js9"/>
         <segue reference="0EN-DX-rnx"/>
-        <segue reference="J3B-aM-5Lx"/>
+        <segue reference="3Mh-Dn-qla"/>
         <segue reference="G0F-tq-SXm"/>
     </inferredMetricsTieBreakers>
     <resources>

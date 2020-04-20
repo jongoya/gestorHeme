@@ -17,17 +17,16 @@ class ListaClientesViewController: UIViewController {
     var arrayIndexSection: [String]!
     var filteredArrayIndexSection: [String] = []
     var emptyStateLabel: UILabel!
+    var tableRefreshControl: UIRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         arrayIndexSection = CommonFunctions.getClientsTableIndexValues()
         setTextFieldProperties()
         
-        Constants.cloudDatabaseManager.clientManager.getClients()
-        Constants.cloudDatabaseManager.empleadoManager.getEmpleados()
-        Constants.cloudDatabaseManager.tipoServicioManager.getTipoServicios()
-        Constants.cloudDatabaseManager.notificationManager.getNotificaciones()
-        Constants.cloudDatabaseManager.serviceManager.getServicios()
+        addRefreshControl()
+        
+        refreshClients("")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +77,11 @@ class ListaClientesViewController: UIViewController {
         
         filteredClients = indexedArray
     }
+    
+    func addRefreshControl() {
+        tableRefreshControl.addTarget(self, action: #selector(refreshClients(_:)), for: .valueChanged)
+        clientsTableView.refreshControl = tableRefreshControl
+    }
 }
 
 extension ListaClientesViewController {
@@ -95,6 +99,10 @@ extension ListaClientesViewController {
         let clients: [ClientModel] = Constants.databaseManager.clientsManager.getClientsFilteredByText(text: textField.text!)
         indexClients(arrayClients: clients)
         clientsTableView.reloadData()
+    }
+    
+    @objc func refreshClients(_ sender: Any) {
+        Constants.cloudDatabaseManager.clientManager.getClients(delegate: self)
     }
 }
 
@@ -152,5 +160,12 @@ extension ListaClientesViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
+    }
+}
+
+extension ListaClientesViewController: CloudClientManagerProtocol {
+    func sincronisationFinished() {
+        tableRefreshControl.endRefreshing()
+        getClients()
     }
 }

@@ -30,15 +30,16 @@ class NotificationsManager: NSObject {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
         fetchRequest.returnsObjectsAsFaults = false
         
-        do {
-            let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
-            for data in results {
-                notifications.append(databaseHelper.parseNotificationCoreObjectToNotificationModel(coreObject: data))
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    notifications.append(databaseHelper.parseNotificationCoreObjectToNotificationModel(coreObject: data))
+                }
+            } catch {
             }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
+
         return notifications
     }
     
@@ -48,12 +49,17 @@ class NotificationsManager: NSObject {
         if getNotificationFromDatabase(notificationId: newNotification.notificationId).count == 0 {
             let coreService = NSManagedObject(entity: entity!, insertInto: backgroundContext)
             databaseHelper.setCoreDataObjectDataFromNotification(coreDataObject: coreService, newNotification: newNotification)
-            do {
-                try backgroundContext.save()
-                return true
-            } catch {
-                return false
+            
+            var result: Bool = false
+            backgroundContext.performAndWait {
+                do {
+                    try backgroundContext.save()
+                    result = true
+                } catch {
+                }
             }
+            
+            return result
         } else {
             return false
         }
@@ -64,10 +70,11 @@ class NotificationsManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "notificationId = %f", argumentArray: [notificationId])
         var results: [NSManagedObject] = []
         
-        do {
-            results = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error checking the client in database")
+        mainContext.performAndWait {
+            do {
+                results = try mainContext.fetch(fetchRequest)
+            } catch {
+            }
         }
         
         return results
@@ -83,11 +90,15 @@ class NotificationsManager: NSObject {
         let coreNotification: NSManagedObject = notifications.first!
         coreNotification.setValue(notification.leido, forKey: "leido")
         
-        do {
-            try mainContext.save()
-            return true
-        } catch {
-            return false
+        var result: Bool = false
+        mainContext.performAndWait {
+            do {
+                try mainContext.save()
+                result = true
+            } catch {
+            }
         }
+        
+        return result
     }
 }

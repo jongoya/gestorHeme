@@ -10,11 +10,13 @@ import UIKit
 
 class EmpleadosViewController: UIViewController {
     @IBOutlet weak var scrollContentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var empleados: [EmpleadoModel] = []
     var empleadosViews: [UIView] = []
     var showColorView: Bool = false
     var emptyStateLabel: UILabel!
+    var scrollRefreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class EmpleadosViewController: UIViewController {
         if !showColorView {
             addCreateEmpleadoButton()
         }
+        
+        addRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -208,6 +212,11 @@ class EmpleadosViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
+    
+    func addRefreshControl() {
+        scrollRefreshControl.addTarget(self, action: #selector(refreshEmpleados(_:)), for: .valueChanged)
+        scrollView.refreshControl = scrollRefreshControl
+    }
 }
 
 extension EmpleadosViewController {
@@ -245,6 +254,10 @@ extension EmpleadosViewController {
         let empleadoView: EmpleadoView = sender.empleadoView
         rightAnimation(view: empleadoView)
     }
+    
+    @objc func refreshEmpleados(_ sender: Any) {
+        Constants.cloudDatabaseManager.empleadoManager.getEmpleados(delegate: self)
+    }
 }
 
 extension EmpleadosViewController {
@@ -262,6 +275,13 @@ extension EmpleadosViewController {
     }
 }
 
+extension EmpleadosViewController: CloudEmpleadoProtocol {
+    func sincronisationFinished() {
+        scrollRefreshControl.endRefreshing()
+        showEmpleados()
+    }
+}
+
 class EmpleadoTapGesture: UITapGestureRecognizer {
     var empleadoView: EmpleadoView!
 }
@@ -275,3 +295,4 @@ class EmpleadoView: UIView {
     var empleadoTrailingAnchor: NSLayoutConstraint!
     var empleado: EmpleadoModel!
 }
+

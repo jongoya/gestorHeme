@@ -15,7 +15,7 @@ class CloudTipoServicioManager {
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
-    func getTipoServicios() {
+    func getTipoServicios(delegate: CloudTipoServiciosProtocol?) {
         let operation = CKQueryOperation(query: tipoServiciosQuery)
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
@@ -24,13 +24,10 @@ class CloudTipoServicioManager {
              }
          }
         
-        operation.queryCompletionBlock = { [weak self] (cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
-             if cursor != nil {
-                let newOperation = CKQueryOperation(cursor: cursor!)
-                newOperation.recordFetchedBlock = operation.recordFetchedBlock
-                newOperation.queryCompletionBlock = operation.queryCompletionBlock
-                self!.publicDatabase.add(newOperation)
-             }
+        operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
+            DispatchQueue.main.async {
+                delegate?.sincronisationFinished()
+            }
          }
 
         publicDatabase.add(operation)

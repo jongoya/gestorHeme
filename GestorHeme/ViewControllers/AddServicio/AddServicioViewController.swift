@@ -20,11 +20,12 @@ class AddServicioViewController: UIViewController {
     var service: ServiceModel = ServiceModel()
     var modifyService: Bool = false
     var delegate: AddServicioProtocol!
+    var modificacionHecha: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Servicio"
-        
+        title =  modifyService ? "Servicio" : "Nuevo Servicio"
+        addBackButton()
         setMainValues()
     }
     
@@ -102,6 +103,22 @@ class AddServicioViewController: UIViewController {
         
         Constants.cloudDatabaseManager.serviceManager.updateService(service: service, showLoadingState: true)
     }
+    
+    func showChangesAlertMessage() {
+        let alertController = UIAlertController(title: "Aviso", message: "Varios datos han sido modificados, ¿desea volver sin guardar?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Aceptar", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in }
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func addBackButton() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didClickBackButton))
+    }
 }
 
 extension AddServicioViewController {
@@ -124,10 +141,23 @@ extension AddServicioViewController {
     @IBAction func didClickSaveButton(_ sender: Any) {
         checkFields()
     }
+    
+    @objc func didClickBackButton(sender: UIBarButtonItem) {
+        if modifyService {
+            if !modificacionHecha {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                showChangesAlertMessage()
+            }
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
 }
 
 extension AddServicioViewController: DatePickerSelectorProtocol {
     func dateSelected(date: Date) {
+        modificacionHecha = true
         service.fecha = Int64(date.timeIntervalSince1970)
         fechaLabel.text = CommonFunctions.getDateAndTimeTypeStringFromDate(date: date)
     }
@@ -158,6 +188,7 @@ extension AddServicioViewController {
 
 extension AddServicioViewController: AddClientInputFieldProtocol {
     func textSaved(text: String, inputReference: Int) {
+        modificacionHecha = true
         service.observacion = text
         observacionLabel.text = text
     }
@@ -165,6 +196,7 @@ extension AddServicioViewController: AddClientInputFieldProtocol {
 
 extension AddServicioViewController: ListSelectorProtocol {
     func multiSelectionOptionsSelected(options: [Any], inputReference: Int) {
+        modificacionHecha = true
         switch inputReference {
             case 2:
                 service.servicio = CommonFunctions.getServiciosIdentifiers(servicios: (options as! [TipoServicioModel]))
@@ -175,6 +207,7 @@ extension AddServicioViewController: ListSelectorProtocol {
     }
     
     func optionSelected(option: Any, inputReference: Int) {
+        modificacionHecha = true
         switch inputReference {
         case 1:
             service.profesional = (option as! EmpleadoModel).empleadoId

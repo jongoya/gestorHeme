@@ -43,6 +43,14 @@ class RootViewController: UITabBarController {
         let controller: SettingsViewController = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
         self.navigationController!.pushViewController(controller, animated: true)
     }
+    
+    func fillSecondRightNavigationButtonImage() {
+        secondRightNavigationButton.image = UIImage(systemName: "person.fill")
+    }
+    
+    func unfillSecondRightNavigationButtonImage() {
+        secondRightNavigationButton.image = UIImage(systemName: "person")
+    }
 
 }
 
@@ -66,7 +74,6 @@ extension RootViewController {
             controller.didClickListarClientes()
         }
     }
-    
 }
 
 extension RootViewController: UITabBarControllerDelegate {

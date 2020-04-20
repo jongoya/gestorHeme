@@ -18,12 +18,14 @@ class ClientListSelectorViewController: UIViewController {
     var filteredArrayIndexSection: [String] = []
     var delegate: ClientListSelectorProtocol!
     var emptyStateLabel: UILabel!
+    var tableRefreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Clientes"
         arrayIndexSection = CommonFunctions.getClientsTableIndexValues()
         setTextFieldProperties()
+        addRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +76,11 @@ class ClientListSelectorViewController: UIViewController {
         
         filteredClients = indexedArray
     }
+    
+    func addRefreshControl() {
+        tableRefreshControl.addTarget(self, action: #selector(refreshClients(_:)), for: .valueChanged)
+        clientsTableView.refreshControl = tableRefreshControl
+    }
 }
 
 extension ClientListSelectorViewController {
@@ -91,6 +98,10 @@ extension ClientListSelectorViewController {
         let clients: [ClientModel] = Constants.databaseManager.clientsManager.getClientsFilteredByText(text: textField.text!)
         indexClients(arrayClients: clients)
         clientsTableView.reloadData()
+    }
+    
+    @objc func refreshClients(_ sender: Any) {
+        Constants.cloudDatabaseManager.clientManager.getClients(delegate: self)
     }
 }
 
@@ -141,5 +152,12 @@ extension ClientListSelectorViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
+    }
+}
+
+extension ClientListSelectorViewController: CloudClientManagerProtocol {
+    func sincronisationFinished() {
+        tableRefreshControl.endRefreshing()
+        getClients()
     }
 }

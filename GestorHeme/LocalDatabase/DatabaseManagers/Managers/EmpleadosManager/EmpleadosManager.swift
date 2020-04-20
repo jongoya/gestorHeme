@@ -29,13 +29,14 @@ class EmpleadosManager: NSObject {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: EMPLEADOS_ENTITY_NAME)
         fetchRequest.returnsObjectsAsFaults = false
         
-        do {
-            let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
-            for data in results {
-                empleados.append(databaseHelper.parseEmpleadosCoreObjectToEmpleadosModel(coreObject: data))
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    empleados.append(databaseHelper.parseEmpleadosCoreObjectToEmpleadosModel(coreObject: data))
+                }
+            } catch {
             }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
         
         return empleados
@@ -47,12 +48,17 @@ class EmpleadosManager: NSObject {
         if getCoreEmpleadoFromDatabase(empleadoId: newEmpleado.empleadoId).count == 0 {
             let coreService = NSManagedObject(entity: entity!, insertInto: backgroundContext)
             databaseHelper.setCoreDataObjectDataFromEmpleado(coreDataObject: coreService, newEmpleado: newEmpleado)
-            do {
-                try backgroundContext.save()
-                return true
-            } catch {
-                return false
+            
+            var result: Bool = false
+            backgroundContext.performAndWait {
+                do {
+                    try backgroundContext.save()
+                    result = true
+                } catch {
+                }
             }
+            
+            return result
         } else {
             return false
         }
@@ -63,10 +69,11 @@ class EmpleadosManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "empleadoId = %f", argumentArray: [empleadoId])
         var results: [NSManagedObject] = []
         
-        do {
-            results = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error checking the client in database")
+        mainContext.performAndWait {
+            do {
+                results = try mainContext.fetch(fetchRequest)
+            } catch {
+            }
         }
         
         return results
@@ -95,12 +102,16 @@ class EmpleadosManager: NSObject {
         coreEmpleado.setValue(empleado.telefono, forKey: "telefono")
         coreEmpleado.setValue(empleado.email, forKey: "email")
         
-        do {
-            try mainContext.save()
-            return true
-        } catch {
-            return false
+        var result: Bool = false
+        mainContext.performAndWait {
+            do {
+                try mainContext.save()
+                result = true
+            } catch {
+            }
         }
+        
+        return result
     }
     
     func eliminarEmpleado(empleadoId: Int64) -> Bool {
@@ -108,21 +119,21 @@ class EmpleadosManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "empleadoId = %f", argumentArray: [empleadoId])
         var results: [NSManagedObject] = []
         
-        do {
-            results = try backgroundContext.fetch(fetchRequest)
-            
-            if results.count == 0 {
-                return false
+        var result: Bool = false
+        backgroundContext.performAndWait {
+            do {
+                results = try backgroundContext.fetch(fetchRequest)
+                
+                for object in results {
+                    backgroundContext.delete(object)
+                }
+                
+                try backgroundContext.save()
+                result = true
+            } catch {
             }
-            
-            for object in results {
-                backgroundContext.delete(object)
-            }
-            
-            try backgroundContext.save()
-            return true
-        } catch {
-            return false
         }
+        
+        return result
     }
 }

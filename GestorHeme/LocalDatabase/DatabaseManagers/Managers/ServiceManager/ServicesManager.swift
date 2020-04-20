@@ -30,15 +30,16 @@ class ServicesManager: NSObject {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
         fetchRequest.returnsObjectsAsFaults = false
         
-        do {
-            let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
-            for data in results {
-                services.append(databaseHelper.parseServiceCoreObjectToServiceModel(coreObject: data))
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    services.append(databaseHelper.parseServiceCoreObjectToServiceModel(coreObject: data))
+                }
+            } catch {
             }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
+
         return services
     }
     
@@ -48,15 +49,16 @@ class ServicesManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "idCliente = %f", argumentArray: [clientId])
         fetchRequest.returnsObjectsAsFaults = false
         
-        do {
-            let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
-            for data in results {
-                services.append(databaseHelper.parseServiceCoreObjectToServiceModel(coreObject: data))
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    services.append(databaseHelper.parseServiceCoreObjectToServiceModel(coreObject: data))
+                }
+            } catch {
             }
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
+
         return services
     }
     
@@ -66,12 +68,17 @@ class ServicesManager: NSObject {
         if getServiceFromDatabase(serviceId: newService.serviceId).count == 0 {
             let coreService = NSManagedObject(entity: entity!, insertInto: backgroundContext)
             databaseHelper.setCoreDataObjectDataFromService(coreDataObject: coreService, newService: newService)
-            do {
-                try backgroundContext.save()
-                return true
-            } catch {
-                return false
+            
+            var result: Bool = false
+            backgroundContext.performAndWait {
+                do {
+                    try backgroundContext.save()
+                    result = true
+                } catch {
+                }
             }
+            
+            return result
         } else {
             return false
         }
@@ -82,10 +89,12 @@ class ServicesManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "idServicio = %f", argumentArray: [serviceId])
         var results: [NSManagedObject] = []
         
-        do {
-            results = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error checking the client in database")
+        mainContext.performAndWait {
+            do {
+                results = try mainContext.fetch(fetchRequest)
+            } catch {
+                print("Error checking the client in database")
+            }
         }
         
         return results
@@ -104,12 +113,16 @@ class ServicesManager: NSObject {
         coreService.setValue(service.servicio, forKey: "servicio")
         coreService.setValue(service.observacion, forKey: "observaciones")
         
-        do {
-            try mainContext.save()
-            return true
-        } catch {
-            return false
+        var result: Bool = false
+        mainContext.performAndWait {
+            do {
+                try mainContext.save()
+                result = true
+            } catch {
+            }
         }
+        
+        return result
     }
     
     func updateNombreYApellidosToService(serviceId: Int64, client: ClientModel) -> Bool {
@@ -123,12 +136,16 @@ class ServicesManager: NSObject {
             return false
         }
         
-        do {
-            try backgroundContext.save()
-            return true
-        } catch {
-            return false
+        var result: Bool = false
+        backgroundContext.performAndWait {
+            do {
+                try backgroundContext.save()
+                result = true
+            } catch {
+            }
         }
+        
+        return result
     }
     
     func getServicesForDay(date: Date) -> [ServiceModel] {
@@ -152,22 +169,21 @@ class ServicesManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "idServicio = %f", argumentArray: [service.serviceId])
         var results: [NSManagedObject] = []
         
-        do {
-            results = try backgroundContext.fetch(fetchRequest)
-            
-            if results.count == 0 {
-                return false
+        var result: Bool = false
+        backgroundContext.performAndWait {
+            do {
+                results = try backgroundContext.fetch(fetchRequest)
+                
+                for object in results {
+                    backgroundContext.delete(object)
+                }
+                
+                try backgroundContext.save()
+                result = true
+            } catch {
             }
-            
-            for object in results {
-                backgroundContext.delete(object)
-            }
-            
-            try backgroundContext.save()
-            return true
-        } catch {
-            return false
         }
-        
+
+        return result
     }
 }

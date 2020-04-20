@@ -17,6 +17,7 @@ class AgendaViewController: UIViewController {
     @IBOutlet weak var monthCalendar: FSCalendar!
     @IBOutlet weak var topMonthCalendarConstrain: NSLayoutConstraint!
     @IBOutlet weak var dayCarousel: iCarousel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var servicesViewArray: [UIView] = []
     var profesionalsArray: [EmpleadoModel] = []
@@ -28,6 +29,7 @@ class AgendaViewController: UIViewController {
     var calendarVisible: Bool = false
     var calendarHeigth: CGFloat = 400
     var daysInCarousel: [Date] = []
+    var scrollRefreshControl: UIRefreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +38,17 @@ class AgendaViewController: UIViewController {
         setProfesionalArray()
         customizeButtons()
         customizeCarousel()
+        addRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if !showingClientes {
+            Constants.rootController.unfillSecondRightNavigationButtonImage()
             addAgenda(profesional: selectedProfesional)
         } else {
+            Constants.rootController.fillSecondRightNavigationButtonImage()
             showClients()
         }
     }
@@ -83,6 +88,7 @@ class AgendaViewController: UIViewController {
     }
     
     func addAgenda(profesional: Int64) {
+        Constants.rootController.unfillSecondRightNavigationButtonImage()
         showingClientes = false
         removeAgenda()
         
@@ -114,7 +120,16 @@ class AgendaViewController: UIViewController {
             previousView = agendaView
         }
         
-        scrollContentView.bottomAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 10).isActive = true
+        let button: UIButton =  createCierreCajaButton()
+        scrollContentView.addSubview(button)
+        servicesViewArray.append(button)
+        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        button.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 20).isActive = true
+        button.centerXAnchor.constraint(equalTo: scrollContentView.centerXAnchor).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        previousView = button
+        
+        scrollContentView.bottomAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 20).isActive = true
     }
     
     func removeAgenda() {
@@ -183,6 +198,22 @@ class AgendaViewController: UIViewController {
             scrollContentView.bottomAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 15).isActive = true
         }
     }
+    
+    func createCierreCajaButton() -> UIButton {
+        let button: UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.setTitle("Cerrar Caja", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        CommonFunctions.customizeButton(button: button)
+        button.addTarget(self, action: #selector(didClickCerrarCajaButton), for: .touchUpInside)
+        return button
+    }
+    
+    func addRefreshControl() {
+        scrollRefreshControl.addTarget(self, action: #selector(refreshDay(_:)), for: .valueChanged)
+        scrollView.refreshControl = scrollRefreshControl
+    }
 }
 
 extension AgendaViewController {
@@ -207,13 +238,23 @@ extension AgendaViewController {
         }
         
         if showingClientes {
+            Constants.rootController.unfillSecondRightNavigationButtonImage()
             showingClientes = false
             addAgenda(profesional: selectedProfesional)
         } else {
+            Constants.rootController.fillSecondRightNavigationButtonImage()
             showingClientes = true
             removeAgenda()
             showClients()
         }
+    }
+    
+    @objc func refreshDay(_ sender: Any) {
+        Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: self)
+    }
+    
+    @objc func didClickCerrarCajaButton() {
+        //TODO pensar en la funcionalidad
     }
 }
 
@@ -336,9 +377,27 @@ extension AgendaViewController: iCarouselDataSource, iCarouselDelegate {
     
     func carouselDidEndDecelerating(_ carousel: iCarousel) {
         let item: CarouselItem = carousel.currentItemView as! CarouselItem
+        print(item.date!)
         presentDate = item.date
         calendarVisible = false
         hideMonthCalendarView(withAnimationDuration: animationDuration)
         addAgenda(profesional: selectedProfesional)
+    }
+    
+    func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
+        //TODO mirar si es necesario
+    }
+}
+
+extension AgendaViewController: CloudServiceManagerProtocol {
+    func sincronisationFinished() {
+        scrollRefreshControl.endRefreshing()
+        if !showingClientes {
+            Constants.rootController.unfillSecondRightNavigationButtonImage()
+            addAgenda(profesional: selectedProfesional)
+        } else {
+            Constants.rootController.fillSecondRightNavigationButtonImage()
+            showClients()
+        }
     }
 }

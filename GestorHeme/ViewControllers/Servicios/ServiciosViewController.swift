@@ -14,12 +14,14 @@ class ServiciosViewController: UIViewController {
     var emptyStateLabel: UILabel!
     
     var servicios: [TipoServicioModel] = []
+    var tableRefreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Servicios"
         
         addCreateServicioButton()
+        addRefreshControl()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,11 @@ class ServiciosViewController: UIViewController {
     func addCreateServicioButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(didClickCreateServicioButton))
     }
+    
+    func addRefreshControl() {
+        tableRefreshControl.addTarget(self, action: #selector(refreshServicios(_:)), for: .valueChanged)
+        serviciosTableView.refreshControl = tableRefreshControl
+    }
 }
 
 extension ServiciosViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,5 +77,16 @@ extension ServiciosViewController: UITableViewDelegate, UITableViewDataSource {
 extension ServiciosViewController {
     @objc func didClickCreateServicioButton(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "AddServicioIdentifier", sender: nil)
+    }
+    
+    @objc func refreshServicios(_ sender: Any) {
+        Constants.cloudDatabaseManager.tipoServicioManager.getTipoServicios(delegate: self)
+    }
+}
+
+extension ServiciosViewController: CloudTipoServiciosProtocol {
+    func sincronisationFinished() {
+        tableRefreshControl.endRefreshing()
+        showServicios()
     }
 }

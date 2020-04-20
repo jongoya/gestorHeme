@@ -22,11 +22,17 @@ class FieldViewController: UIViewController {
         inpuField.becomeFirstResponder()
         inpuField.keyboardType = keyboardType
         inpuField.text = inputText
+        
+        addMicrophoneButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.delegate.textSaved(text: inpuField.text, inputReference: self.inputReference)
+    }
+    
+    func addMicrophoneButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "mic"), style: .done, target: self, action: #selector(didClickMicrophoneButton))
     }
     
     func setTitle() {
@@ -49,6 +55,9 @@ class FieldViewController: UIViewController {
             break
         }
     }
+}
 
-    
+extension FieldViewController {
+    @objc func didClickMicrophoneButton(sender: UIBarButtonItem) {
+    }
 }

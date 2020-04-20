@@ -12,11 +12,13 @@ class CarouselItem: UIView {
     var dayLabel: UILabel!
     var weekNameLabel: UILabel!
     var monthNameLabel: UILabel!
+    var citasPoint: UIView!
     
     var itemWidth: CGFloat!
     var itemHeight: CGFloat!
     let horizontalMargin: CGFloat = 5
     let verticalMargin: CGFloat = 2
+    let dayNumberWidth: CGFloat = 30
     var date: Date!
     var isToday: Bool = false
 
@@ -26,20 +28,7 @@ class CarouselItem: UIView {
         itemHeight = frame.size.height
         self.date = date
         
-        backgroundColor = .white
-        layer.cornerRadius = 20
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 1
-        layer.shadowOffset = .zero
-        layer.shadowRadius = 2
-        
-        if Constants.databaseManager.servicesManager.getServicesForDay(date: date).count > 0 {
-            layer.borderColor = UIColor.red.cgColor
-        } else {
-            layer.borderColor = UIColor.systemGray4.cgColor
-        }
-        
-        layer.borderWidth = 1
+        customizeView()
         
         isToday = Calendar.current.isDateInToday(date)
         
@@ -50,14 +39,29 @@ class CarouselItem: UIView {
         super.init(coder: coder)
     }
     
+    func customizeView() {
+        backgroundColor = .white
+        layer.cornerRadius = 20
+        layer.shadowColor = UIColor.black.cgColor
+        layer.borderColor = UIColor.systemGray4.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 2
+        layer.borderWidth = 1
+    }
+    
     func addContentView() {
         addDayLabel()
         addDayOfTheWeekNameLabel()
         addMonthNameLabel()
+        
+        if Constants.databaseManager.servicesManager.getServicesForDay(date: date).count > 0 {
+            addCitasPointView()
+        }
     }
     
     func addDayLabel() {
-        dayLabel = UILabel(frame: CGRect(x: horizontalMargin, y: verticalMargin, width: itemWidth - horizontalMargin * 2, height: 25))
+        dayLabel = UILabel(frame: CGRect(x: (itemWidth - dayNumberWidth) / 2, y: verticalMargin, width: dayNumberWidth, height: 25))
         dayLabel.text = String(Calendar.current.component(.day, from: date))
         dayLabel.textColor = isToday ? .red : .black
         dayLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
@@ -81,5 +85,12 @@ class CarouselItem: UIView {
         monthNameLabel.font = UIFont.systemFont(ofSize: 14)
         monthNameLabel.textAlignment = .center
         addSubview(monthNameLabel)
+    }
+    
+    func addCitasPointView() {
+        citasPoint = UIView(frame: CGRect(x: dayLabel.frame.origin.x + dayNumberWidth, y: 10, width: 8, height: 8))
+        citasPoint.backgroundColor = .red
+        citasPoint.layer.cornerRadius = citasPoint.frame.size.width / 2
+        addSubview(citasPoint)
     }
 }

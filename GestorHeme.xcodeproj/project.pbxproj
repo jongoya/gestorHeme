@@ -86,6 +86,10 @@
 		FB9DED0324499B1400614CD2 /* CloudTipoServicioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9DED0224499B1400614CD2 /* CloudTipoServicioManager.swift */; };
 		FB9DED0624499B9800614CD2 /* CloudEmpleadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9DED0524499B9800614CD2 /* CloudEmpleadoManager.swift */; };
 		FB9EA5092433A9CF005B9F52 /* ClientesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EA5082433A9CF005B9F52 /* ClientesManager.swift */; };
+		FB9EED91244DB2B000B04E49 /* CloudClientManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED90244DB2B000B04E49 /* CloudClientManagerProtocol.swift */; };
+		FB9EED94244DC0E500B04E49 /* CloudEmpleadoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED93244DC0E500B04E49 /* CloudEmpleadoProtocol.swift */; };
+		FB9EED97244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED96244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift */; };
+		FB9EED9A244DC5E200B04E49 /* CloudServiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */; };
 		FBAA2A8A243B45EF009DE78B /* MonthDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2A89243B45EF009DE78B /* MonthDayModel.swift */; };
 		FBAA2A90243B4956009DE78B /* AgendaFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2A8F243B4956009DE78B /* AgendaFunctions.swift */; };
 		FBB84FB72445B18B0004CE5F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB84FB62445B18A0004CE5F /* CloudKit.framework */; };
@@ -186,6 +190,10 @@
 		FB9DED0224499B1400614CD2 /* CloudTipoServicioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTipoServicioManager.swift; sourceTree = "<group>"; };
 		FB9DED0524499B9800614CD2 /* CloudEmpleadoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudEmpleadoManager.swift; sourceTree = "<group>"; };
 		FB9EA5082433A9CF005B9F52 /* ClientesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientesManager.swift; sourceTree = "<group>"; };
+		FB9EED90244DB2B000B04E49 /* CloudClientManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudClientManagerProtocol.swift; sourceTree = "<group>"; };
+		FB9EED93244DC0E500B04E49 /* CloudEmpleadoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudEmpleadoProtocol.swift; sourceTree = "<group>"; };
+		FB9EED96244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTipoServiciosProtocol.swift; sourceTree = "<group>"; };
+		FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceManagerProtocol.swift; sourceTree = "<group>"; };
 		FBAA2A89243B45EF009DE78B /* MonthDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayModel.swift; sourceTree = "<group>"; };
 		FBAA2A8F243B4956009DE78B /* AgendaFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaFunctions.swift; sourceTree = "<group>"; };
 		FBB84FB52445B1850004CE5F /* GestorHeme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GestorHeme.entitlements; sourceTree = "<group>"; };
@@ -779,6 +787,7 @@
 		FB9DECF8244997EA00614CD2 /* ClientManager */ = {
 			isa = PBXGroup;
 			children = (
+				FB9EED8F244DB29900B04E49 /* Protocols */,
 				FB9DECF92449980700614CD2 /* CloudClientManager.swift */,
 			);
 			path = ClientManager;
@@ -787,6 +796,7 @@
 		FB9DECFB2449993700614CD2 /* ServiceManager */ = {
 			isa = PBXGroup;
 			children = (
+				FB9EED98244DC5CA00B04E49 /* ServiceManagerProtocol */,
 				FB9DECFC2449995000614CD2 /* CloudServiceManager.swift */,
 			);
 			path = ServiceManager;
@@ -803,6 +813,7 @@
 		FB9DED0124499AFB00614CD2 /* TipoServicioManager */ = {
 			isa = PBXGroup;
 			children = (
+				FB9EED95244DC29800B04E49 /* TipoServiciosProtocol */,
 				FB9DED0224499B1400614CD2 /* CloudTipoServicioManager.swift */,
 			);
 			path = TipoServicioManager;
@@ -811,6 +822,7 @@
 		FB9DED0424499B8400614CD2 /* EmpleadoManager */ = {
 			isa = PBXGroup;
 			children = (
+				FB9EED92244DC0C900B04E49 /* CloudEmpleadoProtocol */,
 				FB9DED0524499B9800614CD2 /* CloudEmpleadoManager.swift */,
 			);
 			path = EmpleadoManager;
@@ -824,6 +836,38 @@
 				FB57F2F6243481EF00192230 /* DatabaseManager.swift */,
 			);
 			path = DatabaseManagers;
+			sourceTree = "<group>";
+		};
+		FB9EED8F244DB29900B04E49 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FB9EED90244DB2B000B04E49 /* CloudClientManagerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FB9EED92244DC0C900B04E49 /* CloudEmpleadoProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				FB9EED93244DC0E500B04E49 /* CloudEmpleadoProtocol.swift */,
+			);
+			path = CloudEmpleadoProtocol;
+			sourceTree = "<group>";
+		};
+		FB9EED95244DC29800B04E49 /* TipoServiciosProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				FB9EED96244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift */,
+			);
+			path = TipoServiciosProtocol;
+			sourceTree = "<group>";
+		};
+		FB9EED98244DC5CA00B04E49 /* ServiceManagerProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */,
+			);
+			path = ServiceManagerProtocol;
 			sourceTree = "<group>";
 		};
 		FBAA2A88243B45E1009DE78B /* MonthDay */ = {
@@ -1064,6 +1108,7 @@
 				FB486E4C243E27F8009EBF26 /* ClientListSelectorViewController.swift in Sources */,
 				FB9DECFA2449980700614CD2 /* CloudClientManager.swift in Sources */,
 				FB9A8E252444911C00E0A9E4 /* AddTipoServicioViewController.swift in Sources */,
+				FB9EED9A244DC5E200B04E49 /* CloudServiceManagerProtocol.swift in Sources */,
 				FB5F7D72243F1EAC00503E9B /* NotificationsManager.swift in Sources */,
 				FB486E44243DB801009EBF26 /* AgendaClientItemView.swift in Sources */,
 				FB9A8E1C24447C5F00E0A9E4 /* ColorPickerProtocol.swift in Sources */,
@@ -1073,6 +1118,8 @@
 				FBFB5F82244A01D7000DC77F /* PickerSelectorViewController.swift in Sources */,
 				FB486E46243DC7D4009EBF26 /* ClientItemViewProtocol.swift in Sources */,
 				FB3E4B5D2436456F009DB88B /* ListSelectorViewController.swift in Sources */,
+				FB9EED97244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift in Sources */,
+				FB9EED94244DC0E500B04E49 /* CloudEmpleadoProtocol.swift in Sources */,
 				FB57F2F324347F2100192230 /* ClientModel.swift in Sources */,
 				FB8185A224432167004697D3 /* EmpleadoModel.swift in Sources */,
 				FB486E49243DDF75009EBF26 /* AgendaServiceViewController.swift in Sources */,
@@ -1082,6 +1129,7 @@
 				FB64940224338C0900503627 /* GestorHeme.xcdatamodeld in Sources */,
 				FB5F7D75243F1F4700503E9B /* NotificationModel.swift in Sources */,
 				FB88AE662443A0C100B21648 /* AddEmpleadoViewController.swift in Sources */,
+				FB9EED91244DB2B000B04E49 /* CloudClientManagerProtocol.swift in Sources */,
 				FB2D05A5243791FB008B5A01 /* AgendaViewController.swift in Sources */,
 				FB64941C24339C3700503627 /* ListaClientesViewController.swift in Sources */,
 				FB3E4B63243648E9009DB88B /* ListSelectorCell.swift in Sources */,

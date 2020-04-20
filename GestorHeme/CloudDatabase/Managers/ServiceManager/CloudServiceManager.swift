@@ -15,7 +15,7 @@ class CloudServiceManager {
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
-    func getServicios() {
+    func getServicios(delegate: CloudServiceManagerProtocol?) {
         let operation = CKQueryOperation(query: servicesQuery)
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
@@ -29,13 +29,10 @@ class CloudServiceManager {
              }
          }
         
-        operation.queryCompletionBlock = { [weak self] (cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
-             if cursor != nil {
-                let newOperation = CKQueryOperation(cursor: cursor!)
-                newOperation.recordFetchedBlock = operation.recordFetchedBlock
-                newOperation.queryCompletionBlock = operation.queryCompletionBlock
-                self!.publicDatabase.add(newOperation)
-             }
+        operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
+            DispatchQueue.main.async {
+                delegate?.sincronisationFinished()
+            }
          }
         
         publicDatabase.add(operation)

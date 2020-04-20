@@ -15,11 +15,13 @@ class CloudEmpleadoManager {
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
-    func getEmpleados() {
+    func getEmpleados(delegate: CloudEmpleadoProtocol?) {
         let operation = CKQueryOperation(query: empleadoQuery)
+        var empleadoIds: [Int64] = []
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
                 let empleado: EmpleadoModel = self.cloudDatabaseHelper.parseCloudEmpleadoObjectToLocalEmpleadoObject(record: record)
+                empleadoIds.append(empleado.empleadoId)
                 if Constants.databaseManager.empleadosManager.getCoreEmpleadoFromDatabase(empleadoId: empleado.empleadoId).count == 0 {
                     _ = Constants.databaseManager.empleadosManager.addEmpleadoToDatabase(newEmpleado: empleado)
                 } else {
@@ -28,16 +30,24 @@ class CloudEmpleadoManager {
              }
          }
         
-        operation.queryCompletionBlock = { [weak self] (cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
-             if cursor != nil {
-                let newOperation = CKQueryOperation(cursor: cursor!)
-                newOperation.recordFetchedBlock = operation.recordFetchedBlock
-                newOperation.queryCompletionBlock = operation.queryCompletionBlock
-                self!.publicDatabase.add(newOperation)
-             }
+        operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
+            self.checkEmpleadosToRemove(cloudEmpleados: empleadoIds)
+            DispatchQueue.main.async {
+                delegate?.sincronisationFinished()
+            }
          }
 
         publicDatabase.add(operation)
+    }
+    
+    private func checkEmpleadosToRemove(cloudEmpleados: [Int64]) {
+        let localEmpleados: [EmpleadoModel] = Constants.databaseManager.empleadosManager.getAllEmpleadosFromDatabase()
+        for empleadoLocal: EmpleadoModel in localEmpleados {
+            let empleadoExiste: Bool = cloudEmpleados.contains(empleadoLocal.empleadoId)
+            if !empleadoExiste {
+                _ = Constants.databaseManager.empleadosManager.eliminarEmpleado(empleadoId: empleadoLocal.empleadoId)
+            }
+        }
     }
     
     func saveEmpleado(empleado: EmpleadoModel) {

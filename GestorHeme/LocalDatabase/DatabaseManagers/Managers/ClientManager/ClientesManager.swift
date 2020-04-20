@@ -28,16 +28,17 @@ class ClientesManager: NSObject {
         var clientes: [ClientModel] = []
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CLIENTES_ENTITY_NAME)
         fetchRequest.returnsObjectsAsFaults = false
-        
-        do {
-            let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
-            for data in results {
-                clientes.append(databaseHelper.parseClientCoreObjectToClientModel(coreObject: data))
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    clientes.append(databaseHelper.parseClientCoreObjectToClientModel(coreObject: data))
+                }
+            } catch let error as NSError {
+              print("Could not fetch. \(error), \(error.userInfo)")
             }
-        } catch let error as NSError {
-          print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
+    
         return clientes
     }
     
@@ -60,12 +61,16 @@ class ClientesManager: NSObject {
         if getCoreClientFromDatabase(clientId: newClient.id).count == 0 {
             let client = NSManagedObject(entity: entity!, insertInto: backgroundContext)
             databaseHelper.setCoreDataObjectDataFromClient(coreDataObject: client, newClient: newClient)
-            do {
-                try backgroundContext.save()
-                return true
-            } catch {
-                return false
+            var result: Bool = false
+            backgroundContext.performAndWait {
+                do {
+                    try backgroundContext.save()
+                    result = true
+                } catch {
+                }
             }
+            
+            return result
         } else {
             return false
         }
@@ -75,11 +80,11 @@ class ClientesManager: NSObject {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CLIENTES_ENTITY_NAME)
         fetchRequest.predicate = NSPredicate(format: "idCliente = %f", argumentArray: [clientId])
         var results: [NSManagedObject] = []
-        
-        do {
-            results = try mainContext.fetch(fetchRequest)
-        } catch {
-            print("Error checking the client in database")
+        mainContext.performAndWait {
+            do {
+                results = try mainContext.fetch(fetchRequest)
+            } catch {
+            }
         }
         
         return results
@@ -114,11 +119,16 @@ class ClientesManager: NSObject {
             Constants.cloudDatabaseManager.serviceManager.updateService(service: service, showLoadingState: false)
         }
         
-        do {
-            try mainContext.save()
-            return true
-        } catch {
-            return false
+        var result: Bool = false
+        
+        mainContext.performAndWait {
+            do {
+                try mainContext.save()
+                result = true
+            } catch {
+            }
         }
+        
+        return result
     }
 }

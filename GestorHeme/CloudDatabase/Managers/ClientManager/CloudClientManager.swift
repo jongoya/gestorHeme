@@ -16,10 +16,10 @@ class CloudClientManager {
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
-    func getClients() {
+    func getClients(delegate: CloudClientManagerProtocol?) {
         let operation = CKQueryOperation(query: clientQuery)
         operation.recordFetchedBlock = { (record: CKRecord!) in
-             if record != nil{
+            if record != nil{
                 let client: ClientModel = self.cloudDatabaseHelper.parseCloudCLientObjectToLocalCLientObject(record: record)
                 if Constants.databaseManager.clientsManager.getCoreClientFromDatabase(clientId: client.id).count == 0 {
                     _ = Constants.databaseManager.clientsManager.addClientToDatabase(newClient: client)
@@ -28,14 +28,10 @@ class CloudClientManager {
                 }
              }
          }
-        
-        operation.queryCompletionBlock = { [weak self] (cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
-             if cursor != nil {
-                let newOperation = CKQueryOperation(cursor: cursor!)
-                newOperation.recordFetchedBlock = operation.recordFetchedBlock
-                newOperation.queryCompletionBlock = operation.queryCompletionBlock
-                self!.publicDatabase.add(newOperation)
-             }
+        operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
+            DispatchQueue.main.async {
+                delegate?.sincronisationFinished()
+            }
          }
 
         publicDatabase.add(operation)

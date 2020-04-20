@@ -18,10 +18,12 @@ class AgendaServiceViewController: UIViewController {
     var newService: ServiceModel = ServiceModel()
     var clientSeleced: ClientModel!
     var newDate: Date!
+    var modificacionHecha: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Servicio"
+        addBackButton()
         setInitialDate()
     }
     
@@ -74,6 +76,22 @@ class AgendaServiceViewController: UIViewController {
         
         Constants.cloudDatabaseManager.serviceManager.saveService(service: newService)
     }
+    
+    func addBackButton() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didClickBackButton))
+    }
+    
+    func showChangesAlertMessage() {
+        let alertController = UIAlertController(title: "Aviso", message: "Varios datos han sido modificados, ¿desea volver sin guardar?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Aceptar", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in }
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 extension AgendaServiceViewController {
@@ -99,6 +117,14 @@ extension AgendaServiceViewController {
     
     @IBAction func didClickSaveServiceButton(_ sender: Any) {
         checkFields()
+    }
+    
+    @objc func didClickBackButton(sender: UIBarButtonItem) {
+        if !modificacionHecha {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            showChangesAlertMessage()
+        }
     }
 }
 
@@ -136,6 +162,7 @@ extension AgendaServiceViewController: DatePickerSelectorProtocol {
 
 extension AgendaServiceViewController: ListSelectorProtocol {
     func multiSelectionOptionsSelected(options: [Any], inputReference: Int) {
+        modificacionHecha = true
         switch inputReference {
         case 2:
             newService.servicio = CommonFunctions.getServiciosIdentifiers(servicios: (options as! [TipoServicioModel]))
@@ -146,6 +173,7 @@ extension AgendaServiceViewController: ListSelectorProtocol {
     }
     
     func optionSelected(option: Any, inputReference: Int) {
+        modificacionHecha = true
         switch inputReference {
         case 1:
             newService.profesional = (option as! EmpleadoModel).empleadoId
@@ -161,6 +189,7 @@ extension AgendaServiceViewController: AddClientInputFieldProtocol {
     func textSaved(text: String, inputReference: Int) {
         newService.observacion = text
         observacionesLabel.text = text
+        modificacionHecha = true
     }
 }
 
@@ -170,5 +199,6 @@ extension AgendaServiceViewController: ClientListSelectorProtocol {
         newService.nombre = client.nombre
         newService.apellidos = client.apellidos
         nombreLabel.text = client.nombre + " " + client.apellidos
+        modificacionHecha = true
     }
 }

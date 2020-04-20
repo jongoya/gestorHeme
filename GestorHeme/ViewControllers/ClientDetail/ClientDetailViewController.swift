@@ -24,14 +24,22 @@ class ClientDetailViewController: UIViewController {
     
     var client: ClientModel!
     var services: [ServiceModel] = []
-    var serviceViewsArray: [ServicioView] = []
+    var serviceViewsArray: [UIView] = []
     var addServicioButtonBottomAnchor: NSLayoutConstraint!
+    var scrollRefreshControl: UIRefreshControl = UIRefreshControl()
+    var modificacionHecha: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Detalle Cliente"
+        addBackButton()
         CommonFunctions.customizeButton(button: addServicioView)
+        addRefreshControl()
+        getClientDetails()
+    }
+    
+    func getClientDetails() {
         services = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: client.id)
         sortServicesByDate()
         
@@ -55,6 +63,7 @@ class ClientDetailViewController: UIViewController {
     }
     
     func showServices() {
+        removeServicesViews()
         if services.count == 0 {
             addServicioButtonBottomAnchor = addServicioView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor, constant: -20)
             addServicioButtonBottomAnchor.isActive = true
@@ -63,29 +72,68 @@ class ClientDetailViewController: UIViewController {
             addServicioButtonBottomAnchor.isActive = false
         }
         
-        var previousView: UIView = addServicioView
+        var serviciosFuturos: [ServiceModel] = []
+        var serviciosPasados: [ServiceModel] = []
         for service: ServiceModel in services {
+            let fecha: Date = Date(timeIntervalSince1970: TimeInterval(service.fecha))
+            fecha < Date() ? serviciosPasados.append(service) : serviciosFuturos.append(service)
+        }
+        
+        if serviciosFuturos.count > 0 {
+            addServiceHeaderWithText(text: "PRÓXIMOS SERVICIOS")
+        }
+        
+        for service: ServiceModel in serviciosFuturos {
             let serviceView: ServicioView = ServicioView(service: service)
             serviceView.delegate = self
             scrollContentView.addSubview(serviceView)
-            
-            serviceView.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 30).isActive = true
+            serviceViewsArray.append(serviceView)
+        }
+        
+        if serviciosPasados.count > 0 {
+            addServiceHeaderWithText(text: "ANTIGUOS SERVICIOS")
+        }
+        
+        for service: ServiceModel in serviciosPasados {
+            let serviceView: ServicioView = ServicioView(service: service)
+            serviceView.delegate = self
+            scrollContentView.addSubview(serviceView)
+            serviceViewsArray.append(serviceView)
+        }
+        
+        setServicesConstraints()
+    }
+    
+    func addServiceHeaderWithText(text: String) {
+        let headerLabel: UILabel = UILabel()
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.text = text
+        headerLabel.textColor = .black
+        headerLabel.font = .systemFont(ofSize: 15)
+        scrollContentView.addSubview(headerLabel)
+        serviceViewsArray.append(headerLabel)
+    }
+    
+    func setServicesConstraints() {
+        var previousView: UIView = addServicioView
+        for serviceView: UIView in serviceViewsArray {
+            serviceView.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 20).isActive = true
             serviceView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -15).isActive = true
             serviceView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 15).isActive = true
             
-            serviceViewsArray.append(serviceView)
             previousView = serviceView
         }
         
         scrollContentView.bottomAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 30).isActive = true
     }
     
+    
     func sortServicesByDate() {
         return services.sort(by: { $0.fecha > $1.fecha })
     }
     
     func removeServicesViews() {
-        for view: ServicioView in serviceViewsArray {
+        for view: UIView in serviceViewsArray {
             view.removeFromSuperview()
         }
         
@@ -141,6 +189,27 @@ class ClientDetailViewController: UIViewController {
         
         self.navigationController!.popViewController(animated: true)
     }
+    
+    func addRefreshControl() {
+        scrollRefreshControl.addTarget(self, action: #selector(refreshClient(_:)), for: .valueChanged)
+        srollView.refreshControl = scrollRefreshControl
+    }
+    
+    func showChangesAlertMessage() {
+        let alertController = UIAlertController(title: "Aviso", message: "Varios datos han sido modificados, ¿desea volver sin guardar?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Aceptar", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (_) in }
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func addBackButton() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didClickBackButton))
+    }
 }
 
 extension ClientDetailViewController {
@@ -186,6 +255,18 @@ extension ClientDetailViewController {
     
     @IBAction func didClickCallButton(_ sender: Any) {
         CommonFunctions.callPhone(telefono: client.telefono.replacingOccurrences(of: " ", with: ""))
+    }
+    
+    @objc func refreshClient(_ sender: Any) {
+        Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: self)
+    }
+    
+    @objc func didClickBackButton(sender: UIBarButtonItem) {
+        if !modificacionHecha {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            showChangesAlertMessage()
+        }
     }
 }
 
@@ -247,6 +328,7 @@ extension ClientDetailViewController {
 
 extension ClientDetailViewController: DatePickerSelectorProtocol {
     func dateSelected(date: Date) {
+        modificacionHecha = true
         client.fecha = Int64(date.timeIntervalSince1970)
         fechaLabel.text = CommonFunctions.getTimeTypeStringFromDate(date: date)
     }
@@ -254,6 +336,7 @@ extension ClientDetailViewController: DatePickerSelectorProtocol {
 
 extension ClientDetailViewController: AddClientInputFieldProtocol {
     func textSaved(text: String, inputReference: Int) {
+        modificacionHecha = true
         switch inputReference {
         case 1:
             client.nombre = text
@@ -293,7 +376,6 @@ extension ClientDetailViewController: AddServicioProtocol {
         }
         
         sortServicesByDate()
-        removeServicesViews()
         showServices()
     }
 }
@@ -308,7 +390,13 @@ extension ClientDetailViewController: PickerSelectorProtocol {
     func cadenciaSelected(cadencia: String) {
         cadenciaLabel.text = cadencia
         client.cadenciaVisita = cadencia
+        modificacionHecha = true
     }
-    
-    
+}
+
+extension ClientDetailViewController: CloudServiceManagerProtocol {
+    func sincronisationFinished() {
+        scrollRefreshControl.endRefreshing()
+        getClientDetails()
+    }
 }
