@@ -75,6 +75,19 @@ class CloudDatabaseHelper: NSObject {
         return servicio
     }
     
+    func parseCloudCierreCajaObjectToLocalCierreCajaObject(record: CKRecord) -> CierreCajaModel {
+        let cierreCaja: CierreCajaModel = CierreCajaModel()
+        cierreCaja.cajaId = record.object(forKey: "CD_cajaId") as! Int64
+        cierreCaja.fecha = record.object(forKey: "CD_fecha") as! Int64
+        cierreCaja.numeroServicios = record.object(forKey: "CD_numeroServicios") as! Int
+        cierreCaja.totalCaja = record.object(forKey: "CD_totalCaja") as! Double
+        cierreCaja.totalProductos = record.object(forKey: "CD_totalProductos") as! Double
+        cierreCaja.efectivo = record.object(forKey: "CD_efectivo") as! Double
+        cierreCaja.tarjeta = record.object(forKey: "CD_tarjeta") as! Double
+        
+        return cierreCaja
+    }
+    
     func setClientCKRecordVariables(client: ClientModel, record: CKRecord) {
         record.setValue(client.nombre, forKey: "CD_nombre")
         record.setValue(client.apellidos, forKey: "CD_apellidos")
@@ -122,5 +135,15 @@ class CloudDatabaseHelper: NSObject {
         record.setValue(service.profesional, forKey: "CD_profesional")
         record.setValue(service.servicio, forKey: "CD_servicios")
         record.setValue(service.observacion, forKey: "CD_observacion")
+    }
+    
+    func setCierreCajaCKRecordVariables(cierreCaja: CierreCajaModel, record: CKRecord) {
+        record.setValue(cierreCaja.cajaId, forKey: "CD_cajaId")
+        record.setValue(cierreCaja.fecha, forKey: "CD_fecha")
+        record.setValue(cierreCaja.numeroServicios, forKey: "CD_numeroServicios")
+        record.setValue(cierreCaja.totalCaja, forKey: "CD_totalCaja")
+        record.setValue(cierreCaja.totalProductos, forKey: "CD_totalProductos")
+        record.setValue(cierreCaja.efectivo, forKey: "CD_efectivo")
+        record.setValue(cierreCaja.tarjeta, forKey: "CD_tarjeta")
     }
 }

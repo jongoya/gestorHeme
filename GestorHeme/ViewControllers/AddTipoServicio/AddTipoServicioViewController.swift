@@ -35,6 +35,7 @@ class AddTipoServicioViewController: UIViewController {
         controller.delegate = self
         controller.keyboardType = keyBoardType
         controller.inputText = text
+        controller.title = "Nombre"
         self.navigationController!.pushViewController(controller, animated: true)
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class HemeViewController: UIViewController {
     @IBOutlet weak var hemeTableView: UITableView!
@@ -26,30 +27,21 @@ class HemeViewController: UIViewController {
     
     func createObjectsForTableView() {
         hemeModels.removeAll()
-        createStockModel()
-        createFacturacionModel()
         createCajaModel()
-    }
-    
-    func createStockModel() {
-        let empleados: HemeModel = HemeModel()
-        empleados.nombreImagen = "stock"
-        empleados.titulo = "PRODUCTOS"
-        hemeModels.append(empleados)
-    }
-    
-    func createFacturacionModel() {
-        let facturacion: HemeModel = HemeModel()
-        facturacion.nombreImagen = "billing"
-        facturacion.titulo = "FACTURACIÓN"
-        hemeModels.append(facturacion)
     }
     
     func createCajaModel() {
         let caja: HemeModel = HemeModel()
         caja.nombreImagen = "cash"
         caja.titulo = "CAJA"
+        caja.descripcion = "Las estadististicas de los cierres de caja de la peluqueria Heme"
         hemeModels.append(caja)
+    }
+    
+    func openStadisticasViewController() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "StadisticasCaja", bundle:nil)
+        let controller: StadisticasCajaViewController = storyBoard.instantiateViewController(withIdentifier: "StadisticasCajaViewController") as! StadisticasCajaViewController
+        self.navigationController!.pushViewController(controller, animated: true)
     }
 }
 
@@ -70,6 +62,24 @@ extension HemeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.row == 0 {
+            identifyUser()
+        }
+    }
+}
+
+extension HemeViewController {
+    func identifyUser() {
+        let context = LAContext()
+        let reason = "Identificate para acceder a las estadisticas"
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
+            if success {
+                DispatchQueue.main.async {
+                    self.openStadisticasViewController()
+                }
+            } else {
+                CommonFunctions.showGenericAlertMessage(mensaje: "Error autenticando usuario, no podrá acceder a las estadisticas sin autenticarte", viewController: self)
+            }
+        }
     }
 }

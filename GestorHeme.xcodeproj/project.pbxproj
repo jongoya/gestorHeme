@@ -99,6 +99,12 @@
 		FBC164C8243CFE99003C631D /* AgendaItemViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC164C7243CFE99003C631D /* AgendaItemViewProtocol.swift */; };
 		FBD88E102447127900BC51DB /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD88E0F2447127900BC51DB /* CarouselItem.swift */; };
 		FBD88E122447735300BC51DB /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FBD88E112447735300BC51DB /* calendar.png */; };
+		FBDF1BB2244F2887004DDD3F /* CierreCajaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BB1244F2887004DDD3F /* CierreCajaViewController.swift */; };
+		FBDF1BB5244F55E8004DDD3F /* CierreCajaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BB4244F55E8004DDD3F /* CierreCajaManager.swift */; };
+		FBDF1BB8244F5669004DDD3F /* CierreCajaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BB7244F5669004DDD3F /* CierreCajaModel.swift */; };
+		FBDF1BBB244F5A68004DDD3F /* CloudCierreCajaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BBA244F5A68004DDD3F /* CloudCierreCajaManager.swift */; };
+		FBDF1BBD244F6F20004DDD3F /* StadisticasCaja.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDF1BBC244F6F20004DDD3F /* StadisticasCaja.storyboard */; };
+		FBDF1BC0244F6FEE004DDD3F /* StadisticasCajaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BBF244F6FEE004DDD3F /* StadisticasCajaViewController.swift */; };
 		FBF3DF55244256890015BD32 /* AgendaSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF3DF54244256890015BD32 /* AgendaSettingsViewController.swift */; };
 		FBF3DF57244257A20015BD32 /* pincel.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF3DF56244257A20015BD32 /* pincel.png */; };
 		FBFB5F82244A01D7000DC77F /* PickerSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFB5F81244A01D7000DC77F /* PickerSelectorViewController.swift */; };
@@ -204,6 +210,12 @@
 		FBC164C7243CFE99003C631D /* AgendaItemViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaItemViewProtocol.swift; sourceTree = "<group>"; };
 		FBD88E0F2447127900BC51DB /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
 		FBD88E112447735300BC51DB /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		FBDF1BB1244F2887004DDD3F /* CierreCajaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CierreCajaViewController.swift; sourceTree = "<group>"; };
+		FBDF1BB4244F55E8004DDD3F /* CierreCajaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CierreCajaManager.swift; sourceTree = "<group>"; };
+		FBDF1BB7244F5669004DDD3F /* CierreCajaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CierreCajaModel.swift; sourceTree = "<group>"; };
+		FBDF1BBA244F5A68004DDD3F /* CloudCierreCajaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCierreCajaManager.swift; sourceTree = "<group>"; };
+		FBDF1BBC244F6F20004DDD3F /* StadisticasCaja.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StadisticasCaja.storyboard; sourceTree = "<group>"; };
+		FBDF1BBF244F6FEE004DDD3F /* StadisticasCajaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticasCajaViewController.swift; sourceTree = "<group>"; };
 		FBF3DF54244256890015BD32 /* AgendaSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaSettingsViewController.swift; sourceTree = "<group>"; };
 		FBF3DF56244257A20015BD32 /* pincel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pincel.png; sourceTree = "<group>"; };
 		FBFB5F81244A01D7000DC77F /* PickerSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSelectorViewController.swift; sourceTree = "<group>"; };
@@ -415,6 +427,7 @@
 		FB57F2F024347F0500192230 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FBDF1BB6244F565E004DDD3F /* Caja */,
 				FB8185AC24433B5D004697D3 /* Servicio */,
 				FB8185A024432157004697D3 /* Empleado */,
 				FB5F7D73243F1F3500503E9B /* Notification */,
@@ -436,6 +449,7 @@
 		FB57F2F82434832F00192230 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FBDF1BB3244F55D5004DDD3F /* CierreCajaManager */,
 				FB8185AF244343E5004697D3 /* TipoServiciosManager */,
 				FB8185A924432D92004697D3 /* EmpleadosManager */,
 				FB5F7D70243F1E9600503E9B /* NotificationsManager */,
@@ -620,6 +634,8 @@
 		FB64940F24338E2600503627 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FBDF1BBE244F6FD7004DDD3F /* StadisticasCaja */,
+				FBDF1BB0244F2875004DDD3F /* CierreCaja */,
 				FBFB5F80244A01A7000DC77F /* PickerSelector */,
 				FB9A8E232444910100E0A9E4 /* AddTipoServicio */,
 				FB9A8E1D24448CA900E0A9E4 /* Servicios */,
@@ -670,6 +686,7 @@
 				FB6493FD24338C0900503627 /* Main.storyboard */,
 				FB5F7D80243F8A7400503E9B /* Notification.storyboard */,
 				FB14CEC624409696000CBE77 /* Settings.storyboard */,
+				FBDF1BBC244F6F20004DDD3F /* StadisticasCaja.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -775,6 +792,7 @@
 		FB9DECF7244997E100614CD2 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FBDF1BB9244F5A4D004DDD3F /* CloudCierreCajaManager */,
 				FB9DED0424499B8400614CD2 /* EmpleadoManager */,
 				FB9DED0124499AFB00614CD2 /* TipoServicioManager */,
 				FB9DECFE24499A4A00614CD2 /* NotificationManager */,
@@ -915,6 +933,46 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		FBDF1BB0244F2875004DDD3F /* CierreCaja */ = {
+			isa = PBXGroup;
+			children = (
+				FBDF1BB1244F2887004DDD3F /* CierreCajaViewController.swift */,
+			);
+			path = CierreCaja;
+			sourceTree = "<group>";
+		};
+		FBDF1BB3244F55D5004DDD3F /* CierreCajaManager */ = {
+			isa = PBXGroup;
+			children = (
+				FBDF1BB4244F55E8004DDD3F /* CierreCajaManager.swift */,
+			);
+			path = CierreCajaManager;
+			sourceTree = "<group>";
+		};
+		FBDF1BB6244F565E004DDD3F /* Caja */ = {
+			isa = PBXGroup;
+			children = (
+				FBDF1BB7244F5669004DDD3F /* CierreCajaModel.swift */,
+			);
+			path = Caja;
+			sourceTree = "<group>";
+		};
+		FBDF1BB9244F5A4D004DDD3F /* CloudCierreCajaManager */ = {
+			isa = PBXGroup;
+			children = (
+				FBDF1BBA244F5A68004DDD3F /* CloudCierreCajaManager.swift */,
+			);
+			path = CloudCierreCajaManager;
+			sourceTree = "<group>";
+		};
+		FBDF1BBE244F6FD7004DDD3F /* StadisticasCaja */ = {
+			isa = PBXGroup;
+			children = (
+				FBDF1BBF244F6FEE004DDD3F /* StadisticasCajaViewController.swift */,
+			);
+			path = StadisticasCaja;
+			sourceTree = "<group>";
+		};
 		FBF3DF53244256680015BD32 /* AgendaSettings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1075,7 @@
 				FBFB5F87244A0A1D000DC77F /* chat.png in Resources */,
 				FB14CECF2440A169000CBE77 /* stock.png in Resources */,
 				FB5F7D83243F8BA800503E9B /* confetti.png in Resources */,
+				FBDF1BBD244F6F20004DDD3F /* StadisticasCaja.storyboard in Resources */,
 				FB5F7D77243F262F00503E9B /* cumple.png in Resources */,
 				FB5F7D81243F8A7400503E9B /* Notification.storyboard in Resources */,
 				FB14CEC724409696000CBE77 /* Settings.storyboard in Resources */,
@@ -1091,6 +1150,7 @@
 				FBAA2A8A243B45EF009DE78B /* MonthDayModel.swift in Sources */,
 				FB2D05A224379185008B5A01 /* ServicioView.swift in Sources */,
 				FB9A8E2224448D8F00E0A9E4 /* ServicioTableViewCell.swift in Sources */,
+				FBDF1BB2244F2887004DDD3F /* CierreCajaViewController.swift in Sources */,
 				FB14CECA24409760000CBE77 /* SettingsViewController.swift in Sources */,
 				FB3E4B4A2435D20C009DB88B /* DatePickerSelectorViewController.swift in Sources */,
 				FB3E4B532435EEC9009DB88B /* ClientDetailViewController.swift in Sources */,
@@ -1102,10 +1162,13 @@
 				FB57F30524349DDD00192230 /* FieldViewController.swift in Sources */,
 				FB6493F824338C0900503627 /* AppDelegate.swift in Sources */,
 				FBF3DF55244256890015BD32 /* AgendaSettingsViewController.swift in Sources */,
+				FBDF1BB5244F55E8004DDD3F /* CierreCajaManager.swift in Sources */,
+				FBDF1BC0244F6FEE004DDD3F /* StadisticasCajaViewController.swift in Sources */,
 				FB57F2F7243481EF00192230 /* DatabaseManager.swift in Sources */,
 				FB9DED0324499B1400614CD2 /* CloudTipoServicioManager.swift in Sources */,
 				FB9EA5092433A9CF005B9F52 /* ClientesManager.swift in Sources */,
 				FB486E4C243E27F8009EBF26 /* ClientListSelectorViewController.swift in Sources */,
+				FBDF1BB8244F5669004DDD3F /* CierreCajaModel.swift in Sources */,
 				FB9DECFA2449980700614CD2 /* CloudClientManager.swift in Sources */,
 				FB9A8E252444911C00E0A9E4 /* AddTipoServicioViewController.swift in Sources */,
 				FB9EED9A244DC5E200B04E49 /* CloudServiceManagerProtocol.swift in Sources */,
@@ -1128,6 +1191,7 @@
 				FBC164C8243CFE99003C631D /* AgendaItemViewProtocol.swift in Sources */,
 				FB64940224338C0900503627 /* GestorHeme.xcdatamodeld in Sources */,
 				FB5F7D75243F1F4700503E9B /* NotificationModel.swift in Sources */,
+				FBDF1BBB244F5A68004DDD3F /* CloudCierreCajaManager.swift in Sources */,
 				FB88AE662443A0C100B21648 /* AddEmpleadoViewController.swift in Sources */,
 				FB9EED91244DB2B000B04E49 /* CloudClientManagerProtocol.swift in Sources */,
 				FB2D05A5243791FB008B5A01 /* AgendaViewController.swift in Sources */,
@@ -1294,7 +1358,7 @@
 				CODE_SIGN_ENTITLEMENTS = GestorHeme/GestorHeme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = C3EK57386A;
 				INFOPLIST_FILE = GestorHeme/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -1302,7 +1366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jon.GestorHeme;
 				PRODUCT_NAME = Heme;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1319,7 +1383,7 @@
 				CODE_SIGN_ENTITLEMENTS = GestorHeme/GestorHeme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = C3EK57386A;
 				INFOPLIST_FILE = GestorHeme/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -1327,7 +1391,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = jon.GestorHeme;
 				PRODUCT_NAME = Heme;
 				PROVISIONING_PROFILE_SPECIFIER = "";

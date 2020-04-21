@@ -176,6 +176,7 @@ extension AddServicioViewController {
             controller.delegate = self
             controller.keyboardType = .default
             controller.inputText = service.observacion
+            controller.title = "Observaciones"
         } else if segue.identifier == "ListSelectorIdentifier" {
             let controller: ListSelectorViewController = segue.destination as! ListSelectorViewController
             controller.delegate = self

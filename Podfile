@@ -14,6 +14,6 @@ target 'GestorHeme' do
   pod "RMPickerViewController", "~> 2.3.1"
   pod 'FSCalendar'
   pod 'ChromaColorPicker'
-  pod 'Alamofire', '~> 5.1'
   pod 'iCarousel', '~> 1.8'
+  pod 'Charts'
 end

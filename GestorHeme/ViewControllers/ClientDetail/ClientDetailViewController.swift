@@ -258,7 +258,7 @@ extension ClientDetailViewController {
     }
     
     @objc func refreshClient(_ sender: Any) {
-        Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: self)
+        Constants.cloudDatabaseManager.serviceManager.getServiciosPorCliente(clientId: client.id, delegate: self)
     }
     
     @objc func didClickBackButton(sender: UIBarButtonItem) {
@@ -278,6 +278,7 @@ extension ClientDetailViewController {
             controller.delegate = self
             controller.keyboardType = getKeyboardTypeForField(inputReference: (sender as! Int))
             controller.inputText = getInputTextForField(inputReference: (sender as! Int))
+            controller.title = getControllerTitleForInputReference(inputReference: (sender as! Int))
         } else if segue.identifier == "DateIdentifier" {
             let controller: DatePickerSelectorViewController = segue.destination as! DatePickerSelectorViewController
             controller.delegate = self
@@ -322,6 +323,23 @@ extension ClientDetailViewController {
             return direccionLabel.text!
         default:
             return client.observaciones
+        }
+    }
+    
+    func getControllerTitleForInputReference(inputReference: Int) -> String {
+        switch inputReference {
+        case 1:
+            return "Nombre"
+        case 2:
+            return "Apellidos"
+        case 3:
+            return "Telefono"
+        case 4:
+            return "Email"
+        case 5:
+            return "Dirección"
+        default:
+            return "Observaciones"
         }
     }
 }

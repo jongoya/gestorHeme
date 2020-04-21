@@ -34,8 +34,7 @@ class ClientesManager: NSObject {
                 for data in results {
                     clientes.append(databaseHelper.parseClientCoreObjectToClientModel(coreObject: data))
                 }
-            } catch let error as NSError {
-              print("Could not fetch. \(error), \(error.userInfo)")
+            } catch {
             }
         }
     

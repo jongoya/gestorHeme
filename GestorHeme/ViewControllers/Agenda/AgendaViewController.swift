@@ -120,14 +120,16 @@ class AgendaViewController: UIViewController {
             previousView = agendaView
         }
         
-        let button: UIButton =  createCierreCajaButton()
-        scrollContentView.addSubview(button)
-        servicesViewArray.append(button)
-        button.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        button.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 20).isActive = true
-        button.centerXAnchor.constraint(equalTo: scrollContentView.centerXAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        previousView = button
+        if !Constants.databaseManager.cierreCajaManager.checkCierreCajaInDatabase(fecha: presentDate) {
+            let button: UIButton =  createCierreCajaButton()
+            scrollContentView.addSubview(button)
+            servicesViewArray.append(button)
+            button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            button.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 20).isActive = true
+            button.centerXAnchor.constraint(equalTo: scrollContentView.centerXAnchor).isActive = true
+            button.widthAnchor.constraint(equalToConstant: 150).isActive = true
+            previousView = button
+        }
         
         scrollContentView.bottomAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 20).isActive = true
     }
@@ -250,11 +252,11 @@ extension AgendaViewController {
     }
     
     @objc func refreshDay(_ sender: Any) {
-        Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: self)
+        Constants.cloudDatabaseManager.serviceManager.getServiciosPorDia(date: presentDate, delegate: self)
     }
     
     @objc func didClickCerrarCajaButton() {
-        //TODO pensar en la funcionalidad
+        performSegue(withIdentifier: "cierreCajaIdentifier", sender: nil)
     }
 }
 
@@ -303,6 +305,9 @@ extension AgendaViewController {
         } else if segue.identifier == "AgendaServiceIdentifier" {
             let controller: AgendaServiceViewController = segue.destination as! AgendaServiceViewController
             controller.newDate = (sender as! Date)
+        } else if segue.identifier == "cierreCajaIdentifier" {
+            let controller: CierreCajaViewController = segue.destination as! CierreCajaViewController
+            controller.presentDate = presentDate
         }
     }
     

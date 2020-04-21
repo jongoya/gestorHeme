@@ -12,4 +12,5 @@ import Foundation
 class HemeModel: NSObject {
     var nombreImagen: String = ""
     var titulo: String = ""
+    var descripcion: String = ""
 }

@@ -220,6 +220,7 @@ extension AddClientViewController {
             controller.delegate = self
             controller.keyboardType = getKeyboardTypeForField(inputReference: (sender as! Int))
             controller.inputText = getInputTextForField(inputReference: (sender as! Int))
+            controller.title = getControllerTitleForField(inputReference: (sender as! Int))
         } else if segue.identifier == "DatePickerSelectorIdentifier" {
             let controller: DatePickerSelectorViewController = segue.destination as! DatePickerSelectorViewController
             controller.delegate = self
@@ -260,6 +261,23 @@ extension AddClientViewController {
             return direccionLabel.text!
         default:
             return newClient.observaciones
+        }
+    }
+    
+    func getControllerTitleForField(inputReference: Int) -> String {
+        switch inputReference {
+        case 1:
+            return "Nombre"
+        case 2:
+            return "Apellidos"
+        case 3:
+            return "Telefono"
+        case 4:
+            return "Email"
+        case 5:
+            return "Dirección"
+        default:
+            return "Observaciones"
         }
     }
 }

@@ -134,5 +134,28 @@ class DatabaseHelper: NSObject {
         coreDataObject.setValue(newServicio.servicioId, forKey: "servicioId")
         coreDataObject.setValue(newServicio.nombre, forKey: "nombre")
     }
+    
+    func parseCierreCajaCoreObjectToCierreCajaModel(coreObject: NSManagedObject) -> CierreCajaModel {
+        let cierreCaja: CierreCajaModel = CierreCajaModel()
+        cierreCaja.cajaId = coreObject.value(forKey: "cajaId") as! Int64
+        cierreCaja.fecha = coreObject.value(forKey: "fecha") as! Int64
+        cierreCaja.numeroServicios = coreObject.value(forKey: "numeroServicios") as! Int
+        cierreCaja.totalCaja = coreObject.value(forKey: "totalCaja") as! Double
+        cierreCaja.totalProductos = coreObject.value(forKey: "totalProductos") as! Double
+        cierreCaja.efectivo = coreObject.value(forKey: "efectivo") as! Double
+        cierreCaja.tarjeta = coreObject.value(forKey: "tarjeta") as! Double
+        
+        return cierreCaja
+    }
+    
+    func setCoreDataObjectDataFromCierreCaja(coreDataObject: NSManagedObject, newCierreCaja: CierreCajaModel) {
+        coreDataObject.setValue(newCierreCaja.cajaId, forKey: "cajaId")
+        coreDataObject.setValue(newCierreCaja.fecha, forKey: "fecha")
+        coreDataObject.setValue(newCierreCaja.numeroServicios, forKey: "numeroServicios")
+        coreDataObject.setValue(newCierreCaja.totalCaja, forKey: "totalCaja")
+        coreDataObject.setValue(newCierreCaja.totalProductos, forKey: "totalProductos")
+        coreDataObject.setValue(newCierreCaja.efectivo, forKey: "efectivo")
+        coreDataObject.setValue(newCierreCaja.tarjeta, forKey: "tarjeta")
+    }
 
 }

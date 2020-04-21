@@ -51,7 +51,7 @@ class AddEmpleadoViewController: UIViewController {
         emailLabel.text = empleado.email
     }
     
-    func showInputFieldView(inputReference: Int, keyBoardType: UIKeyboardType, text: String) {
+    func showInputFieldView(inputReference: Int, keyBoardType: UIKeyboardType, text: String, controllerTitle: String) {
         let showItemStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller: FieldViewController = showItemStoryboard.instantiateViewController(withIdentifier: "FieldViewController") as! FieldViewController
         controller.inputReference = inputReference
@@ -139,11 +139,11 @@ class AddEmpleadoViewController: UIViewController {
 
 extension AddEmpleadoViewController {
     @IBAction func didClickNombreField(_ sender: Any) {
-        showInputFieldView(inputReference: 1, keyBoardType: .default, text: nombreLabel.text!)
+        showInputFieldView(inputReference: 1, keyBoardType: .default, text: nombreLabel.text!, controllerTitle: "Nombre")
     }
     
     @IBAction func didClickApellidosField(_ sender: Any) {
-        showInputFieldView(inputReference: 2, keyBoardType: .default, text: apellidosLabel.text!)
+        showInputFieldView(inputReference: 2, keyBoardType: .default, text: apellidosLabel.text!, controllerTitle: "Apellidos")
     }
     
     @IBAction func didClickFechaField(_ sender: Any) {
@@ -159,11 +159,11 @@ extension AddEmpleadoViewController {
     }
     
     @IBAction func didClickTelefonoButton(_ sender: Any) {
-        showInputFieldView(inputReference: 3, keyBoardType: .phonePad, text: telefonoLabel.text!)
+        showInputFieldView(inputReference: 3, keyBoardType: .phonePad, text: telefonoLabel.text!, controllerTitle: "Telefono")
     }
     
     @IBAction func didClickEmailButton(_ sender: Any) {
-        showInputFieldView(inputReference: 4, keyBoardType: .emailAddress, text: emailLabel.text!)
+        showInputFieldView(inputReference: 4, keyBoardType: .emailAddress, text: emailLabel.text!, controllerTitle: "Email")
     }
 }
 

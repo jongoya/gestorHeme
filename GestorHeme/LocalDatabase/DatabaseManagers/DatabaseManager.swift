@@ -16,6 +16,7 @@ class DatabaseManager: NSObject {
     var notificationsManager: NotificationsManager!
     var empleadosManager: EmpleadosManager!
     var tipoServiciosManager: TipoServiciosManager!
+    var cierreCajaManager: CierreCajaManager!
     
     override init() {
         super.init()
@@ -24,6 +25,6 @@ class DatabaseManager: NSObject {
         notificationsManager = NotificationsManager()
         empleadosManager = EmpleadosManager()
         tipoServiciosManager = TipoServiciosManager()
+        cierreCajaManager = CierreCajaManager()
     }
-
 }

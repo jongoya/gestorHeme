@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Constants.cloudDatabaseManager.tipoServicioManager.getTipoServicios(delegate: nil)
         Constants.cloudDatabaseManager.notificationManager.getNotificaciones()
         Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: nil)
+        Constants.cloudDatabaseManager.cierreCajaManager.getCierreCajas()
         
         return true
     }

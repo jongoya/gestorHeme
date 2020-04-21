@@ -16,7 +16,9 @@ class CloudServiceManager {
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
     func getServicios(delegate: CloudServiceManagerProtocol?) {
-        let operation = CKQueryOperation(query: servicesQuery)
+        let query: CKQuery = servicesQuery
+        query.sortDescriptors = [NSSortDescriptor(key: "CD_fecha", ascending: false)]
+        let operation = CKQueryOperation(query: query)
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
                 let servicio: ServiceModel = self.cloudDatabaseHelper.parseCloudServicioObjectToLocalServicioObject(record: record)
@@ -31,6 +33,64 @@ class CloudServiceManager {
         
         operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
             DispatchQueue.main.async {
+                delegate?.sincronisationFinished()
+            }
+         }
+        
+        publicDatabase.add(operation)
+    }
+    
+    func getServiciosPorCliente(clientId: Int64, delegate: CloudServiceManagerProtocol?) {
+        var cloudServices: [Int64] = []
+        let predicate = NSPredicate(format: "CD_clientId = %d", clientId)
+        let query: CKQuery = CKQuery(recordType: "CD_Servicio", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "CD_fecha", ascending: false)]
+        let operation = CKQueryOperation(query: query)
+        operation.recordFetchedBlock = { (record: CKRecord!) in
+             if record != nil{
+                let servicio: ServiceModel = self.cloudDatabaseHelper.parseCloudServicioObjectToLocalServicioObject(record: record)
+                cloudServices.append(servicio.serviceId)
+                if Constants.databaseManager.servicesManager.getServiceFromDatabase(serviceId: servicio.serviceId).count == 0 {
+                    _ = Constants.databaseManager.servicesManager.addServiceInDatabase(newService: servicio)
+                } else {
+                    _ = Constants.databaseManager.servicesManager.updateServiceInDatabase(service: servicio)
+                }
+             }
+         }
+        
+        operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
+            DispatchQueue.main.async {
+                self.checkLocalServicesForClient(cloudServices: cloudServices, clientId: clientId)
+                delegate?.sincronisationFinished()
+            }
+         }
+        
+        publicDatabase.add(operation)
+    }
+    
+    func getServiciosPorDia(date: Date, delegate: CloudServiceManagerProtocol?) {
+        let beginingOfDay: Int64 = Int64(AgendaFunctions.getBeginningOfDayFromDate(date: date).timeIntervalSince1970)
+        let endOfDay: Int64 = Int64(AgendaFunctions.getEndOfDayFromDate(date: date).timeIntervalSince1970)
+        var cloudServices: [Int64] = []
+        let predicate = NSPredicate(format: "CD_fecha > %d AND CD_fecha < %d", beginingOfDay, endOfDay)
+        let query: CKQuery = CKQuery(recordType: "CD_Servicio", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "CD_fecha", ascending: false)]
+        let operation = CKQueryOperation(query: query)
+        operation.recordFetchedBlock = { (record: CKRecord!) in
+             if record != nil{
+                let servicio: ServiceModel = self.cloudDatabaseHelper.parseCloudServicioObjectToLocalServicioObject(record: record)
+                cloudServices.append(servicio.serviceId)
+                if Constants.databaseManager.servicesManager.getServiceFromDatabase(serviceId: servicio.serviceId).count == 0 {
+                    _ = Constants.databaseManager.servicesManager.addServiceInDatabase(newService: servicio)
+                } else {
+                    _ = Constants.databaseManager.servicesManager.updateServiceInDatabase(service: servicio)
+                }
+             }
+         }
+        
+        operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
+            DispatchQueue.main.async {
+                self.checkLocalServicesForDay(cloudServices: cloudServices, date: date)
                 delegate?.sincronisationFinished()
             }
          }
@@ -99,6 +159,24 @@ class CloudServiceManager {
                 }
                 
             })
+        }
+    }
+    
+    private func checkLocalServicesForClient(cloudServices: [Int64], clientId: Int64) {
+        let localServices: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: clientId)
+        for localService: ServiceModel in localServices {
+            if !cloudServices.contains(localService.serviceId) {
+                _ = Constants.databaseManager.servicesManager.deleteService(service: localService)
+            }
+        }
+    }
+    
+    private func checkLocalServicesForDay(cloudServices: [Int64], date: Date) {
+        let localServices: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForDay(date: date)
+        for localService: ServiceModel in localServices {
+            if !cloudServices.contains(localService.serviceId) {
+                _ = Constants.databaseManager.servicesManager.deleteService(service: localService)
+            }
         }
     }
 }

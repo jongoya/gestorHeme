@@ -15,6 +15,7 @@ class CloudDatabaseManager: NSObject {
     var notificationManager: CloudNotificationManager!
     var tipoServicioManager: CloudTipoServicioManager!
     var empleadoManager: CloudEmpleadoManager!
+    var cierreCajaManager: CloudCierreCajaManager!
     
     override init() {
         super.init()
@@ -23,5 +24,6 @@ class CloudDatabaseManager: NSObject {
         notificationManager = CloudNotificationManager()
         tipoServicioManager = CloudTipoServicioManager()
         empleadoManager = CloudEmpleadoManager()
+        cierreCajaManager = CloudCierreCajaManager()
     }
 }
