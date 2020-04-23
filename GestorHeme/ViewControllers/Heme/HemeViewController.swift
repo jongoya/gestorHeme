@@ -41,6 +41,7 @@ class HemeViewController: UIViewController {
     func openStadisticasViewController() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "StadisticasCaja", bundle:nil)
         let controller: StadisticasCajaViewController = storyBoard.instantiateViewController(withIdentifier: "StadisticasCajaViewController") as! StadisticasCajaViewController
+        controller.presentDate = Date()
         self.navigationController!.pushViewController(controller, animated: true)
     }
 }

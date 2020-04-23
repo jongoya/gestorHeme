@@ -25,6 +25,20 @@ class CommonFunctions: NSObject {
          df.dateFormat = "dd/MMMM/yyyy HH:mm"
          return df.string(from: date)
      }
+    
+    static func getMonthFromDate(date: Date) -> String {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "es_ES")
+        df.dateFormat = "MMMM"
+        return df.string(from: date)
+    }
+    
+    static func getYearFromDate(date: Date) -> String {
+        let df = DateFormatter()
+        df.locale = Locale(identifier: "es_ES")
+        df.dateFormat = "yyyy"
+        return df.string(from: date)
+    }
         
     static func getProfessionalList() -> [EmpleadoModel] {
         return Constants.databaseManager.empleadosManager.getAllEmpleadosFromDatabase()

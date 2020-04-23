@@ -92,6 +92,13 @@
 		FB9EED9A244DC5E200B04E49 /* CloudServiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */; };
 		FBAA2A8A243B45EF009DE78B /* MonthDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2A89243B45EF009DE78B /* MonthDayModel.swift */; };
 		FBAA2A90243B4956009DE78B /* AgendaFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2A8F243B4956009DE78B /* AgendaFunctions.swift */; };
+		FBAB77C82451C2FB001C5F4E /* StadisticaViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */; };
+		FBAB77CB2451C478001C5F4E /* StadisticaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77CA2451C478001C5F4E /* StadisticaDetailViewController.swift */; };
+		FBAB77CE2451C99C001C5F4E /* StadisticaDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77CD2451C99C001C5F4E /* StadisticaDetailCell.swift */; };
+		FBB59DF22450429E005E5EB0 /* StadisticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF12450429E005E5EB0 /* StadisticaView.swift */; };
+		FBB59DF52450438B005E5EB0 /* StadisticaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF42450438B005E5EB0 /* StadisticaModel.swift */; };
+		FBB59DF824509A64005E5EB0 /* StadisticasFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF724509A64005E5EB0 /* StadisticasFunctions.swift */; };
+		FBB59DFA2450B1E4005E5EB0 /* AxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF92450B1E4005E5EB0 /* AxisFormatter.swift */; };
 		FBB84FB72445B18B0004CE5F /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB84FB62445B18A0004CE5F /* CloudKit.framework */; };
 		FBBC448C2448845A0016431E /* CloudDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC448B2448845A0016431E /* CloudDatabaseManager.swift */; };
 		FBBC448E2448850F0016431E /* CloudDatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBC448D2448850F0016431E /* CloudDatabaseHelper.swift */; };
@@ -202,6 +209,13 @@
 		FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceManagerProtocol.swift; sourceTree = "<group>"; };
 		FBAA2A89243B45EF009DE78B /* MonthDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayModel.swift; sourceTree = "<group>"; };
 		FBAA2A8F243B4956009DE78B /* AgendaFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaFunctions.swift; sourceTree = "<group>"; };
+		FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaViewProtocol.swift; sourceTree = "<group>"; };
+		FBAB77CA2451C478001C5F4E /* StadisticaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaDetailViewController.swift; sourceTree = "<group>"; };
+		FBAB77CD2451C99C001C5F4E /* StadisticaDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaDetailCell.swift; sourceTree = "<group>"; };
+		FBB59DF12450429E005E5EB0 /* StadisticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaView.swift; sourceTree = "<group>"; };
+		FBB59DF42450438B005E5EB0 /* StadisticaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaModel.swift; sourceTree = "<group>"; };
+		FBB59DF724509A64005E5EB0 /* StadisticasFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticasFunctions.swift; sourceTree = "<group>"; };
+		FBB59DF92450B1E4005E5EB0 /* AxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisFormatter.swift; sourceTree = "<group>"; };
 		FBB84FB52445B1850004CE5F /* GestorHeme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GestorHeme.entitlements; sourceTree = "<group>"; };
 		FBB84FB62445B18A0004CE5F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		FBBC448B2448845A0016431E /* CloudDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudDatabaseManager.swift; sourceTree = "<group>"; };
@@ -634,6 +648,7 @@
 		FB64940F24338E2600503627 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FBAB77C92451C460001C5F4E /* StadisticaDetail */,
 				FBDF1BBE244F6FD7004DDD3F /* StadisticasCaja */,
 				FBDF1BB0244F2875004DDD3F /* CierreCaja */,
 				FBFB5F80244A01A7000DC77F /* PickerSelector */,
@@ -904,6 +919,56 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		FBAB77C62451C2E3001C5F4E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FBAB77C92451C460001C5F4E /* StadisticaDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FBAB77CC2451C981001C5F4E /* Cells */,
+				FBAB77CA2451C478001C5F4E /* StadisticaDetailViewController.swift */,
+			);
+			path = StadisticaDetail;
+			sourceTree = "<group>";
+		};
+		FBAB77CC2451C981001C5F4E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FBAB77CD2451C99C001C5F4E /* StadisticaDetailCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FBB59DF02450427D005E5EB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBB59DF12450429E005E5EB0 /* StadisticaView.swift */,
+				FBB59DF92450B1E4005E5EB0 /* AxisFormatter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FBB59DF324504379005E5EB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FBB59DF42450438B005E5EB0 /* StadisticaModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FBB59DF624509A4F005E5EB0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FBB59DF724509A64005E5EB0 /* StadisticasFunctions.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		FBBC448A2448843E0016431E /* CloudDatabase */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,6 +1033,10 @@
 		FBDF1BBE244F6FD7004DDD3F /* StadisticasCaja */ = {
 			isa = PBXGroup;
 			children = (
+				FBAB77C62451C2E3001C5F4E /* Protocols */,
+				FBB59DF624509A4F005E5EB0 /* Common */,
+				FBB59DF324504379005E5EB0 /* Model */,
+				FBB59DF02450427D005E5EB0 /* Views */,
 				FBDF1BBF244F6FEE004DDD3F /* StadisticasCajaViewController.swift */,
 			);
 			path = StadisticasCaja;
@@ -1146,6 +1215,7 @@
 				FB5F7D6F243F1DBE00503E9B /* NotificationCell.swift in Sources */,
 				FBFB5F85244A0251000DC77F /* PickerSelectorProtocol.swift in Sources */,
 				FB57F2FC2434857E00192230 /* ClientCell.swift in Sources */,
+				FBAB77CE2451C99C001C5F4E /* StadisticaDetailCell.swift in Sources */,
 				FB8185AE24433B6A004697D3 /* TipoServicioModel.swift in Sources */,
 				FBAA2A8A243B45EF009DE78B /* MonthDayModel.swift in Sources */,
 				FB2D05A224379185008B5A01 /* ServicioView.swift in Sources */,
@@ -1167,13 +1237,16 @@
 				FB57F2F7243481EF00192230 /* DatabaseManager.swift in Sources */,
 				FB9DED0324499B1400614CD2 /* CloudTipoServicioManager.swift in Sources */,
 				FB9EA5092433A9CF005B9F52 /* ClientesManager.swift in Sources */,
+				FBAB77CB2451C478001C5F4E /* StadisticaDetailViewController.swift in Sources */,
 				FB486E4C243E27F8009EBF26 /* ClientListSelectorViewController.swift in Sources */,
 				FBDF1BB8244F5669004DDD3F /* CierreCajaModel.swift in Sources */,
+				FBB59DF22450429E005E5EB0 /* StadisticaView.swift in Sources */,
 				FB9DECFA2449980700614CD2 /* CloudClientManager.swift in Sources */,
 				FB9A8E252444911C00E0A9E4 /* AddTipoServicioViewController.swift in Sources */,
 				FB9EED9A244DC5E200B04E49 /* CloudServiceManagerProtocol.swift in Sources */,
 				FB5F7D72243F1EAC00503E9B /* NotificationsManager.swift in Sources */,
 				FB486E44243DB801009EBF26 /* AgendaClientItemView.swift in Sources */,
+				FBB59DF52450438B005E5EB0 /* StadisticaModel.swift in Sources */,
 				FB9A8E1C24447C5F00E0A9E4 /* ColorPickerProtocol.swift in Sources */,
 				FB57F2EF24347ED300192230 /* DatabaseHelper.swift in Sources */,
 				FB5F7D6C243F193900503E9B /* NotificationsViewController.swift in Sources */,
@@ -1186,6 +1259,8 @@
 				FB57F2F324347F2100192230 /* ClientModel.swift in Sources */,
 				FB8185A224432167004697D3 /* EmpleadoModel.swift in Sources */,
 				FB486E49243DDF75009EBF26 /* AgendaServiceViewController.swift in Sources */,
+				FBAB77C82451C2FB001C5F4E /* StadisticaViewProtocol.swift in Sources */,
+				FBB59DF824509A64005E5EB0 /* StadisticasFunctions.swift in Sources */,
 				FBD88E102447127900BC51DB /* CarouselItem.swift in Sources */,
 				FB14CED22440A19D000CBE77 /* HemeModel.swift in Sources */,
 				FBC164C8243CFE99003C631D /* AgendaItemViewProtocol.swift in Sources */,
@@ -1205,6 +1280,7 @@
 				FB9DECFD2449995000614CD2 /* CloudServiceManager.swift in Sources */,
 				FB3E4B502435DF2D009DB88B /* AddServicioViewController.swift in Sources */,
 				FB3E4B6B24364EFD009DB88B /* ServicesManager.swift in Sources */,
+				FBB59DFA2450B1E4005E5EB0 /* AxisFormatter.swift in Sources */,
 				FB2C21C0243A37C40055F4E6 /* ServicioViewProtocol.swift in Sources */,
 				FB57F2F5243481D900192230 /* Constants.swift in Sources */,
 				FB3E4B60243645EA009DB88B /* ListSelectorProtocol.swift in Sources */,

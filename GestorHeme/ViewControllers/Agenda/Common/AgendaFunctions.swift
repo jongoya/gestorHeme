@@ -29,6 +29,53 @@ class AgendaFunctions: NSObject {
         return calendar.date(from: components)!
     }
     
+    static func getBeginingOfYearFromDate(date: Date) -> Date {
+        let calendar: Calendar = Calendar.current
+        var components: DateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.month = 1
+        components.day = 1
+        components.hour = 1
+        components.minute = 0
+        components.second = 0
+        
+        return calendar.date(from: components)!
+        
+    }
+    
+    static func getEndOfYearFromDate(date: Date) -> Date {
+        let calendar: Calendar = Calendar.current
+        var components: DateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.month = 12
+        components.day = 31
+        components.hour = 23
+        components.minute = 00
+        components.second = 00
+        
+        return calendar.date(from: components)!
+    }
+    
+    static func getBeginingOfMonthFromDate(date: Date) -> Date {
+        let calendar: Calendar = Calendar.current
+        var components: DateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        components.day = 1
+        components.hour = 1
+        components.minute = 00
+        components.second = 00
+        
+        return calendar.date(from: components)!
+    }
+    
+    static func getEndOfMonthFromDate(date: Date) -> Date {
+        var components: DateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let range = Calendar.current.range(of: .day, in: .month, for: date)!
+        let numDays = range.count
+        components.day = numDays
+        components.hour = 23
+        components.minute = 00
+        components.second = 00
+        return Calendar.current.date(from: components)!
+    }
+    
     static func getHoursAndMinutesFromDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
@@ -83,5 +130,13 @@ class AgendaFunctions: NSObject {
     
     static func getNumberOfDaysBetweenDates(date1: Date, date2: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: date1, to: date2).day!
+    }
+    
+    static func getMonthNumberFromDate(date: Date) -> Int {
+        return Calendar.current.component(.month, from: date)
+    }
+    
+    static func getYearNumberFromDate(date: Date) -> Int {
+        return Calendar.current.component(.year, from: date)
     }
 }

@@ -41,6 +41,35 @@ class CierreCajaManager: NSObject {
         return cierreCajas
     }
     
+    func getAllCierreCajasForEstadisticas(date: Date, isMonth: Bool, isTotal: Bool) -> [CierreCajaModel] {
+        var cierreCajas: [CierreCajaModel] = []
+        if isTotal {
+            return getAllCierreCajasFromDatabase()
+        }
+        
+        var fechaInicio: Int64 = Int64(AgendaFunctions.getBeginingOfMonthFromDate(date: date).timeIntervalSince1970)
+        var fechaFin: Int64 = Int64(AgendaFunctions.getEndOfMonthFromDate(date: date).timeIntervalSince1970)
+        
+        if !isMonth {
+            fechaInicio = Int64(AgendaFunctions.getBeginingOfYearFromDate(date: date).timeIntervalSince1970)
+            fechaFin = Int64(AgendaFunctions.getEndOfYearFromDate(date: date).timeIntervalSince1970)
+        }
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CAJA_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "fecha > %d AND fecha < %d", argumentArray: [fechaInicio, fechaFin])
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    cierreCajas.append(databaseHelper.parseCierreCajaCoreObjectToCierreCajaModel(coreObject: data))
+                }
+            } catch {
+            }
+        }
+        
+        return cierreCajas
+    }
+    
     func addCierreCajaToDatabase(newCierreCaja: CierreCajaModel) -> Bool {
         let entity = NSEntityDescription.entity(forEntityName: CAJA_ENTITY_NAME, in: backgroundContext)
         
