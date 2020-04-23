@@ -1450,7 +1450,7 @@
 				CODE_SIGN_ENTITLEMENTS = GestorHeme/GestorHeme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = C3EK57386A;
 				INFOPLIST_FILE = GestorHeme/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -1458,7 +1458,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = jon.GestorHeme;
 				PRODUCT_NAME = Heme;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1475,7 +1475,7 @@
 				CODE_SIGN_ENTITLEMENTS = GestorHeme/GestorHeme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = C3EK57386A;
 				INFOPLIST_FILE = GestorHeme/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -1483,7 +1483,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = jon.GestorHeme;
 				PRODUCT_NAME = Heme;
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -24,10 +24,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Autneticación mediante FaceID</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Need microphone access for input</string>
-    <key>NSFaceIDUsageDescription</key>
-    <string>Autneticación mediante FaceID</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>recognize speech</string>
 	<key>UIApplicationSceneManifest</key>
