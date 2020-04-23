@@ -32,7 +32,7 @@
         <attribute name="telefono" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Notifications" representedClassName="Notifications" syncable="YES" codeGenerationType="class">
-        <attribute name="clientId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="clientId" optional="YES" attributeType="Transformable"/>
         <attribute name="descripcion" optional="YES" attributeType="String"/>
         <attribute name="fecha" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="leido" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -54,11 +54,11 @@
         <attribute name="servicioId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
+        <element name="Caja" positionX="-54" positionY="99" width="128" height="148"/>
         <element name="Cliente" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="Empleado" positionX="-54" positionY="81" width="128" height="178"/>
         <element name="Notifications" positionX="-54" positionY="81" width="128" height="133"/>
         <element name="Servicio" positionX="-45" positionY="63" width="128" height="163"/>
         <element name="TipoServicios" positionX="-45" positionY="90" width="128" height="73"/>
-        <element name="Caja" positionX="-54" positionY="99" width="128" height="148"/>
     </elements>
 </model>

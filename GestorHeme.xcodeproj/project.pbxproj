@@ -95,6 +95,8 @@
 		FBAB77C82451C2FB001C5F4E /* StadisticaViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */; };
 		FBAB77CB2451C478001C5F4E /* StadisticaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77CA2451C478001C5F4E /* StadisticaDetailViewController.swift */; };
 		FBAB77CE2451C99C001C5F4E /* StadisticaDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77CD2451C99C001C5F4E /* StadisticaDetailCell.swift */; };
+		FBAB77D12451D594001C5F4E /* BirthdayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77D02451D594001C5F4E /* BirthdayModel.swift */; };
+		FBAB77D324520477001C5F4E /* notification_cumple.png in Resources */ = {isa = PBXBuildFile; fileRef = FBAB77D224520477001C5F4E /* notification_cumple.png */; };
 		FBB59DF22450429E005E5EB0 /* StadisticaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF12450429E005E5EB0 /* StadisticaView.swift */; };
 		FBB59DF52450438B005E5EB0 /* StadisticaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF42450438B005E5EB0 /* StadisticaModel.swift */; };
 		FBB59DF824509A64005E5EB0 /* StadisticasFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB59DF724509A64005E5EB0 /* StadisticasFunctions.swift */; };
@@ -212,6 +214,8 @@
 		FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaViewProtocol.swift; sourceTree = "<group>"; };
 		FBAB77CA2451C478001C5F4E /* StadisticaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaDetailViewController.swift; sourceTree = "<group>"; };
 		FBAB77CD2451C99C001C5F4E /* StadisticaDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaDetailCell.swift; sourceTree = "<group>"; };
+		FBAB77D02451D594001C5F4E /* BirthdayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayModel.swift; sourceTree = "<group>"; };
+		FBAB77D224520477001C5F4E /* notification_cumple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_cumple.png; sourceTree = "<group>"; };
 		FBB59DF12450429E005E5EB0 /* StadisticaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaView.swift; sourceTree = "<group>"; };
 		FBB59DF42450438B005E5EB0 /* StadisticaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaModel.swift; sourceTree = "<group>"; };
 		FBB59DF724509A64005E5EB0 /* StadisticasFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticasFunctions.swift; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 				FB9A8E262444961700E0A9E4 /* sync.png */,
 				FBD88E112447735300BC51DB /* calendar.png */,
 				FBFB5F86244A0A1D000DC77F /* chat.png */,
+				FBAB77D224520477001C5F4E /* notification_cumple.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 		FB5F7D78243F28E800503E9B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FBAB77CF2451D583001C5F4E /* Models */,
 				FB5F7D79243F290300503E9B /* NotificationFunctions.swift */,
 			);
 			path = Common;
@@ -944,6 +950,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		FBAB77CF2451D583001C5F4E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBAB77D02451D594001C5F4E /* BirthdayModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FBB59DF02450427D005E5EB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1141,6 +1155,7 @@
 				FB486E51243E3C2C009EBF26 /* cross.png in Resources */,
 				FB5F7D85243F916500503E9B /* telefono.png in Resources */,
 				FB6493FF24338C0900503627 /* Main.storyboard in Resources */,
+				FBAB77D324520477001C5F4E /* notification_cumple.png in Resources */,
 				FBFB5F87244A0A1D000DC77F /* chat.png in Resources */,
 				FB14CECF2440A169000CBE77 /* stock.png in Resources */,
 				FB5F7D83243F8BA800503E9B /* confetti.png in Resources */,
@@ -1210,6 +1225,7 @@
 				FB58968D2434A40B000683D4 /* AddClientInputFieldProtocol.swift in Sources */,
 				FB3E4B5A24364300009DB88B /* CommonFunctions.swift in Sources */,
 				FB14CECD24409AA9000CBE77 /* HemeTableViewCell.swift in Sources */,
+				FBAB77D12451D594001C5F4E /* BirthdayModel.swift in Sources */,
 				FB8185B124434400004697D3 /* TipoServiciosManager.swift in Sources */,
 				FB9DED0624499B9800614CD2 /* CloudEmpleadoManager.swift in Sources */,
 				FB5F7D6F243F1DBE00503E9B /* NotificationCell.swift in Sources */,

@@ -89,7 +89,7 @@ class AgendaFunctions: NSObject {
             return .black
         }
         
-        let empleado: EmpleadoModel = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: profesionalId)
+        let empleado: EmpleadoModel = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: profesionalId)!
         
         return UIColor(cgColor: CGColor(srgbRed: CGFloat(empleado.redColorValue), green: CGFloat(empleado.greenColorValue), blue: CGFloat(empleado.blueColorValue), alpha: 1.0))
     }

@@ -15,8 +15,6 @@ class NotificationCell: UITableViewCell {
     @IBOutlet weak var notificationDescriptionLabel: UILabel!
     
     func setupCell(notification: NotificationModel) {
-        let client: ClientModel =  Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: notification.clientId)!
-        
         customizeContentView(notification: notification)
         
         if notification.type == Constants.notificacionCumpleIdentifier {
@@ -28,8 +26,10 @@ class NotificationCell: UITableViewCell {
             }
         }
         
-        clientName.text = client.nombre + " " + client.apellidos
-        notificationDescriptionLabel.text = notification.descripcion
+        clientName.text = "¡Felicitaciones!"
+        
+        let nextText: String = notification.clientId.count > 1 ? " personas, felicitalos!" : " persona, felicitalo!"
+        notificationDescriptionLabel.text = "¡Hoy cumplen años " + String(notification.clientId.count) +  nextText
     }
     
     private func customizeContentView(notification: NotificationModel) {

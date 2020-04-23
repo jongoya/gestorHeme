@@ -20,16 +20,15 @@ class NotificationDetailViewController: UIViewController {
     @IBOutlet weak var chatButton: UIButton!
     
     var notification: NotificationModel!
-    var client: ClientModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        client = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: notification.clientId)!
         title = "Notificación"
         
         if !notification.leido  {
             markNotificationAsRead()
         }
+        
         setContentView()
         customizeButton(button: callButton)
         customizeButton(button: sendEmailButton)
@@ -48,8 +47,8 @@ class NotificationDetailViewController: UIViewController {
         if notification.type == Constants.notificacionCumpleIdentifier {
             backgroundImageView.image = UIImage(named: "confetti")
             notificationReasonLabel.text = "¡Cumpleaños!"
-            name.text = client.nombre + " " + client.apellidos
-            shortDescriptionLabel.text = "¡Hoy cumple " + String(CommonFunctions.getNumberOfYearsBetweenDates(startDate: Date(timeIntervalSince1970: TimeInterval(client.fecha)), endDate: Date())) + " años"
+            name.text = createYearsText()
+            shortDescriptionLabel.text = createBirthdayDescription()
             longDescriptionLabel.text = notification.descripcion
         }
     }
@@ -60,17 +59,80 @@ class NotificationDetailViewController: UIViewController {
         button.layer.borderColor = UIColor.systemGray4.cgColor
         button.backgroundColor = .white
     }
-}
-
-extension NotificationDetailViewController {
-    @IBAction func didClickCallButton(_ sender: Any) {
-        CommonFunctions.callPhone(telefono: client.telefono.replacingOccurrences(of: " ", with: ""))
+    
+    func createBirthdayDescription() -> String {
+        let users: [Int64] = notification.clientId
+        var text: String = ""
+        for user in users {
+            if let client = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: user) {
+                text.append(client.nombre + " " + client.apellidos)
+            }
+            if let empleado = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: user) {
+                text.append(empleado.nombre + " " + empleado.apellidos)
+            }
+            
+            text.append(", ")
+        }
+        
+        return text + "felicitalos!"
     }
     
-    @IBAction func didClickSendEmailButton(_ sender: Any) {
+    func createYearsText() -> String {
+        var fecha: Int64 = 0
+        if let client = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: notification.clientId.first!) {
+            fecha = client.fecha
+        }
+        
+        if let empleado = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: notification.clientId.first!) {
+            fecha = empleado.fecha
+        }
+        
+        return "¡" + String(CommonFunctions.getNumberOfYearsBetweenDates(startDate: Date(timeIntervalSince1970: TimeInterval(fecha)), endDate: Date())) + " años!"
+    }
+    
+    func showActionsheet(comunicationCase: Int) {
+        let alert = UIAlertController(title: "Elige", message: "Debe elegir una de las opciones", preferredStyle: .actionSheet)
+        for index in 0...notification.clientId.count - 1 {
+            alert.addAction(UIAlertAction(title: getNombreApellidosFromUser(userId: notification.clientId[index]), style: .default , handler:{ (UIAlertAction) in
+                self.openComunicationForCase(comunicationCase: comunicationCase, userPosition: index)
+            }))
+        }
+
+        alert.addAction(UIAlertAction(title: "cancelar", style: .cancel, handler:{ (UIAlertAction)in
+            print("User click Dismiss button")
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getTelefonoFromUser(userId: Int64) -> String {
+        if let client = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: notification.clientId.first!) {
+            return client.telefono.replacingOccurrences(of: " ", with: "")
+         }
+         
+         if let empleado = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: notification.clientId.first!) {
+            return empleado.telefono.replacingOccurrences(of: " ", with: "")
+         }
+        
+        return " "
+    }
+    
+    func getNombreApellidosFromUser(userId: Int64) -> String {
+        if let client = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: userId) {
+            return client.nombre + " " + client.apellidos
+         }
+         
+         if let empleado = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: userId) {
+            return empleado.nombre + " " + empleado.apellidos
+         }
+        
+        return " "
+    }
+    
+    func composeLetter(telefono: String) {
         let composeVC = MFMessageComposeViewController()
         composeVC.messageComposeDelegate = self
-        composeVC.recipients = [client.telefono]
+        composeVC.recipients = [telefono]
 
         if MFMessageComposeViewController.canSendText() {
             self.present(composeVC, animated: true, completion: nil)
@@ -79,8 +141,44 @@ extension NotificationDetailViewController {
         }
     }
     
+    func openComunicationForCase(comunicationCase: Int, userPosition: Int) {
+        switch comunicationCase {
+        case 1:
+            CommonFunctions.callPhone(telefono: getTelefonoFromUser(userId: notification.clientId[userPosition]))
+            break
+        case 2:
+            composeLetter(telefono: getTelefonoFromUser(userId: notification.clientId[userPosition]))
+            break
+        default:
+            CommonFunctions.openWhatsapp(telefono: getTelefonoFromUser(userId: notification.clientId[userPosition]))
+            break
+        }
+    }
+}
+
+extension NotificationDetailViewController {
+    @IBAction func didClickCallButton(_ sender: Any) {
+        if notification.clientId.count > 1 {
+            showActionsheet(comunicationCase: 1)
+        } else {
+            CommonFunctions.callPhone(telefono: getTelefonoFromUser(userId: notification.clientId.first!))
+        }
+    }
+    
+    @IBAction func didClickSendEmailButton(_ sender: Any) {
+        if notification.clientId.count > 1 {
+            showActionsheet(comunicationCase: 2)
+        } else {
+            composeLetter(telefono: getTelefonoFromUser(userId: notification.clientId.first!))
+        }
+    }
+    
     @IBAction func didClickChatButton(_ sender: Any) {
-        CommonFunctions.openWhatsapp(telefono: client.telefono)
+        if notification.clientId.count > 1 {
+            showActionsheet(comunicationCase: 3)
+        } else {
+            CommonFunctions.openWhatsapp(telefono: getTelefonoFromUser(userId: notification.clientId.first!))
+        }
     }
 }
 

@@ -41,7 +41,7 @@ class AddServicioViewController: UIViewController {
     
     func setAllFields() {
         fechaLabel.text = CommonFunctions.getDateAndTimeTypeStringFromDate(date: Date(timeIntervalSince1970: TimeInterval(service.fecha)))
-        professionalLabel.text = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: service.profesional).nombre
+        professionalLabel.text = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: service.profesional)?.nombre
         servicioLabel.text = CommonFunctions.getServiciosStringFromServiciosArray(servicios: service.servicio)
         observacionLabel.text = service.observacion
         if service.observacion.count == 0 {

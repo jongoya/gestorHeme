@@ -11,39 +11,57 @@ import Foundation
 class NotificationFunctions: NSObject {
     
     static func checkBirthdays() {
-        let birthdayClients: [ClientModel] = getTodayBirthdayClients()
+        let birthdayUsers: [BirthdayModel] = getTodayBirthdayUsers()
         let todayNotifications: [NotificationModel] = getTodayNotifications()
+        var todayBirthdayUsers: [BirthdayModel] = []
         
-        for client in birthdayClients {
-            var notificationExist: Bool = false
+        if birthdayUsers.count == 0 {
+            return
+        }
+        
+        for user in birthdayUsers {
+            var notificationExists = false
             for notification in todayNotifications {
-                if client.id == notification.clientId {
-                    notificationExist = true
+                if notification.clientId.contains(user.userId) {
+                    notificationExists = true
                 }
             }
             
-            if !notificationExist {
-                createBirthdayNotification(client: client)
+            if !notificationExists {
+                todayBirthdayUsers.append(user)
             }
+        }
+        
+        if todayBirthdayUsers.count > 0 {
+            createBirthdayNotification(users: todayBirthdayUsers)
         }
     }
     
-    private static func getTodayBirthdayClients() -> [ClientModel] {
+    private static func getTodayBirthdayUsers() -> [BirthdayModel] {
         let clients: [ClientModel] = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
-        var birthdayClients: [ClientModel] = []
+        let empleados: [EmpleadoModel] = Constants.databaseManager.empleadosManager.getAllEmpleadosFromDatabase()
+        var birthdayUsers: [BirthdayModel] = []
+        let todayDay: Int = Calendar.current.component(.day, from: Date())
+        let todayMonth: Int = Calendar.current.component(.month, from: Date())
         
         for client in clients {
             let clientDay: Int = Calendar.current.component(.day, from: Date(timeIntervalSince1970: TimeInterval(client.fecha)))
             let clientMonth: Int = Calendar.current.component(.month, from: Date(timeIntervalSince1970: TimeInterval(client.fecha)))
-            let todayDay: Int = Calendar.current.component(.day, from: Date())
-            let todayMonth: Int = Calendar.current.component(.month, from: Date())
             
             if clientDay == todayDay && clientMonth == todayMonth {
-                birthdayClients.append(client)
+                birthdayUsers.append(BirthdayModel(userId: client.id, nombre: client.nombre, apellidos: client.apellidos))
             }
         }
         
-        return birthdayClients
+        for empleado in empleados {
+            let empleadoDay: Int = Calendar.current.component(.day, from: Date(timeIntervalSince1970: TimeInterval(empleado.fecha)))
+            let empleadoMonth: Int = Calendar.current.component(.month, from: Date(timeIntervalSince1970: TimeInterval(empleado.fecha)))
+            if empleadoDay == todayDay && empleadoMonth == todayMonth {
+                birthdayUsers.append(BirthdayModel(userId: empleado.empleadoId, nombre: empleado.nombre, apellidos: empleado.apellidos))
+            }
+        }
+        
+        return birthdayUsers
     }
     
     private static func getTodayNotifications() -> [NotificationModel] {
@@ -81,16 +99,24 @@ class NotificationFunctions: NSObject {
         return calendar.date(from: components)!
     }
     
-    static func createBirthdayNotification(client: ClientModel) {
+    static func createBirthdayNotification(users: [BirthdayModel]) {
         let notification: NotificationModel = NotificationModel()
         notification.notificationId = Int64(Date().timeIntervalSince1970)
         notification.fecha = Int64(Date().timeIntervalSince1970)
-        notification.descripcion = "¡Hoy es el cumpleaños de " + client.nombre + " " + client.apellidos + ", manda felicitaciones sin falta!"
-        notification.clientId = client.id
+        notification.clientId = getUserIdsFromBirthdayModels(users: users)
         notification.leido = false
         notification.type = Constants.notificacionCumpleIdentifier
         _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
         
         Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+    }
+    
+    private static func getUserIdsFromBirthdayModels(users: [BirthdayModel]) -> [Int64] {
+        var userIds: [Int64] = []
+        for user in users {
+            userIds.append(user.userId)
+        }
+        
+        return userIds
     }
 }

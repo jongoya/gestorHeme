@@ -29,6 +29,7 @@ class StadisticasCajaViewController: UIViewController {
     var yearSelected: Int = 0
     var presentDate: Date!
     var isTotal: Bool = false
+    let scrollViewTopOfset: CGFloat = 70
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,7 +193,7 @@ class StadisticasCajaViewController: UIViewController {
     func setScrollContentConstraints() {
         var previousView: UIView!
         for view: UIView in chartViews {
-            view.topAnchor.constraint(equalTo: previousView != nil ? previousView.bottomAnchor : scrollContentView.topAnchor, constant: 10).isActive = true
+            view.topAnchor.constraint(equalTo: previousView != nil ? previousView.bottomAnchor : scrollContentView.topAnchor, constant: previousView != nil ? 10 : scrollViewTopOfset).isActive = true
             view.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 10).isActive = true
             view.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -10).isActive = true
             

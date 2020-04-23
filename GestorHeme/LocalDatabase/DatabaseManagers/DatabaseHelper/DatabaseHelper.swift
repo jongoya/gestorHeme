@@ -76,7 +76,7 @@ class DatabaseHelper: NSObject {
     
     func parseNotificationCoreObjectToNotificationModel(coreObject: NSManagedObject) -> NotificationModel {
         let notification: NotificationModel = NotificationModel()
-        notification.clientId = coreObject.value(forKey: "clientId") as! Int64
+        notification.clientId = coreObject.value(forKey: "clientId") as! [Int64]
         notification.notificationId = coreObject.value(forKey: "notificationId") as! Int64
         notification.descripcion = coreObject.value(forKey: "descripcion") as! String
         notification.fecha = coreObject.value(forKey: "fecha") as! Int64

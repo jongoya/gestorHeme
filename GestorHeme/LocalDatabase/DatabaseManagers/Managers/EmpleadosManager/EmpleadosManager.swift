@@ -79,8 +79,12 @@ class EmpleadosManager: NSObject {
         return results
     }
     
-    func getEmpleadoFromDatabase(empleadoId: Int64) -> EmpleadoModel {
+    func getEmpleadoFromDatabase(empleadoId: Int64) -> EmpleadoModel? {
         let coreEmpleados: [NSManagedObject] = getCoreEmpleadoFromDatabase(empleadoId: empleadoId)
+        
+        if coreEmpleados.count == 0 {
+            return nil
+        }
         
         return databaseHelper.parseEmpleadosCoreObjectToEmpleadosModel(coreObject: coreEmpleados.first!)
     }

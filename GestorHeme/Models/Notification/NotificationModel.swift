@@ -9,7 +9,7 @@
 import Foundation
 
 class NotificationModel: NSObject {
-    var clientId: Int64 = 0
+    var clientId: [Int64] = []
     var notificationId: Int64 = 0
     var descripcion: String = ""
     var fecha: Int64 = 0

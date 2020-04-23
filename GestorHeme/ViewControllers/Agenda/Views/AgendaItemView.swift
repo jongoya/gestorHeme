@@ -154,7 +154,7 @@ class AgendaItemView: UIView {
         
         let profesionalNameLabel: UILabel = UILabel()
         profesionalNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        profesionalNameLabel.text = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: service.profesional).nombre
+        profesionalNameLabel.text = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: service.profesional)?.nombre
         profesionalNameLabel.textColor = .black
         profesionalNameLabel.font = UIFont.systemFont(ofSize: 15)
         serviceView.addSubview(profesionalNameLabel)

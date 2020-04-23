@@ -16,7 +16,7 @@ class StadisticaDetailCell: UITableViewCell {
         valorLabel.text = isNumeroServicios ? String(Int(stadisticaModel.valor)) : String(format: "%.2f", stadisticaModel.valor) + " €"
         
         let year: Int = AgendaFunctions.getYearNumberFromDate(date: Date(timeIntervalSince1970: TimeInterval(stadisticaModel.fecha)))
-        let month: String = AgendaFunctions.getMonthNameFromDate(date: Date(timeIntervalSince1970: TimeInterval(stadisticaModel.fecha)))
+        let month: String = AgendaFunctions.getMonthNameFromDate(date: Date(timeIntervalSince1970: TimeInterval(stadisticaModel.fecha))).capitalized
         let day: Int = Calendar.current.component(.day, from: Date(timeIntervalSince1970: TimeInterval(stadisticaModel.fecha)))
         
         if isMensual {
