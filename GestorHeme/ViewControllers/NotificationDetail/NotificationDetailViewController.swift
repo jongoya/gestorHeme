@@ -12,7 +12,6 @@ import MessageUI
 class NotificationDetailViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var notificationReasonLabel: UILabel!
-    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var shortDescriptionLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
     @IBOutlet weak var callButton: UIButton!
@@ -47,7 +46,6 @@ class NotificationDetailViewController: UIViewController {
         if notification.type == Constants.notificacionCumpleIdentifier {
             backgroundImageView.image = UIImage(named: "confetti")
             notificationReasonLabel.text = "¡Cumpleaños!"
-            name.text = createYearsText()
             shortDescriptionLabel.text = createBirthdayDescription()
             longDescriptionLabel.text = notification.descripcion
         }
@@ -75,19 +73,6 @@ class NotificationDetailViewController: UIViewController {
         }
         
         return text + "felicitalos!"
-    }
-    
-    func createYearsText() -> String {
-        var fecha: Int64 = 0
-        if let client = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: notification.clientId.first!) {
-            fecha = client.fecha
-        }
-        
-        if let empleado = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: notification.clientId.first!) {
-            fecha = empleado.fecha
-        }
-        
-        return "¡" + String(CommonFunctions.getNumberOfYearsBetweenDates(startDate: Date(timeIntervalSince1970: TimeInterval(fecha)), endDate: Date())) + " años!"
     }
     
     func showActionsheet(comunicationCase: Int) {
