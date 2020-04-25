@@ -162,6 +162,10 @@ class CommonFunctions: NSObject {
     }
     
     static private func addLoadingStateView(descriptionText: String) {
+        if servicesLoadingStateView != nil {
+            hideLoadingStateView()
+        }
+        
         let viewController = getRootViewController()
 
         servicesLoadingStateView = UIView()
@@ -218,10 +222,6 @@ class CommonFunctions: NSObject {
         }
     }
     
-    static func getCadenciaOptions() -> [String] {
-        return [Constants.unaSemana, Constants.dosSemanas, Constants.tresSemanas, Constants.unMes, Constants.unMesUnaSemana, Constants.unMesDosSemanas, Constants.unMesTresSemanas, Constants.dosMeses, Constants.dosMesesYUnaSemana, Constants.dosMesesYDosSemanas, Constants.dosMesesYTresSemanas, Constants.tresMeses, Constants.masDeTresMeses]
-    }
-    
     static func openWhatsapp(telefono: String) {
         let urlWhats = "whatsapp://send?phone=" + telefono + "&text="
         if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed){
@@ -237,5 +237,9 @@ class CommonFunctions: NSObject {
                 }
             }
         }
+    }
+    
+    static func getCadenciasArray() -> [CadenciaModel] {
+        return [CadenciaModel(cadencia: Constants.unaSemana), CadenciaModel(cadencia: Constants.dosSemanas), CadenciaModel(cadencia: Constants.tresSemanas), CadenciaModel(cadencia: Constants.unMes), CadenciaModel(cadencia: Constants.unMesUnaSemana), CadenciaModel(cadencia: Constants.unMesDosSemanas), CadenciaModel(cadencia: Constants.unMesTresSemanas), CadenciaModel(cadencia: Constants.dosMeses), CadenciaModel(cadencia: Constants.dosMesesYUnaSemana), CadenciaModel(cadencia: Constants.dosMesesYDosSemanas), CadenciaModel(cadencia: Constants.dosMesesYTresSemanas), CadenciaModel(cadencia: Constants.tresMeses), CadenciaModel(cadencia: Constants.masDeTresMeses)]
     }
 }

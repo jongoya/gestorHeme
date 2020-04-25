@@ -20,6 +20,9 @@
 		FB2C21C0243A37C40055F4E6 /* ServicioViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C21BF243A37C40055F4E6 /* ServicioViewProtocol.swift */; };
 		FB2D05A224379185008B5A01 /* ServicioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2D05A124379185008B5A01 /* ServicioView.swift */; };
 		FB2D05A5243791FB008B5A01 /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2D05A4243791FB008B5A01 /* AgendaViewController.swift */; };
+		FB3AFC1C2453052A00267A4D /* CadenciaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AFC1B2453052A00267A4D /* CadenciaModel.swift */; };
+		FB3AFC1E245326B000267A4D /* cadencia.png in Resources */ = {isa = PBXBuildFile; fileRef = FB3AFC1D245326B000267A4D /* cadencia.png */; };
+		FB3AFC21245328C300267A4D /* CadenciaNotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3AFC20245328C300267A4D /* CadenciaNotificationDetailViewController.swift */; };
 		FB3E4B4A2435D20C009DB88B /* DatePickerSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3E4B492435D20C009DB88B /* DatePickerSelectorViewController.swift */; };
 		FB3E4B4D2435D3D0009DB88B /* DatePickerSelectorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3E4B4C2435D3D0009DB88B /* DatePickerSelectorProtocol.swift */; };
 		FB3E4B502435DF2D009DB88B /* AddServicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3E4B4F2435DF2D009DB88B /* AddServicioViewController.swift */; };
@@ -39,6 +42,8 @@
 		FB486E4C243E27F8009EBF26 /* ClientListSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB486E4B243E27F8009EBF26 /* ClientListSelectorViewController.swift */; };
 		FB486E4F243E28B6009EBF26 /* ClientListSelectorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB486E4E243E28B6009EBF26 /* ClientListSelectorProtocol.swift */; };
 		FB486E51243E3C2C009EBF26 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = FB486E50243E3C2C009EBF26 /* cross.png */; };
+		FB53D697245462BE00331817 /* CadenciaNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB53D696245462BE00331817 /* CadenciaNotificationCell.swift */; };
+		FB53D699245463E600331817 /* tiempo.png in Resources */ = {isa = PBXBuildFile; fileRef = FB53D698245463E600331817 /* tiempo.png */; };
 		FB57F2EF24347ED300192230 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB57F2EE24347ED300192230 /* DatabaseHelper.swift */; };
 		FB57F2F324347F2100192230 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB57F2F224347F2100192230 /* ClientModel.swift */; };
 		FB57F2F5243481D900192230 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB57F2F4243481D900192230 /* Constants.swift */; };
@@ -137,6 +142,9 @@
 		FB2C21BF243A37C40055F4E6 /* ServicioViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicioViewProtocol.swift; sourceTree = "<group>"; };
 		FB2D05A124379185008B5A01 /* ServicioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicioView.swift; sourceTree = "<group>"; };
 		FB2D05A4243791FB008B5A01 /* AgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		FB3AFC1B2453052A00267A4D /* CadenciaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenciaModel.swift; sourceTree = "<group>"; };
+		FB3AFC1D245326B000267A4D /* cadencia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cadencia.png; sourceTree = "<group>"; };
+		FB3AFC20245328C300267A4D /* CadenciaNotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenciaNotificationDetailViewController.swift; sourceTree = "<group>"; };
 		FB3E4B492435D20C009DB88B /* DatePickerSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerSelectorViewController.swift; sourceTree = "<group>"; };
 		FB3E4B4C2435D3D0009DB88B /* DatePickerSelectorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerSelectorProtocol.swift; sourceTree = "<group>"; };
 		FB3E4B4F2435DF2D009DB88B /* AddServicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServicioViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +164,8 @@
 		FB486E4B243E27F8009EBF26 /* ClientListSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListSelectorViewController.swift; sourceTree = "<group>"; };
 		FB486E4E243E28B6009EBF26 /* ClientListSelectorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientListSelectorProtocol.swift; sourceTree = "<group>"; };
 		FB486E50243E3C2C009EBF26 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		FB53D696245462BE00331817 /* CadenciaNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadenciaNotificationCell.swift; sourceTree = "<group>"; };
+		FB53D698245463E600331817 /* tiempo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiempo.png; sourceTree = "<group>"; };
 		FB57F2EE24347ED300192230 /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
 		FB57F2F224347F2100192230 /* ClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		FB57F2F4243481D900192230 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -324,6 +334,23 @@
 			path = Agenda;
 			sourceTree = "<group>";
 		};
+		FB3AFC1A2453051300267A4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB3AFC1B2453052A00267A4D /* CadenciaModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FB3AFC1F2453289A00267A4D /* CadenciaNotificationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FB53D695245462A000331817 /* Cells */,
+				FB3AFC20245328C300267A4D /* CadenciaNotificationDetailViewController.swift */,
+			);
+			path = CadenciaNotificationDetail;
+			sourceTree = "<group>";
+		};
 		FB3E4B482435D1F5009DB88B /* DatePickerSelector */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +461,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		FB53D695245462A000331817 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FB53D696245462BE00331817 /* CadenciaNotificationCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		FB57F2ED24347EBB00192230 /* DatabaseHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +548,8 @@
 				FBD88E112447735300BC51DB /* calendar.png */,
 				FBFB5F86244A0A1D000DC77F /* chat.png */,
 				FBAB77D224520477001C5F4E /* notification_cumple.png */,
+				FB3AFC1D245326B000267A4D /* cadencia.png */,
+				FB53D698245463E600331817 /* tiempo.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -545,6 +582,7 @@
 		FB5F7D6A243F191E00503E9B /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				FB3AFC1A2453051300267A4D /* Models */,
 				FB5F7D78243F28E800503E9B /* Common */,
 				FB5F7D6D243F1D7C00503E9B /* Cells */,
 				FB5F7D6B243F193900503E9B /* NotificationsViewController.swift */,
@@ -654,6 +692,7 @@
 		FB64940F24338E2600503627 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FB3AFC1F2453289A00267A4D /* CadenciaNotificationDetail */,
 				FBAB77C92451C460001C5F4E /* StadisticaDetail */,
 				FBDF1BBE244F6FD7004DDD3F /* StadisticasCaja */,
 				FBDF1BB0244F2875004DDD3F /* CierreCaja */,
@@ -1154,9 +1193,11 @@
 				FB9A8E272444961700E0A9E4 /* sync.png in Resources */,
 				FB486E51243E3C2C009EBF26 /* cross.png in Resources */,
 				FB5F7D85243F916500503E9B /* telefono.png in Resources */,
+				FB3AFC1E245326B000267A4D /* cadencia.png in Resources */,
 				FB6493FF24338C0900503627 /* Main.storyboard in Resources */,
 				FBAB77D324520477001C5F4E /* notification_cumple.png in Resources */,
 				FBFB5F87244A0A1D000DC77F /* chat.png in Resources */,
+				FB53D699245463E600331817 /* tiempo.png in Resources */,
 				FB14CECF2440A169000CBE77 /* stock.png in Resources */,
 				FB5F7D83243F8BA800503E9B /* confetti.png in Resources */,
 				FBDF1BBD244F6F20004DDD3F /* StadisticasCaja.storyboard in Resources */,
@@ -1240,6 +1281,7 @@
 				FB14CECA24409760000CBE77 /* SettingsViewController.swift in Sources */,
 				FB3E4B4A2435D20C009DB88B /* DatePickerSelectorViewController.swift in Sources */,
 				FB3E4B532435EEC9009DB88B /* ClientDetailViewController.swift in Sources */,
+				FB53D697245462BE00331817 /* CadenciaNotificationCell.swift in Sources */,
 				FBBC448C2448845A0016431E /* CloudDatabaseManager.swift in Sources */,
 				FB6493FC24338C0900503627 /* RootViewController.swift in Sources */,
 				FBAA2A90243B4956009DE78B /* AgendaFunctions.swift in Sources */,
@@ -1264,6 +1306,7 @@
 				FB486E44243DB801009EBF26 /* AgendaClientItemView.swift in Sources */,
 				FBB59DF52450438B005E5EB0 /* StadisticaModel.swift in Sources */,
 				FB9A8E1C24447C5F00E0A9E4 /* ColorPickerProtocol.swift in Sources */,
+				FB3AFC1C2453052A00267A4D /* CadenciaModel.swift in Sources */,
 				FB57F2EF24347ED300192230 /* DatabaseHelper.swift in Sources */,
 				FB5F7D6C243F193900503E9B /* NotificationsViewController.swift in Sources */,
 				FB8185A52443228F004697D3 /* ColorPickerViewController.swift in Sources */,
@@ -1298,6 +1341,7 @@
 				FB3E4B6B24364EFD009DB88B /* ServicesManager.swift in Sources */,
 				FBB59DFA2450B1E4005E5EB0 /* AxisFormatter.swift in Sources */,
 				FB2C21C0243A37C40055F4E6 /* ServicioViewProtocol.swift in Sources */,
+				FB3AFC21245328C300267A4D /* CadenciaNotificationDetailViewController.swift in Sources */,
 				FB57F2F5243481D900192230 /* Constants.swift in Sources */,
 				FB3E4B60243645EA009DB88B /* ListSelectorProtocol.swift in Sources */,
 				FB486E4F243E28B6009EBF26 /* ClientListSelectorProtocol.swift in Sources */,

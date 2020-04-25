@@ -216,6 +216,23 @@ class AgendaViewController: UIViewController {
         scrollRefreshControl.addTarget(self, action: #selector(refreshDay(_:)), for: .valueChanged)
         scrollView.refreshControl = scrollRefreshControl
     }
+    
+    func getCierreCajaNotification() -> NotificationModel? {
+        let beginingOfDay: Date = AgendaFunctions.getBeginningOfDayFromDate(date: presentDate)
+        let endOfDay: Date = AgendaFunctions.getEndOfDayFromDate(date: presentDate)
+        let begininOfDayTimestamp: Int64 = Int64(beginingOfDay.timeIntervalSince1970)
+        let endOfDayTimestamp: Int64 = Int64(endOfDay.timeIntervalSince1970)
+        
+        let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionCajaCierreIdentifier)
+        
+        for notification in notifications {
+            if notification.fecha > begininOfDayTimestamp && notification.fecha < endOfDayTimestamp {
+                return notification
+            }
+        }
+        
+        return nil
+    }
 }
 
 extension AgendaViewController {
@@ -308,6 +325,7 @@ extension AgendaViewController {
         } else if segue.identifier == "cierreCajaIdentifier" {
             let controller: CierreCajaViewController = segue.destination as! CierreCajaViewController
             controller.presentDate = presentDate
+            controller.notification = getCierreCajaNotification()
         }
     }
     

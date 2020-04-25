@@ -56,6 +56,7 @@ class NotificationsManager: NSObject {
                     try backgroundContext.save()
                     result = true
                 } catch {
+                    print("")
                 }
             }
             
@@ -96,9 +97,58 @@ class NotificationsManager: NSObject {
                 try mainContext.save()
                 result = true
             } catch {
+                print("Error actualizando notificación")
             }
         }
         
         return result
+    }
+    
+    func removeClientFromNotification(clientId: Int64, notificationType: String) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
+        fetchRequest.returnsObjectsAsFaults = false
+        fetchRequest.predicate = NSPredicate(format: "type = %@", argumentArray: [notificationType])
+
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    let clientIds: [Int64] = data.value(forKey: "clientId") as! [Int64]
+                    if clientIds.contains(clientId) {
+                        let filters = clientIds.filter {$0 != clientId}
+                        data.setValue(filters, forKey: "clientId")
+                        let notification: NotificationModel = databaseHelper.parseNotificationCoreObjectToNotificationModel(coreObject: data)
+                        if filters.count == 0 {
+                            mainContext.delete(data)
+                            Constants.cloudDatabaseManager.notificationManager.deleteNotification(notificationId: notification.notificationId)
+                        } else {
+                            Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, showLoadingState: false)
+                        }
+                    }
+                }
+                
+                try mainContext.save()
+            } catch {
+            }
+        }
+    }
+    
+    func getAllNotificationsForType(type: String) -> [NotificationModel] {
+        var notifications: [NotificationModel] = []
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
+        fetchRequest.returnsObjectsAsFaults = false
+        fetchRequest.predicate = NSPredicate(format: "type = %@", argumentArray: [type])
+
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    notifications.append(databaseHelper.parseNotificationCoreObjectToNotificationModel(coreObject: data))
+                }
+            } catch {
+            }
+        }
+
+        return notifications
     }
 }

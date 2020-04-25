@@ -17,6 +17,7 @@ class CierreCajaViewController: UIViewController {
     
     let cierreCaja: CierreCajaModel = CierreCajaModel()
     var presentDate: Date!
+    var notification: NotificationModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +109,13 @@ class CierreCajaViewController: UIViewController {
         }
         
         Constants.cloudDatabaseManager.cierreCajaManager.saveCierreCaja(cierreCaja: cierreCaja)
+        
+        if notification != nil {
+            notification.leido = true
+            _ = Constants.databaseManager.notificationsManager.markNotificationAsRead(notification: notification)
+            Constants.rootController.setNotificationBarItemBadge()
+            Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, showLoadingState: false)
+        }
         
         self.navigationController!.popViewController(animated: true)
     }

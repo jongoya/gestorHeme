@@ -33,14 +33,14 @@ class CloudCierreCajaManager {
     }
     
     func saveCierreCaja(cierreCaja: CierreCajaModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Guardando servicio")
+        CommonFunctions.showLoadingStateView(descriptionText: "Guardando cierre caja")
         let cierreCajaRecord: CKRecord = CKRecord(recordType: "CD_CierreCaja")
         cloudDatabaseHelper.setCierreCajaCKRecordVariables(cierreCaja: cierreCaja, record: cierreCajaRecord)
         
         publicDatabase.save(cierreCajaRecord) { (savedRecord, error) in
             CommonFunctions.hideLoadingStateView()
             if error != nil {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando servicio, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
+                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el cierre de caja, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
             }
         }
     }

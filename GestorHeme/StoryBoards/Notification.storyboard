@@ -140,11 +140,111 @@
             </objects>
             <point key="canvasLocation" x="388" y="-216"/>
         </scene>
+        <!--Cadencia Notification Detail View Controller-->
+        <scene sceneID="1wA-T2-cqU">
+            <objects>
+                <viewController storyboardIdentifier="CadenciaNotificationDetailViewController" id="SQn-h6-j0C" customClass="CadenciaNotificationDetailViewController" customModule="Heme" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dW8-Y6-1qr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-gV-OYA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tiempo.png" translatesAutoresizingMaskIntoConstraints="NO" id="dAQ-Cw-Yqc">
+                                        <rect key="frame" x="157" y="30" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="c1Z-t9-sTW"/>
+                                            <constraint firstAttribute="height" constant="100" id="hJO-GY-EVu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MM6-Xb-5cH">
+                                        <rect key="frame" x="15" y="160" width="384" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vEx-Nu-VS6">
+                                        <rect key="frame" x="0.0" y="194" width="414" height="624"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <view key="tableFooterView" contentMode="scaleToFill" id="3vb-7V-Krd">
+                                            <rect key="frame" x="0.0" y="116" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CadenciaNotificationCell" id="Rl2-os-92u" customClass="CadenciaNotificationCell" customModule="Heme" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rl2-os-92u" id="TAc-6j-yrt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqM-ZN-SfH">
+                                                            <rect key="frame" x="15" y="0.0" width="384" height="60"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="nqM-ZN-SfH" firstAttribute="top" secondItem="TAc-6j-yrt" secondAttribute="top" id="Ol6-2C-ga1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nqM-ZN-SfH" secondAttribute="bottom" id="cfY-Wp-nNF"/>
+                                                        <constraint firstItem="nqM-ZN-SfH" firstAttribute="leading" secondItem="TAc-6j-yrt" secondAttribute="leading" constant="15" id="kOU-XU-J8N"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nqM-ZN-SfH" secondAttribute="trailing" constant="15" id="m1o-5o-Snr"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="clientText" destination="nqM-ZN-SfH" id="xg5-EP-41L"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="SQn-h6-j0C" id="45v-Lp-bXZ"/>
+                                            <outlet property="delegate" destination="SQn-h6-j0C" id="B1H-E4-Zdx"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MM6-Xb-5cH" secondAttribute="trailing" constant="15" id="0Pt-Kq-GJ7"/>
+                                    <constraint firstItem="dAQ-Cw-Yqc" firstAttribute="centerX" secondItem="w0P-gV-OYA" secondAttribute="centerX" id="3uo-lM-vky"/>
+                                    <constraint firstAttribute="bottom" secondItem="vEx-Nu-VS6" secondAttribute="bottom" id="7y2-AE-zry"/>
+                                    <constraint firstItem="vEx-Nu-VS6" firstAttribute="top" secondItem="MM6-Xb-5cH" secondAttribute="bottom" constant="10" id="B7L-QP-5AE"/>
+                                    <constraint firstItem="MM6-Xb-5cH" firstAttribute="top" secondItem="dAQ-Cw-Yqc" secondAttribute="bottom" constant="30" id="CJA-Ce-0Td"/>
+                                    <constraint firstItem="MM6-Xb-5cH" firstAttribute="leading" secondItem="w0P-gV-OYA" secondAttribute="leading" constant="15" id="WjA-81-pdS"/>
+                                    <constraint firstItem="dAQ-Cw-Yqc" firstAttribute="top" secondItem="w0P-gV-OYA" secondAttribute="top" constant="30" id="YJm-kU-9nK"/>
+                                    <constraint firstItem="vEx-Nu-VS6" firstAttribute="leading" secondItem="w0P-gV-OYA" secondAttribute="leading" id="enH-zc-gai"/>
+                                    <constraint firstAttribute="trailing" secondItem="vEx-Nu-VS6" secondAttribute="trailing" id="iUE-Z1-T3n"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="w0P-gV-OYA" firstAttribute="top" secondItem="eaX-7O-iJh" secondAttribute="top" id="BTn-oj-URc"/>
+                            <constraint firstItem="w0P-gV-OYA" firstAttribute="leading" secondItem="eaX-7O-iJh" secondAttribute="leading" id="R1z-zK-b2W"/>
+                            <constraint firstItem="w0P-gV-OYA" firstAttribute="trailing" secondItem="eaX-7O-iJh" secondAttribute="trailing" id="dEW-XV-kPd"/>
+                            <constraint firstItem="w0P-gV-OYA" firstAttribute="bottom" secondItem="eaX-7O-iJh" secondAttribute="bottom" id="hg7-hd-fFu"/>
+                            <constraint firstItem="w0P-gV-OYA" firstAttribute="centerX" secondItem="dW8-Y6-1qr" secondAttribute="centerX" id="kdy-4Z-Fl7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eaX-7O-iJh"/>
+                    </view>
+                    <connections>
+                        <outlet property="cadenciaTextLabel" destination="MM6-Xb-5cH" id="Eex-Ua-enB"/>
+                        <outlet property="clientTableView" destination="vEx-Nu-VS6" id="wDQ-CM-ypc"/>
+                        <outlet property="imageview" destination="dAQ-Cw-Yqc" id="4dD-sw-bfw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qXK-ia-tzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="387" y="502"/>
+        </scene>
     </scenes>
     <resources>
         <image name="chat.png" width="48" height="48"/>
         <image name="correo.png" width="47.505153656005859" height="47.505153656005859"/>
         <image name="notification_cumple.png" width="384" height="384"/>
         <image name="telefono.png" width="47.505153656005859" height="47.505153656005859"/>
+        <image name="tiempo.png" width="384" height="384"/>
     </resources>
 </document>

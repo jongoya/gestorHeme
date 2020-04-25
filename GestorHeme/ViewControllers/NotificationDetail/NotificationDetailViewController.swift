@@ -39,7 +39,7 @@ class NotificationDetailViewController: UIViewController {
         _ = Constants.databaseManager.notificationsManager.markNotificationAsRead(notification: notification)
         Constants.rootController.setNotificationBarItemBadge()
         
-        Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification)
+        Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, showLoadingState: true)
     }
     
     func setContentView() {
@@ -72,7 +72,7 @@ class NotificationDetailViewController: UIViewController {
             text.append(", ")
         }
         
-        return text + "felicitalos!"
+        return text + (users.count > 1 ? "felicitalos!" : "felicitalo!")
     }
     
     func showActionsheet(comunicationCase: Int) {

@@ -51,7 +51,7 @@ class CloudDatabaseHelper: NSObject {
     
     func parseCloudNotificationsObjectToLocalNotificationObject(record: CKRecord) -> NotificationModel {
         let notification: NotificationModel = NotificationModel()
-        notification.clientId = record.object(forKey: "CD_clientId") as! [Int64]
+        notification.clientId = record.object(forKey: "CD_clientId") as? [Int64] ?? []
         notification.notificationId = record.object(forKey: "CD_notificationId") as! Int64
         notification.descripcion = record.object(forKey: "CD_descripcion") as! String
         notification.fecha = record.object(forKey: "CD_fecha") as! Int64

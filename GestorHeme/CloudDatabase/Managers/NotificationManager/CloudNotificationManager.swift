@@ -53,8 +53,10 @@ class CloudNotificationManager {
         }
     }
     
-    func updateNotification(notification: NotificationModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Guardando notificación")
+    func updateNotification(notification: NotificationModel, showLoadingState: Bool) {
+        if showLoadingState {
+            CommonFunctions.showLoadingStateView(descriptionText: "Guardando notificación")
+        }
         let predicate = NSPredicate(format: "CD_notificationId = %d", notification.notificationId)
         let query = CKQuery(recordType: "CD_Notifications", predicate: predicate)
         
@@ -75,6 +77,21 @@ class CloudNotificationManager {
                 }
                 
             })
+        }
+    }
+    
+    func deleteNotification(notificationId: Int64) {
+        let predicate = NSPredicate(format: "CD_notificationId = %d", notificationId)
+        let query = CKQuery(recordType: "CD_Notifications", predicate: predicate)
+        
+        publicDatabase.perform(query, inZoneWith: nil) {results, error in
+            if error != nil  || results!.count == 0 {
+                return
+            }
+            
+            let recordToDelete: CKRecord! = results!.first!
+            self.publicDatabase.delete(withRecordID: recordToDelete.recordID) {result, error in
+            }
         }
     }
 }

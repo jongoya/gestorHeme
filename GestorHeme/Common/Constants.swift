@@ -29,7 +29,8 @@ class Constants: NSObject {
     //Constantes tipo notificaciones
     static let notificacionCumpleIdentifier: String = "cumpleaños"
     static let notificacionCadenciaIdentifier: String = "cadencia"
-    static let notificacionFacturacionIdentifier: String = "facturacion"
+    static let notificacionCajaCierreIdentifier: String = "cajaCierre"
+    static let notificacionPersonalizadaIdentifier: String = "personalizada"
     
     static let databaseManager: DatabaseManager = DatabaseManager()
     static var rootController: RootViewController!

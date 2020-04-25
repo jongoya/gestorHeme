@@ -17,12 +17,12 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var facturacionView: UIView!
     @IBOutlet weak var facturacionLabel: UILabel!
     
-    
-    
     var allNotifications: [NotificationModel] = []
     var todayNotifications: [NotificationModel] = []
     var oldNotifications: [NotificationModel] = []
     var emptyStateLabel: UILabel!
+    
+    var tapSelected: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,24 +36,24 @@ class NotificationsViewController: UIViewController {
     }
     
     func showNotifications() {
+        todayNotifications.removeAll()
+        oldNotifications.removeAll()
         if emptyStateLabel != nil {
             emptyStateLabel.removeFromSuperview()
             emptyStateLabel = nil
         }
-        
-        allNotifications = Constants.databaseManager.notificationsManager.getAllNotificationsFromDatabase()
+        allNotifications = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: getNotificationType())
         
         if allNotifications.count > 0 {
             filterNotifications()
-            notificationsTableView.reloadData()
         } else {
             emptyStateLabel = CommonFunctions.createEmptyState(emptyText: "No hay notificaciones disponibles", parentView: self.view)
         }
+        
+        notificationsTableView.reloadData()
     }
     
     func filterNotifications() {
-        todayNotifications.removeAll()
-        oldNotifications.removeAll()
         let begginingOfDay: Int64 = Int64(NotificationFunctions.getBeginningOfDayFromDate(date: Date()).timeIntervalSince1970)
         let endDayOfDay: Int64 = Int64(NotificationFunctions.getEndOfDayFromDate(date: Date()).timeIntervalSince1970)
         
@@ -89,6 +89,43 @@ class NotificationsViewController: UIViewController {
         view.layer.cornerRadius = 10
         label.textColor = .red
     }
+    
+    func getNotificationType() -> String {
+        switch tapSelected {
+        case 1:
+            return Constants.notificacionCumpleIdentifier
+        case 2:
+            return Constants.notificacionCadenciaIdentifier
+        case 3:
+            return Constants.notificacionCajaCierreIdentifier
+        default:
+            return Constants.notificacionPersonalizadaIdentifier
+        }
+    }
+    
+    func openBirthdayDetail(notification: NotificationModel) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Notification", bundle:nil)
+        let controller: NotificationDetailViewController = storyBoard.instantiateViewController(withIdentifier: "NotificationDetailViewController") as! NotificationDetailViewController
+        controller.notification = notification
+        self.navigationController!.pushViewController(controller, animated: true)
+    }
+    
+    func openCierreCaja(notificacion: NotificationModel) {
+        if notificacion.leido {
+            CommonFunctions.showGenericAlertMessage(mensaje: "Cierre caja realizado en la fecha indicada", viewController: self)
+            return
+        }
+        
+        performSegue(withIdentifier: "cierreCajaIdentifier", sender: notificacion)
+    }
+    
+    func openCadenciaDetail(notification: NotificationModel) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Notification", bundle:nil)
+        let controller: CadenciaNotificationDetailViewController = storyBoard.instantiateViewController(withIdentifier: "CadenciaNotificationDetailViewController") as! CadenciaNotificationDetailViewController
+        controller.notification = notification
+        self.navigationController!.pushViewController(controller, animated: true)
+        
+    }
 }
 
 extension NotificationsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -121,10 +158,16 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Notification", bundle:nil)
-        let controller: NotificationDetailViewController = storyBoard.instantiateViewController(withIdentifier: "NotificationDetailViewController") as! NotificationDetailViewController
-        controller.notification = getNotificationModelForIndexPath(indexPath: indexPath)
-        self.navigationController!.pushViewController(controller, animated: true)
+        switch tapSelected {
+        case 1:
+            openBirthdayDetail(notification: getNotificationModelForIndexPath(indexPath: indexPath))
+        case 2:
+            openCadenciaDetail(notification: getNotificationModelForIndexPath(indexPath: indexPath))
+        case 3:
+            openCierreCaja(notificacion: getNotificationModelForIndexPath(indexPath: indexPath))
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -145,17 +188,34 @@ extension NotificationsViewController {
         paintWholeButton(view: cumpleView, label: cumpleLabel)
         paintBorderButton(view: cadenciaView, label: cadenciaLabel)
         paintBorderButton(view: facturacionView, label: facturacionLabel)
+        tapSelected = 1
+        showNotifications()
     }
+    
     @IBAction func didClickCadenciaButton(_ sender: Any) {
         paintWholeButton(view: cadenciaView, label: cadenciaLabel)
         paintBorderButton(view: cumpleView, label: cumpleLabel)
         paintBorderButton(view: facturacionView, label: facturacionLabel)
-        
+        tapSelected = 2
+        showNotifications()
     }
+    
     @IBAction func didClickFacturacionButton(_ sender: Any) {
         paintWholeButton(view: facturacionView, label: facturacionLabel)
         paintBorderButton(view: cumpleView, label: cumpleLabel)
         paintBorderButton(view: cadenciaView, label: cadenciaLabel)
-        
+        tapSelected = 3
+        showNotifications()
+    }
+}
+
+extension NotificationsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cierreCajaIdentifier" {
+            let notification: NotificationModel = sender as! NotificationModel
+            let controller: CierreCajaViewController = segue.destination as! CierreCajaViewController
+            controller.presentDate = Date(timeIntervalSince1970: TimeInterval(notification.fecha))
+            controller.notification = notification
+        }
     }
 }

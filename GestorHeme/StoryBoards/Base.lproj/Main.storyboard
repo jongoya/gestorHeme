@@ -378,6 +378,7 @@
                         <outlet property="facturacionLabel" destination="COG-CH-Bxl" id="ahj-Dh-U9D"/>
                         <outlet property="facturacionView" destination="y1z-gO-zc1" id="9V2-UB-p2G"/>
                         <outlet property="notificationsTableView" destination="Qd8-pA-ejR" id="VQO-Lt-KIS"/>
+                        <segue destination="BW1-m4-tdR" kind="show" identifier="cierreCajaIdentifier" id="eyH-au-oZt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuD-7c-4gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3278,6 +3279,7 @@
         <segue reference="0EN-DX-rnx"/>
         <segue reference="3Mh-Dn-qla"/>
         <segue reference="G0F-tq-SXm"/>
+        <segue reference="eyH-au-oZt"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>

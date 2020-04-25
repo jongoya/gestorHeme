@@ -18,27 +18,52 @@ class NotificationCell: UITableViewCell {
         customizeContentView(notification: notification)
         
         if notification.type == Constants.notificacionCumpleIdentifier {
-            notificationImage.image = UIImage(named: "cumple")!.withRenderingMode(.alwaysTemplate)
-            if notification.leido {
-                notificationImage.tintColor = .black
-            } else {
-                notificationImage.tintColor = UIColor.link
-            }
+            setBirthdayContent(notification: notification)
+        } else if notification.type == Constants.notificacionCajaCierreIdentifier {
+            setCierreCajaContent(notification: notification)
+        } else if notification.type == Constants.notificacionCadenciaIdentifier {
+            setCadenciacontent(notification: notification)
         }
-        
-        clientName.text = "¡Felicitaciones!"
-        
-        let nextText: String = notification.clientId.count > 1 ? " personas, felicitalos!" : " persona, felicitalo!"
-        notificationDescriptionLabel.text = "¡Hoy cumplen años " + String(notification.clientId.count) +  nextText
     }
     
     private func customizeContentView(notification: NotificationModel) {
         notificationContentView.layer.cornerRadius = 10
         notificationContentView.layer.borderWidth = 1
         if notification.leido {
+            notificationImage.tintColor = .black
             notificationContentView.layer.borderColor = UIColor.systemGray4.cgColor
         } else {
             notificationContentView.layer.borderColor = UIColor.link.cgColor
+            notificationImage.tintColor = UIColor.link
         }
+    }
+    
+    private func setBirthdayContent(notification: NotificationModel) {
+        notificationImage.image = UIImage(named: "cumple")!.withRenderingMode(.alwaysTemplate)
+        clientName.text = "¡Felicitaciones!"
+        
+        let nextText: String = notification.clientId.count > 1 ? " personas, felicitalos!" : " persona, felicitalo!"
+        notificationDescriptionLabel.text = "¡Hoy cumplen años " + String(notification.clientId.count) +  nextText
+    }
+    
+    private func setCierreCajaContent(notification: NotificationModel) {
+        notificationImage.image = UIImage(named: "cash")!.withRenderingMode(.alwaysTemplate)
+        
+        let year: Int = AgendaFunctions.getYearNumberFromDate(date: Date(timeIntervalSince1970: TimeInterval(notification.fecha)))
+        let month: String = AgendaFunctions.getMonthNameFromDate(date: Date(timeIntervalSince1970: TimeInterval(notification.fecha))).capitalized
+        let day: Int = Calendar.current.component(.day, from: Date(timeIntervalSince1970: TimeInterval(notification.fecha)))
+        
+        clientName.text = String(day) + " de " + String(month) + " de " + String(year)
+        notificationDescriptionLabel.text = "¡El cierre de caja está pendiente de realizar!"
+    }
+    
+    private func setCadenciacontent(notification: NotificationModel) {
+        notificationImage.image = UIImage(named: "cadencia")!.withRenderingMode(.alwaysTemplate)
+        clientName.text = "¡Cadencia!"
+        
+        var text: String = String(notification.clientId.count)
+        text.append(notification.clientId.count > 1 ? " clientes llevan tiempo sin venir" : " cliente lleva tiempo sin venir")
+        
+        notificationDescriptionLabel.text = text
     }
 }

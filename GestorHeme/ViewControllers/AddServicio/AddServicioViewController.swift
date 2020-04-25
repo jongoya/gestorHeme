@@ -94,6 +94,8 @@ class AddServicioViewController: UIViewController {
         }
         
         Constants.cloudDatabaseManager.serviceManager.saveService(service: service)
+        
+        Constants.databaseManager.notificationsManager.removeClientFromNotification(clientId: client.id, notificationType: Constants.notificacionCadenciaIdentifier)
     }
     
     func updateService() {

@@ -22,7 +22,7 @@ class AgendaFunctions: NSObject {
     static func getEndOfDayFromDate(date: Date) -> Date {
         let calendar: Calendar = Calendar.current
         var components: DateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-        components.hour = 20
+        components.hour = 23
         components.minute = 0
         components.second = 0
         
@@ -139,4 +139,10 @@ class AgendaFunctions: NSObject {
     static func getYearNumberFromDate(date: Date) -> Int {
         return Calendar.current.component(.year, from: date)
     }
+    
+    /*static func checkIfSameYear(date1TimeStamp: Int64, date2TimeStamp: Int64) -> Bool {
+        let date1: Date = Date(timeIntervalSince1970: TimeInterval(date1TimeStamp))
+        let date2: Date = Date(timeIntervalSince1970: TimeInterval(date2TimeStamp))
+        return Calendar.current.component(.year, from: date1) == Calendar.current.component(.year, from: date2)
+    }*/
 }

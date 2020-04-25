@@ -119,4 +119,129 @@ class NotificationFunctions: NSObject {
         
         return userIds
     }
+    
+    private static func getClientIds(clients: [ClientModel]) -> [Int64] {
+        var clientIds: [Int64] = []
+        for client in clients {
+            clientIds.append(client.id)
+        }
+        
+        return clientIds
+    }
+    
+    static func checkCierreCajas() {
+        let yesterday: Date = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+        let beginingOfDay: Date = AgendaFunctions.getBeginningOfDayFromDate(date: yesterday)
+        let endOfDay: Date = AgendaFunctions.getEndOfDayFromDate(date: yesterday)
+        
+        let cierreCajaExist: Bool = checkCierreCajasInRange(beginingOfDay: beginingOfDay, endOfDay: endOfDay)
+        let serviciosExist: Bool = Constants.databaseManager.servicesManager.getServicesForDay(date: yesterday).count > 0
+        let notificationExist: Bool = checkCierreCajasNotificationForRange(beginingOfDay: beginingOfDay, endOfDay: endOfDay)
+        
+        if notificationExist {
+            return
+        }
+        
+        if !cierreCajaExist && serviciosExist {
+            createCierreCajaNotification(fecha: yesterday)
+        }
+    }
+    
+    private static func createCierreCajaNotification(fecha: Date) {
+        let notification: NotificationModel = NotificationModel()
+        notification.notificationId = Int64(Date().timeIntervalSince1970)
+        notification.fecha = Int64(fecha.timeIntervalSince1970)
+        notification.leido = false
+        notification.type = Constants.notificacionCajaCierreIdentifier
+        _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
+        
+        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+    }
+    
+    private static func checkCierreCajasInRange(beginingOfDay: Date, endOfDay: Date) -> Bool {
+        let begininOfDayTimestamp: Int64 = Int64(beginingOfDay.timeIntervalSince1970)
+        let endOfDayTimestamp: Int64 = Int64(endOfDay.timeIntervalSince1970)
+        let cierreCajas: [CierreCajaModel] = Constants.databaseManager.cierreCajaManager.getAllCierreCajasFromDatabase()
+        
+        for cierreCaja in cierreCajas {
+            if cierreCaja.fecha > begininOfDayTimestamp && cierreCaja.fecha < endOfDayTimestamp {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private static func checkCierreCajasNotificationForRange(beginingOfDay: Date, endOfDay: Date) -> Bool {
+        let begininOfDayTimestamp: Int64 = Int64(beginingOfDay.timeIntervalSince1970)
+        let endOfDayTimestamp: Int64 = Int64(endOfDay.timeIntervalSince1970)
+        let cierreCajasNotifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionCajaCierreIdentifier)
+        
+        for notification in cierreCajasNotifications {
+            if notification.fecha > begininOfDayTimestamp && notification.fecha < endOfDayTimestamp {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    static func checkClientCadencias() {
+        let clients: [ClientModel] = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
+        let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionCadenciaIdentifier)
+        var clientesConCadenciaSuperada: [ClientModel] = []
+        
+        for client in clients {
+            let cadencia: CadenciaModel = CadenciaModel(cadencia: client.cadenciaVisita)
+            let services = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: client.id).sorted(by: { $0.fecha < $1.fecha })
+            let cadenciaSuperada: Bool = aSuperadoCadencia(services: services, cadencia: cadencia, clientId: client.id)
+            
+            if cadenciaSuperada {
+                if !hasClientANotification(notifications: notifications, clientId: client.id) {
+                    clientesConCadenciaSuperada.append(client)
+                }
+            }
+        }
+        
+        if clientesConCadenciaSuperada.count > 0 {
+            createCadenciaNotification(clientArray: clientesConCadenciaSuperada)
+        }
+    }
+    
+    private static func aSuperadoCadencia(services: [ServiceModel], cadencia: CadenciaModel, clientId: Int64) -> Bool {
+        if services.count > 0 {
+            var aSuperadoCadencia: Bool = false
+            for service in services {
+                aSuperadoCadencia = service.fecha < cadencia.candenciaTime
+            }
+            
+            return aSuperadoCadencia
+        } else {
+            //si el usuario no tiene servicios, comparamos con la fecha de creación de usuario
+            return clientId < cadencia.candenciaTime
+        }
+    }
+    
+    private static func hasClientANotification(notifications: [NotificationModel], clientId: Int64) -> Bool {
+        var notificationExists = false
+        for notification in notifications {
+            if notification.clientId.contains(clientId) {
+                notificationExists = true
+            }
+        }
+        
+        return notificationExists
+    }
+    
+    private static func createCadenciaNotification(clientArray: [ClientModel]) {
+        let notification: NotificationModel = NotificationModel()
+        notification.notificationId = Int64(Date().timeIntervalSince1970)
+        notification.fecha = Int64(Date().timeIntervalSince1970)
+        notification.clientId = getClientIds(clients: clientArray)
+        notification.leido = false
+        notification.type = Constants.notificacionCadenciaIdentifier
+        _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
+        
+        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+    }
 }
