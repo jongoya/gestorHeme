@@ -60,6 +60,10 @@ class NotificationsManager: NSObject {
                 }
             }
             
+            DispatchQueue.main.async {
+                Constants.rootController.setNotificationBarItemBadge()
+            }
+            
             return result
         } else {
             return false
@@ -150,5 +154,40 @@ class NotificationsManager: NSObject {
         }
 
         return notifications
+    }
+    
+    func eliminarNotificacion(notificationId: Int64) -> Bool {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "notificationId = %f", argumentArray: [notificationId])
+        var results: [NSManagedObject] = []
+        
+        var result: Bool = false
+        backgroundContext.performAndWait {
+            do {
+                results = try backgroundContext.fetch(fetchRequest)
+                
+                for object in results {
+                    backgroundContext.delete(object)
+                }
+                
+                try backgroundContext.save()
+                result = true
+            } catch {
+            }
+        }
+        
+        return result
+    }
+    
+    func deleteOldNotifications() {
+        let fechaTimeStamp: Int64 = Int64(Calendar.current.date(byAdding: .day, value: -7, to: Date())!.timeIntervalSince1970)
+        let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsFromDatabase()
+        for notification in notifications {
+            if notification.fecha < fechaTimeStamp {
+                _ = eliminarNotificacion(notificationId: notification.notificationId)
+            }
+        }
+        
+        Constants.cloudDatabaseManager.notificationManager.deleteOldNotifications()
     }
 }

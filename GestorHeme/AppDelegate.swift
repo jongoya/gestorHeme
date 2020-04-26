@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Constants.cloudDatabaseManager.empleadoManager.getEmpleados(delegate: nil)
         Constants.cloudDatabaseManager.tipoServicioManager.getTipoServicios(delegate: nil)
-        Constants.cloudDatabaseManager.notificationManager.getNotificaciones()
+        Constants.cloudDatabaseManager.notificationManager.getNotificaciones(delegate: nil)
         Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: nil)
         Constants.cloudDatabaseManager.cierreCajaManager.getCierreCajas()
         

@@ -10,16 +10,15 @@ import UIKit
 import CloudKit
 
 class CloudClientManager {
-    let clientQuery: CKQuery = CKQuery(recordType: "CD_Cliente", predicate: NSPredicate(value: true))
-    let clientRecord: CKRecord = CKRecord(recordType: "CD_Cliente")
+    let tableName: String = "CD_Cliente"
     
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
     func getClients(delegate: CloudClientManagerProtocol?) {
-        let operation = CKQueryOperation(query: clientQuery)
+        let operation = CKQueryOperation(query: CKQuery(recordType: tableName, predicate: NSPredicate(value: true)))
         operation.recordFetchedBlock = { (record: CKRecord!) in
-            if record != nil{
+            if record != nil {
                 let client: ClientModel = self.cloudDatabaseHelper.parseCloudCLientObjectToLocalCLientObject(record: record)
                 if Constants.databaseManager.clientsManager.getCoreClientFromDatabase(clientId: client.id).count == 0 {
                     _ = Constants.databaseManager.clientsManager.addClientToDatabase(newClient: client)
@@ -39,6 +38,8 @@ class CloudClientManager {
     
     func saveClient(client: ClientModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Guardando cliente")
+        
+        let clientRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setClientCKRecordVariables(client: client, record: clientRecord)
         
         publicDatabase.save(clientRecord) { (savedRecord, error) in
@@ -49,10 +50,13 @@ class CloudClientManager {
         }
     }
     
-    func updateClient(client: ClientModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Actualizando cliente")
+    func updateClient(client: ClientModel, showLoadingState: Bool) {
+        if showLoadingState {
+            CommonFunctions.showLoadingStateView(descriptionText: "Actualizando cliente")
+        }
+        
         let predicate = NSPredicate(format: "CD_idCliente = %d", client.id)
-        let query = CKQuery(recordType: "CD_Cliente", predicate: predicate)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
             if error != nil  || results!.count == 0 {
@@ -61,10 +65,9 @@ class CloudClientManager {
                 return
             }
             
-            let recordToUpdate: CKRecord! = results!.first!
-            self.cloudDatabaseHelper.setClientCKRecordVariables(client: client, record: recordToUpdate)
+            self.cloudDatabaseHelper.setClientCKRecordVariables(client: client, record: results!.first!)
             
-            self.publicDatabase.save(recordToUpdate, completionHandler: { (newRecord, error) in
+            self.publicDatabase.save(results!.first!, completionHandler: { (newRecord, error) in
                 CommonFunctions.hideLoadingStateView()
                 if error != nil {
                     CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando cliente, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RMDateSelectionViewController
 
 class ClientDetailViewController: UIViewController {
     @IBOutlet weak var nombreLabel: UILabel!
@@ -21,6 +22,8 @@ class ClientDetailViewController: UIViewController {
     @IBOutlet weak var observacionesView: UIView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var addServicioView: UIView!
+    @IBOutlet weak var alarmView: UIView!
+    @IBOutlet weak var alarmImageView: UIImageView!
     
     var client: ClientModel!
     var services: [ServiceModel] = []
@@ -35,8 +38,20 @@ class ClientDetailViewController: UIViewController {
         title = "Detalle Cliente"
         addBackButton()
         CommonFunctions.customizeButton(button: addServicioView)
+        CommonFunctions.customizeButton(button: alarmView)
         addRefreshControl()
         getClientDetails()
+        
+        if client.notificacionPersonalizada == 0 {
+            deactivateAlarmButton()
+        } else {
+            activateAlarmButton()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Constants.rootController.setNotificationBarItemBadge()
     }
     
     func getClientDetails() {
@@ -185,7 +200,7 @@ class ClientDetailViewController: UIViewController {
             return
         }
         
-        Constants.cloudDatabaseManager.clientManager.updateClient(client: client)
+        Constants.cloudDatabaseManager.clientManager.updateClient(client: client, showLoadingState: true)
         
         self.navigationController!.popViewController(animated: true)
     }
@@ -209,6 +224,32 @@ class ClientDetailViewController: UIViewController {
     
     func addBackButton() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(didClickBackButton))
+    }
+    
+    func showDateSelectionPicker() {
+        let selectAction: RMAction<UIDatePicker> = RMAction(title: "Aceptar", style: .done) { (controller) in
+            let fecha: Int64 = Int64(controller.contentView.date.timeIntervalSince1970)
+            Constants.databaseManager.clientsManager.updateNotificacionPersonalizada(fecha: fecha, clientId: self.client.id, descripcion: self.client.observaciones)
+            self.activateAlarmButton()
+            self.client.notificacionPersonalizada = fecha
+            }!
+        let cancelAction: RMAction<UIDatePicker> = RMAction(title: "Cancelar", style: .cancel, andHandler: nil)!
+        
+        let dateSelector: RMDateSelectionViewController = RMDateSelectionViewController(style: .white, title: "Seleccione", message: "Seleccione una fecha", select: selectAction, andCancel: cancelAction)!
+        dateSelector.datePicker.datePickerMode = .date
+        self.present(dateSelector, animated: true, completion: nil)
+    }
+    
+    func activateAlarmButton() {
+        alarmImageView.image = UIImage(named: "campana")?.withRenderingMode(.alwaysTemplate)
+        alarmImageView.tintColor = .link
+        alarmView.layer.borderColor = UIColor.link.cgColor
+    }
+    
+    func deactivateAlarmButton() {
+        alarmImageView.image = UIImage(named: "campana")?.withRenderingMode(.alwaysTemplate)
+        alarmImageView.tintColor = .systemGray4
+        alarmView.layer.borderColor = UIColor.systemGray4.cgColor
     }
 }
 
@@ -266,6 +307,16 @@ extension ClientDetailViewController {
             self.navigationController?.popViewController(animated: true)
         } else {
             showChangesAlertMessage()
+        }
+    }
+    
+    @IBAction func didClickAlarmView(_ sender: Any) {
+        if client.notificacionPersonalizada == 0 {
+            showDateSelectionPicker()
+        } else {
+            client.notificacionPersonalizada = 0
+            Constants.databaseManager.clientsManager.updateNotificacionPersonalizada(fecha: 0, clientId: client.id, descripcion: client.observaciones)
+            deactivateAlarmButton()
         }
     }
 }

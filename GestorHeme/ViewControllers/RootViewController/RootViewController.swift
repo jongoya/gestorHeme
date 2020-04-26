@@ -20,6 +20,7 @@ class RootViewController: UITabBarController {
         NotificationFunctions.checkBirthdays()
         NotificationFunctions.checkCierreCajas()
         NotificationFunctions.checkClientCadencias()
+        Constants.databaseManager.notificationsManager.deleteOldNotifications()
         
         setNotificationBarItemBadge()
     }

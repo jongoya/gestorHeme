@@ -16,17 +16,21 @@ class NotificationsViewController: UIViewController {
     @IBOutlet weak var cadenciaLabel: UILabel!
     @IBOutlet weak var facturacionView: UIView!
     @IBOutlet weak var facturacionLabel: UILabel!
+    @IBOutlet weak var personalizadaLabel: UILabel!
+    @IBOutlet weak var personalizadaView: UIView!
     
     var allNotifications: [NotificationModel] = []
     var todayNotifications: [NotificationModel] = []
     var oldNotifications: [NotificationModel] = []
     var emptyStateLabel: UILabel!
+    var tableRefreshControl: UIRefreshControl = UIRefreshControl()
     
     var tapSelected: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         didClickcumpleButton("")
+        addRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +55,11 @@ class NotificationsViewController: UIViewController {
         }
         
         notificationsTableView.reloadData()
+    }
+    
+    func addRefreshControl() {
+        tableRefreshControl.addTarget(self, action: #selector(refreshNotifications(_:)), for: .valueChanged)
+        notificationsTableView.refreshControl = tableRefreshControl
     }
     
     func filterNotifications() {
@@ -166,6 +175,7 @@ extension NotificationsViewController: UITableViewDelegate, UITableViewDataSourc
         case 3:
             openCierreCaja(notificacion: getNotificationModelForIndexPath(indexPath: indexPath))
         default:
+            openBirthdayDetail(notification: getNotificationModelForIndexPath(indexPath: indexPath))
             break
         }
     }
@@ -188,6 +198,7 @@ extension NotificationsViewController {
         paintWholeButton(view: cumpleView, label: cumpleLabel)
         paintBorderButton(view: cadenciaView, label: cadenciaLabel)
         paintBorderButton(view: facturacionView, label: facturacionLabel)
+        paintBorderButton(view: personalizadaView, label: personalizadaLabel)
         tapSelected = 1
         showNotifications()
     }
@@ -196,6 +207,7 @@ extension NotificationsViewController {
         paintWholeButton(view: cadenciaView, label: cadenciaLabel)
         paintBorderButton(view: cumpleView, label: cumpleLabel)
         paintBorderButton(view: facturacionView, label: facturacionLabel)
+        paintBorderButton(view: personalizadaView, label: personalizadaLabel)
         tapSelected = 2
         showNotifications()
     }
@@ -204,8 +216,22 @@ extension NotificationsViewController {
         paintWholeButton(view: facturacionView, label: facturacionLabel)
         paintBorderButton(view: cumpleView, label: cumpleLabel)
         paintBorderButton(view: cadenciaView, label: cadenciaLabel)
+        paintBorderButton(view: personalizadaView, label: personalizadaLabel)
         tapSelected = 3
         showNotifications()
+    }
+    
+    @IBAction func didClickPersonalizada(_ sender: Any) {
+        paintWholeButton(view: personalizadaView, label: personalizadaLabel)
+        paintBorderButton(view: cumpleView, label: cumpleLabel)
+        paintBorderButton(view: cadenciaView, label: cadenciaLabel)
+        paintBorderButton(view: facturacionView, label: facturacionLabel)
+        tapSelected = 4
+        showNotifications()
+    }
+    
+    @objc func refreshNotifications(_ sender: Any) {
+        Constants.cloudDatabaseManager.notificationManager.getNotificaciones(delegate: self)
     }
 }
 
@@ -217,5 +243,12 @@ extension NotificationsViewController {
             controller.presentDate = Date(timeIntervalSince1970: TimeInterval(notification.fecha))
             controller.notification = notification
         }
+    }
+}
+
+extension NotificationsViewController: CloudNotificationProtocol {
+    func notificationsDownloaded() {
+        tableRefreshControl.endRefreshing()
+        showNotifications()
     }
 }

@@ -48,6 +48,11 @@ class NotificationDetailViewController: UIViewController {
             notificationReasonLabel.text = "¡Cumpleaños!"
             shortDescriptionLabel.text = createBirthdayDescription()
             longDescriptionLabel.text = notification.descripcion
+        } else if notification.type == Constants.notificacionPersonalizadaIdentifier {
+            backgroundImageView.image = UIImage(named: "personalizada")
+            notificationReasonLabel.text = "Notificación personalizada"
+            shortDescriptionLabel.text = createNotificacionPersonalizadaDescription()
+            longDescriptionLabel.text = notification.descripcion
         }
     }
     
@@ -73,6 +78,14 @@ class NotificationDetailViewController: UIViewController {
         }
         
         return text + (users.count > 1 ? "felicitalos!" : "felicitalo!")
+    }
+    
+    func createNotificacionPersonalizadaDescription() -> String {
+        let year: Int = AgendaFunctions.getYearNumberFromDate(date: Date(timeIntervalSince1970: TimeInterval(notification.fecha)))
+        let month: String = AgendaFunctions.getMonthNameFromDate(date: Date(timeIntervalSince1970: TimeInterval(notification.fecha))).capitalized
+        let day: Int = Calendar.current.component(.day, from: Date(timeIntervalSince1970: TimeInterval(notification.fecha)))
+        
+        return String(day) + " de " + String(month) + " de " + String(year)
     }
     
     func showActionsheet(comunicationCase: Int) {

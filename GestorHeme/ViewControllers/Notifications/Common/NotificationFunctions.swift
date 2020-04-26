@@ -244,4 +244,17 @@ class NotificationFunctions: NSObject {
         
         Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
     }
+    
+    static func createNotificacionPersonalizada(fecha: Int64, clientId: Int64, descripcion: String) {
+        let notification: NotificationModel = NotificationModel()
+        notification.notificationId = Int64(Date().timeIntervalSince1970)
+        notification.fecha = fecha
+        notification.clientId = [clientId]
+        notification.leido = false
+        notification.descripcion = descripcion
+        notification.type = Constants.notificacionPersonalizadaIdentifier
+        _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
+        
+        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+    }
 }

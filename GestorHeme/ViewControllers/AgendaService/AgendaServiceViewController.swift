@@ -75,6 +75,8 @@ class AgendaServiceViewController: UIViewController {
         }
         
         Constants.cloudDatabaseManager.serviceManager.saveService(service: newService)
+        
+        Constants.databaseManager.notificationsManager.removeClientFromNotification(clientId: clientSeleced.id, notificationType: Constants.notificacionCadenciaIdentifier)
     }
     
     func addBackButton() {

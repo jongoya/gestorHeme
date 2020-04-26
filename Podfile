@@ -16,4 +16,5 @@ target 'GestorHeme' do
   pod 'ChromaColorPicker'
   pod 'iCarousel', '~> 1.8'
   pod 'Charts'
+  pod "RMDateSelectionViewController", "~> 2.3.1"
 end

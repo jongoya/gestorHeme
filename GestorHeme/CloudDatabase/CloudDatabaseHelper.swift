@@ -22,6 +22,7 @@ class CloudDatabaseHelper: NSObject {
         cliente.direccion = record.object(forKey: "CD_direccion") as! String
         cliente.cadenciaVisita = record.object(forKey: "CD_cadenciaVisita") as! String
         cliente.observaciones = record.object(forKey: "CD_observaciones") as! String
+        cliente.notificacionPersonalizada = record.object(forKey: "CD_notificacionPersonalizada") as! Int64
         
         return cliente
     }
@@ -98,6 +99,7 @@ class CloudDatabaseHelper: NSObject {
         record.setValue(client.direccion, forKey: "CD_direccion")
         record.setValue(client.cadenciaVisita, forKey: "CD_cadenciaVisita")
         record.setValue(client.observaciones, forKey: "CD_observaciones")
+        record.setValue(client.notificacionPersonalizada, forKey: "CD_notificacionPersonalizada")
     }
     
     func setEmpleadoCKRecordVariables(empleado: EmpleadoModel, record: CKRecord) {

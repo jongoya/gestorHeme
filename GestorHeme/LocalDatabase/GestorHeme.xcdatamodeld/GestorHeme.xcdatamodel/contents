@@ -17,6 +17,7 @@
         <attribute name="fecha" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="idCliente" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
+        <attribute name="notificacionPersonalizada" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="observaciones" optional="YES" attributeType="String"/>
         <attribute name="telefono" optional="YES" attributeType="String"/>
     </entity>
@@ -55,7 +56,7 @@
     </entity>
     <elements>
         <element name="Caja" positionX="-54" positionY="99" width="128" height="148"/>
-        <element name="Cliente" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Cliente" positionX="-63" positionY="-18" width="128" height="193"/>
         <element name="Empleado" positionX="-54" positionY="81" width="128" height="178"/>
         <element name="Notifications" positionX="-54" positionY="81" width="128" height="133"/>
         <element name="Servicio" positionX="-45" positionY="63" width="128" height="163"/>

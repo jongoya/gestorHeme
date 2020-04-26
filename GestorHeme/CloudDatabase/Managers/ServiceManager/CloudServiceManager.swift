@@ -10,17 +10,18 @@ import UIKit
 import CloudKit
 
 class CloudServiceManager {
-    let servicesQuery: CKQuery = CKQuery(recordType: "CD_Servicio", predicate: NSPredicate(value: true))
-    let serviceRecord: CKRecord = CKRecord(recordType: "CD_Servicio")
+    let tableName: String = "CD_Servicio"
+    
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
     func getServicios(delegate: CloudServiceManagerProtocol?) {
-        let query: CKQuery = servicesQuery
+        let query: CKQuery = CKQuery(recordType: tableName, predicate: NSPredicate(value: true))
         query.sortDescriptors = [NSSortDescriptor(key: "CD_fecha", ascending: false)]
         let operation = CKQueryOperation(query: query)
+        
         operation.recordFetchedBlock = { (record: CKRecord!) in
-             if record != nil{
+             if record != nil {
                 let servicio: ServiceModel = self.cloudDatabaseHelper.parseCloudServicioObjectToLocalServicioObject(record: record)
                 
                 if Constants.databaseManager.servicesManager.getServiceFromDatabase(serviceId: servicio.serviceId).count == 0 {
@@ -43,11 +44,12 @@ class CloudServiceManager {
     func getServiciosPorCliente(clientId: Int64, delegate: CloudServiceManagerProtocol?) {
         var cloudServices: [Int64] = []
         let predicate = NSPredicate(format: "CD_clientId = %d", clientId)
-        let query: CKQuery = CKQuery(recordType: "CD_Servicio", predicate: predicate)
+        let query: CKQuery = CKQuery(recordType: tableName, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "CD_fecha", ascending: false)]
         let operation = CKQueryOperation(query: query)
+        
         operation.recordFetchedBlock = { (record: CKRecord!) in
-             if record != nil{
+            if record != nil {
                 let servicio: ServiceModel = self.cloudDatabaseHelper.parseCloudServicioObjectToLocalServicioObject(record: record)
                 cloudServices.append(servicio.serviceId)
                 if Constants.databaseManager.servicesManager.getServiceFromDatabase(serviceId: servicio.serviceId).count == 0 {
@@ -72,12 +74,14 @@ class CloudServiceManager {
         let beginingOfDay: Int64 = Int64(AgendaFunctions.getBeginningOfDayFromDate(date: date).timeIntervalSince1970)
         let endOfDay: Int64 = Int64(AgendaFunctions.getEndOfDayFromDate(date: date).timeIntervalSince1970)
         var cloudServices: [Int64] = []
+        
         let predicate = NSPredicate(format: "CD_fecha > %d AND CD_fecha < %d", beginingOfDay, endOfDay)
-        let query: CKQuery = CKQuery(recordType: "CD_Servicio", predicate: predicate)
+        let query: CKQuery = CKQuery(recordType: tableName, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "CD_fecha", ascending: false)]
+        
         let operation = CKQueryOperation(query: query)
         operation.recordFetchedBlock = { (record: CKRecord!) in
-             if record != nil{
+            if record != nil {
                 let servicio: ServiceModel = self.cloudDatabaseHelper.parseCloudServicioObjectToLocalServicioObject(record: record)
                 cloudServices.append(servicio.serviceId)
                 if Constants.databaseManager.servicesManager.getServiceFromDatabase(serviceId: servicio.serviceId).count == 0 {
@@ -100,6 +104,7 @@ class CloudServiceManager {
     
     func saveService(service: ServiceModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Guardando servicio")
+        let serviceRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setServiceCKRecordVariables(service: service, record: serviceRecord)
         
         publicDatabase.save(serviceRecord) { (savedRecord, error) in
@@ -113,7 +118,7 @@ class CloudServiceManager {
     func deleteService(service: ServiceModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Eliminando servicio")
         let predicate = NSPredicate(format: "CD_serviceId = %d", service.serviceId)
-        let query = CKQuery(recordType: "CD_Servicio", predicate: predicate)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
             if error != nil  || results!.count == 0 {
@@ -122,8 +127,7 @@ class CloudServiceManager {
                 return
             }
             
-            let recordToDelete: CKRecord! = results!.first!
-            self.publicDatabase.delete(withRecordID: recordToDelete.recordID) {result, error in
+            self.publicDatabase.delete(withRecordID: results!.first!.recordID) {result, error in
                 CommonFunctions.hideLoadingStateView()
                if error != nil {
                    CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando el servicio, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
@@ -136,8 +140,9 @@ class CloudServiceManager {
         if showLoadingState {
             CommonFunctions.showLoadingStateView(descriptionText: "Actualizando servicio")
         }
+        
         let predicate = NSPredicate(format: "CD_serviceId = %d", service.serviceId)
-        let query = CKQuery(recordType: "CD_Servicio", predicate: predicate)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
             if error != nil  || results!.count == 0 {
@@ -149,10 +154,9 @@ class CloudServiceManager {
                 return
             }
             
-            let recordToUpdate: CKRecord! = results!.first!
-            self.cloudDatabaseHelper.setServiceCKRecordVariables(service: service, record: recordToUpdate)
+            self.cloudDatabaseHelper.setServiceCKRecordVariables(service: service, record: results!.first!)
             
-            self.publicDatabase.save(recordToUpdate, completionHandler: { (newRecord, error) in
+            self.publicDatabase.save(results!.first!, completionHandler: { (newRecord, error) in
                 CommonFunctions.hideLoadingStateView()
                 if error != nil && showLoadingState {
                     CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando el servicio, intentelo de nuevo", viewController: CommonFunctions.getRootViewController())

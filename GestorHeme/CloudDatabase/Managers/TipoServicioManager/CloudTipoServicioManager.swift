@@ -10,13 +10,13 @@ import UIKit
 import CloudKit
 
 class CloudTipoServicioManager {
-    let tipoServiciosQuery: CKQuery = CKQuery(recordType: "CD_TipoServicios", predicate: NSPredicate(value: true))
-    let tipoServicioRecord: CKRecord = CKRecord(recordType: "CD_TipoServicios")
+    let tableName: String = "CD_TipoServicios"
+    
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
     func getTipoServicios(delegate: CloudTipoServiciosProtocol?) {
-        let operation = CKQueryOperation(query: tipoServiciosQuery)
+        let operation = CKQueryOperation(query: CKQuery(recordType: tableName, predicate: NSPredicate(value: true)))
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
                 let tipoServicio: TipoServicioModel = self.cloudDatabaseHelper.parseCloudTipoServicioObjectToLocalTipoServicioObject(record: record)
@@ -35,6 +35,8 @@ class CloudTipoServicioManager {
     
     func saveTipoServicio(tipoServicio: TipoServicioModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Guardando servicio")
+        
+        let tipoServicioRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setTipoServicioCKRecordVariables(tipoServicio: tipoServicio, record: tipoServicioRecord)
         
         publicDatabase.save(tipoServicioRecord) { (savedRecord, error) in

@@ -22,6 +22,7 @@ class DatabaseHelper: NSObject {
         client.direccion = coreObject.value(forKey: "direccion") as! String
         client.cadenciaVisita = coreObject.value(forKey: "cadenciaVisita") as! String
         client.observaciones = coreObject.value(forKey: "observaciones") as! String
+        client.notificacionPersonalizada = coreObject.value(forKey: "notificacionPersonalizada") as! Int64
         
         return client
     }
@@ -36,6 +37,7 @@ class DatabaseHelper: NSObject {
         coreDataObject.setValue(newClient.direccion, forKey: "direccion")
         coreDataObject.setValue(newClient.cadenciaVisita, forKey: "cadenciaVisita")
         coreDataObject.setValue(newClient.observaciones, forKey: "observaciones")
+        coreDataObject.setValue(newClient.notificacionPersonalizada, forKey: "notificacionPersonalizada")
     }
     
     func parseServiceCoreObjectToServiceModel(coreObject: NSManagedObject) -> ServiceModel {
@@ -72,6 +74,7 @@ class DatabaseHelper: NSObject {
         coreClient.setValue(client.direccion, forKey: "direccion")
         coreClient.setValue(client.cadenciaVisita, forKey: "cadenciaVisita")
         coreClient.setValue(client.observaciones, forKey: "observaciones")
+        coreClient.setValue(client.notificacionPersonalizada, forKey: "notificacionPersonalizada")
     }
     
     func parseNotificationCoreObjectToNotificationModel(coreObject: NSManagedObject) -> NotificationModel {
@@ -157,5 +160,4 @@ class DatabaseHelper: NSObject {
         coreDataObject.setValue(newCierreCaja.efectivo, forKey: "efectivo")
         coreDataObject.setValue(newCierreCaja.tarjeta, forKey: "tarjeta")
     }
-
 }

@@ -10,16 +10,17 @@ import UIKit
 import CloudKit
 
 class CloudEmpleadoManager {
-    let empleadoQuery: CKQuery = CKQuery(recordType: "CD_Empleado", predicate: NSPredicate(value: true))
-    let empleadoRecord: CKRecord = CKRecord(recordType: "CD_Empleado")
+    let tableName: String = "CD_Empleado"
+    
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
     func getEmpleados(delegate: CloudEmpleadoProtocol?) {
-        let operation = CKQueryOperation(query: empleadoQuery)
         var empleadoIds: [Int64] = []
+        let operation = CKQueryOperation(query: CKQuery(recordType: tableName, predicate: NSPredicate(value: true)))
+        
         operation.recordFetchedBlock = { (record: CKRecord!) in
-             if record != nil{
+             if record != nil {
                 let empleado: EmpleadoModel = self.cloudDatabaseHelper.parseCloudEmpleadoObjectToLocalEmpleadoObject(record: record)
                 empleadoIds.append(empleado.empleadoId)
                 if Constants.databaseManager.empleadosManager.getCoreEmpleadoFromDatabase(empleadoId: empleado.empleadoId).count == 0 {
@@ -43,8 +44,7 @@ class CloudEmpleadoManager {
     private func checkEmpleadosToRemove(cloudEmpleados: [Int64]) {
         let localEmpleados: [EmpleadoModel] = Constants.databaseManager.empleadosManager.getAllEmpleadosFromDatabase()
         for empleadoLocal: EmpleadoModel in localEmpleados {
-            let empleadoExiste: Bool = cloudEmpleados.contains(empleadoLocal.empleadoId)
-            if !empleadoExiste {
+            if !cloudEmpleados.contains(empleadoLocal.empleadoId) {
                 _ = Constants.databaseManager.empleadosManager.eliminarEmpleado(empleadoId: empleadoLocal.empleadoId)
             }
         }
@@ -52,7 +52,7 @@ class CloudEmpleadoManager {
     
     func saveEmpleado(empleado: EmpleadoModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Guardando empleado")
-        
+        let empleadoRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setEmpleadoCKRecordVariables(empleado: empleado, record: empleadoRecord)
         
         publicDatabase.save(empleadoRecord) { (savedRecord, error) in
@@ -65,8 +65,9 @@ class CloudEmpleadoManager {
     
     func deleteEmpleado(empleado: EmpleadoModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Eliminando empleado")
+        
         let predicate = NSPredicate(format: "CD_empleadoId = %d", empleado.empleadoId)
-        let query = CKQuery(recordType: "CD_Empleado", predicate: predicate)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
             if error != nil  || results!.count == 0 {
@@ -75,8 +76,7 @@ class CloudEmpleadoManager {
                 return
             }
             
-            let recordToDelete: CKRecord! = results!.first!
-            self.publicDatabase.delete(withRecordID: recordToDelete.recordID) {result, error in
+            self.publicDatabase.delete(withRecordID: results!.first!.recordID) {result, error in
                 CommonFunctions.hideLoadingStateView()
                 if error != nil {
                    CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando empleado, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
@@ -87,8 +87,9 @@ class CloudEmpleadoManager {
     
     func updateEmpleado(empleado: EmpleadoModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Actualizando empleado")
+        
         let predicate = NSPredicate(format: "CD_empleadoId = %d", empleado.empleadoId)
-        let query = CKQuery(recordType: "CD_Empleado", predicate: predicate)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
             if error != nil  || results!.count == 0 {
@@ -97,10 +98,9 @@ class CloudEmpleadoManager {
                 return
             }
             
-            let recordToUpdate: CKRecord! = results!.first!
-            self.cloudDatabaseHelper.setEmpleadoCKRecordVariables(empleado: empleado, record: recordToUpdate)
+            self.cloudDatabaseHelper.setEmpleadoCKRecordVariables(empleado: empleado, record: results!.first!)
             
-            self.publicDatabase.save(recordToUpdate, completionHandler: { (newRecord, error) in
+            self.publicDatabase.save(results!.first!, completionHandler: { (newRecord, error) in
                 CommonFunctions.hideLoadingStateView()
                 if error != nil {
                     CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando usuario, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())

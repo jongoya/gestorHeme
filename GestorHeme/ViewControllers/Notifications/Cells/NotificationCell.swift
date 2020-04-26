@@ -23,6 +23,8 @@ class NotificationCell: UITableViewCell {
             setCierreCajaContent(notification: notification)
         } else if notification.type == Constants.notificacionCadenciaIdentifier {
             setCadenciacontent(notification: notification)
+        } else if notification.type == Constants.notificacionPersonalizadaIdentifier {
+            setPersonalizadaContent(notification: notification)
         }
     }
     
@@ -65,5 +67,17 @@ class NotificationCell: UITableViewCell {
         text.append(notification.clientId.count > 1 ? " clientes llevan tiempo sin venir" : " cliente lleva tiempo sin venir")
         
         notificationDescriptionLabel.text = text
+    }
+    
+    private func setPersonalizadaContent(notification: NotificationModel) {
+        notificationImage.image = UIImage(named: "campana")!.withRenderingMode(.alwaysTemplate)
+        let cliente: ClientModel = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: notification.clientId.first!)!
+        
+        let year: Int = AgendaFunctions.getYearNumberFromDate(date: Date(timeIntervalSince1970: TimeInterval(notification.fecha)))
+        let month: String = AgendaFunctions.getMonthNameFromDate(date: Date(timeIntervalSince1970: TimeInterval(notification.fecha))).capitalized
+        let day: Int = Calendar.current.component(.day, from: Date(timeIntervalSince1970: TimeInterval(notification.fecha)))
+        
+        clientName.text = String(day) + " de " + String(month) + " de " + String(year)
+        notificationDescriptionLabel.text = "Notificación de " + cliente.nombre + " " + cliente.apellidos
     }
 }

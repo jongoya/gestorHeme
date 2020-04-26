@@ -10,12 +10,13 @@ import UIKit
 import CloudKit
 
 class CloudCierreCajaManager {
-    let cierreCajaQuery: CKQuery = CKQuery(recordType: "CD_CierreCaja", predicate: NSPredicate(value: true))
+    let tableName: String = "CD_CierreCaja"
+    
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
     
     func getCierreCajas() {
-        let operation = CKQueryOperation(query: cierreCajaQuery)
+        let operation = CKQueryOperation(query: CKQuery(recordType: tableName, predicate: NSPredicate(value: true)))
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
                 let cierreCaja: CierreCajaModel = self.cloudDatabaseHelper.parseCloudCierreCajaObjectToLocalCierreCajaObject(record: record)
@@ -34,7 +35,7 @@ class CloudCierreCajaManager {
     
     func saveCierreCaja(cierreCaja: CierreCajaModel) {
         CommonFunctions.showLoadingStateView(descriptionText: "Guardando cierre caja")
-        let cierreCajaRecord: CKRecord = CKRecord(recordType: "CD_CierreCaja")
+        let cierreCajaRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setCierreCajaCKRecordVariables(cierreCaja: cierreCaja, record: cierreCajaRecord)
         
         publicDatabase.save(cierreCajaRecord) { (savedRecord, error) in

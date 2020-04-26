@@ -130,4 +130,23 @@ class ClientesManager: NSObject {
         
         return result
     }
+    
+    func updateNotificacionPersonalizada(fecha: Int64, clientId: Int64, descripcion: String) {
+        let client: ClientModel = getClientFromDatabase(clientId: clientId)!
+        client.notificacionPersonalizada = fecha
+        _ = updateClientInDatabase(client: client)
+        Constants.cloudDatabaseManager.clientManager.updateClient(client: client, showLoadingState: false)
+        
+        if fecha == 0 {
+            let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionPersonalizadaIdentifier)
+            for notification in notifications {
+                if notification.clientId.contains(clientId) {
+                    _ = Constants.databaseManager.notificationsManager.eliminarNotificacion(notificationId: notification.notificationId)
+                    Constants.cloudDatabaseManager.notificationManager.deleteNotification(notificationId: notification.notificationId)
+                }
+            }
+        } else {
+            NotificationFunctions.createNotificacionPersonalizada(fecha: fecha, clientId: clientId, descripcion: descripcion)
+        }
+    }
 }
