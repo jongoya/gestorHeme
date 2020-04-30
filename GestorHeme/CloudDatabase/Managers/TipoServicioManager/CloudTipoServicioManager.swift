@@ -26,23 +26,28 @@ class CloudTipoServicioManager {
         
         operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
             DispatchQueue.main.async {
-                delegate?.sincronisationFinished()
+                if error != nil {
+                    delegate?.tipoServiciosSincronizationError(error: error!.localizedDescription)
+                } else {
+                    delegate?.tipoServiciosSincronizationFinished()
+                }
             }
          }
 
         publicDatabase.add(operation)
     }
     
-    func saveTipoServicio(tipoServicio: TipoServicioModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Guardando servicio")
-        
+    func saveTipoServicio(tipoServicio: TipoServicioModel, delegate: CloudTipoServiciosProtocol) {
         let tipoServicioRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setTipoServicioCKRecordVariables(tipoServicio: tipoServicio, record: tipoServicioRecord)
         
         publicDatabase.save(tipoServicioRecord) { (savedRecord, error) in
-            CommonFunctions.hideLoadingStateView()
-            if error != nil {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Erro guardando servicio, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
+            DispatchQueue.main.async {
+                if error != nil {
+                    delegate.tipoServiciosSincronizationError(error: error!.localizedDescription)
+                } else {
+                    delegate.tipoServiciosSincronizationFinished()
+                }
             }
         }
     }

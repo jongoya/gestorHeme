@@ -74,14 +74,10 @@ extension ColorPickerViewController {
         empleado.redColorValue = Float(components![0])
         empleado.greenColorValue = Float(components![1])
         empleado.blueColorValue = Float(components![2])
-        if !Constants.databaseManager.empleadosManager.updateEmpleado(empleado: empleado) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el color, intentelo de nuevo", viewController: self)
-            return
-        }
+
+        CommonFunctions.showLoadingStateView(descriptionText: "Guardando color")
         
-        Constants.cloudDatabaseManager.empleadoManager.updateEmpleado(empleado: empleado)
-        
-        navigationController!.popViewController(animated: true)
+        Constants.cloudDatabaseManager.empleadoManager.updateEmpleado(empleado: empleado, delegate: self)
     }
 }
 
@@ -89,6 +85,31 @@ extension ColorPickerViewController: ChromaColorPickerDelegate {
     func colorPickerHandleDidChange(_ colorPicker: ChromaColorPicker, handle: ChromaColorHandle, to color: UIColor) {
         selectedColor = color
     }
+}
+
+extension ColorPickerViewController: CloudEmpleadoProtocol {
+    func empleadoSincronizationFinished() {
+        print("EXITO GUARDANDO COLOR")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            if !Constants.databaseManager.empleadosManager.updateEmpleado(empleado: self.empleado) {
+                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el color, intentelo de nuevo", viewController: self)
+                return
+            }
+
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
     
+    func empleadoSincronizationError(error: String) {
+        print("ERROR GUARDANDO COLOR")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
+    }
+    func empleadoDeleted(empleado: EmpleadoModel) {
+        //NO es necesario implementar
+    }
     
 }

@@ -10,5 +10,6 @@ import Foundation
 
 
 protocol CloudNotificationProtocol {
-    func notificationsDownloaded()
+    func notificacionSincronizationFinished()
+    func notificacionSincronizationError(error: String)
 }

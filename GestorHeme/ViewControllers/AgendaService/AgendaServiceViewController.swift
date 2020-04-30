@@ -19,6 +19,7 @@ class AgendaServiceViewController: UIViewController {
     var clientSeleced: ClientModel!
     var newDate: Date!
     var modificacionHecha: Bool = false
+    var delegate: AgendaServiceProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,20 +64,14 @@ class AgendaServiceViewController: UIViewController {
         }
 
         saveService()
-        
-        self.navigationController!.popViewController(animated: true)
     }
     
     func saveService() {
         newService.clientId = clientSeleced.id
         newService.serviceId = Int64(Date().timeIntervalSince1970)
-        if !Constants.databaseManager.servicesManager.addServiceInDatabase(newService: newService) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error al guardar el servicio, intentelo de nuevo mas tarde", viewController: self)
-        }
+        CommonFunctions.showLoadingStateView(descriptionText: "Guardando servicio")
         
-        Constants.cloudDatabaseManager.serviceManager.saveService(service: newService)
-        
-        Constants.databaseManager.notificationsManager.removeClientFromNotification(clientId: clientSeleced.id, notificationType: Constants.notificacionCadenciaIdentifier)
+        Constants.cloudDatabaseManager.serviceManager.saveService(service: newService, delegate: self)
     }
     
     func addBackButton() {
@@ -203,5 +198,98 @@ extension AgendaServiceViewController: ClientListSelectorProtocol {
         newService.apellidos = client.apellidos
         nombreLabel.text = client.nombre + " " + client.apellidos
         modificacionHecha = true
+    }
+}
+
+extension AgendaServiceViewController: CloudServiceManagerProtocol {
+    func serviceSincronizationFinished() {
+        let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForClientAndNotificationType(notificationType: Constants.notificacionCadenciaIdentifier, clientId: clientSeleced.id)
+        if notifications.count == 0 {
+            saveServiceInDatabase()
+        } else {
+            updateNotifications(notifications: notifications)
+        }
+    }
+    
+    func serviceSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
+    }
+    func saveServiceInDatabase() {
+        print("EXITO GUARDANDO SERVICIO")
+        _ = Constants.databaseManager.servicesManager.addServiceInDatabase(newService: newService)
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.delegate.serviceAdded()
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func updateNotifications(notifications: [NotificationModel]) {
+        var notificacionesEliminar: [NotificationModel] = []
+        var notificacionesAActualizar: [NotificationModel] = []
+        for notification in notifications {
+            notification.clientId = notification.clientId.filter {$0 != clientSeleced.id}
+            if notification.clientId.count == 0 {
+                notificacionesEliminar.append(notification)
+            } else {
+                notificacionesAActualizar.append(notification)
+            }
+        }
+        
+        if notificacionesAActualizar.count > 0 {
+            Constants.cloudDatabaseManager.notificationManager.saveNotifications(notifications: notificacionesAActualizar, delegate: self)
+        } else if notificacionesEliminar.count > 0 {
+            Constants.cloudDatabaseManager.notificationManager.deleteNotifications(notifications: notificacionesEliminar, notificationType: Constants.notificacionCadenciaIdentifier, clientId: clientSeleced.id, delegate: self)
+        }
+    }
+}
+
+extension AgendaServiceViewController: CloudNotificationProtocol {
+    func notificacionSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
+    }
+    
+    func notificacionSincronizationFinished() {
+        print("EXITO GUARDANDO SERVICIO")
+        _ = Constants.databaseManager.servicesManager.addServiceInDatabase(newService: newService)
+        
+        print("EXITO ACTUALIZANDO NOTIFICACIONES")
+        _ = Constants.databaseManager.notificationsManager.updateNotificationsForClientAndType(notificationType: Constants.notificacionCadenciaIdentifier, clientId: clientSeleced.id)
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.delegate.serviceAdded()
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+}
+
+extension AgendaServiceViewController: CloudEliminarNotificationsProtocol {
+    func succesDeletingNotification(notifications: [NotificationModel]) {
+        _ = Constants.databaseManager.servicesManager.addServiceInDatabase(newService: newService)
+        
+        for notificacion in notifications {
+            _ = Constants.databaseManager.notificationsManager.eliminarNotificacion(notificationId: notificacion.notificationId)
+        }
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.delegate.serviceAdded()
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func errorDeletingNotifications(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el servicio", viewController: self)
+        }
     }
 }

@@ -12,7 +12,6 @@ class ClientListSelectorViewController: UIViewController {
     @IBOutlet weak var clientTextField: UITextField!
     @IBOutlet weak var clientsTableView: UITableView!
     
-    var allClientes: [ClientModel] = []
     var filteredClients: [[ClientModel]] = []
     var arrayIndexSection: [String]!
     var filteredArrayIndexSection: [String] = []
@@ -46,7 +45,11 @@ class ClientListSelectorViewController: UIViewController {
             emptyStateLabel = nil
         }
         
-        allClientes = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
+        var allClientes: [ClientModel] = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
+        
+        if clientTextField.text!.count != 0 {
+            allClientes = Constants.databaseManager.clientsManager.getClientsFilteredByText(text: clientTextField.text!)
+        }
         
         if allClientes.count > 0 {
             indexClients(arrayClients: allClientes)
@@ -62,8 +65,14 @@ class ClientListSelectorViewController: UIViewController {
         for index: String in arrayIndexSection {
             var indexArray: [ClientModel] = []
             for client in arrayClients {
-                if client.apellidos.lowercased().starts(with: index.lowercased()) {
-                    indexArray.append(client)
+                if index == "Vacio" {
+                    if client.apellidos == "" {
+                        indexArray.append(client)
+                    }
+                } else {
+                    if client.apellidos.lowercased().starts(with: index.lowercased()) {
+                        indexArray.append(client)
+                    }
                 }
             }
 
@@ -78,7 +87,7 @@ class ClientListSelectorViewController: UIViewController {
     }
     
     func addRefreshControl() {
-        tableRefreshControl.addTarget(self, action: #selector(refreshClients(_:)), for: .valueChanged)
+        tableRefreshControl.addTarget(self, action: #selector(refreshClients), for: .valueChanged)
         clientsTableView.refreshControl = tableRefreshControl
     }
 }
@@ -100,7 +109,7 @@ extension ClientListSelectorViewController {
         clientsTableView.reloadData()
     }
     
-    @objc func refreshClients(_ sender: Any) {
+    @objc func refreshClients() {
         Constants.cloudDatabaseManager.clientManager.getClients(delegate: self)
     }
 }
@@ -156,8 +165,16 @@ extension ClientListSelectorViewController: UITextFieldDelegate {
 }
 
 extension ClientListSelectorViewController: CloudClientManagerProtocol {
-    func sincronisationFinished() {
-        tableRefreshControl.endRefreshing()
-        getClients()
+    func clientSincronizationFinished() {
+        DispatchQueue.main.async {
+            self.tableRefreshControl.endRefreshing()
+            self.getClients()
+        }
+    }
+    
+    func clientSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
     }
 }

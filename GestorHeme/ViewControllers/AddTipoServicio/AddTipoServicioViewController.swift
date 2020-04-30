@@ -50,17 +50,11 @@ extension AddTipoServicioViewController {
             CommonFunctions.showGenericAlertMessage(mensaje: "Debe escribir un nombre para el servicio", viewController: self)
             return
         }
+        CommonFunctions.showLoadingStateView(descriptionText: "Guardando servicio")
         
         servicio.servicioId = Int64(Date().timeIntervalSince1970)
         
-        if !Constants.databaseManager.tipoServiciosManager.addTipoServicioToDatabase(servicio: servicio) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el nuevo servicio, inténtelo de nuevo", viewController: self)
-            return
-        }
-        
-        Constants.cloudDatabaseManager.tipoServicioManager.saveTipoServicio(tipoServicio: servicio)
-        
-        navigationController!.popViewController(animated: true)
+        Constants.cloudDatabaseManager.tipoServicioManager.saveTipoServicio(tipoServicio: servicio, delegate: self)
     }
 }
 
@@ -68,5 +62,28 @@ extension AddTipoServicioViewController: AddClientInputFieldProtocol {
     func textSaved(text: String, inputReference: Int) {
         servicio.nombre = text
         nombreServicioLabel.text = text
+    }
+}
+
+extension AddTipoServicioViewController: CloudTipoServiciosProtocol {
+    func tipoServiciosSincronizationFinished() {
+        print("EXITO GUARDANDO TIPO SERVICIO")
+        if !Constants.databaseManager.tipoServiciosManager.addTipoServicioToDatabase(servicio: servicio) {
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el nuevo servicio, inténtelo de nuevo", viewController: self)
+            return
+        }
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func tipoServiciosSincronizationError(error: String) {
+        print("ERROR GUARDANDO TIPO SERVICIO")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando servicio", viewController: self)
+        }
     }
 }

@@ -46,10 +46,8 @@ class CadenciaNotificationDetailViewController: UIViewController {
     
     func markNotificationAsRead() {
         notification.leido = true
-        _ = Constants.databaseManager.notificationsManager.markNotificationAsRead(notification: notification)
-        Constants.rootController.setNotificationBarItemBadge()
-        
-        Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, showLoadingState: true)
+        CommonFunctions.showLoadingStateView(descriptionText: "Actualizando notificación")
+        Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, delegate: self)
     }
 }
 
@@ -67,5 +65,22 @@ extension CadenciaNotificationDetailViewController: UITableViewDelegate, UITable
         cell.selectionStyle = .none
         cell.setupCell(client: clientes[indexPath.row])
         return cell
+    }
+}
+
+extension CadenciaNotificationDetailViewController: CloudNotificationProtocol {
+    func notificacionSincronizationFinished() {
+        _ = Constants.databaseManager.notificationsManager.markNotificationAsRead(notification: notification)
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            Constants.rootController.setNotificationBarItemBadge()
+        }
+    }
+    
+    func notificacionSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando notificación", viewController: self)
+        }
     }
 }

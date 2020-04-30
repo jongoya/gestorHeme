@@ -14,34 +14,51 @@ class CloudCierreCajaManager {
     
     let publicDatabase: CKDatabase = CKContainer.default().publicCloudDatabase
     let cloudDatabaseHelper: CloudDatabaseHelper = CloudDatabaseHelper()
+    var contadorCierreCajas: Int = 0
     
     func getCierreCajas() {
         let operation = CKQueryOperation(query: CKQuery(recordType: tableName, predicate: NSPredicate(value: true)))
+        executeGetCierreCajasOperation(operation: operation)
+    }
+    
+    private func executeGetCierreCajasOperation(operation: CKQueryOperation) {
         operation.recordFetchedBlock = { (record: CKRecord!) in
              if record != nil{
                 let cierreCaja: CierreCajaModel = self.cloudDatabaseHelper.parseCloudCierreCajaObjectToLocalCierreCajaObject(record: record)
                 _ = Constants.databaseManager.cierreCajaManager.addCierreCajaToDatabase(newCierreCaja: cierreCaja)
              }
+            
+            self.contadorCierreCajas = self.contadorCierreCajas + 1
          }
         
         operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
-            DispatchQueue.main.async {
-                //TODO incluir un delegate si es necesario
+            print("EL NUMERO DE CIERRECAJAS DESCARGADOS: " + String(self.contadorCierreCajas))
+            if cursor != nil {
+                let queryCursorOperation = CKQueryOperation(cursor: cursor!)
+                self.executeGetCierreCajasOperation(operation: queryCursorOperation)
+            } else {
+                if error == nil {
+                    self.contadorCierreCajas = 0
+                    print("EXITO DESCARGANDO CIERRE CAJAS")
+                } else {
+                    self.contadorCierreCajas = 0
+                    print("ERROR DESCARGANDO CIERRE CAJAS")
+                }
             }
          }
 
         publicDatabase.add(operation)
     }
     
-    func saveCierreCaja(cierreCaja: CierreCajaModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Guardando cierre caja")
+    func saveCierreCaja(cierreCaja: CierreCajaModel, delegate: CloudCierreCajaProtocol) {
         let cierreCajaRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setCierreCajaCKRecordVariables(cierreCaja: cierreCaja, record: cierreCajaRecord)
         
         publicDatabase.save(cierreCajaRecord) { (savedRecord, error) in
-            CommonFunctions.hideLoadingStateView()
             if error != nil {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el cierre de caja, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
+                delegate.errorSavingCierreCaja()
+            } else {
+                delegate.cierreCajaSaved()
             }
         }
     }

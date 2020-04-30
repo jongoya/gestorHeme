@@ -96,28 +96,13 @@ class CierreCajaViewController: UIViewController {
         }
         
         saveCierreCaja()
-        
     }
     
     func saveCierreCaja() {
         cierreCaja.cajaId = Int64(Date().timeIntervalSince1970)
         cierreCaja.fecha = Int64(presentDate.timeIntervalSince1970)
-        
-        if !Constants.databaseManager.cierreCajaManager.addCierreCajaToDatabase(newCierreCaja: cierreCaja) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el cierre de caja, intentelo de nuevo", viewController: self)
-            return
-        }
-        
-        Constants.cloudDatabaseManager.cierreCajaManager.saveCierreCaja(cierreCaja: cierreCaja)
-        
-        if notification != nil {
-            notification.leido = true
-            _ = Constants.databaseManager.notificationsManager.markNotificationAsRead(notification: notification)
-            Constants.rootController.setNotificationBarItemBadge()
-            Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, showLoadingState: false)
-        }
-        
-        self.navigationController!.popViewController(animated: true)
+        CommonFunctions.showLoadingStateView(descriptionText: "Guardando el cierre de caja")
+        Constants.cloudDatabaseManager.cierreCajaManager.saveCierreCaja(cierreCaja: cierreCaja, delegate: self)
     }
 }
 
@@ -181,4 +166,51 @@ extension CierreCajaViewController: AddClientInputFieldProtocol {
             cierreCaja.tarjeta = (value as NSString).doubleValue
         }
     }
+}
+
+extension CierreCajaViewController: CloudCierreCajaProtocol {
+    func cierreCajaSaved() {
+        if notification == nil {
+            print("EXITO GUARDANDO EL CIERRE DE CAJA")
+            _ = Constants.databaseManager.cierreCajaManager.addCierreCajaToDatabase(newCierreCaja: cierreCaja)
+            DispatchQueue.main.async {
+                CommonFunctions.hideLoadingStateView()
+                self.navigationController!.popViewController(animated: true)
+            }
+        } else {
+            notification.leido = true
+            Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, delegate: self)
+        }
+    }
+    
+    func errorSavingCierreCaja() {
+        print("ERROR GUARDANDO EL CIERRE DE CAJA")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el cierre de caja", viewController: self)
+        }
+    }
+}
+
+extension CierreCajaViewController: CloudNotificationProtocol {
+    func notificacionSincronizationFinished() {
+        _ = Constants.databaseManager.cierreCajaManager.addCierreCajaToDatabase(newCierreCaja: cierreCaja)
+        _ = Constants.databaseManager.notificationsManager.markNotificationAsRead(notification: notification)
+        DispatchQueue.main.async {
+            print("EXITO GUARDANDO EL CIERRE DE CAJA")
+            CommonFunctions.hideLoadingStateView()
+            Constants.rootController.setNotificationBarItemBadge()
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func notificacionSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            print("ERROR GUARDANDO EL CIERRE DE CAJA")
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el cierre de caja", viewController: self)
+        }
+    }
+    
+    
 }

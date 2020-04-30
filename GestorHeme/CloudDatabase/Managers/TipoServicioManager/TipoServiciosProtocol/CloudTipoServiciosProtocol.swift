@@ -9,5 +9,6 @@
 import Foundation
 
 protocol CloudTipoServiciosProtocol {
-    func sincronisationFinished()
+    func tipoServiciosSincronizationFinished()
+    func tipoServiciosSincronizationError(error: String)
 }

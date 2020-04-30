@@ -58,7 +58,7 @@ class NotificationsViewController: UIViewController {
     }
     
     func addRefreshControl() {
-        tableRefreshControl.addTarget(self, action: #selector(refreshNotifications(_:)), for: .valueChanged)
+        tableRefreshControl.addTarget(self, action: #selector(refreshNotifications), for: .valueChanged)
         notificationsTableView.refreshControl = tableRefreshControl
     }
     
@@ -230,7 +230,7 @@ extension NotificationsViewController {
         showNotifications()
     }
     
-    @objc func refreshNotifications(_ sender: Any) {
+    @objc func refreshNotifications() {
         Constants.cloudDatabaseManager.notificationManager.getNotificaciones(delegate: self)
     }
 }
@@ -247,8 +247,16 @@ extension NotificationsViewController {
 }
 
 extension NotificationsViewController: CloudNotificationProtocol {
-    func notificationsDownloaded() {
-        tableRefreshControl.endRefreshing()
-        showNotifications()
+    func notificacionSincronizationFinished() {
+        DispatchQueue.main.async {
+            self.tableRefreshControl.endRefreshing()
+            self.showNotifications()
+        }
+    }
+    
+    func notificacionSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error cargando notificaciones", viewController: self)
+        }
     }
 }

@@ -44,10 +44,19 @@ class CarouselItem: UIView {
         layer.cornerRadius = 20
         layer.shadowColor = UIColor.black.cgColor
         layer.borderColor = UIColor.systemGray4.cgColor
+        layer.borderWidth = 1
+    }
+    
+    func highlightView() {
         layer.shadowOpacity = 1
         layer.shadowOffset = .zero
         layer.shadowRadius = 2
-        layer.borderWidth = 1
+    }
+    
+    func unhightlightView() {
+        layer.shadowOpacity = 0
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 0
     }
     
     func addContentView() {
@@ -55,8 +64,17 @@ class CarouselItem: UIView {
         addDayOfTheWeekNameLabel()
         addMonthNameLabel()
         
+        checkCitasPoint()
+    }
+    
+    func checkCitasPoint() {
         if Constants.databaseManager.servicesManager.getServicesForDay(date: date).count > 0 {
             addCitasPointView()
+        } else {
+            if citasPoint != nil {
+                citasPoint.removeFromSuperview()
+                citasPoint = nil
+            }
         }
     }
     

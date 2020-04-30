@@ -66,64 +66,26 @@ class AddClientViewController: UIViewController {
             return
         }
         
-        if fechaLabel.text!.count == 0 {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Debe incluir la fecha de nacimiento", viewController: self)
-            return
-        }
-        
         if telefonoLabel.text!.count < 9 {
             CommonFunctions.showGenericAlertMessage(mensaje: "Debe incluir un número de contacto válido", viewController: self)
             return
         }
         
-        if emailLabel.text!.count < 6 {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Debe incluir el e-mail del cliente", viewController: self)
-            return
-        }
-        
-        if !emailLabel.text!.contains("@") {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Debe incluir un e-mail válido", viewController: self)
-            return
-        }
-        
-        if cadenciaLabel.text!.count == 0 {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Debe incluir una estimación de cada cuanto viene el cliente", viewController: self)
-            return
-        }
-        
         saveClient()
-        
-        if servicios.count > 0 {
-            saveServices()
-        }
     }
     
     func saveClient() {
+        CommonFunctions.showLoadingStateView(descriptionText: "Guardando cliente")
         newClient.id = Int64(Date().timeIntervalSince1970)
-        
-        if !Constants.databaseManager.clientsManager.addClientToDatabase(newClient: newClient) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error creando usuario, intentelo de nuevo", viewController: self)
-            return
-        }
-        
-        Constants.cloudDatabaseManager.clientManager.saveClient(client: newClient)
-        
-        self.navigationController!.popViewController(animated: true)
+        Constants.cloudDatabaseManager.clientManager.saveClient(client: newClient, delegate: self)
     }
     
     func saveServices() {
         for servicio: ServiceModel in servicios {
             servicio.clientId = newClient.id
-            
-            if !Constants.databaseManager.servicesManager.addServiceInDatabase(newService: servicio) {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el servicio, intentelo de nuevo", viewController: self)
-                return
-            }
-            
-            Constants.cloudDatabaseManager.serviceManager.saveService(service: servicio)
         }
         
-        self.navigationController!.popViewController(animated: true)
+        Constants.cloudDatabaseManager.serviceManager.saveServices(services: servicios, delegate: self)
     }
 }
 
@@ -295,5 +257,71 @@ extension AddClientViewController: PickerSelectorProtocol {
     func cadenciaSelected(cadencia: String) {
         cadenciaLabel.text = cadencia
         newClient.cadenciaVisita = cadencia
+    }
+}
+
+extension AddClientViewController: CloudClientManagerProtocol {
+    func clientSincronizationFinished() {
+        print("EXITO AÑADIENDO CLIENTE")
+        if servicios.count == 0 {
+            if !Constants.databaseManager.clientsManager.addClientToDatabase(newClient: newClient) {
+                DispatchQueue.main.async {
+                    CommonFunctions.hideLoadingStateView()
+                    CommonFunctions.showGenericAlertMessage(mensaje: "Error creando usuario, intentelo de nuevo", viewController: self)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                CommonFunctions.hideLoadingStateView()
+                self.navigationController!.popViewController(animated: true)
+            }
+        } else {
+            saveServices()
+        }
+    }
+    
+    func clientSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            print("ERROR GUARDANDO CLIENTE")
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
+    }
+}
+
+extension AddClientViewController: CloudServiceManagerProtocol {
+    func serviceSincronizationFinished() {
+        print("EXITO GUARDANDO SERVICIOS")
+        if !Constants.databaseManager.clientsManager.addClientToDatabase(newClient: newClient) {
+            DispatchQueue.main.async {
+                CommonFunctions.hideLoadingStateView()
+                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando cliente, intentelo de nuevo", viewController: self)
+            }
+            return
+        }
+        
+        for servicio: ServiceModel in servicios {
+            if !Constants.databaseManager.servicesManager.addServiceInDatabase(newService: servicio) {
+                DispatchQueue.main.async {
+                    CommonFunctions.hideLoadingStateView()
+                    CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el servicio, intentelo de nuevo", viewController: self)
+                }
+                return
+            }
+        }
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func serviceSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            print("ERROR GUARDANDO SERVICIOS")
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
     }
 }

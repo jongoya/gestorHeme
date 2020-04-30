@@ -63,7 +63,7 @@ class CommonFunctions: NSObject {
     }
     
     static func getClientsTableIndexValues() -> [String] {
-        return ["A","B","C","D", "E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+        return ["A","B","C","D", "E", "F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "Vacio"]
     }
     
     static func getNumberOfYearsBetweenDates(startDate: Date, endDate: Date) -> Int {
@@ -218,7 +218,9 @@ class CommonFunctions: NSObject {
         if let url = NSURL(string: "tel://\(telefono)"), UIApplication.shared.canOpenURL(url as URL) {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         } else {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Este dispositivo no puede realizar llamadas", viewController: CommonFunctions.getRootViewController())
+            DispatchQueue.main.async {
+                CommonFunctions.showGenericAlertMessage(mensaje: "Este dispositivo no puede realizar llamadas", viewController: CommonFunctions.getRootViewController())
+            }
         }
     }
     
@@ -233,7 +235,9 @@ class CommonFunctions: NSObject {
                         UIApplication.shared.openURL(whatsappURL)
                     }
                 } else {
-                    CommonFunctions.showGenericAlertMessage(mensaje: "Error abriendo Whatsapp", viewController: CommonFunctions.getRootViewController())
+                    DispatchQueue.main.async {
+                        CommonFunctions.showGenericAlertMessage(mensaje: "Error abriendo Whatsapp", viewController: CommonFunctions.getRootViewController())
+                    }
                 }
             }
         }
@@ -241,5 +245,13 @@ class CommonFunctions: NSObject {
     
     static func getCadenciasArray() -> [CadenciaModel] {
         return [CadenciaModel(cadencia: Constants.unaSemana), CadenciaModel(cadencia: Constants.dosSemanas), CadenciaModel(cadencia: Constants.tresSemanas), CadenciaModel(cadencia: Constants.unMes), CadenciaModel(cadencia: Constants.unMesUnaSemana), CadenciaModel(cadencia: Constants.unMesDosSemanas), CadenciaModel(cadencia: Constants.unMesTresSemanas), CadenciaModel(cadencia: Constants.dosMeses), CadenciaModel(cadencia: Constants.dosMesesYUnaSemana), CadenciaModel(cadencia: Constants.dosMesesYDosSemanas), CadenciaModel(cadencia: Constants.dosMesesYTresSemanas), CadenciaModel(cadencia: Constants.tresMeses), CadenciaModel(cadencia: Constants.masDeTresMeses)]
+    }
+    
+    static func sincronizarBaseDeDatos() {
+        Constants.cloudDatabaseManager.empleadoManager.getEmpleados(delegate: nil)
+        Constants.cloudDatabaseManager.tipoServicioManager.getTipoServicios(delegate: nil)
+        Constants.cloudDatabaseManager.notificationManager.getNotificaciones(delegate: nil)
+        Constants.cloudDatabaseManager.serviceManager.getServicios()
+        Constants.cloudDatabaseManager.cierreCajaManager.getCierreCajas()
     }
 }

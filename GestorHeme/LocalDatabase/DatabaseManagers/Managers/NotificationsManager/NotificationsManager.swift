@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 class NotificationsManager: NSObject {
     let NOTIFICATIONS_ENTITY_NAME: String = "Notifications"
     var databaseHelper: DatabaseHelper!
@@ -86,19 +85,19 @@ class NotificationsManager: NSObject {
     }
     
     func markNotificationAsRead(notification: NotificationModel) -> Bool {
-        let notifications: [NSManagedObject] = getNotificationFromDatabase(notificationId: notification.notificationId)
-        
-        if notifications.count == 0 {
-            return false
-        }
-        
-        let coreNotification: NSManagedObject = notifications.first!
-        coreNotification.setValue(notification.leido, forKey: "leido")
-        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "notificationId = %f", argumentArray: [notification.notificationId])
+        var results: [NSManagedObject] = []
         var result: Bool = false
-        mainContext.performAndWait {
+        
+        backgroundContext.performAndWait {
             do {
-                try mainContext.save()
+                results = try backgroundContext.fetch(fetchRequest)
+                if results.count > 0 {
+                    let coreNotification: NSManagedObject = results.first!
+                    coreNotification.setValue(notification.leido, forKey: "leido")
+                }
+                try backgroundContext.save()
                 result = true
             } catch {
                 print("Error actualizando notificación")
@@ -108,26 +107,19 @@ class NotificationsManager: NSObject {
         return result
     }
     
-    func removeClientFromNotification(clientId: Int64, notificationType: String) {
+    func getAllNotificationsForClientAndNotificationType(notificationType: String, clientId: Int64) -> [NotificationModel] {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
         fetchRequest.returnsObjectsAsFaults = false
         fetchRequest.predicate = NSPredicate(format: "type = %@", argumentArray: [notificationType])
-
+        var notifications: [NotificationModel] = []
         mainContext.performAndWait {
             do {
                 let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
                 for data in results {
                     let clientIds: [Int64] = data.value(forKey: "clientId") as! [Int64]
                     if clientIds.contains(clientId) {
-                        let filters = clientIds.filter {$0 != clientId}
-                        data.setValue(filters, forKey: "clientId")
                         let notification: NotificationModel = databaseHelper.parseNotificationCoreObjectToNotificationModel(coreObject: data)
-                        if filters.count == 0 {
-                            mainContext.delete(data)
-                            Constants.cloudDatabaseManager.notificationManager.deleteNotification(notificationId: notification.notificationId)
-                        } else {
-                            Constants.cloudDatabaseManager.notificationManager.updateNotification(notification: notification, showLoadingState: false)
-                        }
+                        notifications.append(notification)
                     }
                 }
                 
@@ -135,6 +127,8 @@ class NotificationsManager: NSObject {
             } catch {
             }
         }
+        
+        return notifications
     }
     
     func getAllNotificationsForType(type: String) -> [NotificationModel] {
@@ -154,6 +148,29 @@ class NotificationsManager: NSObject {
         }
 
         return notifications
+    }
+    
+    func updateNotificationsForClientAndType(notificationType: String, clientId: Int64) -> Bool {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: NOTIFICATIONS_ENTITY_NAME)
+        fetchRequest.returnsObjectsAsFaults = false
+        fetchRequest.predicate = NSPredicate(format: "type = %@", argumentArray: [notificationType])
+        var result: Bool = false
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    let clientIds: [Int64] = data.value(forKey: "clientId") as! [Int64]
+                    data.setValue(clientIds.filter {$0 != clientId}, forKey: "clientId")
+                }
+                
+                result = true
+                try mainContext.save()
+            } catch {
+                result = false
+            }
+        }
+        
+        return result
     }
     
     func eliminarNotificacion(notificationId: Int64) -> Bool {

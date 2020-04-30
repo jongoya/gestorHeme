@@ -12,7 +12,6 @@ class ListaClientesViewController: UIViewController {
     @IBOutlet weak var clientesTextField: UITextField!
     @IBOutlet weak var clientsTableView: UITableView!
     
-    var allClientes: [ClientModel] = []
     var filteredClients: [[ClientModel]] = []
     var arrayIndexSection: [String]!
     var filteredArrayIndexSection: [String] = []
@@ -21,18 +20,23 @@ class ListaClientesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayIndexSection = CommonFunctions.getClientsTableIndexValues()
         setTextFieldProperties()
+        arrayIndexSection = CommonFunctions.getClientsTableIndexValues()
         
         addRefreshControl()
         
-        refreshClients("")
+        refreshClients()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         getClients()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
     }
     
     func setTextFieldProperties() {
@@ -47,7 +51,11 @@ class ListaClientesViewController: UIViewController {
             emptyStateLabel = nil
         }
         
-        allClientes = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
+        var allClientes: [ClientModel] = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
+        
+        if clientesTextField.text!.count != 0 {
+            allClientes = Constants.databaseManager.clientsManager.getClientsFilteredByText(text: clientesTextField.text!)
+        }
         
         if allClientes.count > 0 {
             indexClients(arrayClients: allClientes)
@@ -63,8 +71,14 @@ class ListaClientesViewController: UIViewController {
         for index: String in arrayIndexSection {
             var indexArray: [ClientModel] = []
             for client in arrayClients {
-                if client.apellidos.lowercased().starts(with: index.lowercased()) {
-                    indexArray.append(client)
+                if index == "Vacio" {
+                    if client.apellidos == "" {
+                        indexArray.append(client)
+                    }
+                } else {
+                    if client.apellidos.lowercased().starts(with: index.lowercased()) {
+                        indexArray.append(client)
+                    }
                 }
             }
 
@@ -79,7 +93,7 @@ class ListaClientesViewController: UIViewController {
     }
     
     func addRefreshControl() {
-        tableRefreshControl.addTarget(self, action: #selector(refreshClients(_:)), for: .valueChanged)
+        tableRefreshControl.addTarget(self, action: #selector(refreshClients), for: .valueChanged)
         clientsTableView.refreshControl = tableRefreshControl
     }
 }
@@ -101,7 +115,7 @@ extension ListaClientesViewController {
         clientsTableView.reloadData()
     }
     
-    @objc func refreshClients(_ sender: Any) {
+    @objc func refreshClients() {
         Constants.cloudDatabaseManager.clientManager.getClients(delegate: self)
     }
 }
@@ -164,8 +178,18 @@ extension ListaClientesViewController: UITextFieldDelegate {
 }
 
 extension ListaClientesViewController: CloudClientManagerProtocol {
-    func sincronisationFinished() {
-        tableRefreshControl.endRefreshing()
-        getClients()
+    func clientSincronizationFinished() {
+        DispatchQueue.main.async {
+            print("EXITO CARGANDO CLIENTES")
+            self.tableRefreshControl.endRefreshing()
+            self.getClients()
+        }
+    }
+    
+    func clientSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            self.tableRefreshControl.endRefreshing()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
     }
 }

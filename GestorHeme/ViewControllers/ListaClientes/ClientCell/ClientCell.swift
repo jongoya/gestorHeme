@@ -15,7 +15,7 @@ class ClientCell: UITableViewCell {
     @IBOutlet weak var phoneLabel: UILabel!
     
     func setupCell(client: ClientModel) {
-        nameLabel.text = "Nombre: " + client.nombre + " " + client.apellidos
+        nameLabel.text = client.apellidos + ", " + client.nombre
         phoneLabel.text = "Telefono: " + client.telefono
     }
 }

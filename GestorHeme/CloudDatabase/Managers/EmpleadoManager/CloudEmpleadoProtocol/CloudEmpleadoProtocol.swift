@@ -9,5 +9,7 @@
 import Foundation
 
 protocol CloudEmpleadoProtocol {
-    func sincronisationFinished()
+    func empleadoSincronizationFinished()
+    func empleadoSincronizationError(error: String)
+    func empleadoDeleted(empleado: EmpleadoModel)
 }

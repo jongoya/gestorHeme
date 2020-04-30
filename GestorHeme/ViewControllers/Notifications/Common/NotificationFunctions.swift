@@ -107,8 +107,8 @@ class NotificationFunctions: NSObject {
         notification.leido = false
         notification.type = Constants.notificacionCumpleIdentifier
         _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
-        
-        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+        print("NOTIFICACION CUMPLEAÑOS CREADO")
+        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification, delegate: nil)
     }
     
     private static func getUserIdsFromBirthdayModels(users: [BirthdayModel]) -> [Int64] {
@@ -154,8 +154,7 @@ class NotificationFunctions: NSObject {
         notification.leido = false
         notification.type = Constants.notificacionCajaCierreIdentifier
         _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
-        
-        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification, delegate: nil)
     }
     
     private static func checkCierreCajasInRange(beginingOfDay: Date, endOfDay: Date) -> Bool {
@@ -241,11 +240,10 @@ class NotificationFunctions: NSObject {
         notification.leido = false
         notification.type = Constants.notificacionCadenciaIdentifier
         _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
-        
-        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification, delegate: nil)
     }
     
-    static func createNotificacionPersonalizada(fecha: Int64, clientId: Int64, descripcion: String) {
+    static func createNotificacionPersonalizada(fecha: Int64, clientId: Int64, descripcion: String) -> NotificationModel {
         let notification: NotificationModel = NotificationModel()
         notification.notificationId = Int64(Date().timeIntervalSince1970)
         notification.fecha = fecha
@@ -253,8 +251,34 @@ class NotificationFunctions: NSObject {
         notification.leido = false
         notification.descripcion = descripcion
         notification.type = Constants.notificacionPersonalizadaIdentifier
-        _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notification)
         
-        Constants.cloudDatabaseManager.notificationManager.saveNotification(notification: notification)
+        return notification
+    }
+    
+    static func checkNotificacionesPersonalizadas() {
+        let clientes: [ClientModel] = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
+        let beginingOfDay: Int64 = Int64(AgendaFunctions.getBeginningOfDayFromDate(date: Date()).timeIntervalSince1970)
+        let endOfDay: Int64 = Int64(AgendaFunctions.getEndOfDayFromDate(date: Date()).timeIntervalSince1970)
+        var notificaciones: [NotificationModel] = []
+        for cliente in clientes {
+            if cliente.notificacionPersonalizada > beginingOfDay && cliente.notificacionPersonalizada < endOfDay && !existsNotificacionPersonalizada(clientId: cliente.id) {
+                let notificacion: NotificationModel = createNotificacionPersonalizada(fecha: cliente.notificacionPersonalizada, clientId: cliente.id, descripcion: cliente.observaciones)
+                notificaciones.append(notificacion)
+                _ = Constants.databaseManager.notificationsManager.addNotificationToDatabase(newNotification: notificacion)
+            }
+        }
+        
+        Constants.cloudDatabaseManager.notificationManager.saveNotifications(notifications: notificaciones, delegate: nil)
+    }
+    
+    private static func existsNotificacionPersonalizada(clientId: Int64) -> Bool {
+        let notificaciones: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionPersonalizadaIdentifier)
+        for notificacion in notificaciones {
+            if notificacion.clientId.contains(clientId) {
+                return true
+            }
+        }
+        
+        return false
     }
 }

@@ -32,9 +32,13 @@ class CloudEmpleadoManager {
          }
         
         operation.queryCompletionBlock = {(cursor : CKQueryOperation.Cursor?, error : Error?) -> Void in
-            self.checkEmpleadosToRemove(cloudEmpleados: empleadoIds)
             DispatchQueue.main.async {
-                delegate?.sincronisationFinished()
+                if error != nil {
+                    delegate?.empleadoSincronizationError(error: error!.localizedDescription)
+                } else {
+                    self.checkEmpleadosToRemove(cloudEmpleados: empleadoIds)
+                    delegate?.empleadoSincronizationFinished()
+                }
             }
          }
 
@@ -50,60 +54,62 @@ class CloudEmpleadoManager {
         }
     }
     
-    func saveEmpleado(empleado: EmpleadoModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Guardando empleado")
+    func saveEmpleado(empleado: EmpleadoModel, delegate: CloudEmpleadoProtocol) {
         let empleadoRecord: CKRecord = CKRecord(recordType: tableName)
         cloudDatabaseHelper.setEmpleadoCKRecordVariables(empleado: empleado, record: empleadoRecord)
         
         publicDatabase.save(empleadoRecord) { (savedRecord, error) in
-            CommonFunctions.hideLoadingStateView()
-            if error != nil {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando empleado, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
-            }
-        }
-    }
-    
-    func deleteEmpleado(empleado: EmpleadoModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Eliminando empleado")
-        
-        let predicate = NSPredicate(format: "CD_empleadoId = %d", empleado.empleadoId)
-        let query = CKQuery(recordType: tableName, predicate: predicate)
-        
-        publicDatabase.perform(query, inZoneWith: nil) {results, error in
-            if error != nil  || results!.count == 0 {
-                CommonFunctions.hideLoadingStateView()
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando empleado, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
-                return
-            }
-            
-            self.publicDatabase.delete(withRecordID: results!.first!.recordID) {result, error in
-                CommonFunctions.hideLoadingStateView()
+            DispatchQueue.main.async {
                 if error != nil {
-                   CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando empleado, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
+                    delegate.empleadoSincronizationError(error: error!.localizedDescription)
+                } else {
+                    delegate.empleadoSincronizationFinished()
                 }
             }
         }
     }
     
-    func updateEmpleado(empleado: EmpleadoModel) {
-        CommonFunctions.showLoadingStateView(descriptionText: "Actualizando empleado")
+    func deleteEmpleado(empleado: EmpleadoModel, delegate: CloudEmpleadoProtocol) {
+        let predicate = NSPredicate(format: "CD_empleadoId = %d", empleado.empleadoId)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
         
+        publicDatabase.perform(query, inZoneWith: nil) {results, error in
+            if error != nil || results!.count == 0 {
+                delegate.empleadoSincronizationError(error: error != nil ? error!.localizedDescription : "Error eliminando el empleado")
+                return
+            }
+            
+            self.publicDatabase.delete(withRecordID: results!.first!.recordID) {result, error in
+                DispatchQueue.main.async {
+                    if error != nil {
+                        delegate.empleadoSincronizationError(error: error!.localizedDescription)
+                    } else {
+                        delegate.empleadoDeleted(empleado: empleado)
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateEmpleado(empleado: EmpleadoModel, delegate: CloudEmpleadoProtocol) {
         let predicate = NSPredicate(format: "CD_empleadoId = %d", empleado.empleadoId)
         let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
             if error != nil  || results!.count == 0 {
-                CommonFunctions.hideLoadingStateView()
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando usuario, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
+                delegate.empleadoSincronizationError(error: error != nil ? error!.localizedDescription : "Error actualizando empleado")
                 return
             }
             
             self.cloudDatabaseHelper.setEmpleadoCKRecordVariables(empleado: empleado, record: results!.first!)
             
             self.publicDatabase.save(results!.first!, completionHandler: { (newRecord, error) in
-                CommonFunctions.hideLoadingStateView()
-                if error != nil {
-                    CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando usuario, inténtelo de nuevo", viewController: CommonFunctions.getRootViewController())
+                DispatchQueue.main.async {
+                    if error != nil {
+                        delegate.empleadoSincronizationError(error: error!.localizedDescription)
+                    } else {
+                        delegate.empleadoSincronizationFinished()
+                    }
                 }
             })
         }

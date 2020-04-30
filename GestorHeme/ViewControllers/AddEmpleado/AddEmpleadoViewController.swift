@@ -37,10 +37,6 @@ class AddEmpleadoViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = rightButtons
     }
     
-    func addCallEmpleadoButton() {
-        
-    }
-    
     func setValues() {
         nombreLabel.text = empleado.nombre
         apellidosLabel.text = empleado.apellidos
@@ -105,24 +101,15 @@ class AddEmpleadoViewController: UIViewController {
             setPredefinedColor()
         }
         
+        
         if !updateMode {
+            CommonFunctions.showLoadingStateView(descriptionText: "Guardando empleado")
             empleado.empleadoId = Int64(Date().timeIntervalSince1970)
-            if !Constants.databaseManager.empleadosManager.addEmpleadoToDatabase(newEmpleado: empleado) {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando empleado, intentelo de nuevo", viewController: self)
-                return
-            }
-            
-            Constants.cloudDatabaseManager.empleadoManager.saveEmpleado(empleado: empleado)
+            Constants.cloudDatabaseManager.empleadoManager.saveEmpleado(empleado: empleado, delegate: self)
         } else {
-            if !Constants.databaseManager.empleadosManager.updateEmpleado(empleado: empleado) {
-                CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando empleado, intentelo de nuevo", viewController: self)
-                return
-            }
-            
-            Constants.cloudDatabaseManager.empleadoManager.updateEmpleado(empleado: empleado)
+            CommonFunctions.showLoadingStateView(descriptionText: "Actualizando empleado")
+            Constants.cloudDatabaseManager.empleadoManager.updateEmpleado(empleado: empleado, delegate: self)
         }
-    
-        navigationController!.popViewController(animated: true)
     }
     
     func setPredefinedColor() {
@@ -191,4 +178,40 @@ extension AddEmpleadoViewController: DatePickerSelectorProtocol {
         empleado.fecha = Int64(date.timeIntervalSince1970)
         fechaLabel.text = CommonFunctions.getTimeTypeStringFromDate(date: date)
     }
+}
+
+extension AddEmpleadoViewController: CloudEmpleadoProtocol {
+    func empleadoSincronizationFinished() {
+        print("EXITO SINCRONIZANDO EMPLEADO")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            if !self.updateMode {
+                if !Constants.databaseManager.empleadosManager.addEmpleadoToDatabase(newEmpleado: self.empleado) {
+                    CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando empleado, intentelo de nuevo", viewController: self)
+                    return
+                }
+            } else {
+                if !Constants.databaseManager.empleadosManager.updateEmpleado(empleado: self.empleado) {
+                    CommonFunctions.showGenericAlertMessage(mensaje: "Error actualizando empleado, intentelo de nuevo", viewController: self)
+                    return
+                }
+            }
+            
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func empleadoSincronizationError(error: String) {
+        print("ERROR SINCRONIZANDO EMPLEADO")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
+    }
+    
+    func empleadoDeleted(empleado: EmpleadoModel) {
+        //No necesario
+    }
+    
+    
 }

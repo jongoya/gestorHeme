@@ -10,5 +10,6 @@ import Foundation
 
 
 protocol CloudServiceManagerProtocol {
-    func sincronisationFinished()
+    func serviceSincronizationFinished()
+    func serviceSincronizationError(error: String)
 }

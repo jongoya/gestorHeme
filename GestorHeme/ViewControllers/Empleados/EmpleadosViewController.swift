@@ -17,6 +17,7 @@ class EmpleadosViewController: UIViewController {
     var showColorView: Bool = false
     var emptyStateLabel: UILabel!
     var scrollRefreshControl: UIRefreshControl = UIRefreshControl()
+    var empleadoToDelete: EmpleadoModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,8 +215,17 @@ class EmpleadosViewController: UIViewController {
     }
     
     func addRefreshControl() {
-        scrollRefreshControl.addTarget(self, action: #selector(refreshEmpleados(_:)), for: .valueChanged)
+        scrollRefreshControl.addTarget(self, action: #selector(refreshEmpleados), for: .valueChanged)
         scrollView.refreshControl = scrollRefreshControl
+    }
+    
+    func updateServicios(servicios: [ServiceModel]) {
+        let empleadoId: Int64 = Constants.databaseManager.empleadosManager.getAllEmpleadosFromDatabase().first!.empleadoId
+        for service in servicios {
+            service.profesional = empleadoId
+        }
+        
+        Constants.cloudDatabaseManager.serviceManager.saveServices(services: servicios, delegate: self)
     }
 }
 
@@ -234,15 +244,10 @@ extension EmpleadosViewController {
     }
     
     @objc func didClickCrossView(sender: EmpleadoTapGesture) {
+        CommonFunctions.showLoadingStateView(descriptionText: "Eliminando empleado")
         let empleado: EmpleadoModel = sender.empleadoView.empleado
-        if !Constants.databaseManager.empleadosManager.eliminarEmpleado(empleadoId: empleado.empleadoId) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando empleado, inténtelo de nuevo", viewController: self)
-            return
-        }
-        
-        Constants.cloudDatabaseManager.empleadoManager.deleteEmpleado(empleado: empleado)
-        
-        showEmpleados()
+
+        Constants.cloudDatabaseManager.empleadoManager.deleteEmpleado(empleado: empleado, delegate: self)
     }
     
     @objc func serviceSwipedLeft(sender: EmpleadoSwipeGesture) {
@@ -255,7 +260,7 @@ extension EmpleadosViewController {
         rightAnimation(view: empleadoView)
     }
     
-    @objc func refreshEmpleados(_ sender: Any) {
+    @objc func refreshEmpleados() {
         Constants.cloudDatabaseManager.empleadoManager.getEmpleados(delegate: self)
     }
 }
@@ -276,9 +281,45 @@ extension EmpleadosViewController {
 }
 
 extension EmpleadosViewController: CloudEmpleadoProtocol {
-    func sincronisationFinished() {
-        scrollRefreshControl.endRefreshing()
-        showEmpleados()
+    func empleadoSincronizationFinished() {
+        print("EXITO CARGANDO EMPLEADOS")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.scrollRefreshControl.endRefreshing()
+            self.showEmpleados()
+        }
+    }
+    
+    func empleadoSincronizationError(error: String) {
+        print("ERROR CARGANDO EMPLEADOS")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.scrollRefreshControl.endRefreshing()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error sincronizando empleados", viewController: self)
+        }
+    }
+    
+    func empleadoDeleted(empleado: EmpleadoModel) {
+        let servicios: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForEmpleado(empleadoId: empleado.empleadoId)
+        if servicios.count == 0 {
+            print("EXITO ELIMINANDO EMPLEADO")
+            if !Constants.databaseManager.empleadosManager.eliminarEmpleado(empleadoId: empleado.empleadoId) {
+                DispatchQueue.main.async {
+                    print("ERROR ELIMINANDO EMPLEADO")
+                    CommonFunctions.hideLoadingStateView()
+                    CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando empleado, inténtelo de nuevo", viewController: self)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                CommonFunctions.hideLoadingStateView()
+                self.showEmpleados()
+            }
+        } else {
+            self.empleadoToDelete = empleado
+            updateServicios(servicios: servicios)
+        }
     }
 }
 
@@ -294,5 +335,35 @@ class EmpleadoView: UIView {
     var empleadoLeadingAnchor: NSLayoutConstraint!
     var empleadoTrailingAnchor: NSLayoutConstraint!
     var empleado: EmpleadoModel!
+}
+
+extension EmpleadosViewController: CloudServiceManagerProtocol {
+    func serviceSincronizationFinished() {
+        print("EXITO ELIMINANDO EMPLEADO")
+        if !Constants.databaseManager.empleadosManager.eliminarEmpleado(empleadoId: self.empleadoToDelete.empleadoId) {
+            DispatchQueue.main.async {
+                print("ERROR ELIMINANDO EMPLEADO")
+                CommonFunctions.hideLoadingStateView()
+                CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando empleado, inténtelo de nuevo", viewController: self)
+            }
+            return
+        }
+        
+        let empleadoId: Int64 = Constants.databaseManager.empleadosManager.getAllEmpleadosFromDatabase().first!.empleadoId
+        Constants.databaseManager.servicesManager.updateEmpleadoIdForServices(oldEmpleadoId: empleadoToDelete.empleadoId, newEmpleadoId: empleadoId)
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.showEmpleados()
+        }
+    }
+    
+    func serviceSincronizationError(error: String) {
+        print("ERROR ELIMINANDO EMPLEADO")
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
+        }
+    }
 }
 

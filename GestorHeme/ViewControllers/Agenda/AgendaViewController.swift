@@ -45,7 +45,6 @@ class AgendaViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if !showingClientes {
-            Constants.rootController.unfillSecondRightNavigationButtonImage()
             addAgenda(profesional: selectedProfesional)
         } else {
             Constants.rootController.fillSecondRightNavigationButtonImage()
@@ -213,7 +212,7 @@ class AgendaViewController: UIViewController {
     }
     
     func addRefreshControl() {
-        scrollRefreshControl.addTarget(self, action: #selector(refreshDay(_:)), for: .valueChanged)
+        scrollRefreshControl.addTarget(self, action: #selector(refreshDay), for: .valueChanged)
         scrollView.refreshControl = scrollRefreshControl
     }
     
@@ -268,7 +267,7 @@ extension AgendaViewController {
         }
     }
     
-    @objc func refreshDay(_ sender: Any) {
+    @objc func refreshDay() {
         Constants.cloudDatabaseManager.serviceManager.getServiciosPorDia(date: presentDate, delegate: self)
     }
     
@@ -293,14 +292,8 @@ extension AgendaViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension AgendaViewController: AgendaItemViewProtocol {
     func crossButtonClicked(service: ServiceModel) {
-        if !Constants.databaseManager.servicesManager.deleteService(service: service) {
-            CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando servicio, intentelo de nuevo", viewController: self)
-            return
-        }
-        
-        Constants.cloudDatabaseManager.serviceManager.deleteService(service: service)
-        
-        addAgenda(profesional: self.selectedProfesional)
+        CommonFunctions.showLoadingStateView(descriptionText: "Eliminando servicio")
+        Constants.cloudDatabaseManager.serviceManager.deleteService(service: service, delegate: self)
     }
     
     func dayClicked(date: Date) {
@@ -322,6 +315,7 @@ extension AgendaViewController {
         } else if segue.identifier == "AgendaServiceIdentifier" {
             let controller: AgendaServiceViewController = segue.destination as! AgendaServiceViewController
             controller.newDate = (sender as! Date)
+            controller.delegate = self
         } else if segue.identifier == "cierreCajaIdentifier" {
             let controller: CierreCajaViewController = segue.destination as! CierreCajaViewController
             controller.presentDate = presentDate
@@ -347,7 +341,7 @@ extension AgendaViewController {
 
 extension AgendaViewController: AddServicioProtocol {
     func serviceContentFilled(service: ServiceModel, serviceUpdated: Bool) {
-        //No necesario de implementar
+        //no es necesario implementar
     }
 }
 
@@ -387,11 +381,21 @@ extension AgendaViewController: iCarouselDataSource, iCarouselDelegate {
     }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        return CarouselItem(frame: CGRect(x: 0, y: 0, width: 80, height: 70), date: daysInCarousel[index])
+        let view: CarouselItem = CarouselItem(frame: CGRect(x: 0, y: 0, width: 80, height: 70), date: daysInCarousel[index])
+        if index == carousel.currentItemIndex {
+            view.highlightView()
+        } else {
+            view.unhightlightView()
+        }
+        
+        return view
     }
     
     func carousel(_ carousel: iCarousel, didSelectItemAt index: Int) {
+        let oldItem: CarouselItem = carousel.itemView(at: carousel.currentItemIndex) as! CarouselItem
         let item: CarouselItem = carousel.itemView(at: index) as! CarouselItem
+        item.highlightView()
+        oldItem.unhightlightView()
         presentDate = item.date
         calendarVisible = false
         hideMonthCalendarView(withAnimationDuration: animationDuration)
@@ -400,7 +404,7 @@ extension AgendaViewController: iCarouselDataSource, iCarouselDelegate {
     
     func carouselDidEndDecelerating(_ carousel: iCarousel) {
         let item: CarouselItem = carousel.currentItemView as! CarouselItem
-        print(item.date!)
+        item.highlightView()
         presentDate = item.date
         calendarVisible = false
         hideMonthCalendarView(withAnimationDuration: animationDuration)
@@ -410,17 +414,64 @@ extension AgendaViewController: iCarouselDataSource, iCarouselDelegate {
     func carouselCurrentItemIndexDidChange(_ carousel: iCarousel) {
         //TODO mirar si es necesario
     }
+    
+    func carouselWillBeginDragging(_ carousel: iCarousel) {
+        let oldItem: CarouselItem = carousel.itemView(at: carousel.currentItemIndex) as! CarouselItem
+        oldItem.unhightlightView()
+    }
 }
 
+
 extension AgendaViewController: CloudServiceManagerProtocol {
-    func sincronisationFinished() {
-        scrollRefreshControl.endRefreshing()
-        if !showingClientes {
-            Constants.rootController.unfillSecondRightNavigationButtonImage()
-            addAgenda(profesional: selectedProfesional)
-        } else {
-            Constants.rootController.fillSecondRightNavigationButtonImage()
-            showClients()
+    func serviceSincronizationFinished() {
+        DispatchQueue.main.async {
+            self.scrollRefreshControl.endRefreshing()
+            if !self.showingClientes {
+                Constants.rootController.unfillSecondRightNavigationButtonImage()
+                self.addAgenda(profesional: self.selectedProfesional)
+            } else {
+                Constants.rootController.fillSecondRightNavigationButtonImage()
+                self.showClients()
+            }
+        }
+    }
+    func serviceSincronizationError(error: String) {
+        DispatchQueue.main.async {
+            self.scrollRefreshControl.endRefreshing()
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error recogiendo servicios", viewController: self)
+        }
+    }
+}
+
+extension AgendaViewController: AgendaServiceProtocol {
+    func serviceAdded() {
+        let item: CarouselItem = dayCarousel.currentItemView! as! CarouselItem
+        item.checkCitasPoint()
+    }
+}
+
+extension AgendaViewController: CloudEliminarServiceProtocol {
+    func serviceEliminado(service: ServiceModel) {
+        if !Constants.databaseManager.servicesManager.deleteService(service: service) {
+            DispatchQueue.main.async {
+                CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando servicio, intentelo de nuevo", viewController: self)
+            }
+            return
+        }
+        
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            self.addAgenda(profesional: self.selectedProfesional)
+            
+            let item: CarouselItem = self.dayCarousel.currentItemView! as! CarouselItem
+            item.checkCitasPoint()
+        }
+    }
+    
+    func errorEliminandoService(error: String) {
+        DispatchQueue.main.async {
+            CommonFunctions.hideLoadingStateView()
+            CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
         }
     }
 }

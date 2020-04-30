@@ -108,16 +108,6 @@ class ClientesManager: NSObject {
         let coreClient: NSManagedObject = clients.first!
         databaseHelper.updateClientObject(coreClient: coreClient, client: client)
         
-        let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: client.id)
-        
-        for service: ServiceModel in services {
-            if !Constants.databaseManager.servicesManager.updateNombreYApellidosToService(serviceId: service.serviceId, client: client) {
-                return false
-            }
-            
-            Constants.cloudDatabaseManager.serviceManager.updateService(service: service, showLoadingState: false)
-        }
-        
         var result: Bool = false
         
         mainContext.performAndWait {
@@ -129,24 +119,5 @@ class ClientesManager: NSObject {
         }
         
         return result
-    }
-    
-    func updateNotificacionPersonalizada(fecha: Int64, clientId: Int64, descripcion: String) {
-        let client: ClientModel = getClientFromDatabase(clientId: clientId)!
-        client.notificacionPersonalizada = fecha
-        _ = updateClientInDatabase(client: client)
-        Constants.cloudDatabaseManager.clientManager.updateClient(client: client, showLoadingState: false)
-        
-        if fecha == 0 {
-            let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionPersonalizadaIdentifier)
-            for notification in notifications {
-                if notification.clientId.contains(clientId) {
-                    _ = Constants.databaseManager.notificationsManager.eliminarNotificacion(notificationId: notification.notificationId)
-                    Constants.cloudDatabaseManager.notificationManager.deleteNotification(notificationId: notification.notificationId)
-                }
-            }
-        } else {
-            NotificationFunctions.createNotificacionPersonalizada(fecha: fecha, clientId: clientId, descripcion: descripcion)
-        }
     }
 }

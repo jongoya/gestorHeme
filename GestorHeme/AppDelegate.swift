@@ -16,12 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        
-        Constants.cloudDatabaseManager.empleadoManager.getEmpleados(delegate: nil)
-        Constants.cloudDatabaseManager.tipoServicioManager.getTipoServicios(delegate: nil)
-        Constants.cloudDatabaseManager.notificationManager.getNotificaciones(delegate: nil)
-        Constants.cloudDatabaseManager.serviceManager.getServicios(delegate: nil)
-        Constants.cloudDatabaseManager.cierreCajaManager.getCierreCajas()
+
+        CommonFunctions.sincronizarBaseDeDatos()
         
         return true
     }

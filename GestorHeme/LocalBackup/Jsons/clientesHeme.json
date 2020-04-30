@@ -1,0 +1,4767 @@
+[
+    {
+        "Nombre": "Abel",
+        "Apellidos" : "Toraño",
+        "Direcion": "Donostia",
+        "Telefono": "665283615",
+        "Fecha": "3/10/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Adolfo",
+        "Apellidos" : "z",
+        "Direcion": "Zarautz",
+        "Fecha": "2/7/20",
+        "Servicio": "Corte",
+        "Comentarios": "Marido de Haizea"
+    },
+    {
+        "Nombre": "Adrian",
+        "Apellidos" : "Erloza Porres Crespillo",
+        "Direcion": "Paseo Berio, 34 3º B",
+        "Telefono": "617988218",
+        "Cumpleaños": "8/16/11",
+        "Fecha": "1/3/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Adriana",
+        "Apellidos" : "Setien",
+        "Direcion": "Donostia / Madrid",
+        "Telefono": "676386421",
+        "Fecha": "6/29/19",
+        "Servicio": "Corte + color barro 60g 6 1+3 45 min c/calor 70+50"
+    },
+    {
+        "Nombre": "Ager",
+        "Apellidos" : "Lajurtegi",
+        "Direcion": "Virgen del Carmen, 15  7 A",
+        "Telefono": "638891828",
+        "Cumpleaños": "7/14/20",
+        "Fecha": "3/12/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Agutzane",
+        "Apellidos" : "z",
+        "Direcion": "Pamplona",
+        "Fecha": "7/24/19",
+        "Servicio": "Secar"
+    },
+    {
+        "Nombre": "Agurtzane",
+        "Apellidos" : "Albizua",
+        "Direcion": "Donostia",
+        "Telefono": "608198333",
+        "Fecha": "1/31/20",
+        "Servicio": "Color 40 - 8 + 40 - 9 a 18 vol barro 5-3´1 + 5 Comp 1+7 en lavabo",
+        "Comentarios": "No meter mucho el vaporal",
+        "Fecha2": "3/14/20",
+        "Servicio2": "Color 40 - 8 + 40 - 9 a 18 vol no hemos dado el barro"
+    },
+    {
+         "Nombre": "Aina",
+         "Apellidos" : "Takahashi",
+         "Direcion": "Aiete",
+         "Cumpleaños": "8/7/17",
+         "Fecha": "12/13/19",
+         "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Ainara",
+        "Apellidos" : "Aguirre",
+        "Telefono": "646925714",
+        "Fecha": "1/18/20",
+        "Servicio": "Color por todo neo 100-5 a 13 v /oxig 110/ barro",
+        "Comentarios": "Pelu secretos del antiguo"
+    },
+    {
+        "Nombre": "Ainara",
+        "Apellidos" : "Bordagarai",
+        "Direcion": "Usurbil",
+        "Telefono": "653711574",
+        "Fecha": "2/22/20",
+        "Servicio": "Corte + barro 10-3´1 + 20-comp 1+5 20 min secador 70+45",
+        "Comentarios": "Amiga de Ane Abasalo"
+    },
+    {
+        "Nombre": "Ainara",
+        "Apellidos" : "Iturbe",
+        "Direcion": "Donostia",
+        "Telefono": "686843484",
+        "Cumpleaños": "7/31/77",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte + platas deco a 20v / 12 a 40v 70+50",
+        "Comentarios": "Trabaja en la Laboral"
+    },
+    {
+        "Nombre": "Ainara",
+        "Apellidos" : "Plaza",
+        "Direcion": "Heme",
+        "Fecha": "1/15/20",
+        "Servicio": "Corte + platas 10 a 13v/ deco a 13v",
+        "Comentarios": "Esteticien pelu"
+    },
+    {
+        "Nombre": "Ainhara",
+        "Apellidos" : "Gordobil",
+        "Direcion": "C/Matia, 30 bj",
+        "Telefono": "605703472",
+        "Cumpleaños": "2/10/73",
+        "Fecha": "12/10/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Ainhoa",
+        "Apellidos" : "Anacabe Martinez",
+        "Direcion": "Lekeitio",
+        "Telefono": "658749843",
+        "Fecha": "1/4/19",
+        "Servicio": "Corte + platas 12 a 40 vol + hidrad 60+35+20"
+    },
+    {
+        "Nombre": "Ainhoa",
+        "Apellidos" : "Ostolaza",
+        "Direcion": "Urnieta",
+        "Telefono": "666528638",
+        "Cumpleaños": "12/20/1977",
+        "Fecha": "12/18/19",
+        "Servicio": "Color 1 tubo del 2 a 13 vol"
+    },
+    {
+        "Nombre": "Ainoa",
+        "Apellidos" : "Iñigo Erizurain",
+        "Direcion": "Afonso VIII, 8 Donostia",
+        "Telefono": "678342873",
+        "Cumpleaños": "10/23/20",
+        "Fecha": "12/19/19",
+        "Servicio": "Corte en seco"
+    },
+    {
+        "Nombre": "Aintzane",
+        "Apellidos" : "Alberoz",
+        "Telefono": "635724884",
+        "Fecha": "8/14/19",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Arantxa Zumararga"
+    },
+    {
+        "Nombre": "Aintzane",
+        "Apellidos" : "Tolosa",
+        "Telefono": "696382591",
+        "Fecha": "1/3/20",
+        "Servicio": "Color 20-3´1 + 20-3´2 + 10-3´3 1+4 35 min + secado"
+    },
+    {
+        "Nombre": "Aitana",
+        "Apellidos" : "Garcia",
+        "Fecha": "1/18/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Ana Garcia"
+    },
+    {
+        "Nombre": "Aitor",
+        "Apellidos" : "de La Peña Urroz",
+        "Direcion": "Madrid",
+        "Telefono": "33/671149062",
+        "Fecha": "9/6/19",
+        "Servicio": "Corte",
+        "Comentarios": "Osteopata"
+    },
+    {
+        "Nombre": "Aitziber",
+        "Apellidos" : "Aiestar",
+        "Telefono": "656751236",
+        "Fecha": "7/10/19",
+        "Servicio": "Corte Platas deco a 20 v/12 a 40 vol + secar 80+40"
+    },
+    {
+        "Nombre": "Aitziber",
+        "Apellidos" : "Gil Negrete",
+        "Direcion": "C/ Prin, 2  4º D Donostia",
+        "Telefono": "686040453",
+        "Cumpleaños": "2/21/1980",
+        "Fecha": "11/23/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Aitziber",
+        "Apellidos" : "Lizarazu",
+        "Direcion": "Portua, 27  Orio",
+        "Telefono": "620123880",
+        "Cumpleaños": "5/28/20",
+        "Fecha": "2/28/20",
+        "Servicio": "Color 3/4-7 + 1/4-6 a 13 vol/ barro 10-7 1+5  7 min secador"
+    },
+    {
+        "Nombre": "Aizpea",
+        "Apellidos" : "Oñederra",
+        "Direcion": "Catalina Eleiregi, 11  2º A Donosti",
+        "Telefono": "677742710",
+        "Cumpleaños": "6/9/20",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte + color 60-3´3 1+3 35 min secador"
+    },
+    {
+        "Nombre": "Alazne",
+        "Apellidos" : "Etxeberria",
+        "Direcion": "Renteria",
+        "Telefono": "618815871",
+        "Fecha": "3/6/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Alazne",
+        "Apellidos" : "Ostolaza",
+        "Direcion": "Zumaia",
+        "Telefono": "649213902",
+        "Fecha": "9/25/19",
+        "Servicio": "Color neo 60-6 + 20-5 a 13 vol + barro 10 comp 1+5 lavabo",
+        "Comentarios": "Peluquera"
+    },
+    {
+        "Nombre": "Alba",
+        "Apellidos" : "Zapiain",
+        "Direcion": "Donostia",
+        "Telefono": "616732519",
+        "Fecha": "7/2/19",
+        "Servicio": "Color barro 40 - 3´3 + 20 - 7 1+3 40 min c/calor + secar",
+        "Comentarios": "Hija de Charo de Urnieta",
+        "Fecha2": "12/24/19",
+        "Servicio2": "Color barro 40 - 3´3 + 20 - 7 1+3 40 min c/calor + secar"
+    },
+    {
+        "Nombre": "Alberto",
+        "Apellidos" : "Amantegui",
+        "Direcion": "Paseo Berio, 11 3º B Donostia",
+        "Telefono": "636463829",
+        "Cumpleaños": "9/12/1980",
+        "Fecha": "2/15/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Alejandro",
+        "Apellidos" : "Iraola Iceta",
+        "Direcion": "Urnieta",
+        "Telefono": "637558040",
+        "Cumpleaños": "6/9/76",
+        "Fecha": "3/10/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Alexia",
+        "Apellidos" : "z",
+        "Fecha": "7/24/19",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Amaia Gallego"
+    },
+    {
+        "Nombre": "Alicia",
+        "Apellidos" : "Manson",
+        "Telefono": "607849229",
+        "Fecha": "2/15/19",
+        "Servicio": "Corte sin secado"
+    },
+    {
+        "Nombre": "Alina",
+        "Apellidos" : "Mihai",
+        "Direcion": "Ordizia",
+        "Telefono": "663653092",
+        "Fecha": "6/20/19",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Alexia",
+        "Fecha2": "1/9/20",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Aloña",
+        "Apellidos" : "Alburuza",
+        "Direcion": "Donostia",
+        "Telefono": "650921770",
+        "Fecha": "8/13/19",
+        "Servicio": "Barro 25-3´1 + 5-3´2 1+4 35 min calor/ poner algodón p/",
+        "Comentarios": "sa extenciones, proteger extenciones + secar"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "de La Calle",
+        "Direcion": "C/Jaizkibel, 6  4º A Lazarte",
+        "Telefono": "675703336",
+        "Cumpleaños": "11/24/20",
+        "Fecha": "6/29/19",
+        "Servicio": "Recojido p/ boda 40+55",
+        "Comentarios": "Hija de Belen Lizarazu"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "Egaña",
+        "Telefono": "649579473",
+        "Fecha": "7/5/19",
+        "Servicio": "Color Neo 80-8 a 18 vol con 90 oxig barro 5-3´1 1+7 lavabo"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "Fernandez",
+        "Direcion": "Donostia",
+        "Telefono": "605723096",
+        "Fecha": "3/14/20",
+        "Servicio": "Color 100 - 3 a 18 vol barro 10g comp 1+7 15 min secador",
+        "Comentarios": "Pelo largo y rizado"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "Gallego de Luis",
+        "Direcion": "Urnieta",
+        "Telefono": "617366780",
+        "Cumpleaños": "7/11/85",
+        "Fecha": "4/24/18",
+        "Servicio": "Corte + platas 10 a 20 vol / 12 a 40 vol c/polvos / puntas deco a 20 vol"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "Gracia",
+        "Direcion": "Oyartzun",
+        "Telefono": "652724367",
+        "Cumpleaños": "5/20/20",
+        "Fecha": "11/2/19",
+        "Servicio": "Corte + Color platas 10 a 40vol / 12 a 20vol + hidrat 70+30+20 + LF 19 + ALL 27,50",
+        "Comentarios": "Casada con Ager"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "Lizarralde",
+        "Telefono": "647741630",
+        "Fecha": "1/8/20",
+        "Servicio": "Corte + color 50g 3´3 1+3 40 min en el secador + peinar",
+        "Comentarios": "Poner el reposa cuellos"
+    },
+    {
+        "Nombre": "Amaia",
+        "Apellidos" : "Perez Mayor",
+        "Direcion": "Donostia",
+        "Telefono": "605730020",
+        "Fecha": "9/25/19",
+        "Servicio": "Neo 60-5 a 18v c/ 70 oxig barro 10 comp 1+5 10 min, secador LF 19"
+    },
+    {
+        "Nombre": "Amalia",
+        "Apellidos" : "San Juan",
+        "Direcion": "Galicia",
+        "Telefono": "620766589",
+        "Cumpleaños": "3/4/20",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte",
+        "Comentarios": "Enfermera matrona"
+    },
+    {
+        "Nombre": "Amaya",
+        "Apellidos" : "Pelaez",
+        "Telefono": "669510470",
+        "Fecha": "2/14/20",
+        "Servicio": "Color barro 30-3´2 + 20-3´1 1+3 15 min sin calor con albal + platas 12 a 40 vol 115+15"
+    },
+    {
+        "Nombre": "Amets",
+        "Apellidos" : "Muro",
+        "Fecha": "9/19/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Maite Tolosa"
+    },
+    {
+        "Nombre": "Amparo",
+        "Apellidos" : "Infante",
+        "Direcion": "Vive en Austria",
+        "Telefono": "616761103",
+        "Fecha": "4/16/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Amparo",
+        "Apellidos" : "Onrraita",
+        "Direcion": "C/ Uzandizaga, 21 5º B 20002 Donostia",
+        "Telefono": "617988218",
+        "Cumpleaños": "12/27/1980",
+        "Fecha": "6/12/15",
+        "Servicio": "Corte",
+        "Fecha2": "2/14/20",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Amenabar",
+        "Direcion": "Donostia",
+        "Telefono": "639980423",
+        "Fecha": "2/4/20",
+        "Servicio": "Corte + barro 20-3´1 + 40-3´3 1+3 35 min secador 70+50"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Amieva",
+        "Direcion": "Donostia",
+        "Telefono": "678835986",
+        "Fecha": "8/21/19",
+        "Servicio": "Lavar y peinar",
+        "Comentarios": "Madre de Arantxa Alzueta"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Ayerdi",
+        "Direcion": "Av. Navarra, 18  6º A Gros",
+        "Telefono": "609413813",
+        "Cumpleaños": "8/15/42",
+        "Fecha": "2/22/20",
+        "Servicio": "Color 40-7 + 40-6 con 90 oxig 18 vol + barro 10g 3´1 1+5 en lavabo 3 min",
+        "Comentarios": "Cejas 4 a 20 vol, Secado 85 + ALL 28,20 + LN 20"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Berasarte",
+        "Telefono": "645704668",
+        "Fecha": "1/30/20",
+        "Servicio": "Barro 25-3´1 + 5-3´2 1+3 25 min secador/ neo 80-4 a 9 v con 90 oxig + secar PROXIMA VEZ COBRAR 5€ cejas"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Bereciarto Gaztañaga",
+        "Direcion": "C/lavaizueta, 19  1º Izda Donosti",
+        "Telefono": "650017657",
+        "Cumpleaños": "11/1/65",
+        "Fecha": "2/26/20",
+        "Servicio": "Arreglo de corte/ color 1/4-5 + 1/2-6 + 1/4-6´7 a 13 vol/ Mechon",
+        "Comentarios": "Cejas 5 a 20 vol 10 min, 1/2de 1/4-4 a 20 vol + hidratar + TB 29,40 + 105"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Bru",
+        "Telefono": "610411563",
+        "Fecha": "8/22/19",
+        "Servicio": "Color neo 50-5 + 50-6 110 oxig 18 vol/barro 10g 3´2 1+7 lavabo + hidrat 80+15",
+        "Comentarios": "Vive entre Donosti y Barcelona"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "de Vicente Lasquibar",
+        "Telefono": "673965502",
+        "Fecha": "9/20/19",
+        "Servicio": "Recogido 40+30",
+        "Comentarios": "Amiga de Marta y Leire (Enfermera)"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Fernandez Gomez",
+        "Direcion": "Plaza Tereza Calcutá, 7  7º B Donosti",
+        "Telefono": "610075959",
+        "Cumpleaños": "7/21/20",
+        "Fecha": "3/12/20",
+        "Servicio": "Color 45-7 + 35-6 a 18 vol barro 5-7 + 10 comp 1+7 7 min secador secado normal",
+        "Comentarios": "Hermana de Sócrates"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Garcia Garcia",
+        "Direcion": "Lezo",
+        "Telefono": "666558239",
+        "Cumpleaños": "10/14/72",
+        "Fecha": "2/22/20",
+        "Servicio": "Color  1/2 -7 + 3/4 - 6 + 1/4 entre 6 y 7´4 a 20 vol + barro 20 - 3´3 1+5 15 min secador + secar",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Lopez",
+        "Direcion": "Donostia",
+        "Telefono": "662312135",
+        "Fecha": "7/18/19",
+        "Servicio": "Secar + hidratar aplicar infoactivo antes de secar 40+20"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Martinez",
+        "Direcion": "Jaca / Donostia",
+        "Telefono": "653628825",
+        "Fecha": "2/22/20",
+        "Servicio": "Corte + platas 10 a 20 vol secar"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Molano",
+        "Direcion": "Urnieta",
+        "Telefono": "669659062",
+        "Cumpleaños": "7/26/66",
+        "Fecha": "1/31/20",
+        "Servicio": "Corte LP regalo"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Odriozola",
+        "Telefono": "665710771",
+        "Fecha": "7/2/19",
+        "Servicio": "Corte + barro 20 3´1 1+4 sin calor/sin albal /neo 20g 5 a 18 vol 20 min",
+        "Fecha2": "12/30/19",
+        "Servicio2": "Corte sin lavado"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Riestra",
+        "Direcion": "Donostia",
+        "Telefono": "659258219",
+        "Fecha": "11/6/18",
+        "Servicio": "Corte",
+        "Fecha2": "2/14/19",
+        "Servicio2": "Barro 60-3´2 1+3"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Rosa de Miguel",
+        "Direcion": "Donostia",
+        "Telefono": "606802551",
+        "Fecha": "10/25/19",
+        "Servicio": "Corte + Color neo 30-5 + 30-7 con 70 oxig 13 vol 30-18+40-9vol, Barro 5g-7 + 5g comp 1+5 secador + secar deve 15 Euros",
+        "Comentarios": "Amiga de Paloma secretos"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Salaberria",
+        "Direcion": "C/ Bustintxulo,36 ",
+        "Telefono": "629615330",
+        "Cumpleaños": "10/5/62",
+        "Fecha": "6/12/14",
+        "Servicio": " Corte  55+ Crema sensitiva 60´50",
+        "Comentarios": "Cejas 5 a 20 vol",
+        "Fecha2": "1/2/20",
+        "Servicio2": "Color 20-5´77 + 30-4 + 20-6 a 18 vol barro 10 - complex 1+5 secador 10 min + hidrat 110+15"
+    },
+    {
+        "Nombre": "Ana",
+        "Apellidos" : "Ugarte",
+        "Direcion": "Avenida de Madrid, 9 Donostia",
+        "Telefono": "661327556",
+        "Cumpleaños": "4/6/65",
+        "Fecha": "12/9/14",
+        "Servicio": "Color",
+        "Fecha2": "3/5/20",
+        "Servicio2": "Color 30-5´77 + 40-6 + 20-3 a 18 vol no hemos dado el barro ver la proxima vez, se el pelo esta menos seco /pasamos a puntas 10g 4 a 9 vol"
+    },
+    {
+        "Nombre": "Anabel",
+        "Apellidos" : "Alarcia",
+        "Direcion": "Donostia",
+        "Telefono": "610361854",
+        "Fecha": "1/25/19",
+        "Servicio": "Barro 30-3´1 + 30-7 1+3 20 min con calor AT 26,90 + LF 21"
+    },
+    {
+        "Nombre": "Anabel",
+        "Apellidos" : "Kapaldegy",
+        "Direcion": "Urnieta",
+        "Telefono": "650106208",
+        "Cumpleaños": "11/07/1969",
+        "Fecha": "1/30/20",
+        "Servicio": "Corte + platas + secado"
+    },
+    {
+        "Nombre": "Ander",
+        "Apellidos" : "Anglada",
+        "Direcion": "Alto Zuruaga, , 27  2º B",
+        "Telefono": "649023454",
+        "Cumpleaños": "11/27/99",
+        "Fecha": "1/10/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Andone",
+        "Apellidos" : "Sainz",
+        "Direcion": "Lezo",
+        "Telefono": "617870853",
+        "Fecha": "11/19/19",
+        "Servicio": "Corte + color barro 40 - 3´3 + 10 - 6  1+3 35 min secador + hidrat 115+15",
+        "Comentarios": "Amiga de Rosa Gonzalez"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Abasalo Heriz",
+        "Direcion": "Maestro Guridi, 11  6º B ",
+        "Telefono": "680180058",
+        "Cumpleaños": "8/10/99",
+        "Fecha": "3/3/20",
+        "Servicio": "Corte + color platas 1/4 12 a 40v/ deco a 20v / platas 2 de deco una de 12+ hidrat 40+15+80"
+    },
+    {
+        "Nombre": "Ane Begoña",
+        "Apellidos" : "Perez Conde",
+        "Direcion": "C/ Arazarte, 1 2º Izda",
+        "Telefono": "645706235",
+        "Cumpleaños": "8/5/1980",
+        "Fecha": "4/16/14",
+        "Servicio": "Color 30-3´3 + 30-7 1+3 20 min + TM 24,40 35+30",
+        "Fecha2": "2/18/20",
+        "Servicio2": "Color 10-3´1 + 15-3´2 + 15-3´3 1+4 40 min secador + secar"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Etxebeste",
+        "Direcion": "Donostia",
+        "Telefono": "660367064",
+        "Fecha": "8/27/19",
+        "Servicio": "Corte + barro 20-3´1 + 20-3´2 + 20-3´3 1+3 secado natural 65+50"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Gartzia Kapaldegui",
+        "Direcion": "Urnieta",
+        "Cumpleaños": "8/5/98",
+        "Fecha": "5/22/19",
+        "Servicio": "Platas 10 a 20 vol + secado",
+        "Comentarios": "Hija de Anabel Kapaldegui"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Goenaga",
+        "Telefono": "649086239",
+        "Cumpleaños": "5/17/20",
+        "Fecha": "2/5/20",
+        "Servicio": "Color barro 15 - 3´3 + 5 - 7 1+4 35 min + arreglo de corte"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "Paseo Lugarritz, 5  4º  B  Donostia",
+        "Telefono": "636911944",
+        "Cumpleaños": "4/18/20",
+        "Fecha": "3/11/20",
+        "Servicio": "Color 1 tubo del 6 touch a 20 vol por todo + secar",
+        "Comentarios": "No cobrar"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Holm",
+        "Direcion": "Pz Zaragoza, 2 bis 5º D  Donosti",
+        "Telefono": "637361866",
+        "Cumpleaños": "7/5/73",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte + color 65-6 + 25-7 a 18 vol c/ 100 oxig/ barro 10 comp 1+5 lavabo"
+    },
+    {
+         "Nombre": "Ane",
+         "Apellidos" : "Ranedo",
+         "Direcion": "C/ Prin, 9 Donostia",
+         "Fecha": "12/28/19",
+         "Servicio": "Corte",
+         "Comentarios": "Hija de Laura Unzueta"
+    },
+    {
+        "Nombre": "Ane",
+        "Apellidos" : "Sagardia",
+        "Direcion": "Erendellin, 5  2º B Hondarribia",
+        "Telefono": "688663244",
+        "Fecha": "1/18/19",
+        "Servicio": "Lavar y peinar"
+    },
+    {
+        "Nombre": "Araceli",
+        "Apellidos" : "Rodriguez Gonzalez",
+        "Direcion": "C/ Kokorenea, 36 ",
+        "Telefono": "636830886",
+        "Cumpleaños": "5/21/1980",
+        "Fecha": "9/1/16",
+        "Servicio": "Corte +   barro 60-3´3 + 20-3´2 1+3 + peinar 70+45",
+        "Comentarios": "Medico",
+        "Fecha2": "1/14/20",
+        "Servicio2": "Corte +   barro 10-3´1 + 20-3´2 + 30-3´3 40 min secador"
+    },
+    {
+        "Nombre": "Araceli",
+        "Apellidos" : "Segovia",
+        "Direcion": "Hendaya",
+        "Telefono": "630287247",
+        "Fecha": "3/12/20",
+        "Servicio": "Color 70-6 con 80 oxig 13vol - 60-9v + 20-18v + platas deco a 40 v + secar 35+55+20"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Albizua",
+        "Direcion": "Ondarreta, 4  4º A Donostia",
+        "Telefono": "609419678",
+        "Cumpleaños": "5/24/57",
+        "Servicio": "Corte + color 1 tubo + 1/4  8 a 20 vol + secado natural",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Alzueta",
+        "Direcion": "Peña y Goni, 4 2º C",
+        "Telefono": "600390193",
+        "Cumpleaños": "6/23/1980",
+        "Fecha": "2/19/20",
+        "Servicio": "Color neo 50 - 9 + 40-8´1 con 90 oxig + secar",
+        "Comentarios": "Cejas 8  10 min / Amiga de Elvira "
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Gomez",
+        "Direcion": "C/Dondaldagui, 2 3º B Urnieta",
+        "Telefono": "943009527",
+        "Cumpleaños": "4/18/56",
+        "Fecha": "2/22/20",
+        "Servicio": "Corte + color 3/4 7 a 20 vol + platas deco a 40 vol",
+        "Comentarios": "Cejas 6 a 20 vol"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Iruarriz",
+        "Direcion": "Ordizia",
+        "Telefono": "607313133",
+        "Fecha": "2/12/20",
+        "Servicio": "Retoque de color 15-8 + 15-8´1 a 13 vol con 30 oxig, Hidrat + LN + AT 30+40+20"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Jubin",
+        "Telefono": "686905963",
+        "Fecha": "2/12/19",
+        "Servicio": "Corte",
+        "Comentarios": "Clienta de Monica"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Lizaso",
+        "Direcion": "C/ Araba, 50 8 B Zarautz",
+        "Telefono": "600699635",
+        "Cumpleaños": "11/3/20",
+        "Fecha": "1/7/20",
+        "Servicio": "Corte + hidratacion",
+        "Comentarios": "Hidratacion de regalo"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Perez",
+        "Direcion": "Donostia",
+        "Fecha": "11/29/19",
+        "Servicio": "Barro 30-7 + 20-3´1 1+3 35 min secador secado al aire"
+    },
+    {
+        "Nombre": "Arantxa",
+        "Apellidos" : "Rodriguez",
+        "Direcion": "C/ Galtelli, 12 2º A Donostia",
+        "Telefono": "661022953",
+        "Cumpleaños": "1/28/20",
+        "Fecha": "9/4/19",
+        "Servicio": "Barro 10-3´1 + 15-3´2 + 5-7 1+3 25 min secador + secar"
+    },
+    {
+        "Nombre": "Aranzazu",
+        "Apellidos" : "z",
+        "Direcion": "Oñati",
+        "Telefono": "675715771",
+        "Fecha": "12/26/19",
+        "Servicio": "Corte + platas 10 a 20 v/ 12 a 20 v 60+65",
+        "Comentarios": "Hija de Gurutze"
+    },
+    {
+        "Nombre": "Aritz",
+        "Apellidos" : "Udakiola",
+        "Direcion": "Donostia",
+        "Telefono": "943420841",
+        "Fecha": "9/24/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Asako",
+        "Apellidos" : "Takahashi",
+        "Direcion": "Aiete",
+        "Telefono": "688699540",
+        "Cumpleaños": "4/4/78",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte + color 1/2-7 + 1/2-7´7 a 13 vol"
+    },
+    {
+        "Nombre": "Asier",
+        "Apellidos" : "Aramburu",
+        "Direcion": "Tolosa",
+        "Telefono": "647828612",
+        "Fecha": "1/25/20",
+        "Servicio": "Corte",
+        "Comentarios": "Dentista"
+    },
+    {
+        "Nombre": "Asier",
+        "Apellidos" : "Escalante",
+        "Direcion": "Donostia",
+        "Telefono": "606561470",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte",
+        "Comentarios": "Marido de Sara Arriaga"
+    },
+    {
+        "Nombre": "Asier",
+        "Apellidos" : "Landa",
+        "Telefono": "660155005",
+        "Fecha": "2/6/20",
+        "Servicio": "Corte 35 + LF 20",
+        "Comentarios": "Marido de Maria /toma levadura de cerveza"
+    },
+    {
+        "Nombre": "Asten",
+        "Apellidos" : "Uribarren",
+        "Direcion": "Vitoria",
+        "Telefono": "686980641",
+        "Fecha": "1/17/19",
+        "Servicio": "Corte + color neo 50-6 + 20-6´73 a 9 vol 90 oxig barro 10g complex 1+7, 7 min secador + hidratar y secar 65+50+15"
+    },
+    {
+        "Nombre": "Asun",
+        "Apellidos" : "Gauna",
+        "Direcion": "Donostia",
+        "Telefono": "667548949",
+        "Fecha": "3/6/20",
+        "Servicio": "neo 55-8 a 18 v c/ 65 oxig ",
+        "Comentarios": "cejas 5 a 20 vol 20 min"
+    },
+    {
+        "Nombre": "Asun",
+        "Apellidos" : "Sanchez",
+        "Direcion": "C/ Maria de Lezo, 20 2º D Renteria",
+        "Telefono": "647752357",
+        "Cumpleaños": "4/5/67",
+        "Fecha": "2/20/20",
+        "Servicio": "Color 3/4 - 8´1 + 1/2 -8 + 1/4 - 7 a 20 vol + platas 90+30"
+    },
+    {
+        "Nombre": "Aurkene",
+        "Apellidos" : "Landa",
+        "Telefono": "655721634",
+        "Fecha": "3/3/20",
+        "Servicio": "Color 40-9 + 20-8´1 + 20-8 a 18 vol c/90 oxig"
+    },
+    {
+        "Nombre": "Aurora",
+        "Apellidos" : "z",
+        "Telefono": "620274958",
+        "Fecha": "5/4/19",
+        "Servicio": "Corte + color 60-6 + 40-7 a 18 v c/110 oxig/ barro 10, complex + 5-3´1 1+7 10 min 65+55",
+        "Comentarios": "Cita por pagina WEB"
+    },
+    {
+        "Nombre": "Aurora",
+        "Apellidos" : "Barrero",
+        "Direcion": "Irun",
+        "Telefono": "609027237",
+        "Fecha": "2/15/20",
+        "Servicio": "Arreglo Corte + color neo 20-7 + 25-9 + 25-7´1 a 18 v platas por todo, deco a 40 vol 45+50+30",
+        "Comentarios": "Madre de Naia Mate"
+    },
+    {
+        "Nombre": "Balbaneda",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "C/ Belandi, 45 Urnieta",
+        "Telefono": "673525679",
+        "Cumpleaños": "9/3/20",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte + color 3/4-8 + 1/4-7 a 20 v/(LE PICA EL COLOR HABLAR)",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Bea",
+        "Apellidos" : "Arriaga",
+        "Direcion": "Donostia",
+        "Telefono": "667340134",
+        "Fecha": "12/6/19",
+        "Servicio": "Color 2 tubos del Touch a 20v/ puntas 3 touch + hidratar 95+20",
+        "Comentarios": "Hermana de Sara Arriaga"
+    },
+    {
+        "Nombre": "Bea",
+        "Apellidos" : "Pierruges",
+        "Direcion": "Donostia",
+        "Telefono": "646729522",
+        "Fecha": "5/12/18",
+        "Servicio": "Corte",
+        "Comentarios": "Herboristeria de Intxaurrondo",
+        "Fecha2": "6/6/19",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Beatriz",
+        "Apellidos" : "Alia",
+        "Telefono": "661238574",
+        "Fecha": "9/25/19",
+        "Servicio": "Lavar y peinar + hidratacion 35+20"
+    },
+    {
+        "Nombre": "Beatriz",
+        "Apellidos" : "Series Narcos",
+        "Direcion": "Donostia",
+        "Telefono": "711775421",
+        "Fecha": "3/5/20",
+        "Servicio": "Arreglo de corte sin secar, No cobrar"
+    },
+    {
+        "Nombre": "Begoña",
+        "Apellidos" : "Arevalo",
+        "Direcion": "C/ Fuenterrabia,5 3º A",
+        "Telefono": "607711020",
+        "Cumpleaños": "9/10/60",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte + barro 10-6 + 40-3´3 1+4 40 min con calor",
+        "Comentarios": "Cejas 4 a 20 vol"
+    },
+    {
+        "Nombre": "Begoña",
+        "Apellidos" : "Aseginolaza",
+        "Direcion": "Labeaga, 40 A  4º A Uretxo",
+        "Telefono": "635209952",
+        "Cumpleaños": "11/1/58",
+        "Fecha": "2/19/17",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Begoña",
+        "Apellidos" : "Hernandez",
+        "Direcion": "Donostia",
+        "Telefono": "650844555",
+        "Fecha": "1/11/20",
+        "Servicio": "Corte + barro 50-3´3 1+3 20 min c/ calor/ pasar a puntas, y 15 min con calor + secar 70+50"
+    },
+    {
+        "Nombre": "Begoña",
+        "Apellidos" : "Seoane",
+        "Direcion": "Tolosa",
+        "Telefono": "618483296",
+        "Fecha": "3/12/20",
+        "Servicio": "Color barro 25-3´1 + 15-3´2 1+4 35 min secador + hidratar 88+15"
+    },
+    {
+        "Nombre": "Belen",
+        "Apellidos" : "del Olmo",
+        "Direcion": "C/ Idiazabal, 46  1º Urnieta",
+        "Telefono": "658721055",
+        "Cumpleaños": "9/17/72",
+        "Fecha": "11/21/19",
+        "Servicio": "Corte + 80-7 a 18 v c/ 90 oxig/ barro 10-7 1+7 5 min secador + ALL 27,50"
+    },
+    {
+        "Nombre": "Belen",
+        "Apellidos" : "Lizarazu",
+        "Direcion": "Pz Jaizkibel, 6  4º A  Lazarte",
+        "Telefono": "635736327",
+        "Cumpleaños": "12/19/51",
+        "Fecha": "3/12/20",
+        "Servicio": "Barro 20-3´1 1+4 con Albal/Neo 20-8´1 + 10-7 + 40-8 a 18 v c/ 80 oxig",
+        "Comentarios": "Cejas 6 a 20v 30 min"
+    },
+    {
+        "Nombre": "Belen",
+        "Apellidos" : "Medina",
+        "Direcion": "C/ Txomin",
+        "Telefono": "688681609",
+        "Cumpleaños": "7/3/65",
+        "Fecha": "1/28/20",
+        "Servicio": "Ccorte",
+        "Comentarios": "Hermana de Marimar"
+    },
+    {
+        "Nombre": "Belinda",
+        "Apellidos" : "Zafra Liberal",
+        "Direcion": "Erramu Astibia, 21   1º A 20100 Renteria",
+        "Telefono": "676113836",
+        "Cumpleaños": "6/30/77",
+        "Fecha": "3/10/20",
+        "Servicio": "Color 40-3´2 + 10-3´3 con 175 de agua + secar"
+    },
+    {
+        "Nombre": "Blanca",
+        "Apellidos" : "Del Noval",
+        "Direcion": "Donostia",
+        "Telefono": "649649191",
+        "Fecha": "2/5/20",
+        "Servicio": "Corte + platas por todo 70+50",
+        "Comentarios": "Sevillana del Basque Culinary Center"
+    },
+    {
+        "Nombre": "Blanca",
+        "Apellidos" : "Montefusco",
+        "Direcion": "Donostia",
+        "Telefono": "627747821",
+        "Cumpleaños": "8/15/89",
+        "Fecha": "6/28/19",
+        "Servicio": "Corte + hidratacion regalo",
+        "Comentarios": "Hija de Elvira Retana"
+    },
+    {
+        "Nombre": "Blanca",
+        "Apellidos" : "Pernisan",
+        "Direcion": "Donostia / Pamplona",
+        "Telefono": "699088534",
+        "Fecha": "1/15/20",
+        "Servicio": "Color barro 20-3´1 + 5-3´2 1+4 c/ Albal sin calor 20 min",
+        "Comentarios": "Tienda de muebles en Pamplona"
+    },
+    {
+        "Nombre": "Brigida",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "9/21/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Franchesca",
+        "Fecha2": "2/20/20",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Brigitte",
+        "Apellidos" : "Muller",
+        "Direcion": "40300 Sorde Lábbaye",
+        "Telefono": "663974030",
+        "Fecha": "10/24/19",
+        "Servicio": "Arreglo de nuca + secado, Color 40-6 + 30-6´73 a 18 vol c/ 80 oxig + platas deco, 30 vol 60+55+30"
+    },
+    {
+        "Nombre": "Carlota",
+        "Apellidos" : "Bellas",
+        "Telefono": "697530966",
+        "Fecha": "5/16/19",
+        "Servicio": "Corte en seco",
+        "Comentarios": "De parte de Nuria Diez"
+    },
+    {
+        "Nombre": "Carmele",
+        "Apellidos" : "Elgarrezta",
+        "Telefono": "630223375",
+        "Fecha": "9/13/18",
+        "Servicio": "Secar",
+        "Fecha2": "12/5/18",
+        "Servicio2": "Secar"
+    },
+    {
+        "Nombre": "Carmele",
+        "Apellidos" : "Peñagarikano",
+        "Direcion": "Donostia",
+        "Telefono": "670866116",
+        "Fecha": "1/30/20",
+        "Servicio": "Corte + secar"
+    },
+    {
+        "Nombre": "Carmen",
+        "Apellidos" : "Arrue",
+        "Direcion": "Madrid",
+        "Telefono": "649469072",
+        "Fecha": "11/5/19",
+        "Servicio": "Corte + hidratacion"
+    },
+    {
+        "Nombre": "Carmen",
+        "Apellidos" : "Garcia Diz",
+        "Direcion": "Alicante",
+        "Telefono": "617353536",
+        "Fecha": "1/21/20",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Maribi"
+    },
+    {
+        "Nombre": "Carolina",
+        "Apellidos" : "Milazo",
+        "Direcion": "PO",
+        "Telefono": "+33782437438",
+        "Fecha": "4/17/19",
+        "Servicio": "Barro 20-7 + 10-3´1 1+4 20 min c/calor Neo 60-4 a 9v, con 70 oxig 20 min vaporal + secar"
+    },
+    {
+        "Nombre": "Charo",
+        "Apellidos" : "Zapirain",
+        "Direcion": "Donostia",
+        "Telefono": "652762016",
+        "Fecha": "3/4/20",
+        "Servicio": "Corte + 50-4 + 50-5 a 13 vol/barro 10 comp 1+7 lv secado natural"
+    },
+    {
+        "Nombre": "Cheila",
+        "Apellidos" : "z",
+        "Direcion": "Andoain",
+        "Telefono": "637341918",
+        "Fecha": "11/6/19",
+        "Servicio": "Corte + barro 60-3´3 1+3 30 min"
+    },
+    {
+        "Nombre": "Clara",
+        "Apellidos" : "Lombardi",
+        "Telefono": "627135278",
+        "Fecha": "6/21/19",
+        "Servicio": "Corte + hidratacion 70+15",
+        "Comentarios": "Amiga de Ana Martinez",
+        "Fecha2": "1/29/20",
+        "Servicio2": "Corte + hidratacion 70+15"
+    },
+    {
+        "Nombre": "Clara",
+        "Apellidos" : "Toran",
+        "Telefono": "626144759",
+        "Fecha": "7/26/19",
+        "Servicio": "Corte + barro 40 comp 1+3 40 min 70+50"
+    },
+    {
+        "Nombre": "Conchi",
+        "Apellidos" : "Tellechea",
+        "Direcion": "Donostia",
+        "Telefono": "608770690",
+        "Fecha": "1/18/20",
+        "Servicio": "Peinar",
+        "Comentarios": "Amiga de Andone y Rosa Gonzalez"
+    },
+    {
+        "Nombre": "Conchita",
+        "Apellidos" : "Burillo",
+        "Direcion": "Donostia",
+        "Telefono": "656420607",
+        "Fecha": "1/10/20",
+        "Servicio": "Moldeado + barro 20-3´1 + 5-3´2 1+4 10 min sin albal y calor, secar 35+80+50"
+    },
+    {
+        "Nombre": "Conchita",
+        "Apellidos" : "Ortega Espada",
+        "Direcion": "Donostia",
+        "Telefono": "679189069",
+        "Fecha": "2/12/20",
+        "Servicio": "Color  1º barro 25-3´1 1+4 sin calor y sin albal mirar, Neo 70-6 + 20-7 a 13v 35 min + secar",
+        "Comentarios": "Cejas 4 a 20 vol"
+    },
+    {
+        "Nombre": "Coro",
+        "Apellidos" : "Mena",
+        "Direcion": "Donostia",
+        "Telefono": "607412771",
+        "Fecha": "12/27/19",
+        "Servicio": "Corte + color 1/4-6 + 1/2-7´4 + 1/2-8 a 13 vol/ barro, 10-6 + 5-3´3 1+5 15 min secador",
+        "Comentarios": "Amiga de Lurdes Onrraita"
+    },
+    {
+        "Nombre": "Coro",
+        "Apellidos" : "Santa Cruz",
+        "Direcion": "Grupo Etxeberri,4  5º A Hernani",
+        "Telefono": "943555936",
+        "Cumpleaños": "6/22/49",
+        "Fecha": "6/18/19",
+        "Servicio": "Corte + color",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Coro",
+        "Apellidos" : "Ugarte",
+        "Direcion": "Donostia",
+        "Fecha": "2/5/20",
+        "Servicio": "Corte + moldeado 60+75",
+        "Comentarios": "Hermana de Ana Ugarte",
+        "Fecha2": "2/12/20",
+        "Servicio2": "Color 1 tubo 7 + 1/4 7´7 a 13 vol Touch"
+    },
+    {
+        "Nombre": "Cris",
+        "Apellidos" : "Macchi Garbizu",
+        "Direcion": "San Roque, 28 1º centro Donostia",
+        "Telefono": "619531931",
+        "Cumpleaños": "12/29/53",
+        "Fecha": "9/13/19",
+        "Servicio": "Color 20-4 + 20-3 a 9 vol"
+    },
+    {
+        "Nombre": "Cristina",
+        "Apellidos" : "Arretxa",
+        "Telefono": "629925988",
+        "Comentarios": "Neo 40-9 + 30-8´1 a 13 vol/barro 5g comp + 5g 3´1 1+7 lavabo + LF 19"
+    },
+    {
+        "Nombre": "Cristina",
+        "Apellidos" : "Elejoste",
+        "Telefono": "688898432",
+        "Fecha": "3/1/19",
+        "Servicio": "1 tubo 7 a 13 vol + platas deco a 40 vol + hidrat 90+30+15"
+    },
+    {
+        "Nombre": "Cristina",
+        "Apellidos" : "Garcia",
+        "Direcion": "Donostia",
+        "Telefono": "606509461",
+        "Fecha": "9/24/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Cristina",
+        "Apellidos" : "Muro",
+        "Direcion": "San Marcial, 42  4º Izda Donostia",
+        "Telefono": "626135034",
+        "Cumpleaños": "10/1/53",
+        "Fecha": "1/29/20",
+        "Servicio": "Corte + color 1 tubo 8´1 + 1/4-8 a 20 vol/ platas deco a 40v 115+20",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Cristina",
+        "Apellidos" : "Sanchez Lopez",
+        "Direcion": "Pz los Deportes, 2 Donostia",
+        "Telefono": "677235428",
+        "Cumpleaños": "10/7/20",
+        "Fecha": "6/8/19",
+        "Servicio": "Color 70-5 a 13 vol c/ 80 de oxig/ barro 10g comp, 1+7 10 min + hidratacion regalo"
+    },
+    {
+        "Nombre": "Cristina",
+        "Apellidos" : "Tifé",
+        "Direcion": "Paseo Lugaritz, 27 3º K Donostia",
+        "Telefono": "615747879",
+        "Cumpleaños": "10/20/64",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte + color 1 tubo 8 + 1/4 7 a 20 vol"
+    },
+    {
+        "Nombre": "Daniela",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "7/18/19",
+        "Servicio": "Secar",
+        "Comentarios": "Hija de Rebeca"
+    },
+    {
+        "Nombre": "Daniela",
+        "Apellidos" : "Subijana",
+        "Fecha": "8/8/18",
+        "Servicio": "Corte ",
+        "Comentarios": "Hija de Iñaki"
+    },
+    {
+        "Nombre": "Denis",
+        "Apellidos" : "Iraola Gallego",
+        "Direcion": "Urnieta",
+        "Cumpleaños": "3/22/06",
+        "Fecha": "3/12/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Diana",
+        "Apellidos" : "Gamano",
+        "Direcion": "C/ Konsejo Txiki, 3 4º D Lazarte",
+        "Telefono": "619428321",
+        "Cumpleaños": "3/18/20",
+        "Fecha": "2/16/17",
+        "Servicio": "Barro 3,-3´1 + 30-3´3 y un poco de 3´2 en las puntas 1+3 35 min con calor y film + hidrat 80+15"
+    },
+    {
+        "Nombre": "Doni",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "Oviedo",
+        "Telefono": "616314123",
+        "Cumpleaños": "1/5/20",
+        "Fecha": "6/20/18",
+        "Servicio": "Corte + color 25-7 + 25-6 1+3  35 min calor + hidrat 115+15",
+        "Comentarios": "Estropeamos su camisa"
+    },
+    {
+        "Nombre": "Eduard",
+        "Apellidos" : "Gasset",
+        "Telefono": "699418577",
+        "Cumpleaños": "12/21/20",
+        "Fecha": "12/31/19",
+        "Servicio": "Corte",
+        "Comentarios": "Regalo"
+    },
+    {
+        "Nombre": "Edurne",
+        "Apellidos" : "Aizpurua",
+        "Telefono": "637197709",
+        "Fecha": "2/2/19",
+        "Servicio": "Color 100-6 a 18 v con 110 oxig no secado/ no hemos dado, barro ñ habia se le cobro 60 € proxima  vez mirar precio",
+        "Comentarios": "Cejas 4 a 20 vol"
+    },
+    {
+        "Nombre": "Edurne",
+        "Apellidos" : "Altuna",
+        "Direcion": "Donostia",
+        "Telefono": "688683922",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte + barro 40-7 + 20-3´1 1+3 40 min c/calor 70+50"
+    },
+    {
+        "Nombre": "Edurne",
+        "Apellidos" : "Cabarcos",
+        "Direcion": "Donostia",
+        "Telefono": "686592408",
+        "Cumpleaños": "9/15/78",
+        "Fecha": "2/20/20",
+        "Servicio": "Corte + platas por todo deco a 20 v + 12 a 40v /barro 10 3´1 1+4 70+80+15"
+    },
+    {
+        "Nombre": "Edurne",
+        "Apellidos" : "Navarro",
+        "Direcion": "Lamberri, 4  1º D Donostia",
+        "Telefono": "629668485",
+        "Cumpleaños": "2/1/71",
+        "Fecha": "2/14/20",
+        "Servicio": "Color 1/-6 + 1/2-6´7 + 1/4-5 a 20 vol LP Lt 64,80",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Edurne",
+        "Apellidos" : "Oyarbide Oyarbide",
+        "Direcion": "Donostia",
+        "Telefono": "629224654",
+        "Fecha": "3/6/20",
+        "Servicio": "Color 3/4 - 8 + 1/4 - 7´3 a 20 vol + secar"
+    },
+    {
+        "Nombre": "Edurne",
+        "Apellidos" : "Santos",
+        "Telefono": "621302694",
+        "Fecha": "12/24/19",
+        "Servicio": "Barro 20-3´1 + 20-3´2 + 20-3´3 1+3  40min secador, secar difusor 35+60",
+        "Comentarios": "Vive en Viena Austria"
+    },
+    {
+        "Nombre": "Eider",
+        "Apellidos" : "Villaverde",
+        "Direcion": "Donostia/Madrid",
+        "Telefono": "661026767",
+        "Fecha": "11/26/18",
+        "Servicio": "Corte + hidratacion  70+15",
+        "Fecha2": "1/11/19",
+        "Servicio2": "Barro 20 complex + 20-3´1  1+4 50+40"
+    },
+    {
+        "Nombre": "Ekain",
+        "Apellidos" : "Camarero",
+        "Direcion": "Donostia",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Yolanda y Xabier"
+    },
+    {
+        "Nombre": "Elena",
+        "Apellidos" : "Arrasate",
+        "Direcion": "Luxemburgo / Pamplona",
+        "Telefono": "352/621461234",
+        "Fecha": "4/16/19",
+        "Servicio": "Corte + hidratacion 70+20 + LF 19",
+        "Comentarios": "Chica con mucha caida de pelo"
+    },
+    {
+        "Nombre": "Elena",
+        "Apellidos" : "Garcia",
+        "Direcion": "Barcelona",
+        "Fecha": "8/22/19",
+        "Servicio": "Color Neo 60-6 + 40..20-8´1 + 20-6 a 18 vol + secar",
+        "Comentarios": "Pelu Antigua/ SU CHULETA 30-6 + 30-7´1 + 20-6´31"
+    },
+    {
+        "Nombre": "Elena",
+        "Apellidos" : "Gurruchaga Torrecilla",
+        "Direcion": "Paseo Bera bera, 119  3º Donostia",
+        "Telefono": "686835600",
+        "Cumpleaños": "2/17/20",
+        "Fecha": "2/26/20",
+        "Servicio": "Color 60-5 + 20-4 a 18 v c/100 oxig /barro 5-7 + 10 comp 1+5, 10 min secador no secado"
+    },
+    {
+        "Nombre": "Elena",
+        "Apellidos" : "Gurutxaga",
+        "Direcion": "Donostia",
+        "Telefono": "617468065",
+        "Fecha": "1/11/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Elena",
+        "Apellidos" : "Izazki",
+        "Direcion": "Antiguo Donostia",
+        "Telefono": "609170745",
+        "Fecha": "2/29/20",
+        "Servicio": "Color neo 20-4 + 20-5 a 18 vol con 75 oxig/barro 15g comp, 1+4 15 min secador + secar",
+        "Comentarios": "Amigos en Fortaleza Brasil"
+    },
+    {
+        "Nombre": "Elena",
+        "Apellidos" : "Maleta",
+        "Direcion": "Donostia",
+        "Telefono": "943392200",
+        "Fecha": "12/31/19",
+        "Servicio": "Arreglo Corte Color 60-7 a 18 vol/ barro 10g 7 1+5 lavabo",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Eli",
+        "Apellidos" : "Garmendia",
+        "Direcion": "C/ Belandi, 7 Urnieta",
+        "Telefono": "64620752108/02",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Elizabeth",
+        "Apellidos" : "Albisua",
+        "Direcion": "Plazaola,11  Bj Dch",
+        "Telefono": "630378729",
+        "Cumpleaños": "3/15/47",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte + color 1 Tubo 8 a 20v/ platas deco a 40v + TM 29,40"
+    },
+    {
+        "Nombre": "Elvira",
+        "Apellidos" : "Retana",
+        "Direcion": "Miramar,5 3º Izda",
+        "Telefono": "628619615",
+        "Cumpleaños": "4/26/20",
+        "Fecha": "11/27/19",
+        "Servicio": "Corte + color 1/2-8´1 + 1/4-7 a 20v/platas deco a 40v + 5 a 13 v 70+50+35"
+    },
+    {
+        "Nombre": "Emi",
+        "Apellidos" : "Monzon",
+        "Direcion": "Usurbil",
+        "Telefono": "615163414",
+        "Cumpleaños": "3/7/69",
+        "Fecha": "1/11/20",
+        "Servicio": "Corte + barro 30-6 + 30-3´3 1+3 40 min c/calor hidr regalo"
+    },
+    {
+        "Nombre": "Enaut",
+        "Apellidos" : "Leunda",
+        "Telefono": "688655690",
+        "Fecha": "8/28/19",
+        "Servicio": "Corte",
+        "Comentarios": "Marido de Ohiana"
+    },
+    {
+        "Nombre": "Encinas",
+        "Apellidos" : "Ezequiel",
+        "Direcion": "C/ Prin, 7 Donostia",
+        "Telefono": "637549796",
+        "Fecha": "10/17/19",
+        "Servicio": "Corte",
+        "Comentarios": "Padre de Lara Encinas"
+    },
+    {
+        "Nombre": "Enedina",
+        "Apellidos" : "San Miguel",
+        "Direcion": "C/ Miramar, 5  2 centro",
+        "Telefono": "609693976",
+        "Cumpleaños": "6/1/42",
+        "Fecha": "2/12/20",
+        "Servicio": "Corte + barro 15g -3´1 1+4 sin calor y albal/ neo 50-8 a 9 v con 60 de oxigenada"
+    },
+    {
+        "Nombre": "Eneritz",
+        "Apellidos" : "Agoues Ugarte",
+        "Direcion": "Av. Madrid, 9  9º C Izda Donostia",
+        "Telefono": "667713578",
+        "Cumpleaños": "11/9/20",
+        "Fecha": "4/13/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Eneritz",
+        "Apellidos" : "Muro",
+        "Direcion": "Donostia",
+        "Fecha": "10/18/18",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Maite Tolosa"
+    },
+    {
+        "Nombre": "Erik",
+        "Apellidos" : "Marido de Tina",
+        "Direcion": "PO",
+        "Fecha": "4/3/18",
+        "Servicio": "Corte + barro 10 complex 1+2"
+    },
+    {
+        "Nombre": "Erika",
+        "Apellidos" : "Gomez Alcubilla",
+        "Direcion": "C/ Idiazabal, 18  1º D Urnieta",
+        "Telefono": "685772023",
+        "Cumpleaños": "7/1/92",
+        "Fecha": "6/21/19",
+        "Servicio": "Corte + mechon 4 a 20 vol"
+    },
+    {
+        "Nombre": "Eriko",
+        "Apellidos" : "Tatsugami",
+        "Direcion": "C/ San Marcial, 2  1º Dch Donostia",
+        "Telefono": "678701006",
+        "Cumpleaños": "11/19/20",
+        "Fecha": "10/30/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Estefan",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "6/19/19",
+        "Servicio": "Corte",
+        "Comentarios": "Rubio Timido"
+    },
+    {
+        "Nombre": "Estefania",
+        "Apellidos" : "Ernandorena",
+        "Direcion": "C/ Andre Kale, 60 3º B Hernani",
+        "Telefono": "667917054",
+        "Cumpleaños": "7/30/20",
+        "Fecha": "2/9/20",
+        "Servicio": "Corte + color 1 tubo 8 a 13 vol",
+        "Comentarios": "Cejas 6 a 20 vol 20 min"
+    },
+    {
+        "Nombre": "Estela",
+        "Apellidos" : "z",
+        "Apellidos" : "Nuñez Gomez",
+        "Direcion": "Hondarribia,  Caserio Arcoiar 6 buzon 3",
+        "Cumpleaños": "7/9/67",
+        "Fecha": "3/3/16",
+        "Servicio": "Corte + color barro 30 - 3´1  con celofan 20 min + hidrat 95+20"
+    },
+    {
+        "Nombre": "Ester",
+        "Apellidos" : "Villanueva Muerza",
+        "Direcion": "C/ Fuenterrbia, 31  6º D",
+        "Telefono": "686175337",
+        "Cumpleaños": "2/11/20",
+        "Fecha": "2/9/20",
+        "Servicio": "Color 40-8´1 + 20-9 + 20-8 a 18 vol secar ",
+        "Comentarios": "Cejas 5 a 20v 10 min"
+    },
+    {
+        "Nombre": "Esther",
+        "Apellidos" : "Mendinueta",
+        "Direcion": "C/ Hernani,1 8º Donostia",
+        "Telefono": "639425060",
+        "Cumpleaños": "9/17/20",
+        "Fecha": "3/20/19",
+        "Servicio": "Color Neo 100-5 a 13v c/ 110 oxig/ barro 15-7 1+7, lavabo + hidratacion  90+20"
+    },
+    {
+        "Nombre": "Estibaliz",
+        "Apellidos" : "Ibañez Mendicute",
+        "Direcion": "Easo, 83  8º A Donostia",
+        "Telefono": "619447700",
+        "Cumpleaños": "2/28/20",
+        "Fecha": "12/18/19",
+        "Servicio": "Color 1 tubo + 1/4 5 + 1/4 - 6 a 20 vol/puntas 1/4-3 a 20v"
+    },
+    {
+        "Nombre": "Estitxu",
+        "Apellidos" : "Bailador Serrano",
+        "Direcion": "Renteria",
+        "Telefono": "616040764",
+        "Fecha": "1/17/19",
+        "Servicio": "Corte + Neo 60-6 + 20-6´73 a 18 v c/ 90 oxig/ barro 10g 7 1+7 10 min secador + hidratacion 70+50+20"
+    },
+    {
+        "Nombre": "Estelia",
+        "Apellidos" : "Lourindo Onio",
+        "Direcion": "Trinxerpe",
+        "Telefono": "670868776",
+        "Fecha": "9/12/19",
+        "Servicio": "Color neo 45-8 + 5-7 a 9 v/ barro 10g 3´1 1+7  5 min lavabo"
+    },
+    {
+        "Nombre": "Euquene",
+        "Apellidos" : "Prieto",
+        "Direcion": "Stª Leocadia, 9 2º A Urnieta",
+        "Telefono": "685726967",
+        "Cumpleaños": "5/3/61",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte + barro 15-3´1 + 10-3´2 1+4  10 min c/ albal sin calor",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Eva",
+        "Apellidos" : "Cabarcos",
+        "Direcion": "Donostia",
+        "Telefono": "646763653",
+        "Cumpleaños": "1/24/76",
+        "Fecha": "2/13/20",
+        "Servicio": "Corte+ platas deco a 20v + 12 a 40v + 10 a 40v, Mechon delantero platas 5 a 20v/ barro 10-3´1 + 10-3´2 1+4, C/ albal sin calor 90+45+20"
+    },
+    {
+        "Nombre": "Eva",
+        "Apellidos" : "Garcia",
+        "Direcion": "Donostia",
+        "Telefono": "650236907",
+        "Fecha": "2/13/20",
+        "Servicio": "Corte + Raiz 75 + 40",
+        "Comentarios": "Casada con Mikel Maeztu"
+    },
+    {
+         "Nombre": "Eva",
+         "Apellidos" : "Gonzalez",
+         "Direcion": "Madrid",
+         "Telefono": "639129209",
+         "Fecha": "8/28/19",
+         "Servicio": "Color de referencia neo 40-6 + 40-7´31 a 18 v 1+1, Nosotros 40-6 + 20-8´1 + 10-7 + 10-5 c/ 90 oxig mascarilla en puntas c/calor a la vez / no secado",
+         "Comentarios": "Pelu Maddrid MIRACHE"
+     },
+    {
+         "Nombre": "Eztitxu",
+         "Apellidos" : "Fernandez",
+         "Telefono": "620229801",
+         "Fecha": "12/23/19",
+         "Servicio": "Color barro 10-7 + 20-3´1 + 30-3´2 1+4 40 min secador"
+     },
+    {
+        "Nombre": "Fernando",
+        "Apellidos" : "Burdeos",
+        "Direcion": "Burdeos",
+        "Telefono": "33/783073177",
+        "Fecha": "3/16/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Francesca",
+        "Apellidos" : "Amicarella",
+        "Direcion": "Donostia",
+        "Telefono": "681099299",
+        "Fecha": "2/20/20",
+        "Servicio": "Corte flequillo + secar",
+        "Comentarios": "Italiana"
+    },
+    {
+        "Nombre": "Gabriela",
+        "Apellidos" : "Rezola",
+        "Direcion": "C/ Fueros, 10  Vitoria",
+        "Telefono": "656714711",
+        "Cumpleaños": "1/12/20",
+        "Fecha": "1/18/20",
+        "Servicio": "Corte",
+        "Comentarios": "Peinamos para las Bodas de Plata / Bodegas Martillo"
+    },
+    {
+        "Nombre": "Garbiñe",
+        "Apellidos" : "Alzua",
+        "Direcion": "Donostia",
+        "Telefono": "635759437",
+        "Fecha": "5/21/19",
+        "Servicio": "Barro 30-3´1 + 10-3´2  1+4 30 min c/calor + secar, Proxima vez mirar cantidades y tiempo"
+    },
+    {
+        "Nombre": "Garbiñe",
+        "Apellidos" : "Erdocia",
+        "Direcion": "Donostia",
+        "Telefono": "606665731",
+        "Fecha": "3/10/20",
+        "Servicio": "Corte + neo 40-7 + 30-7´1 a 18 v c/ 80 oxig /barro 10g comp 1+7 lavabo 5 min (Prox vez mirar el color a 18v no cubre la cana",
+        "Comentarios": "Restauradora de arte"
+    },
+    {
+        "Nombre": "Garbiñe",
+        "Apellidos" : "Sagastibelza",
+        "Direcion": "C/ San Bartolome, cb  Amezketa",
+        "Telefono": "685509215",
+        "Fecha": "1/10/20",
+        "Servicio": "Arreglo de corte + color 1 tubo 55´54 + 1/4 majicontra a 20v",
+        "Comentarios": "Trabaja p/ Uniao Farmaceutica"
+    },
+    {
+        "Nombre": "Gema",
+        "Apellidos" : "Iturrioz",
+        "Direcion": "Urnieta",
+        "Telefono": "943004022",
+        "Cumpleaños": "10/19/68",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte + hidratacion 65+15"
+    },
+    {
+        "Nombre": "Gemma",
+        "Apellidos" : "Cabrerizo",
+        "Direcion": "Donostia",
+        "Telefono": "943288166",
+        "Fecha": "1/15/20",
+        "Servicio": "Arreglo laterales patilla Color 1 tubo + 1/4  7 a 20 vol 50+45",
+        "Comentarios": "Amiga de Mariló"
+    },
+    {
+        "Nombre": "Gloria",
+        "Apellidos" : "Etxaniz",
+        "Direcion": "Urnieta",
+        "Telefono": "617797316",
+        "Cumpleaños": "6/14/50",
+        "Fecha": "2/15/20",
+        "Servicio": "Corte + barro 15g 3´1  1+4 sin calor y sin albal",
+        "Comentarios": "Cejas 6 a 20 vol"
+    },
+    {
+        "Nombre": "Gloria",
+        "Apellidos" : "Miranda",
+        "Direcion": "Trinxerpe",
+        "Telefono": "619068856",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte+color 60-8 + 20-7 a 18 vol zona superior pasar a puntas 10g 6 a 9 vol añadir un poco de 10 1ª mezcla barro 10g comp 1+5 secador",
+        "Comentarios": "Alergica al componentes"
+    },
+    {
+        "Nombre": "Gorka",
+        "Apellidos" : "Sainz",
+        "Direcion": "Urnieta",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Itziar Sainz"
+    },
+    {
+        "Nombre": "Guillermo",
+        "Apellidos" : "Monfort",
+        "Telefono": "607234242",
+        "Fecha": "12/23/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Haizea",
+        "Apellidos" : "Garmendia",
+        "Direcion": "Ametzagaita, 29 bajo Zarautz",
+        "Telefono": "652765287",
+        "Cumpleaños": "8/22/86",
+        "Fecha": "10/19/19",
+        "Servicio": "Platas 12 a 20v + 10 a 20v 75+40",
+        "Comentarios": "Acumpuntura"
+    },
+    {
+        "Nombre": "Helnar",
+        "Apellidos" : "Alcalde",
+        "Direcion": "Donostia",
+        "Telefono": "656777699",
+        "Fecha": "2/5/20",
+        "Servicio": "Corte + platas 10 a 40v + 12 a 40v c/ polvos 65+65"
+    },
+    {
+        "Nombre": "Ibone",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "2/16/19",
+        "Servicio": "Corte + barro 60-3´2 1+4 40 min",
+        "Comentarios": "ZARA"
+    },
+    {
+        "Nombre": "Idoia",
+        "Apellidos" : "Azanza",
+        "Direcion": "Donostia",
+        "Telefono": "677045752",
+        "Fecha": "2/25/20",
+        "Servicio": "Color 80-7 a 18v c/ 90 oxig /hemos pasado a todo /barro 5-3´1 + 5-comp 1+5 7 mi secador",
+        "Comentarios": "Compañera de Pili Cajigos"
+    },
+    {
+        "Nombre": "Idoia",
+        "Apellidos" : "Iranzuegui",
+        "Direcion": "C/ San Bartolome, 29 Entre p izda",
+        "Telefono": "618038999",
+        "Cumpleaños": "4/24/71",
+        "Fecha": "12/19/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Igor",
+        "Apellidos" : "Manzano",
+        "Direcion": "Donosti",
+        "Fecha": "3/30/19",
+        "Servicio": "Corte",
+        "Comentarios": "Garazi cuchilla 4 grande"
+    },
+    {
+        "Nombre": "Iker",
+        "Apellidos" : "Anglada",
+        "Direcion": "Alto Zoroaga, 27  2º  B Donosti",
+        "Telefono": "651470045",
+        "Cumpleaños": "11/27/99",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Iker",
+        "Apellidos" : "de Miguel",
+        "Direcion": "Donostia",
+        "Telefono": "607279974",
+        "Cumpleaños": "5/16/74",
+        "Fecha": "1/22/20",
+        "Servicio": "Corte",
+        "Comentarios": "Bar Itzaraitz"
+    },
+    {
+        "Nombre": "Iker",
+        "Apellidos" : "Plaza Rodriguez",
+        "Direcion": "Ricardo Izaguirre, 3 1º D Donostia",
+        "Telefono": "699010179",
+        "Cumpleaños": "05/16/1997",
+        "Fecha": "2/4/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Marisa Rodriguez"
+    },
+    {
+        "Nombre": "Iker",
+        "Apellidos" : "Rodrigo",
+        "Direcion": "Urnieta",
+        "Fecha": "1/30/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Maider Pavon"
+    },
+    {
+        "Nombre": "Inge",
+        "Apellidos" : "Izko",
+        "Direcion": "Urbieta, 23 Donostia",
+        "Telefono": "656700999",
+        "Fecha": "1/14/20",
+        "Servicio": "Color Neo 40-8´1 + 30-9 a 18 vol + secar"
+    },
+    {
+        "Nombre": "Inma",
+        "Apellidos" : "Martin",
+        "Cumpleaños": "12/10/20",
+        "Fecha": "2/20/20",
+        "Servicio": "Color 1/4-3 a 20v patillas y nuca/resto 3/4 entre 5 y 4 a 20v",
+        "Comentarios": "Labe Txiki"
+    },
+    {
+        "Nombre": "Inma",
+        "Apellidos" : "Velasco",
+        "Direcion": "Donostia",
+        "Telefono": "637946401",
+        "Fecha": "1/7/20",
+        "Servicio": "Corte + 80-4 a 9v c/ 100 oxig /barro 10g comp 1+5  5 min lavabo 65+55",
+        "Comentarios": "Amiga de Sara Arriaga"
+    },
+    {
+        "Nombre": "Iñaki",
+        "Apellidos" : "Aramburu",
+        "Direcion": "Donostia",
+        "Telefono": "627746215",
+        "Fecha": "3/4/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hermano de Asier Aramburu / Informatico"
+    },
+    {
+        "Nombre": "Iñaki",
+        "Apellidos" : "Subijana Zunzunegui",
+        "Direcion": "Calle Palacio, 51 2º C Donostia",
+        "Telefono": "659715767",
+        "Cumpleaños": "6/15/63",
+        "Fecha": "2/12/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Ioane",
+        "Apellidos" : "Carrascal Navarro",
+        "Direcion": "C/ Lamberri, 4 Donosti",
+        "Cumpleaños": "1/30/05",
+        "Fecha": "1/2/20",
+        "Servicio": "Corte + platas 10 a 20 vol 50+60"
+    },
+    {
+        "Nombre": "Ione",
+        "Apellidos" : "Albeni",
+        "Direcion": "José Maria Sert,5  1º Izda Donostia",
+        "Telefono": "609182474",
+        "Cumpleaños": "1/15/59",
+        "Fecha": "2/13/20",
+        "Servicio": "Corte + color 30-6 + 30-7 + 10-6´73 a 18 v/ barro 5g comp con un poco del 7 1+7 secador+ hidrat 120+15",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Irantzu",
+        "Apellidos" : "Oiarzabal Ostolaza",
+        "Direcion": "Urnieta",
+        "Telefono": "617585327",
+        "Cumpleaños": "8/22/96",
+        "Fecha": "10/2/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Iranzu",
+        "Apellidos" : "Ramirez Tanco",
+        "Direcion": "C/ Pz Paloma Miranda, 3  7º C Donostia",
+        "Telefono": "607691555",
+        "Cumpleaños": "8/28/20",
+        "Fecha": "1/10/20",
+        "Servicio": "Corte + platas 12 a 40 v + secar 70+70"
+    },
+    {
+        "Nombre": "Irati",
+        "Apellidos" : "Herrero",
+        "Direcion": "MADRID",
+        "Telefono": "687302834",
+        "Fecha": "3/7/20",
+        "Servicio": "Color barro 40-3´2 1+4 30 min secador secado nat"
+    },
+    {
+        "Nombre": "Irati",
+        "Apellidos" : "Mendinueta",
+        "Fecha": "1/28/20",
+        "Servicio": "Corte + platas 10 a 40 vol 70+65",
+        "Comentarios": "Hija de Marian Hernandez"
+    },
+    {
+        "Nombre": "Iratxe",
+        "Apellidos" : "Osa Eiguren",
+        "Direcion": "Pilotegi Bidea, 123 1º B Igueldo",
+        "Telefono": "636814010",
+        "Cumpleaños": "11/7/73",
+        "Fecha": "12/14/19",
+        "Servicio": "Corte+ platas deco a 20v + 12 a 40v + secar 65+70"
+    },
+    {
+        "Nombre": "Irene",
+        "Apellidos" : "Caion",
+        "Direcion": "Donostia",
+        "Telefono": "646729522",
+        "Fecha": "5/31/19",
+        "Servicio": "Corte + platas 10 a 40v / puntas 12 a 40v con polvos 65+60",
+        "Comentarios": "Hija de la herboristeria Intxaurrondo"
+    },
+    {
+        "Nombre": "Irene",
+        "Apellidos" : "Elias Larea",
+        "Direcion": "Donostia",
+        "Telefono": "645703651",
+        "Fecha": "12/6/19",
+        "Servicio": "Corte",
+        "Comentarios": "Simpatica de pelo canoso blanco"
+    },
+    {
+        "Nombre": "Isa",
+        "Apellidos" : "Esteibar",
+        "Direcion": "Donostia",
+        "Telefono": "661956127",
+        "Fecha": "2/12/20",
+        "Servicio": "Corte + color 20-9 + 40-8 + 40-8´1 a 18 vol/barro 10g comp 1+8 5 min lavabo"
+    },
+    {
+        "Nombre": "Isaac",
+        "Apellidos" : "Elorza",
+        "Direcion": "Paseo Beio, 34 3º B Donostia ",
+        "Telefono": "607445882",
+        "Cumpleaños": "5/4/20",
+        "Fecha": "11/21/19",
+        "Servicio": "Corte + barro 20g comp 1+3 15 min vaporal"
+    },
+    {
+        "Nombre": "Isabel",
+        "Apellidos" : "Etxeberria",
+        "Direcion": "Donostia",
+        "Fecha": "12/26/19",
+        "Servicio": "Corte + platas 12 a 40 vol c/ polvos 65+70",
+        "Comentarios": "Hija de Paloma Bengoetxea"
+    },
+    {
+        "Nombre": "Isabel",
+        "Apellidos" : "Garcia",
+        "Direcion": "Oyartzun",
+        "Telefono": "649421348",
+        "Cumpleaños": "6/16/50",
+        "Fecha": "2/21/20",
+        "Servicio": "Arreglo de corte/color 1 tubo 8 + 1/4-7 a 20 v",
+        "Comentarios": "Cejas 7 a 20v /azucar nel tinte"
+    },
+    {
+        "Nombre": "Isabel",
+        "Apellidos" : "Garcia Velazquez",
+        "Direcion": "Pz de los Deportes, 6 3º D Donostia",
+        "Telefono": "670656132",
+        "Cumpleaños": "11/17/62",
+        "Fecha": "2/13/19",
+        "Servicio": "Corte + color 3/4-7 + 1/2-7´4 touch a 13 vol + platas + hidrat 105+15+15"
+    },
+    {
+        "Nombre": "Isabel",
+        "Apellidos" : "Navarro",
+        "Fecha": "4/6/19",
+        "Servicio": "Secar"
+    },
+    {
+        "Nombre": "Isabel",
+        "Apellidos" : "Palomo",
+        "Direcion": "MADRID",
+        "Telefono": "619530002",
+        "Fecha": "9/17/19",
+        "Servicio": "Corte + color neo 60-5 + 15-3 a 13 vol + secar 75+55"
+    },
+    {
+        "Nombre": "Isabel",
+        "Apellidos" : "Poente",
+        "Direcion": "C/ Maria Dolores Aguirre, 18 6º C Donostia",
+        "Telefono": "661258981",
+        "Fecha": "2/27/19",
+        "Servicio": "Corte + color 1 tubo 4 touch a 13 v/barro 10g comp 1+7 lavabo 70+50"
+    },
+    {
+         "Nombre": "Itala",
+         "Apellidos" : "Lizarraga Arteaga",
+         "Direcion": "C/ Florida, 135 A Hernani",
+         "Telefono": "628214604",
+         "Cumpleaños": "1/7/20",
+         "Fecha": "11/5/19",
+         "Servicio": "Corte"
+     },
+    {
+        "Nombre": "Itxaso",
+        "Apellidos" : "Uanez",
+        "Direcion": "Donostia",
+        "Telefono": "633419900",
+        "Fecha": "3/2/19",
+        "Servicio": "Corte arreglo arriba + secar",
+        "Comentarios": "Amiga de Cris Macchi"
+    },
+    {
+        "Nombre": "Itziar",
+        "Apellidos" : "Aginaga Rivera",
+        "Direcion": "Donostia",
+        "Telefono": "629931035",
+        "Fecha": "8/27/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Itziar",
+        "Apellidos" : "Azpeitia",
+        "Direcion": "Goiburu, 7  Urnieta",
+        "Telefono": "943332463",
+        "Cumpleaños": "11/20/20",
+        "Fecha": "2/19/20",
+        "Servicio": "Arreglo deCorte + color barro 5g 7 + 5g-3´1  1+4 25 min / neo 40-4 a 9v c/ 40 oxig 20 min",
+        "Comentarios": "Cejas neo 5 a 9 vol"
+    },
+    {
+        "Nombre": "Itziar",
+        "Apellidos" : "Briñas",
+        "Direcion": "C/ Segundo Izpizua, 6  4º A Renteria",
+        "Telefono": "620766617",
+        "Cumpleaños": "3/24/57",
+        "Fecha": "3/6/20",
+        "Servicio": "Corte + color 1/4-7´4 + 1/4-0´43 + 1/4-77´44 a 20 v + TM",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Itziar",
+        "Apellidos" : "Sainz Cuadros",
+        "Direcion": "Real Cia Guipuzkoana de Caracas, 12 3º B Amara",
+        "Telefono": "676397581",
+        "Cumpleaños": "6/4/87",
+        "Fecha": "11/9/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Izazkun",
+        "Apellidos" : "Conde",
+        "Direcion": "Pz de las Agostinas, 2  2º A Hernani",
+        "Telefono": "615753735",
+        "Cumpleaños": "5/4/69",
+        "Fecha": "1/31/20",
+        "Servicio": "Corte + color 1/4-7 + 1/4-7´7 +1/2-1/4-7´4 +1/2-1/4-7 a 13v barro 10g 7  1+7 lavabo + secar"
+    },
+    {
+        "Nombre": "Iziar",
+        "Apellidos" : "Arteche",
+        "Telefono": "647546946",
+        "Fecha": "3/27/19",
+        "Servicio": "Color  barro 20-3´2 + 20-3´3 1+3 20 min con albal sin calor secado normal"
+    },
+    {
+        "Nombre": "Jaione",
+        "Apellidos" : "Ezkizabal",
+        "Fecha": "2/6/20",
+        "Servicio": "Color barro 10-3´1 + 20-3´2 1+4 30 min c/albal y sin calor"
+    },
+    {
+        "Nombre": "Jaione",
+        "Apellidos" : "Goenaga",
+        "Direcion": "C/ Hermanos Otamendi, 3  4º B Donostia",
+        "Telefono": "647210597",
+        "Cumpleaños": "1/1/20",
+        "Fecha": "3/14/20",
+        "Servicio": "Color 90-6 + 10-5 a 18 vol /barro 5- comp + 5-3´1 1+7 5 min lavabo 2 LN + 2 AT proxima vez mirar cantidades sobro 10g"
+    },
+    {
+        "Nombre": "Javier",
+        "Apellidos" : "Goikoetxea",
+        "Direcion": "C/ Uzandizaga, 21 5º Dch Gros",
+        "Telefono": "666384639",
+        "Cumpleaños": "1/25/98",
+        "Fecha": "1/24/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Joana",
+        "Apellidos" : "Garcia",
+        "Direcion": "Urnieta",
+        "Telefono": "943017377",
+        "Fecha": "3/7/20",
+        "Servicio": "Corte + 2 ALL 28,20",
+        "Comentarios": "Hija de Josune Urnieta"
+    },
+    {
+        "Nombre": "Joana",
+        "Apellidos" : "Gomes de Segura",
+        "Direcion": "Donostia",
+        "Telefono": "655725920",
+        "Fecha": "10/15/19",
+        "Servicio": "Corte + color 20-3´1 + 20-3´2 + 20-3´3 1+3  35 min secador"
+    },
+    {
+        "Nombre": "Joanes",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "9/19/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Aloña"
+    },
+    {
+        "Nombre": "Joritz",
+        "Apellidos" : "Ruiz",
+        "Direcion": "Donostia",
+        "Telefono": "619224915",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte sin lavado",
+        "Comentarios": "Amigo de Sara Arriaga"
+    },
+    {
+        "Nombre": "Jose",
+        "Apellidos" : "Costa",
+        "Direcion": "C/ Estacion, 5 1º E Urnieta",
+        "Telefono": "690637272",
+        "Cumpleaños": "6/3/68",
+        "Fecha": "1/14/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Jose Ramon",
+        "Apellidos" : "z",
+        "Direcion": "SUIZA",
+        "Telefono": "687077324",
+        "Fecha": "1/17/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Joseba",
+        "Apellidos" : "Martinez",
+        "Direcion": "C/ Autonomia, 8 5º D Donostia",
+        "Telefono": "653730240",
+        "Cumpleaños": "4/23/77",
+        "Fecha": "1/24/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Josune",
+        "Apellidos" : "Zubeldia",
+        "Telefono": "655749946",
+        "Fecha": "1/8/20",
+        "Servicio": "Corte + Neo 50-6 + 20-6´73 con 90 oxig 18v + aclarado puntas con 12 /barro 20-6 1+4 15 min secador LF+ALL+TM",
+        "Comentarios": "Amiga de Belen del Olmo Urnieta",
+        "Fecha2": "3/7/20",
+        "Servicio2": "ALL"
+    },
+    {
+        "Nombre": "Juana",
+        "Apellidos" : "Alonso Soroa",
+        "Direcion": "C/ Monasterio Tela Oliva, 7 7º A Pamplona",
+        "Telefono": "687877966",
+        "Cumpleaños": "1/6/20",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte + color 15-3´1 + 30-3´2 1+3 20 min"
+    },
+    {
+        "Nombre": "Juanjo",
+        "Apellidos" : "Diego Rodriguez",
+        "Direcion": "Donostia",
+        "Telefono": "677452572",
+        "Fecha": "1/3/20",
+        "Servicio": "Corte",
+        "Comentarios": "Marido de Aintzane pelo antiguo"
+    },
+    {
+        "Nombre": "Julene",
+        "Apellidos" : "Lure",
+        "Telefono": "695729015",
+        "Fecha": "12/10/19",
+        "Servicio": "Corte + platas deco a 20v/ deco a 40v/ 10+12 a 40 vol 70+85"
+    },
+    {
+        "Nombre": "Julia",
+        "Apellidos" : "Yael",
+        "Direcion": "Donostia",
+        "Telefono": "647438626",
+        "Fecha": "2/7/20",
+        "Servicio": "Barro 30-3´1 1+4 de atrás adelante 5 min +/- sin calor y sin albal no secado"
+    },
+    {
+        "Nombre": "Julieta",
+        "Apellidos" : "Bray",
+        "Direcion": "Donostia",
+        "Telefono": "67/6485978",
+        "Fecha": "4/11/19",
+        "Servicio": "Color barro 30-3´1 + 10-3´2 1+4 15 min +/- 10 min c/albal y 5 min sin secado natural 45+20"
+    },
+    {
+        "Nombre": "Junkal",
+        "Apellidos" : "Arana Carcaño",
+        "Direcion": "Pz José Maria Sert, 7  4º A Antiguo",
+        "Telefono": "699340624",
+        "Cumpleaños": "5/13/82",
+        "Fecha": "2/7/20",
+        "Servicio": "Corte + barro 50-3´2 +20-3´3 1+3 40 min secador 70+53"
+    },
+    {
+        "Nombre": "Junkal",
+        "Apellidos" : "Aranguren",
+        "Direcion": "Lezo",
+        "Fecha": "2/18/20",
+        "Servicio": "Corte + color neo 70-7 + 30-6´73 a 18v con 110 oxig + secar",
+        "Comentarios": "Tia de Garazi"
+    },
+    {
+        "Nombre": "Karmele",
+        "Apellidos" : "Florentino",
+        "Direcion": "Pz Lapurdi, 1 Donostia",
+        "Telefono": "663402387",
+        "Fecha": "3/6/20",
+        "Servicio": "Color barro 35-3´1 + 35-7  1+3 40 min secador + secado natural"
+    },
+    {
+        "Nombre": "Kati",
+        "Apellidos" : "z",
+        "Direcion": "A CORUÑA",
+        "Telefono": "619420831",
+        "Fecha": "4/12/19",
+        "Servicio": "Secar",
+        "Comentarios": "Srª no le gusta masaje"
+    },
+    {
+        "Nombre": "Katixa",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "San Roque , 5 Donostia",
+        "Telefono": "617948284",
+        "Cumpleaños": "3/26/20",
+        "Fecha": "2/19/20",
+        "Servicio": "Arreglo de nuca en seco"
+    },
+    {
+        "Nombre": "Kayla",
+        "Apellidos" : "z",
+        "Direcion": "SUIZA",
+        "Telefono": "+41788014077",
+        "Fecha": "5/21/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Kevin",
+        "Apellidos" : "Iraola Gallego",
+        "Direcion": "C/ San Juan, 14  4º E Urnieta",
+        "Cumpleaños": "5/3/01",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Kin",
+        "Apellidos" : "z",
+        "Direcion": "NORUEGA",
+        "Fecha": "4/4/19",
+        "Servicio": "Corte + platas 1/4-12 a 40 v + neo 20-6 a 9v en las puntas libres + hidrat + secar 70+60+20"
+    },
+    {
+        "Nombre": "Kontxi",
+        "Apellidos" : "Lizaso",
+        "Direcion": "Av de Francia, 15  3º B Donostia",
+        "Telefono": "635718547",
+        "Cumpleaños": "3/20/20",
+        "Servicio": "Corte + color 40-6 + 10-7´4 a 9 v + peinar y hidrat 105+15"
+    },
+    {
+        "Nombre": "Kyoko",
+        "Apellidos" : "Takahashi",
+        "Direcion": "Donostia",
+        "Telefono": "666655899",
+        "Cumpleaños": "1/10/20",
+        "Fecha": "2/5/20",
+        "Servicio": "Corte + barro 15-3´1 + 25-3´3 1+3 45 min se cambio porque no habia por 3´2 + 2 LF 40  + hidrat 120+ 15"
+    },
+    {
+        "Nombre": "Laika",
+        "Apellidos" : "Takahashi",
+        "Direcion": "Donostia",
+        "Cumpleaños": "5/30/14",
+        "Fecha": "12/13/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Zubia",
+        "Direcion": "MADRID",
+        "Telefono": "616567968",
+        "Fecha": "7/12/19",
+        "Servicio": "Corte no secado + hidratacion 50+20"
+    },
+    {
+        "Nombre": "Lander",
+        "Apellidos" : "Camarero",
+        "Direcion": "Donostia",
+        "Fecha": "8/21/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Yolanda y Xabier"
+    },
+    {
+         "Nombre": "Lander",
+         "Apellidos" : "Lertxundi",
+         "Direcion": "Donostia",
+         "Fecha": "3/5/20",
+         "Servicio": "Corte",
+         "Comentarios": "Hermano de Erik"
+     },
+    {
+        "Nombre": "Lara",
+        "Apellidos" : "Encinas Garcia",
+        "Direcion": "C/ Prin, 7 ETS D Donostia",
+        "Telefono": "616099508",
+        "Cumpleaños": "4/20/87",
+        "Fecha": "1/10/20",
+        "Servicio": "Corte + platas deco a 20v/ 12 a 40v con polvos/ Arriba 12 a 40v / super arriba 10 a 20v 65+65"
+    },
+    {
+        "Nombre": "Lara",
+        "Apellidos" : "Martinez",
+        "Direcion": "Donostia",
+        "Telefono": "695752025",
+        "Fecha": "4/24/19",
+        "Servicio": "Corte + arreglo de color 75+30",
+        "Comentarios": "Hermana de Joseba"
+    },
+    {
+        "Nombre": "Larraitz",
+        "Apellidos" : "Ilumbe",
+        "Direcion": "Lazarte",
+        "Telefono": "650489504",
+        "Fecha": "4/17/19",
+        "Servicio": "Barro 40-3´1 1+3 35 min secador + secar"
+    },
+    {
+        "Nombre": "Laura",
+        "Apellidos" : "Asumendi",
+        "Direcion": "Santxo el Sabio, 22",
+        "Telefono": "616494234",
+        "Cumpleaños": "4/4/20",
+        "Fecha": "10/18/19",
+        "Servicio": "Color 60-3´3 1+3 40 min + hidrat 90+15",
+        "Comentarios": "Dermatologa"
+    },
+    {
+        "Nombre": "Laura",
+        "Apellidos" : "Ces",
+        "Direcion": "Donostia",
+        "Telefono": "677879957",
+        "Fecha": "12/19/19",
+        "Servicio": "Corte + barro 15g-3´1 + 10g-3´2  1+4 25 min con albal y sin calor  60+40",
+        "Comentarios": "Madre de Ainara Plaza"
+    },
+    {
+        "Nombre": "Laura",
+        "Apellidos" : "Sanchez",
+        "Direcion": "C/ Azkuene, 22 piso 12 puerta 1 ",
+        "Telefono": "647431784",
+        "Cumpleaños": "4/12/80",
+        "Fecha": "2/1/20",
+        "Servicio": "Corte +barro 40-3´3 + 20-6 1+3/ platas 12 con polvos a 40v 120+25"
+    },
+    {
+        "Nombre": "Laura",
+        "Apellidos" : "Unzueta",
+        "Direcion": "C/ Prin. 9 2º Izda Donostia",
+        "Telefono": "610296478",
+        "Cumpleaños": "6/15/70",
+        "Fecha": "12/3/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Leide",
+        "Apellidos" : "Arakistian",
+        "Direcion": "Donostia",
+        "Telefono": "667750370",
+        "Fecha": "3/16/19",
+        "Servicio": "Corte + platas 1/4 10 a 20v/ 1/2 1/4 12 a 40v c/ polvos 75+55"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Alcorta",
+        "Direcion": "Donostia",
+        "Telefono": "653741115",
+        "Fecha": "1/9/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hermana de Naiara Alcorta"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Elizegi",
+        "Direcion": "C/ Legazpi, 3 1º D Donostia",
+        "Telefono": "660058264",
+        "Cumpleaños": "5/22/20",
+        "Fecha": "10/25/19",
+        "Servicio": "Color 1 tubo 6 + 1/2-6´7 a 13 v por todo /barro 15g 3´3 1+5 15 min secador"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Fernandez",
+        "Direcion": "CUBA",
+        "Servicio": "Barro 45 nuez moscada + 20 cacao 1+3 40 min + secar",
+        "Comentarios": "Hermana de Ana Fernandez / vive en CUBA"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "Donostia",
+        "Fecha": "3/4/20",
+        "Servicio": "Corte",
+        "Comentarios": "Médica / Hermana de Ane Gonzalez"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Gusman",
+        "Direcion": "Urnieta",
+        "Telefono": "666125184",
+        "Fecha": "2/12/20",
+        "Servicio": "LN +  AT"
+    },
+    {
+        "Nombre": "Leire",
+        "Apellidos" : "Zubia",
+        "Direcion": "MADRID",
+        "Telefono": "616567968",
+        "Fecha": "7/12/19",
+        "Servicio": "Corte + hidratacion 50+20",
+        "Comentarios": "Diseñadora de joias"
+    },
+    {
+        "Nombre": "Lide",
+        "Apellidos" : "Oñederra",
+        "Direcion": "Donostia",
+        "Telefono": "687848282",
+        "Cumpleaños": "4/27/74",
+        "Fecha": "7/12/19",
+        "Servicio": "Barro 50-3´3 + 10.6 1+3 40 min secador + secado natural"
+    },
+    {
+        "Nombre": "Lidia",
+        "Apellidos" : "Vilumbrales",
+        "Direcion": "Donostia",
+        "Telefono": "660954059",
+        "Fecha": "10/31/19",
+        "Servicio": "Barro 60g- 30-3´2 + 30-7 1+4 40 min c/calor + secar"
+    },
+    {
+        "Nombre": "Lierni",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "11/27/19",
+        "Servicio": "Corte"
+    },
+    {
+         "Nombre": "Lina",
+         "Apellidos" : "z",
+         "Direcion": "Antiguo",
+         "Fecha": "2/12/19",
+         "Servicio": "Lavar y secar"
+     },
+    {
+        "Nombre": "Lina",
+        "Apellidos" : "Martin",
+        "Direcion": "Donostia",
+        "Telefono": "610855124",
+        "Fecha": "10/8/19",
+        "Servicio": "Corte",
+        "Comentarios": "Madre de Eva"
+    },
+    {
+        "Nombre": "Lola",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "9/20/19",
+        "Servicio": "Corte + TM 28´20",
+        "Comentarios": "Sogra de Mano Uerte/ madre de Beatriz"
+    },
+    {
+        "Nombre": "Lola",
+        "Apellidos" : "Sainz",
+        "Direcion": "Donostia",
+        "Telefono": "659928959",
+        "Fecha": "12/11/19",
+        "Servicio": "Corte + platas deco a 13 v / 9 a 20v  70+65"
+    },
+    {
+        "Nombre": "Lorea",
+        "Apellidos" : "Garitano",
+        "Direcion": "Donostia",
+        "Telefono": "688823228",
+        "Fecha": "4/4/19",
+        "Servicio": "Corte + platas deco a 40 v/ barro 40-3´3 1+3 + hidrat 70+50+15"
+    },
+    {
+        "Nombre": "Lorea",
+        "Apellidos" : "Goyogana",
+        "Direcion": "ZUMAIA",
+        "Telefono": "677842493",
+        "Fecha": "5/4/19",
+        "Servicio": "Barro 20-3´1 + 20-3´2 + 10-7 1+4 20 min c/calor + 5 min c/albal en puntas 5-4 a 9 vol 15 min baporal + hidrat 90+15"
+    },
+    {
+        "Nombre": "Lorena",
+        "Apellidos" : "Campos Escudero",
+        "Direcion": "Madrid",
+        "Telefono": "667312333",
+        "Cumpleaños": "3/17/88",
+        "Fecha": "8/28/19",
+        "Servicio": "Barro 30-3´3 + 30-6 1+3 40 min c/calor secado al aire",
+        "Comentarios": "Novia de ASIER"
+    },
+    {
+        "Nombre": "Lorena",
+        "Apellidos" : "Garcia",
+        "Direcion": "Donostia",
+        "Telefono": "635711208",
+        "Fecha": "2/15/20",
+        "Servicio": "Corte + 60-6 +30-7 a 13 v/ barro 5 comp + 10-7 1+5 10 min secador aceite de almendras puntas a 1ª vez calor + hidrat 120+20",
+        "Comentarios": "Dentista"
+    },
+    {
+        "Nombre": "Lorena",
+        "Apellidos" : "Goenaga",
+        "Direcion": "Donostia",
+        "Telefono": "677446623",
+        "Fecha": "5/3/19",
+        "Servicio": "Barro 40 nuez moscada + 10 cacao 1+3 35 min secador hidrat + secado poco al aire 85+20"
+    },
+    {
+        "Nombre": "Lorenzo",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Francesca Italiana"
+    },
+    {
+        "Nombre": "Lourdes",
+        "Apellidos" : "Cañas",
+        "Direcion": "Francia",
+        "Telefono": "33/666453170",
+        "Fecha": "10/26/19",
+        "Servicio": "Corte + color 1 tubo 9´1 c/100 oxig 13 v /platas deco a 40v + ALL 27,50 40+45+55"
+    },
+    {
+        "Nombre": "Lourdes",
+        "Apellidos" : "Echeverria",
+        "Direcion": "C/ Gurutze Bidea, 10 Oyartzun",
+        "Telefono": "617720976",
+        "Cumpleaños": "4/19/20",
+        "Fecha": "1/15/20",
+        "Servicio": "Moldeado 40+ 90",
+        "Comentarios": "lhe Falta una mano"
+    },
+    {
+        "Nombre": "Lourdes",
+        "Apellidos" : "Ortiz",
+        "Direcion": "Donostia/ Alicante",
+        "Telefono": "609229769",
+        "Fecha": "3/6/20",
+        "Servicio": "Neo 55-5 + 25-5´77 a 18 v 40 min + barro 10g comp 1+5 5 min lavabo + hidratar 90+20"
+    },
+    {
+        "Nombre": "Lourdes",
+        "Apellidos" : "Vigueira",
+        "Direcion": "Donostia",
+        "Telefono": "605720284",
+        "Fecha": "2/6/20",
+        "Servicio": "Corte + barro 30g-3´1 1+4  5 min sin calor y albal 65+53",
+        "Comentarios": "Amiga de Isa Estebes"
+    },
+    {
+        "Nombre": "Lucia",
+        "Apellidos" : "Elorza Porres Crespillo",
+        "Direcion": "Paseo Berio, 34  3º B",
+        "Cumpleaños": "9/22/08",
+        "Fecha": "9/5/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Lucia",
+        "Apellidos" : "Zubimendi Alkorta",
+        "Direcion": "Calle San Martin, 59",
+        "Fecha": "9/3/15",
+        "Servicio": "Color 1 tubo + 1/4 del 6 koleston a 20 vol / rapido secado"
+    },
+    {
+        "Nombre": "Lucrecia",
+        "Apellidos" : "Frosina Alzueta",
+        "Direcion": "Peña y Goni, 4 2º C Donostia",
+        "Telefono": "636790292",
+        "Cumpleaños": "8/13/20",
+        "Fecha": "9/24/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Luis",
+        "Apellidos" : "Ferreiro",
+        "Direcion": "C/ Urbieta, 41  4º C Donostia",
+        "Telefono": "646765663",
+        "Cumpleaños": "4/19/82",
+        "Fecha": "2/9/20",
+        "Servicio": "Corte + color 1/4-6 a 13 vol"
+    },
+    {
+        "Nombre": "Lupe",
+        "Apellidos" : "Lozano",
+        "Direcion": "Donostia",
+        "Telefono": "657702069",
+        "Fecha": "10/1/19",
+        "Servicio": "Barro 20-3´1  1+6 mirar barro muy rapido + secar",
+        "Comentarios": "Amiga de Mertxe Illaramendi"
+    },
+    {
+        "Nombre": "Lurdes",
+        "Apellidos" : "Echeverria",
+        "Direcion": "Donostia",
+        "Telefono": "609245501",
+        "Fecha": "1/15/20",
+        "Servicio": "Moldeado 40+90"
+    },
+    {
+        "Nombre": "Lurdes",
+        "Apellidos" : "Onrraita",
+        "Direcion": "Uzandizaga, 21  5º B Donostia",
+        "Telefono": "637252787",
+        "Cumpleaños": "2/11/50",
+        "Fecha": "2/17/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Mª Angeles",
+        "Apellidos" : "Hernandez",
+        "Telefono": "647140446",
+        "Fecha": "12/10/19",
+        "Servicio": "Barro 50g-3´2 1+4 45 minutos  con secador",
+        "Comentarios": "Hermana de Marian Hernandez"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Apezetxea",
+        "Telefono": "676211035",
+        "Fecha": "2/22/19",
+        "Servicio": "Arreglo de nuca + platas 12 a 40v con polvos / 10 a40v 60+50"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Fuentes",
+        "Direcion": "Juan deo Garai, 5 1º A Antigu",
+        "Telefono": "639224902",
+        "Cumpleaños": "8/25/55",
+        "Fecha": "3/6/20",
+        "Servicio": "Color Platas 1/2-1/4- 12 a 40v + deco a 20v + 1/4-7´4 a 20v con una gota 77´44 + secar/barro 20g-3´3 1+4 raiz"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Gutierrez",
+        "Direcion": "LAZARTE",
+        "Telefono": "606892834",
+        "Fecha": "10/22/19",
+        "Servicio": "Barro 55-3´2 1+3 20 min secador + hidratar 40+20"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Irrazuegui",
+        "Direcion": "Donostia",
+        "Telefono": "677721149",
+        "Fecha": "7/12/19",
+        "Servicio": "Corte + color 1 tubo 7 a 13v/ Barro 15g-3´3 + 5g-6 1+7 20 min secador",
+        "Comentarios": "Hermana de Pili y Margari"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Lago",
+        "Direcion": "Donostia",
+        "Telefono": "645006309",
+        "Fecha": "3/10/20",
+        "Servicio": "Corte + color 10-5´77 + 40-6 + 10-5 a 18 v/ Barro 10g- comp 1+7 7 min secador"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Sevilla",
+        "Direcion": "Urnieta",
+        "Telefono": "600273855",
+        "Cumpleaños": "5/29/55",
+        "Fecha": "1/16/20",
+        "Servicio": "Color 3/4-7 + 1/4-7´3 + 1/4-5 a 20 vol/ platas deco a 40 v (Regalo de Marijo)"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Vergara",
+        "Direcion": "Donostia",
+        "Telefono": "677415758",
+        "Fecha": "2/5/20",
+        "Servicio": "Color neo 40-6 + 30-6´73 a 9 v /barro 5g-6 + 10g-7 1+5 15 min secador"
+    },
+    {
+        "Nombre": "Mª Cruz",
+        "Apellidos" : "Arruti",
+        "Direcion": "Oyartzun",
+        "Telefono": "657724291",
+        "Cumpleaños": "1/9/20",
+        "Fecha": "12/19/19",
+        "Servicio": "Corte + platas 12 a 40v/ 10 a 40v/ deco a 20v + Barro 30g-3´1 1+5"
+    },
+    {
+        "Nombre": "Mª Cruz",
+        "Apellidos" : "Rodriguez",
+        "Direcion": "Donostia",
+        "Telefono": "649934413",
+        "Cumpleaños": "2/8/20",
+        "Fecha": "12/20/19",
+        "Servicio": "Corte + color barro 25-3´1 1+4 sin albal y calor + LN 19"
+    },
+    {
+        "Nombre": "Mª Jose",
+        "Apellidos" : "Arrondo",
+        "Telefono": "615736113",
+        "Fecha": "3/4/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Mª Jose",
+        "Apellidos" : "Caspitegui",
+        "Direcion": "Donostia",
+        "Fecha": "8/14/19",
+        "Servicio": "Corte + secar",
+        "Comentarios": "Madre de Asier Escalante"
+    },
+    {
+        "Nombre": "Mª Jose",
+        "Apellidos" : "Gil",
+        "Direcion": "Urnieta",
+        "Telefono": "666678648",
+        "Cumpleaños": "9/9/20",
+        "Fecha": "1/15/20",
+        "Servicio": "Corte + color  1/2-7 + 1/2-10 a 20 vol"
+    },
+    {
+        "Nombre": "Mª Jose",
+        "Apellidos" : "Oria",
+        "Direcion": "Donostia",
+        "Telefono": "690350468",
+        "Fecha": "1/8/20",
+        "Servicio": "Color 70-5 a 13 vol /arriba 3 a 9 vol"
+    },
+    {
+        "Nombre": "Mª Jose",
+        "Apellidos" : "Zabala",
+        "Direcion": "ORDIZIA",
+        "Telefono": "616129365",
+        "Fecha": "2/1/20",
+        "Servicio": "Barro 15g-3´1 + 5g-3´2 1+4 con albal y sin calor +/- 20 min"
+    },
+    {
+        "Nombre": "Mª Vi",
+        "Apellidos" : "Errazkin",
+        "Direcion": "Donostia",
+        "Telefono": "637705241",
+        "Fecha": "2/21/20",
+        "Servicio": "Secar",
+        "Comentarios": "Clienta de la pelo antiguo"
+    },
+    {
+        "Nombre": "Maddi",
+        "Apellidos" : "Moreno",
+        "Direcion": "Donostia",
+        "Fecha": "8/20/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Ohiana Moreno"
+    },
+    {
+        "Nombre": "Maialen",
+        "Apellidos" : "Manrique",
+        "Direcion": "Donostia",
+        "Telefono": "665723388",
+        "Fecha": "4/25/18",
+        "Servicio": "Moldeado 90+ 35",
+        "Fecha2": "2/9/20",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Maialen",
+        "Apellidos" : "Martin",
+        "Direcion": "Prin, 7 4º Izda Donostia",
+        "Telefono": "659721497",
+        "Cumpleaños": "6/26/86",
+        "Fecha": "5/21/19",
+        "Servicio": "Corte + hidratacion"
+    },
+    {
+        "Nombre": "Maialen",
+        "Apellidos" : "Ondarra Atxaga",
+        "Direcion": "Zarrautz",
+        "Telefono": "645730023",
+        "Cumpleaños": "12/20/89",
+        "Fecha": "2/14/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Maider",
+        "Apellidos" : "Artano",
+        "Direcion": "Donostia",
+        "Fecha": "12/31/19",
+        "Servicio": "Recogido noche vieja",
+        "Comentarios": "Sobrina Marisa Rodriguez"
+    },
+    {
+        "Nombre": "Maider",
+        "Apellidos" : "Etxenike",
+        "Direcion": "Donostia",
+        "Telefono": "644382285",
+        "Fecha": "3/7/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Marian"
+    },
+    {
+        "Nombre": "Maider",
+        "Apellidos" : "Gorrotxategi",
+        "Direcion": "ATAUN",
+        "Telefono": "665809595",
+        "Fecha": "8/8/19",
+        "Servicio": "Barro 20-3´1 + 5-3´2 1+4 /platas 12 a 40v / deco a 20v/ aclarar puntas deco a 40v 90+45",
+        "Comentarios": "Tenia miedo a la pelu"
+    },
+    {
+        "Nombre": "Maider",
+        "Apellidos" : "Pavon",
+        "Direcion": "Urnieta",
+        "Telefono": "678976277",
+        "Cumpleaños": "4/22/71",
+        "Fecha": "12/14/19",
+        "Servicio": "Corte + platas 12 a 40v/ 12 a 40v c/ polvo / 10 a 40v",
+        "Comentarios": "Hija de Mª Jesus Vela"
+    },
+    {
+        "Nombre": "Maitane",
+        "Apellidos" : "Taboada",
+        "Direcion": "DONOSTIA",
+        "Telefono": "615714659",
+        "Fecha": "11/23/19",
+        "Servicio": "Barro 35-3´1 + 5-3´2 1+4 de atrás p/adelante 20 min c/ aluminio arriba aligerar diadema",
+        "Comentarios": "Poner suporte na nuca"
+    },
+    {
+        "Nombre": "Maite",
+        "Apellidos" : "Azkuna",
+        "Direcion": "Easo, 62 Donostia",
+        "Telefono": "653739486",
+        "Cumpleaños": "1/25/20",
+        "Fecha": "8/23/19",
+        "Servicio": "Corte + platas 12 a 20v / 12 a 40 c/ polvos 60+75"
+    },
+    {
+        "Nombre": "Maite",
+        "Apellidos" : "de Los Santos",
+        "Direcion": "Urnieta",
+        "Telefono": "647117467",
+        "Cumpleaños": "1/16/53",
+        "Fecha": "2/20/20",
+        "Servicio": "Corte + color 1/2-7 + 1/4-7´7 a 13 vol"
+    },
+    {
+        "Nombre": "Maite",
+        "Apellidos" : "Magro",
+        "Direcion": "Donostia",
+        "Telefono": "646204719",
+        "Fecha": "3/7/20",
+        "Servicio": "Corte + color 20-3´2 + 20-3´3 1+4 30 min c/calor"
+    },
+    {
+        "Nombre": "Maite",
+        "Apellidos" : "Olondris",
+        "Direcion": "Calle Prim, 4  5º Izda",
+        "Fecha": "12/18/15",
+        "Servicio": "Corte",
+        "Comentarios" : "Estaba embarazada"
+    },
+    {
+        "Nombre": "Maite",
+        "Apellidos" : "Onrraita",
+        "Direcion": "Usandizaga, 21 5º D Gros",
+        "Telefono": "618831556",
+        "Fecha": "2/13/20",
+        "Servicio": "Corte + color 20-3´1 + 5-3´2 1+5 /neo 40-8 + 20-8´3 + 40-9 a 18 v"
+    },
+    {
+        "Nombre": "Maite",
+        "Apellidos" : "Tolosa Altuna",
+        "Direcion": "Donostia",
+        "Telefono": "667550024",
+        "Cumpleaños": "8/7/73",
+        "Fecha": "2/5/20",
+        "Servicio": "Corte arriba 65 + LP 20",
+        "Comentarios": "Surfera"
+    },
+    {
+        "Nombre": "Maka",
+        "Apellidos" : "Corcuera",
+        "Direcion": "C/ Prin, 2 Donostia",
+        "Telefono": "943428409",
+        "Cumpleaños": "8/15/20",
+        "Fecha": "12/11/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Mª Carmen",
+        "Apellidos" : "Ibeas",
+        "Direcion": "Donostia",
+        "Telefono": "669548044",
+        "Fecha": "2/27/20",
+        "Servicio": "Color 1 tubo 7 a 13v/ barro 10g-3´1 1+5 5 min lavabo",
+        "Comentarios": "Clienta de la pelu antiguo"
+    },
+    {
+        "Nombre": "Manu",
+        "Apellidos" : "Belauntza",
+        "Direcion": "Urnieta",
+        "Telefono": "630031083",
+        "Fecha": "2/6/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Manu",
+        "Apellidos" : "Huerte",
+        "Direcion": "C/ Prin, 7 Donostia",
+        "Telefono": "639774143",
+        "Fecha": "12/17/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Manu",
+        "Apellidos" : "Olano",
+        "Direcion": "Fuenterrabia",
+        "Telefono": "635734935",
+        "Cumpleaños": "10/22/65",
+        "Fecha": "1/11/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Marcela",
+        "Apellidos" : "Branat",
+        "Direcion": "Barcelona",
+        "Telefono": "607942373",
+        "Fecha": "10/23/19",
+        "Servicio": "Secar",
+        "Comentarios": "Señora peliroja henna Brasil"
+    },
+    {
+        "Nombre": "Maren",
+        "Apellidos" : "Mitegi",
+        "Direcion": "Donostia",
+        "Fecha": "8/31/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Aitziber Lizarazu"
+    },
+    {
+        "Nombre": "Marga",
+        "Apellidos" : "Otaegi",
+        "Direcion": "Donostia",
+        "Telefono": "690181454",
+        "Fecha": "1/2/20",
+        "Servicio": "Arreglo de corte + barro 50-3´3 1+4 35 min con calor 50+55"
+    },
+    {
+        "Nombre": "Margari",
+        "Apellidos" : "Irasuegui",
+        "Direcion": "Andoain",
+        "Telefono": "682793933",
+        "Cumpleaños": "5/31/20",
+        "Fecha": "2/29/20",
+        "Servicio": "Corte + secar"
+    },
+    {
+        "Nombre": "Mari",
+        "Apellidos" : "Oliveira",
+        "Direcion": "Urnieta",
+        "Telefono": "675006809",
+        "Cumpleaños": "5/26/20",
+        "Fecha": "7/23/19",
+        "Servicio": "Corte + color 1 tubo 6 + 1/2-6´7 a 13 vol / platas deco a 13 vol"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "z",
+        "Fecha": "9/3/19",
+        "Servicio": "Color 1 tubo 8 + 1/4-7 a 20 v / barro en las puntas todo a la vez 5-3´1 + 5-7 1+5",
+        "Comentarios": "Cejas 8 a 20 ol  15 min"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "Caño",
+        "Direcion": "Burdeos",
+        "Telefono": "33/783062985",
+        "Fecha": "3/16/19",
+        "Servicio": "Color 1 tubo + 1/4-5 a 13v/ aclarado de puntas deco a 40v 95+35"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "de San Roman",
+        "Direcion": "RENTERIA",
+        "Telefono": "608106898",
+        "Fecha": "12/3/19",
+        "Servicio": "Corte + barro 50-3´2 1+3 40 minutos con calor",
+        "Comentarios": "Hija de Mamen"
+    },
+    {
+        "Nombre": "Maria Eugenia",
+        "Apellidos" : "Calvo",
+        "Direcion": "Tolosa",
+        "Telefono": "676881707",
+        "Fecha": "2/26/19",
+        "Servicio": "Neo 80-6 a 18 v / barro 10 comp 1+7 lavabo"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "Facal",
+        "Direcion": "Noruega",
+        "Telefono": "35/8451465454",
+        "Cumpleaños": "12/16/20",
+        "Fecha": "6/19/19",
+        "Servicio": "Corte + platas 12 a 20v/ barro 20-3´1 1+6 todo a la vez + hidratacion secado natural"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "Fernandez Ortega",
+        "Direcion": "Donostia",
+        "Telefono": "669063285",
+        "Fecha": "3/14/20",
+        "Servicio": "Corte + color 20g-3´1 1+4 7 min sin albal y calor PAGO 70 DEBE 50 EUROS"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "Garcia",
+        "Direcion": "Donostia",
+        "Telefono": "607711020",
+        "Fecha": "3/10/20",
+        "Servicio": "Corte + color 3/4-5 + 1/4-6 a 20 vol + secar",
+        "Comentarios": "Madre de Begoña Arevalo / Cejas 5 a 20v"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "Gomez",
+        "Direcion": "Donostia",
+        "Telefono": "628705310",
+        "Fecha": "12/20/19",
+        "Servicio": "Corte + platas 12 a 13v/ 10 a 20v / 10g-3´2 1+4 adelante 70+70"
+    },
+    {
+        "Nombre": "Maria",
+        "Apellidos" : "Govillaro",
+        "Direcion": "Donostia",
+        "Telefono": "626644594",
+        "Fecha": "3/12/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Mª Jesus",
+        "Apellidos" : "Armendariz",
+        "Direcion": "Navarra",
+        "Telefono": "669659062",
+        "Cumpleaños": "11/2/20",
+        "Fecha": "10/11/19",
+        "Servicio": "Corte",
+        "Comentarios": "Madre de Ana Molano"
+    },
+    {
+        "Nombre": "Maria Jesus",
+        "Apellidos" : "Cardenas",
+        "Direcion": "ZUMAIA",
+        "Telefono": "665734578",
+        "Fecha": "7/24/19",
+        "Servicio": "Corte + neo 60-9 con 70 oxig a 18 v/ barro 5g-comp + 5g-3´1 1+10 lavabo mirar 65+50",
+        "Comentarios": "Pelo corto decolorado"
+    },
+    {
+        "Nombre": "Maria Jesus",
+        "Apellidos" : "Recondo",
+        "Direcion": "Donostia",
+        "Telefono": "687271469",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Maria Jesus",
+        "Apellidos" : "Vela",
+        "Direcion": "Urnieta",
+        "Telefono": "610979278",
+        "Cumpleaños": "9/27/58",
+        "Fecha": "12/11/19",
+        "Servicio": "Corte + platas 55´54 / 10 a 40 v/ deco a 13 v"
+    },
+    {
+        "Nombre": "Maria José",
+        "Apellidos" : "Pilarte",
+        "Direcion": "Donostia",
+        "Telefono": "660657976",
+        "Fecha": "1/8/20",
+        "Servicio": "Corte + color 80-6 + 20-7 a 18 v c/110 oxig /barro 10g comp 1+5 10 min secador + hidrat 70+50`15",
+        "Comentarios": "Inspetora"
+    },
+    {
+        "Nombre": "Maria Lado",
+        "Apellidos" : "Cordeiro",
+        "Direcion": "Donostia",
+        "Telefono": "699229790",
+        "Fecha": "12/11/19",
+        "Servicio": "Corte + color 70-5 a 13v 80 oxig (40-9+40-18v)"
+    },
+    {
+        "Nombre": "Marian",
+        "Apellidos" : "Educelegui",
+        "Direcion": "Donostia",
+        "Telefono": "605726572",
+        "Fecha": "9/12/19",
+        "Servicio": "Corte + 60-8 + 40-7 a 18v c/110 oxig /barro 5g-3´1 + 10 comp 1+7 lavabo + hidratcion 70+55+15"
+    },
+    {
+        "Nombre": "Marian",
+        "Apellidos" : "Hernandez",
+        "Direcion": "Donostia",
+        "Telefono": "648004712",
+        "Fecha": "1/28/20",
+        "Servicio": "Color 7´3 koleston + 7´4 touch + barro 5-3´3 + 5-6 1+5 10 min secador",
+        "Comentarios": "Jefa de Mertxe Heriz"
+    },
+    {
+        "Nombre": "Marian",
+        "Apellidos" : "Martin",
+        "Direcion": "Donostia",
+        "Telefono": "619985443",
+        "Fecha": "3/7/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Marian",
+        "Apellidos" : "Mellado",
+        "Direcion": "Bergara",
+        "Telefono": "665738780",
+        "Cumpleaños": "12/9/20",
+        "Fecha": "2/18/20",
+        "Servicio": "Color 90-3 a 18 v c/100 oxig (producto 50-3 + 80 oxig) 15€ + 95"
+    },
+    {
+        "Nombre": "Mariana",
+        "Apellidos" : "Yanveldt",
+        "Direcion": "Maeztu / Alava",
+        "Telefono": "622713618",
+        "Cumpleaños": "6/16/20",
+        "Fecha": "1/30/20",
+        "Servicio": "Color 40-9 + 30-8´1 a 18 v/ barro 3g-3´1 + 5g complex 1+7 lavabo"
+    },
+    {
+        "Nombre": "Maribel",
+        "Apellidos" : "Escudero",
+        "Direcion": "Urnieta",
+        "Telefono": "685766910",
+        "Cumpleaños": "4/14/53",
+        "Fecha": "2/17/20",
+        "Servicio": "Corte + color 3/4-8 + 1/4-7 a 20 vol"
+    },
+    {
+        "Nombre": "Maribel",
+        "Apellidos" : "Saiz",
+        "Direcion": "Donostia",
+        "Telefono": "670415288",
+        "Cumpleaños": "6/1/20",
+        "Fecha": "3/13/20",
+        "Servicio": "Color 3/4-7 + 1/2-8 a 13 vol /barro 5-3´1 + 5 comp 1+10 secador  7 min",
+        "Comentarios": "CEJAS 5 a 20 vol"
+    },
+    {
+        "Nombre": "Marifé",
+        "Apellidos" : "Ramiro",
+        "Direcion": "Donostia",
+        "Telefono": "600804790",
+        "Cumpleaños": "6/5/68",
+        "Fecha": "2/22/20",
+        "Servicio": "Moldeado 105+40"
+    },
+    {
+        "Nombre": "Marije",
+        "Apellidos" : "Sanchez",
+        "Direcion": "Donosstia",
+        "Telefono": "619539758",
+        "Fecha": "2/28/20",
+        "Servicio": "Color barro 40-3´3 + 20-6 1+3  35 min con calor"
+    },
+    {
+        "Nombre": "MariJose",
+        "Apellidos" : "Errazkin",
+        "Direcion": "Donostia",
+        "Telefono": "678408033",
+        "Fecha": "9/21/19",
+        "Servicio": "Corte + platas deco a 13v / 12 a 40v + hidratar con las platas azeite coco en puntas 40+65+20"
+    },
+    {
+        "Nombre": "Marijose",
+        "Apellidos" : "Perez",
+        "Direcion": "Donostia",
+        "Telefono": "656714178",
+        "Cumpleaños": "4/26/20",
+        "Fecha": "12/19/19",
+        "Servicio": "Corte + barro 20-7 + 5-3´2 1+4 25 min secador + LF 19 + 65+50",
+        "Comentarios": "Amiga de Aizpea Oñederra"
+    },
+    {
+        "Nombre": "Mariló",
+        "Apellidos" : "Sanchez",
+        "Direcion": "Donostia",
+        "Telefono": "665736587",
+        "Fecha": "2/1/20",
+        "Servicio": "Corte + color 70-6 a 18 vol",
+        "Comentarios": "Esteticien Amiga de Monica"
+    },
+    {
+        "Nombre": "Marimar",
+        "Apellidos" : "Medina",
+        "Direcion": "Astigarraga",
+        "Telefono": "688752605",
+        "Cumpleaños": "10/30/63",
+        "Fecha": "9/17/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Marina",
+        "Apellidos" : "Agirretxe",
+        "Direcion": "Donostia",
+        "Telefono": "656781853",
+        "Fecha": "10/5/19",
+        "Servicio": "o 25g-3´1 1+4 sin calor y albal 10 min +/-"
+    },
+    {
+        "Nombre": "Mario",
+        "Apellidos" : "Garcia Sevilla",
+        "Direcion": "Donostia",
+        "Telefono": "650166976",
+        "Cumpleaños": "6/16/75",
+        "Fecha": "6/20/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Marisa",
+        "Apellidos" : "Anton",
+        "Direcion": "Paseo Berio, 11 3º B Donostia",
+        "Telefono": "653717138",
+        "Cumpleaños": "11/10/63",
+        "Fecha": "1/24/20",
+        "Servicio": "Color barro 10g-3´1 + 5g-3´2 1+4/ Neo 70-8 a 18v c/80 oxig"
+    },
+    {
+        "Nombre": "Marisa",
+        "Apellidos" : "de Biaz",
+        "Direcion": "FUENTERRABIA",
+        "Telefono": "666899550",
+        "Fecha": "4/12/19",
+        "Servicio": "Color 80-5 a 18v c/90 oxig/ barro 15g comp 1+7  15 min secador",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Marisa",
+        "Apellidos" : "Meizoso",
+        "Direcion": "Donostia",
+        "Telefono": "656750556",
+        "Fecha": "12/6/19",
+        "Servicio": "Corte no secado",
+        "Comentarios": "Alopecia frontal pelo gris"
+    },
+    {
+        "Nombre": "Marisa",
+        "Apellidos" : "Olaso",
+        "Direcion": "OIARTZUN",
+        "Telefono": "657711094",
+        "Fecha": "5/17/19",
+        "Servicio": "Arreglo de corte + color 3/4-8 + 1/4-7´3 a 20 v platas a la vez 1/4-7´4 a 20 v 55+40+20",
+        "Comentarios": "Amiga de Raquel Crespillo"
+    },
+    {
+        "Nombre": "Marisa",
+        "Apellidos" : "Rodriguez",
+        "Direcion": "Ricardo Izaguirre, 3  1º Izda Donosstia",
+        "Telefono": "676784360",
+        "Cumpleaños": "6/19/60",
+        "Fecha": "2/12/20",
+        "Servicio": "Corte + color1/2 y 1/2-1/4-7 + 1/4 y 1/2-1/4-7´4 a 13 vol con lo que sobra añadir una gota 0´43 p/ puntas 70+48",
+        "Comentarios": "CEJAS 5 a 20 vol"
+    },
+    {
+        "Nombre": "Marisol",
+        "Apellidos" : "Erauzkin",
+        "Direcion": "Arbide Bidea, 16 Oyartzun",
+        "Telefono": "670234505",
+        "Cumpleaños": "10/23/55",
+        "Fecha": "3/5/20",
+        "Servicio": "Corte",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Marta",
+        "Apellidos" : "de San Roman",
+        "Direcion": "Donostia",
+        "Telefono": "677695151",
+        "Cumpleaños": "1/9/20",
+        "Fecha": "11/9/19",
+        "Servicio": "Corte puntas + platas deco a 20 vol + hidratar 70+80+15"
+    },
+    {
+        "Nombre": "Marta",
+        "Apellidos" : "Egizabal",
+        "Direcion": "Donostia",
+        "Telefono": "662102088",
+        "Fecha": "5/9/19",
+        "Servicio": "Corte + barro 30-3´2 + 10-3´1 1+3 35 min secador proxima vez medidas 1+4 y se le hace brillos",
+        "Comentarios": "Henna"
+    },
+    {
+        "Nombre": "Marta",
+        "Apellidos" : "Gallego",
+        "Direcion": "Urnieta",
+        "Telefono": "661278025",
+        "Cumpleaños": "11/29/20",
+        "Fecha": "1/9/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Marta",
+        "Apellidos" : "Lizasoan",
+        "Direcion": "C/ Prin, 2 Donostia",
+        "Telefono": "609401463",
+        "Cumpleaños": "1/10/20",
+        "Fecha": "2/7/20",
+        "Servicio": "Corte + color barro 10-7 + 10-3´1 1+4 30 min con albal y sin calor"
+    },
+    {
+        "Nombre": "Marta",
+        "Apellidos" : "Madina",
+        "Direcion": "Astigarraga",
+        "Telefono": "605765797",
+        "Fecha": "10/26/19",
+        "Servicio": "Corte",
+        "Comentarios": "Sobriña de Arantxa Albizua"
+    },
+    {
+        "Nombre": "Malen",
+        "Apellidos" : "Gracia",
+        "Direcion": "Donostia",
+        "Fecha": "3/10/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Amaia Gracia"
+    },
+    {
+        "Nombre": "Melhen",
+        "Apellidos" : "Iglesias Ruminh",
+        "Direcion": "Victoria",
+        "Telefono": "625966544",
+        "Cumpleaños": "1/23/89",
+        "Fecha": "12/17/19",
+        "Servicio": "Corte + hidratacion regalo",
+        "Comentarios": "Marido GN / Bruno Brasileño"
+    },
+    {
+        "Nombre": "Merche",
+        "Apellidos" : "Ruperez",
+        "Direcion": "Donostia",
+        "Fecha": "9/12/19",
+        "Servicio": "Corte + 40-7 + 15-6´73 + 15-8´3 a 18 v c/100 oxig /barro 10-3´3+ 5-6 1+5 10 min secador 50+65",
+        "Comentarios": "Madre de Amaia Fernandez"
+    },
+    {
+        "Nombre": "Merche",
+        "Apellidos" : "Solano",
+        "Direcion": "Donostia",
+        "Telefono": "678250553",
+        "Fecha": "2/28/20",
+        "Servicio": "Color 1/2-8 + 1/2-10 a 20 vol 85+5",
+        "Comentarios": "CEJAS 6 a 20 vol / Madre de Sara Arriaga"
+    },
+    {
+        "Nombre": "Mertxe",
+        "Apellidos" : "Anton",
+        "Direcion": "Donostia",
+        "Telefono": "673815059",
+        "Fecha": "9/24/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo Actor"
+    },
+    {
+        "Nombre": "Mertxe",
+        "Apellidos" : "Heriz",
+        "Direcion": "Maestro Guridi, 11 6º B Donostia",
+        "Telefono": "659117673",
+        "Cumpleaños": "2/24/58",
+        "Fecha": "2/19/20",
+        "Servicio": "Color 1 tubo 8 + 1/4 - 10 a 20 v/ Barro 10g-3´1 1+7 lavabo + hidratar 90+15",
+        "Comentarios": "Cejas 5 a 20vol"
+    },
+    {
+        "Nombre": "Mertxe",
+        "Apellidos" : "Illaramendi",
+        "Direcion": "Donostia",
+        "Telefono": "696052584",
+        "Cumpleaños": "6/13/48",
+        "Fecha": "1/28/20",
+        "Servicio": "Corte + color 25-3´1 + 5-3´2 1+4 de atrás adelante 15 min sin calor",
+        "Comentarios": "Cejas 5 a 20vol"
+    },
+    {
+        "Nombre": "Mertxe",
+        "Apellidos" : "Manterola",
+        "Direcion": "Donostia",
+        "Telefono": "655722083",
+        "Fecha": "12/20/19",
+        "Servicio": "Barro 40-3´3 + 10-6 1+3 35 min con albal sin calor"
+    },
+    {
+        "Nombre": "Miguel",
+        "Apellidos" : "Arteaga",
+        "Direcion": "Donostia",
+        "Fecha": "5/18/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Silvia Arteaga / Cuchilla nº 4"
+    },
+    {
+        "Nombre": "Miguel",
+        "Apellidos" : "Costa",
+        "Direcion": "Urnieta",
+        "Telefono": "616340944",
+        "Cumpleaños": "3/25/97",
+        "Fecha": "9/18/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Miguel",
+        "Apellidos" : "Mari Torrea",
+        "Direcion": "PASAIA",
+        "Telefono": "630444173",
+        "Fecha": "4/17/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Miguel",
+        "Apellidos" : "Ortega",
+        "Direcion": "Vitoria",
+        "Fecha": "5/26/18",
+        "Servicio": "Corte",
+        "Comentarios": "Marido de Gabriela Rezola",
+        "Fecha2": "11/28/18",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Mikel",
+        "Apellidos" : "Esnaola",
+        "Direcion": "Urnieta",
+        "Cumpleaños": "5/24/94",
+        "Fecha": "5/22/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Ana Molano"
+    },
+    {
+        "Nombre": "Mikel",
+        "Apellidos" : "Maeztu",
+        "Direcion": "Donostia",
+        "Telefono": "630982910",
+        "Fecha": "1/9/20",
+        "Servicio": "Corte",
+        "Comentarios": "Dentista Tolosa"
+    },
+    {
+        "Nombre": "Mirari",
+        "Apellidos" : "Arruarte",
+        "Direcion": "Urnieta",
+        "Telefono": "600897338",
+        "Cumpleaños": "3/30/75",
+        "Fecha": "2/15/20",
+        "Servicio": "Corte + brillos"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Aramburu",
+        "Direcion": "Marabieta, 57 Igueldo",
+        "Telefono": "699206602",
+        "Cumpleaños": "1/11/65",
+        "Fecha": "2/7/20",
+        "Servicio": "Corte + barro 30-3´3 + 20-6 1+3 40 min secador"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Asurmendi",
+        "Direcion": "Donostia",
+        "Telefono": "650243566",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte + barro 20-3´1 1+5  10 min sin albal y calor 65+48"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Cañas",
+        "Direcion": "Donostia",
+        "Telefono": "639169010",
+        "Fecha": "10/25/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Detegi Elgarrezta",
+        "Direcion": "Uretxu - Zumaraga",
+        "Telefono": "630123375",
+        "Fecha": "8/2/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Carmele"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Garmendia",
+        "Direcion": "Donostia",
+        "Telefono": "682769295",
+        "Cumpleaños": "10/4/20",
+        "Fecha": "2/1/20",
+        "Servicio": "Corte + hidratacion 70+20"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Quintas",
+        "Direcion": "Urnieta",
+        "Telefono": "666813452",
+        "Cumpleaños": "5/27/61",
+        "Fecha": "12/26/19",
+        "Servicio": "Barro 15g-3´1 1+4 c/albal sin calor"
+    },
+    {
+        "Nombre": "Miren",
+        "Apellidos" : "Yeregui Jaca",
+        "Direcion": "Donostia",
+        "Telefono": "658739282",
+        "Cumpleaños": "7/9/20",
+        "Fecha": "12/19/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Mirian",
+        "Apellidos" : "z",
+        "Direcion": "Tolosa",
+        "Telefono": "609452652",
+        "Fecha": "8/1/19",
+        "Servicio": "secar",
+        "Comentarios": "Mujer rubia madre de Tolosa"
+    },
+    {
+        "Nombre": "Mirian",
+        "Apellidos" : "Presa",
+        "Direcion": "VITORIA",
+        "Telefono": "607306031",
+        "Fecha": "1/21/20",
+        "Servicio": "Corte + color 15g-3´1 1+5",
+        "Comentarios": "Ceja 6 a 20 vol"
+    },
+    {
+        "Nombre": "Monica",
+        "Apellidos" : "Estimuz",
+        "Direcion": "Donostia",
+        "Telefono": "610433182",
+        "Cumpleaños": "7/26/20",
+        "Fecha": "3/13/20",
+        "Servicio": "Lavar y secar"
+    },
+    {
+        "Nombre": "Monica",
+        "Apellidos" : "Osoro",
+        "Direcion": "Donostia",
+        "Telefono": "637524055",
+        "Cumpleaños": "8/6/70",
+        "Fecha": "3/12/20",
+        "Servicio": "Corte + color 1 tubo 7 a 13 vol"
+    },
+    {
+        "Nombre": "Monica",
+        "Apellidos" : "Perez",
+        "Direcion": "Donostia",
+        "Telefono": "626885768",
+        "Fecha": "9/10/19",
+        "Servicio": "Barro 30-3´1 + 30-3´2 1+3 35 min c/calor"
+    },
+    {
+        "Nombre": "Monica",
+        "Apellidos" : "Rodriguez",
+        "Direcion": "ORIO",
+        "Telefono": "668585367",
+        "Fecha": "6/8/19",
+        "Servicio": "Color 50-5 + 20-5´77 con 80 oxig 13 v/barro 10g-7 1+7 5 min lavabo"
+    },
+    {
+        "Nombre": "Monse",
+        "Apellidos" : "Delgado",
+        "Direcion": "Donostia",
+        "Telefono": "617901450",
+        "Fecha": "5/2/19",
+        "Servicio": "Corte + barro 20-3´1 + 10-3´2 + 10-7 1+4 30 min sin calor, albal y celofan luego puntas en el lavabo 50+35",
+        "Comentarios": "Pica el Barro"
+    },
+    {
+        "Nombre": "Nagore",
+        "Apellidos" : "Gonzalez Irazuegi",
+        "Direcion": "Madrid",
+        "Telefono": "651466937",
+        "Cumpleaños": "8/12/85",
+        "Fecha": "6/5/19",
+        "Servicio": "Corte + platas 1/4-12 a 40 c/ polvos / deco a 20 vol 70+40"
+    },
+    {
+        "Nombre": "Nahikari",
+        "Apellidos" : "Aligostes",
+        "Direcion": "C/ Easo, 67 5º D Donostia",
+        "Telefono": "687608400",
+        "Cumpleaños": "7/8/88",
+        "Fecha": "11/22/19",
+        "Servicio": "Corte + platas deco a 20v / 12 a 40v / 10 a 20v 70+65",
+        "Comentarios": "Sufera"
+    },
+    {
+        "Nombre": "Naia",
+        "Apellidos" : "Lubeigth",
+        "Direcion": "Donostia",
+        "Cumpleaños": "12/16/97",
+        "Fecha": "2/22/20",
+        "Servicio": "Corte + decolorar todo pelo deco a 40v + orange 25 min c/calor"
+    },
+    {
+        "Nombre": "Naia",
+        "Apellidos" : "Mate",
+        "Direcion": "Donostia",
+        "Telefono": "688637287",
+        "Fecha": "1/3/20",
+        "Servicio": "Corte + platas 12 a 40v / 12 a 40 c/polvos / deco a 20v 80+40",
+        "Comentarios": "Novia hijo Juli Amazonas /amiga Lucrecia"
+    },
+    {
+        "Nombre": "Naiara",
+        "Apellidos" : "Alcorta",
+        "Direcion": "Urnieta",
+        "Telefono": "653713502",
+        "Cumpleaños": "6/25/20",
+        "Fecha": "12/20/19",
+        "Servicio": "Corte + color 30-3´1 + 20-3´2 1+4 30 min con calor  (COBRAR 15€ PROXIMA VEZ)"
+    },
+    {
+        "Nombre": "Naroa",
+        "Apellidos" : "Lorenzo",
+        "Direcion": "IRUN",
+        "Telefono": "627258211",
+        "Cumpleaños": "11/23/20",
+        "Fecha": "2/7/20",
+        "Servicio": "Corte + color barro 10g-3´2+ 10g-3´3 1+3  45 min sin calor",
+        "Comentarios": "Fisioterapeuta"
+    },
+    {
+        "Nombre": "Natalia",
+        "Apellidos" : "Tchitch",
+        "Direcion": "Donostia",
+        "Telefono": "645741655",
+        "Fecha": "1/31/20",
+        "Servicio": "Color 40-6 + 30-5 a 18 v /barro 10g comp 1+5 10 min secador",
+        "Comentarios": "Rumana"
+    },
+    {
+        "Nombre": "Nati",
+        "Apellidos" : "Erauzkin",
+        "Direcion": "Oyartzun",
+        "Telefono": "660185375",
+        "Cumpleaños": "12/21/20",
+        "Fecha": "3/5/20",
+        "Servicio": "Corte",
+        "Comentarios": "Cejas 6 a 20 vol"
+    },
+    {
+         "Nombre": "Necane",
+         "Apellidos" : "Benito",
+         "Direcion": "Donostia",
+         "Telefono": "656723732",
+         "Fecha": "1/28/20",
+         "Servicio": "Corte + color 1 tubo-7 touch + mitad 1/4-7´4 a 13 v/barro 10-3´3 + 10-6 1+3 10 min secador"
+     },
+    {
+        "Nombre": "Necane",
+        "Apellidos" : "Pradera",
+        "Direcion": "Zabaleta, 12 4º C Gros",
+        "Telefono": "661859000",
+        "Cumpleaños": "12/26/20",
+        "Fecha": "9/14/19",
+        "Servicio": "Corte + moldeado bigudi negro y rulo azul 70+80"
+    },
+    {
+        "Nombre": "Nedea",
+        "Apellidos" : "Ituregi",
+        "Direcion": "Donostia / Bilbao",
+        "Telefono": "637135945",
+        "Fecha": "7/4/19",
+        "Servicio": "Barro 30-3´1 + 10-3´2 1+4 +/- 11 min sin calor + secar",
+        "Comentarios": "Nada de color rosacea"
+    },
+    {
+        "Nombre": "Neli",
+        "Apellidos" : "Alonso",
+        "Direcion": "C/ Prin, 1 6º B Donostia",
+        "Telefono": "676483751",
+        "Cumpleaños": "1/4/49",
+        "Fecha": "8/27/19",
+        "Servicio": "Secar"
+    },
+    {
+        "Nombre": "Nere",
+        "Apellidos" : "Oronoz",
+        "Direcion": "Donostia",
+        "Telefono": "615782453",
+        "Cumpleaños": "5/3/20",
+        "Fecha": "10/3/19",
+        "Servicio": "Color 3/4-3 + 1/2-5 a 20 vol + secar"
+    },
+    {
+        "Nombre": "Nerea",
+        "Apellidos" : "Etxeberria",
+        "Direcion": "Donostia",
+        "Telefono": "664571701",
+        "Fecha": "11/9/19",
+        "Servicio": "Arreglo de corte + barro 60-3´2 1+4 40 min /platas deco a 20 vol 110+25",
+        "Comentarios": "Guapa color muy sutil"
+    },
+    {
+        "Nombre": "Nerea",
+        "Apellidos" : "Guridi",
+        "Direcion": "Donostia",
+        "Telefono": "652768656",
+        "Fecha": "2/6/20",
+        "Servicio": "Color 30-3´1 + 20-3´2 + 10-3´3 1+4 30 min secador secado natural"
+    },
+    {
+        "Nombre": "Nerea",
+        "Apellidos" : "Lizarralde Aranjuelo",
+        "Direcion": "Igueldo",
+        "Telefono": "620736076",
+        "Cumpleaños": "1/15/84",
+        "Fecha": "1/31/20",
+        "Servicio": "Color 1 tubo 7 + 1/4-7´4 + 1/4-7´7 a 13 vol"
+    },
+    {
+        "Nombre": "Nerea",
+        "Apellidos" : "Lopez",
+        "Direcion": "Donostia",
+        "Fecha": "11/19/19",
+        "Servicio": "LF 19 + ALL 27,50"
+    },
+    {
+        "Nombre": "Nerea",
+        "Apellidos" : "Lubia",
+        "Direcion": "Donostia",
+        "Telefono": "628067951",
+        "Fecha": "1/8/20",
+        "Servicio": "Corte + color Neo  100-4 a 13 vol c/110 oxigenada 70+55",
+        "Comentarios": "Chjca alta madre barros"
+    },
+    {
+        "Nombre": "Nerea",
+        "Apellidos" : "Salgado",
+        "Direcion": "Madrid",
+        "Telefono": "630985237",
+        "Fecha": "3/14/20",
+        "Servicio": "Corte + color barro 40-3´1 + 20-7 1+3 40 min secador /secado normal",
+        "Comentarios": "Parecida con Belinda"
+    },
+    {
+        "Nombre": "Nicolas",
+        "Apellidos" : "Munuera del Prado",
+        "Direcion": "Donostia",
+        "Telefono": "687408738",
+        "Cumpleaños": "8/4/12",
+        "Fecha": "3/10/16",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Olatz nieto de Isabel Garcia",
+        "Fecha2": "4/19/18",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Nieves",
+        "Apellidos" : "Labaka",
+        "Direcion": "Donostia",
+        "Telefono": "650407850",
+        "Cumpleaños": "12/29/51",
+        "Fecha": "2/15/20",
+        "Servicio": "Corte + color 30-5´77 + 20-5 + 30-6 a 18 vol"
+    },
+    {
+        "Nombre": "Nivia",
+        "Apellidos" : "Lubeigt  Orbegozo",
+        "Direcion": "Donostia",
+        "Telefono": "688681165",
+        "Cumpleaños": "10/22/64",
+        "Fecha": "2/4/20",
+        "Servicio": "Color 3/4-7 + 1/4-7´4 touch a 13 vol /barro 15-g-6 1+5 15 min secador Barro p/ su madre 10-3´1 + 100-7 no habia 3´2 40€"
+    },
+    {
+        "Nombre": "Nola",
+        "Apellidos" : "Sanchez",
+        "Direcion": "Donostia / Jaca",
+        "Telefono": "636489063",
+        "Fecha": "8/16/19",
+        "Servicio": "Color barro 20-3´1 + 10-7 1+4 25 min/neo 70-5 a 9 v c/80 oxig 20 min + secar",
+        "Comentarios": "Señora peluqueria secretos San Martin"
+    },
+    {
+        "Nombre": "Nora",
+        "Apellidos" : "Arias",
+        "Direcion": "Aguirre Miramon, 5 5º Izda",
+        "Telefono": "652730789",
+        "Cumpleaños": "4/20/20",
+        "Fecha": "12/20/19",
+        "Servicio": "Corte + hidratacion 70+20"
+    },
+    {
+        "Nombre": "Nora",
+        "Apellidos" : "Astiazaran",
+        "Direcion": "C/ Pz Jorge Oteiza, 3 1º A Donostia",
+        "Telefono": "686100231",
+        "Cumpleaños": "3/14/75",
+        "Fecha": "1/10/20",
+        "Servicio": "Corte + Color barro 50-3´3 1+3 40 min secador"
+    },
+    {
+        "Nombre": "Nora",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "Hernani",
+        "Telefono": "660598907",
+        "Fecha": "1/2/20",
+        "Servicio": "Color neo 100-6 a 18 vol /barro 10g comp 1+7 5 min lavabo 60+30",
+        "Comentarios": "Restaurante Botanica"
+    },
+    {
+        "Nombre": "Nuria",
+        "Apellidos" : "Cueva Diez",
+        "Direcion": "Urnieta",
+        "Telefono": "677411156",
+        "Cumpleaños": "12/16/83",
+        "Fecha": "3/5/20",
+        "Servicio": "Color 3/4-7´7 + 1/2-7 + 1/4-7´4 a 13 vol no secado",
+        "Comentarios": "Ceja 7 a 20 vol"
+    },
+    {
+        "Nombre": "Odei",
+        "Apellidos" : "Agoues",
+        "Direcion": "Donostia",
+        "Fecha": "2/18/20",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Ana Ugarte"
+    },
+    {
+        "Nombre": "Oier",
+        "Apellidos" : "Carrascal Navarro",
+        "Direcion": "Donostia",
+        "Cumpleaños": "1/30/05",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte + AT no pagado 25+ 28,20"
+    },
+    {
+        "Nombre": "Oier",
+        "Apellidos" : "Gabilondo",
+        "Direcion": "Donostia",
+        "Cumpleaños": "1/26/12",
+        "Fecha": "12/17/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hijo de Aitziber"
+    },
+    {
+        "Nombre": "Oihana",
+        "Apellidos" : "Arruabarrena",
+        "Direcion": "Renteria",
+        "Telefono": "658736054",
+        "Cumpleaños": "4/12/77",
+        "Fecha": "12/12/19",
+        "Servicio": "Corte + color platas deco a 20v / 12 a 40 v 1+1"
+    },
+    {
+        "Nombre": "Oihana",
+        "Apellidos" : "Kontxeso",
+        "Direcion": "Donostia",
+        "Telefono": "648536188",
+        "Cumpleaños": "6/4/71",
+        "Fecha": "3/21/19",
+        "Servicio": "Color 50-3´3 1+3 platas deco a 40 vol 80+15"
+    },
+    {
+        "Nombre": "Oihana",
+        "Apellidos" : "Moreno Arotzena",
+        "Direcion": "Donostia",
+        "Telefono": "657716167",
+        "Fecha": "7/20/19",
+        "Servicio": "Moldeado 80+30"
+    },
+    {
+        "Nombre": "Oihana",
+        "Apellidos" : "Sanchez",
+        "Direcion": "Madrid",
+        "Telefono": "610649577",
+        "Fecha": "7/20/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Oihane",
+        "Apellidos" : "Abete Monzon",
+        "Direcion": "Usurbil",
+        "Telefono": "608198645",
+        "Cumpleaños": "9/18/01",
+        "Fecha": "1/2/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Olatz",
+        "Apellidos" : "Garmendia",
+        "Direcion": "Donostia / Canarias",
+        "Telefono": "655734111",
+        "Fecha": "8/21/19",
+        "Servicio": "Color 12 a 20 vol + secar 65+40",
+        "Comentarios": "Hermana de Haizea"
+    },
+    {
+        "Nombre": "Olatz",
+        "Apellidos" : "Lopez",
+        "Direcion": "Urnieta",
+        "Telefono": "636564173",
+        "Cumpleaños": "7/12/20",
+        "Fecha": "2/1/20",
+        "Servicio": "Corte + color barro 10-3´1 + 40-3´3 1+3 40 min secador + secar"
+    },
+    {
+        "Nombre": "Olatz",
+        "Apellidos" : "Zabala",
+        "Direcion": "ASTIGARRAGA",
+        "Telefono": "680823750",
+        "Fecha": "2/12/20",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Saioa Salaberria"
+    },
+    {
+        "Nombre": "Olga",
+        "Apellidos" : "Gallego",
+        "Direcion": "Urnieta",
+        "Telefono": "637558041",
+        "Cumpleaños": "12/17/75",
+        "Fecha": "9/3/19",
+        "Servicio": "Corte + hidratacion 60+15"
+    },
+    {
+        "Nombre": "Olga",
+        "Apellidos" : "Porres Crespillo",
+        "Direcion": "Donostia",
+        "Telefono": "635718380",
+        "Cumpleaños": "3/8/20",
+        "Fecha": "2/7/20",
+        "Servicio": "Corte + color 1 tubo + 1/4 - 5 a 20 vol"
+    },
+    {
+        "Nombre": "Oscar",
+        "Apellidos" : "Pastor",
+        "Direcion": "Donostia",
+        "Telefono": "649122410",
+        "Cumpleaños": "2/15/20",
+        "Fecha": "2/9/20",
+        "Servicio": "Corte",
+        "Comentarios": "Novio de Junkal"
+    },
+    {
+        "Nombre": "Paloma",
+        "Apellidos" : "Agero",
+        "Direcion": "Donostia",
+        "Telefono": "649133224",
+        "Fecha": "1/25/20",
+        "Servicio": "Secado",
+        "Comentarios": "Se parece a la de Zizurkil"
+    },
+    {
+        "Nombre": "Paloma",
+        "Apellidos" : "Bengoetxea",
+        "Direcion": "Donostia",
+        "Telefono": "680985530",
+        "Fecha": "3/6/20",
+        "Servicio": "Corte + hidratacion 75+25"
+    },
+    {
+        "Nombre": "Paloma",
+        "Apellidos" : "Etxeberria",
+        "Direcion": "Donostia",
+        "Telefono": "680985530",
+        "Fecha": "2/14/20",
+        "Servicio": "Corte + platas 12 a 40v / deco a 20 v 65+70",
+        "Comentarios": "Hija de Paloma Bengoetxea"
+    },
+    {
+        "Nombre": "Patricia",
+        "Apellidos" : "Torrado",
+        "Direcion": "Donostia / Canaria",
+        "Telefono": "605301533",
+        "Fecha": "2/4/20",
+        "Servicio": "Corte + platas por todo 1/2-10 a 40 vol secado natural 70+30",
+        "Comentarios": "Canária"
+    },
+    {
+        "Nombre": "Paola",
+        "Apellidos" : "Martuscelli",
+        "Direcion": "Rua Alves Guimaraes, 882  Jardim Paulista - Sao Paulo / SP  CEP 05410001",
+        "Fecha": "12/29/14",
+        "Servicio": "Corte + Color neo 5 a 18 v0l + platas deco a 39 vol"
+    },
+    {
+        "Nombre": "Patricia",
+        "Apellidos" : "Redondo",
+        "Direcion": "Donostia",
+        "Telefono": "619580054",
+        "Cumpleaños": "10/7/74",
+        "Fecha": "1/23/20",
+        "Servicio": "Color 30-5´77 +60-6 a 18 vol c/100 oxig /barro 10 comp + 5-7 1+7 15 min secador"
+    },
+    {
+        "Nombre": "Patricia",
+        "Apellidos" : "Velasco Moreno",
+        "Direcion": "Donostia",
+        "Telefono": "699042740",
+        "Fecha": "2/13/20",
+        "Servicio": "Corte + color 1 tubo 6 + 1/4-6´7 a 13 v /platas 12 a 40v / 10 a 20v + puntas 70+30+40",
+        "Comentarios": "Amiga do marido de Marta"
+    },
+    {
+        "Nombre": "Paul",
+        "Apellidos" : "Navarro",
+        "Direcion": "Donostia",
+        "Cumpleaños": "1/16/06",
+        "Fecha": "11/20/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Paula",
+        "Apellidos" : "Macicior",
+        "Direcion": "Donostia",
+        "Telefono": "682206490",
+        "Fecha": "11/29/19",
+        "Servicio": "Barro 30-3´3 + 20-6 1+3 40 min con albal y sin calor + secar 40+55"
+    },
+    {
+        "Nombre": "Paula",
+        "Apellidos" : "Ortega Rezola",
+        "Direcion": "C/ Andia, 11  5º D Donostia",
+        "Telefono": "666294225",
+        "Cumpleaños": "1/17/20",
+        "Fecha": "11/19/19",
+        "Servicio": "Corte + secado natural"
+    },
+    {
+        "Nombre": "Pepa",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "8/6/19",
+        "Servicio": "Secar",
+        "Comentarios": "Suegra de Haizea Garmendia"
+    },
+    {
+        "Nombre": "Pepi",
+        "Apellidos" : "Pelayo",
+        "Direcion": "Donostia",
+        "Telefono": "652709583",
+        "Fecha": "10/24/19",
+        "Servicio": "Platas deco a 40 vol + secar 40+40",
+        "Comentarios": "Madre de Vicente Anglada"
+    },
+    {
+        "Nombre": "Pilar",
+        "Apellidos" : "Martinez",
+        "Direcion": "Madrid",
+        "Telefono": "629261268",
+        "Cumpleaños": "11/20/20",
+        "Fecha": "8/20/19",
+        "Servicio": "Color 15-3´1 + 15-3´2 1+4 25 min sin calor Neo 20-6 + 10-5 1+1 25 min sin calor"
+    },
+    {
+        "Nombre": "Pilar",
+        "Apellidos" : "Rubiños Maseda",
+        "Direcion": "Andoain",
+        "Telefono": "943593658",
+        "Cumpleaños": "12/25/56",
+        "Fecha": "1/11/20",
+        "Servicio": "Corte + color barro 5-3´1 + 10-7 1+4 sin calor y con film + secar"
+    },
+    {
+        "Nombre": "Pilar",
+        "Apellidos" : "Saenz",
+        "Direcion": "Donostia",
+        "Telefono": "620427255",
+        "Fecha": "11/29/19",
+        "Servicio": "Color barro 15-7 + 25-3´1 1+3 30 min sin calor 5 min puntas estava ajado + hidrat 90+15"
+    },
+    {
+        "Nombre": "Pili",
+        "Apellidos" : "Alcubilla",
+        "Direcion": "Urnieta",
+        "Telefono": "656718744",
+        "Cumpleaños": "6/26/60",
+        "Fecha": "1/2/20",
+        "Servicio": "Arreglo de Corte + color 20-3´2 + 20´3´3 1+4 40 min"
+    },
+    {
+        "Nombre": "Pili",
+        "Apellidos" : "Cajigos",
+        "Direcion": "Donostia/ Barcelona",
+        "Telefono": "645008207",
+        "Fecha": "2/4/20",
+        "Servicio": "Color Neo 40-7 + 40-6 a 18 v + zona superior pasar de medios a puntas 10-5 a 9v Barro 10g complex 1+5  5 minutos lavabo"
+    },
+    {
+        "Nombre": "Pili",
+        "Apellidos" : "Delgado",
+        "Direcion": "Donostia",
+        "Telefono": "675904577",
+        "Cumpleaños": "10/5/53",
+        "Fecha": "2/21/20",
+        "Servicio": "Color 50-8´1 + 20-9 a 18 vol / patillas 10-7 a 18 vol + secar",
+        "Comentarios": "CEJAS 6 A 20 VOL 30 minutos"
+    },
+    {
+        "Nombre": "Pili",
+        "Apellidos" : "Irazuegui",
+        "Direcion": "Urnieta",
+        "Telefono": "629089053",
+        "Cumpleaños": "10/11/59",
+        "Fecha": "12/3/19",
+        "Servicio": "Corte + color 3/4-8´1 + 1/4-10 a 13 vol + platas deco a 40v /77´44 + 7´4 + 0´43 a 20v"
+    },
+    {
+        "Nombre": "Pili",
+        "Apellidos" : "La Torre",
+        "Direcion": "Donostia",
+        "Telefono": "637555332",
+        "Cumpleaños": "3/11/48",
+        "Fecha": "3/6/20",
+        "Servicio": "Color 1/2-7´4 + 1/2-77´44 a 20 vol",
+        "Comentarios": "CEJAS 5 A 20 VOL"
+    },
+    {
+        "Nombre": "Piluca",
+        "Apellidos" : "Gravalos",
+        "Direcion": "Donostia",
+        "Telefono": "686129770",
+        "Cumpleaños": "10/12/55",
+        "Fecha": "1/22/20",
+        "Servicio": "Color barro 20-3´1  1+5 con albal y sin calor/Neo 75-8 + 15-9 a 18 v"
+    },
+    {
+        "Nombre": "Pitu",
+        "Apellidos" : "Bandrez",
+        "Direcion": "C/ Prin, 43 5º Izda Donostia",
+        "Telefono": "943453725",
+        "Cumpleaños": "6/22/43",
+        "Fecha": "2/20/20",
+        "Servicio": "Corte + color 3/4-10 + 1/4-12 a 20 vol"
+    },
+    {
+        "Nombre": "Quique",
+        "Apellidos" : "Zumalakarregui",
+        "Direcion": "Donostia",
+        "Telefono": "629049817",
+        "Cumpleaños": "12/6/50",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte se llevo p/ probar LN nuestro"
+    },
+    {
+        "Nombre": "Quite",
+        "Apellidos" : "Quiteria Ortega Lopez",
+        "Direcion": "Donostia",
+        "Telefono": "620604000",
+        "Cumpleaños": "2/5/20",
+        "Fecha": "1/28/20",
+        "Servicio": "Corte + platas deco a 20 v / 12 a 40 vol + cejas 6 a 20v 70+55+5",
+        "Comentarios": "CEJAS 6 a 20 vol"
+    },
+    {
+        "Nombre": "Rae",
+        "Apellidos" : "Santiago",
+        "Direcion": "Donostia",
+        "Telefono": "639117594",
+        "Fecha": "4/6/19",
+        "Servicio": "Corte",
+        "Comentarios": "Corte ochentero"
+    },
+    {
+        "Nombre": "Raquel",
+        "Apellidos" : "Ayerdi",
+        "Direcion": "Donostia",
+        "Telefono": "660530786",
+        "Cumpleaños": "10/29/20",
+        "Fecha": "2/20/20",
+        "Servicio": "Corte + color por todo Barro 20-7 + 10-comp 1+3 /Neo 50-6 + 20-6´73 + 20-5 a 18 v para puntas 10-5 + 10-4 a 9 vol",
+        "Comentarios": "Cejas 4 a 20v 30 min"
+    },
+    {
+        "Nombre": "Raquel",
+        "Apellidos" : "Crespillo",
+        "Direcion": "Donostia",
+        "Telefono": "667340246",
+        "Cumpleaños": "12/23/55",
+        "Fecha": "3/5/20",
+        "Servicio": "Corte + color 1 tubo 8 + 1/4-7´3 a 20 vol",
+        "Comentarios": "CEJAS 6 A 20 VOL"
+    },
+    {
+        "Nombre": "Rebeca",
+        "Apellidos" : "San Martin",
+        "Direcion": "Donostia",
+        "Telefono": "687944345",
+        "Cumpleaños": "10/22/71",
+        "Fecha": "11/29/19",
+        "Servicio": "Color barro 20-3´2 + 10-3´1 1+4 35 min c/albal y sin calor + platas 12 a 40v /deco a 20v + hidratar 90+40+15"
+    },
+    {
+        "Nombre": "Reyes",
+        "Apellidos" : "Calvo",
+        "Direcion": "Ramon Maria Lili, 3 escalera 2 7º A",
+        "Telefono": "654865694",
+        "Cumpleaños": "9/23/20",
+        "Fecha": "3/7/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Ricardo Nicolás",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "1/29/20",
+        "Servicio": "Corte",
+        "Comentarios": "Masajista /no despuntar/no entresacar/ nuca carga"
+    },
+    {
+        "Nombre": "Rosa",
+        "Apellidos" : "Eskarmena",
+        "Direcion": "Donostia",
+        "Fecha": "6/7/19",
+        "Servicio": "LF 19 + TM 28,20",
+        "Comentarios": "Amiga de Ana Molano"
+    },
+    {
+        "Nombre": "Rosa",
+        "Apellidos" : "Etxaniz",
+        "Direcion": "Donostia",
+        "Telefono": "635738279",
+        "Fecha": "7/30/19",
+        "Servicio": "Secar",
+        "Comentarios": "Cejas 5 a 20v /madre de Aitziber"
+    },
+    {
+        "Nombre": "Rosa",
+        "Apellidos" : "Gonzalez",
+        "Direcion": "Erriondo,16 3º Izda Oyartzun",
+        "Telefono": "943430800",
+        "Cumpleaños": "12/29/20",
+        "Fecha": "2/5/20",
+        "Servicio": "Corte + neo 40-6 + 40-6´73 a 18v c/90 oxig / barro 5 comp + 5-7 1+7 + platas 115+25",
+        "Comentarios": "CEJAS 5 A 20 VOL"
+    },
+    {
+        "Nombre": "Rosi",
+        "Apellidos" : "Mugica",
+        "Direcion": "C/ 2º Izpizua, 1º D Portal 6 Renteria",
+        "Telefono": "943513124",
+        "Cumpleaños": "9/29/40",
+        "Fecha": "2/4/20",
+        "Servicio": "Corte + color 1/2-7 koleston + 1/6-6 touch a 20 vol + platas deco a 40 v 115+25",
+        "Comentarios": "CEJAS 4 A 20 VOL 15 MIN"
+    },
+    {
+        "Nombre": "Rut",
+        "Apellidos" : "Perez de Anuncila",
+        "Direcion": "Donostia",
+        "Fecha": "9/3/19",
+        "Servicio": "Color barro 50-3´3 1+3 40 min + hidratar y secar 85+15"
+    },
+    {
+        "Nombre": "Saioa",
+        "Apellidos" : "Galdos",
+        "Direcion": "Donostia",
+        "Telefono": "620290117",
+        "Fecha": "3/12/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Saioa",
+        "Apellidos" : "Rodriguez",
+        "Direcion": "Añorga",
+        "Telefono": "609930363",
+        "Fecha": "5/21/19",
+        "Servicio": "Corte+ barro 30-3´1 + 15-3´2 1+4 sin calor con albal +/- 15 min secado al aire 65+50"
+    },
+    {
+        "Nombre": "Saioa",
+        "Apellidos" : "Salaberria",
+        "Direcion": "Hernani",
+        "Telefono": "606149343",
+        "Cumpleaños": "12/30/75",
+        "Fecha": "2/12/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Saloa",
+        "Apellidos" : "Lubeigth",
+        "Direcion": "Donostia",
+        "Telefono": "634497915",
+        "Cumpleaños": "9/13/01",
+        "Fecha": "12/21/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Sara",
+        "Apellidos" : "Ansoalde",
+        "Direcion": "Donostia",
+        "Telefono": "619676153",
+        "Fecha": "3/12/20",
+        "Servicio": "Corte + platas 12 a 40v / 12 a 40 con polvos + hidrat 70+55+15",
+        "Comentarios": "Amiga de Marta San Roman"
+    },
+    {
+        "Nombre": "Sara",
+        "Apellidos" : "Arrillaga",
+        "Direcion": "Donostia",
+        "Telefono": "670593347",
+        "Cumpleaños": "7/5/20",
+        "Fecha": "2/25/20",
+        "Servicio": "Color 1 tubo 6 + 1/4-6´7 a 13 vol + secar no cobrado"
+    },
+    {
+        "Nombre": "Sara",
+        "Apellidos" : "Landa",
+        "Direcion": "Astigarraga",
+        "Telefono": "615707128",
+        "Fecha": "1/22/20",
+        "Servicio": "Platas 12 a 20 vol + secar",
+        "Comentarios": "Doña Hamburgueseria / prima de Marta San Roman"
+    },
+    {
+        "Nombre": "Sara",
+        "Apellidos" : "Perez Cortes Fernandez",
+        "Direcion": "Donostia",
+        "Telefono": "650640693",
+        "Fecha": "6/4/19",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Maria Ortega",
+        "Fecha2": "10/2/19",
+        "Servicio2": "Corte"
+    },
+    {
+        "Nombre": "Sara",
+        "Apellidos" : "Simal",
+        "Direcion": "Donostia",
+        "Telefono": "658734547",
+        "Fecha": "12/27/19",
+        "Servicio": "Corte + barro 30-3´1 + 5-3´2 1+4 de atraz adelante 30 min sin calor y albal + platas toda la cabeza 12 a 40v c/polvos + AT 27,50 +40+50+60"
+    },
+    {
+        "Nombre": "Sebastian",
+        "Apellidos" : "Lopez",
+        "Direcion": "Donostia",
+        "Telefono": "600553333",
+        "Fecha": "2/5/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Sergi",
+        "Apellidos" : "Garcia",
+        "Direcion": "Barcelona",
+        "Telefono": "637067991",
+        "Fecha": "9/28/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Silvia",
+        "Apellidos" : "Arteaga",
+        "Direcion": "Donostia",
+        "Telefono": "647642117",
+        "Cumpleaños": "11/25/65",
+        "Fecha": "2/14/20",
+        "Servicio": "Corte + color 3/4-7 + 1/4-8 + 1/4-7´3 a 13 v /barro 5-3´1 + 5-3´2 1+5  7 min secador",
+        "Comentarios": "Cejas 6 a 20 vol 15 min"
+    },
+    {
+        "Nombre": "Silvia",
+        "Apellidos" : "Istillarte Pardo",
+        "Direcion": "Pasajes",
+        "Telefono": "659470802",
+        "Cumpleaños": "5/3/20",
+        "Fecha": "2/14/20",
+        "Servicio": "Corte + color 1/2-6´7 + 1/2-6 + 1/4-5 a 13 vol + secado barro 5g comp + 5g 3´2 1+5 lavabo"
+    },
+    {
+        "Nombre": "Soco",
+        "Apellidos" : "Sanchez",
+        "Direcion": "Urnieta",
+        "Telefono": "687909523",
+        "Cumpleaños": "10/18/20",
+        "Fecha": "1/24/20",
+        "Servicio": "Corte + barro20-3´+ 10-3´2 1+4 de atraz p/adelante sin albal +/- 5 min + platas deco a 40v cejas 5€",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Sofia",
+        "Apellidos" : "z",
+        "Direcion": "Donostia",
+        "Fecha": "3/6/20",
+        "Servicio": "Corte en seco",
+        "Comentarios": "Americana / modelo"
+    },
+    {
+        "Nombre": "Sofia",
+        "Apellidos" : "Facal",
+        "Direcion": "Donostia",
+        "Telefono": "717704265",
+        "Cumpleaños": "11/3/20",
+        "Fecha": "3/12/20",
+        "Servicio": "Color platas 12 a 20v + barro a la vez 20-3´1 + 10-3´2 1+4 con calor + hidrat 75+30+15"
+    },
+    {
+        "Nombre": "Sofia",
+        "Apellidos" : "Holm",
+        "Direcion": "Donostia",
+        "Cumpleaños": "12/15/09",
+        "Fecha": "2/27/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Soledad",
+        "Apellidos" : "Ortiz de La Guinea",
+        "Direcion": "Vitoria",
+        "Fecha": "1/18/20",
+        "Servicio": "Color 40-8 + 30-7 + 10-6 a 18 vol c/90 oxig + hidratar + secar 95+15"
+    },
+    {
+        "Nombre": "Soledad",
+        "Apellidos" : "Picaza",
+        "Direcion": "Donostia",
+        "Telefono": "686097244",
+        "Fecha": "9/18/19",
+        "Servicio": "Corte + barro 20-3´1 + 5-3´2 + 10-7 1+3 40 min + secar"
+    },
+    {
+        "Nombre": "Sonia",
+        "Apellidos" : "Elduayen",
+        "Direcion": "Renteria",
+        "Telefono": "616162212",
+        "Cumpleaños": "8/1/68",
+        "Fecha": "2/4/20",
+        "Servicio": "Corte + Color platas 12 a 40v / deco a 20v/ barro 10g-3´1 1+5 90+40+15"
+    },
+    {
+        "Nombre": "Sonia",
+        "Apellidos" : "Fernandez",
+        "Direcion": "Donostia",
+        "Telefono": "696025467",
+        "Fecha": "1/24/20",
+        "Servicio": "Corte + Color neo 100-5 a 18 v c/110 oxig + secar"
+    },
+    {
+        "Nombre": "Sonia",
+        "Apellidos" : "Pascual",
+        "Direcion": "Donostia",
+        "Telefono": "636156985",
+        "Cumpleaños": "9/2/75",
+        "Fecha": "10/10/19",
+        "Servicio": "Corte + barro 50-3´2 1+3 40 min secador + hidratar (repetir barro 30-3´3 + 30-7 1+3 40 min 125+20"
+    },
+    {
+        "Nombre": "Sonia",
+        "Apellidos" : "Rodriguez",
+        "Direcion": "Donostia",
+        "Telefono": "650462911",
+        "Cumpleaños": "9/28/20",
+        "Fecha": "3/12/20",
+        "Servicio": "Color neo 50-8´1 + 50-8 a 18 vol + secado natural",
+        "Comentarios": "Lavar con intensidad"
+    },
+    {
+        "Nombre": "Suli",
+        "Apellidos" : "z",
+        "Direcion": "Francia",
+        "Fecha": "8/16/19",
+        "Servicio": "Corte",
+        "Comentarios": "Amigo Frances de Ander Goya"
+    },
+    {
+        "Nombre": "Susana",
+        "Apellidos" : "Arrizabalaga",
+        "Direcion": "C/ Prin, 01",
+        "Telefono": "686968582",
+        "Fecha": "3/13/20",
+        "Servicio": "Color 3/4-6 + 1/4-5 + 1/4-6´7 a 20 vol + secar",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Susana",
+        "Apellidos" : "Iciar Alvarez",
+        "Direcion": "Donostia",
+        "Telefono": "617291132",
+        "Fecha": "10/16/19",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Elvira"
+    },
+    {
+        "Nombre": "Susana",
+        "Apellidos" : "Ligueri",
+        "Direcion": "Donostia",
+        "Telefono": "661435771",
+        "Fecha": "7/3/19",
+        "Servicio": "Color neo 40-7 + 30-6 a 18 v c/80 oxig /barro 10g-3´2 1+5 5 min lavabo"
+    },
+    {
+        "Nombre": "Susana",
+        "Apellidos" : "Malloro",
+        "Direcion": "Donostia",
+        "Telefono": "665732195",
+        "Fecha": "9/13/19",
+        "Servicio": "Color neo 60-6 + 40-7 a 13 v + puntas 10-6 a 9v/ barro 15g comp 1+5 7 min secador + hidratar 95+20"
+    },
+    {
+        "Nombre": "Tatiana",
+        "Apellidos" : "Samocil",
+        "Direcion": "Donostia",
+        "Telefono": "32/486503783",
+        "Fecha": "11/7/19",
+        "Servicio": "Color 50-6 + 50-7´1 a 18 vol c/110 oxig + barro 15 comp 1+3 lavabo",
+        "Comentarios": "Amiga de Natalia Tchitch"
+    },
+    {
+        "Nombre": "Tere",
+        "Apellidos" : "Teixeira",
+        "Direcion": "Urnieta",
+        "Telefono": "943008068",
+        "Fecha": "6/26/19",
+        "Servicio": "Arreglo de nuca + Moldeado parte superior + nuca platas deco a 20 v",
+        "Comentarios": "Cejas 4 a 20vol 30 min"
+    },
+    {
+        "Nombre": "Tere",
+        "Apellidos" : "Zurdo",
+        "Telefono": "619814403",
+        "Servicio": "LF + TS LN"
+    },
+    {
+        "Nombre": "Teresa",
+        "Apellidos" : "Gabilondo",
+        "Direcion": "Madrid",
+        "Telefono": "649926727",
+        "Fecha": "12/27/19",
+        "Servicio": "Barro 20-3´1 + 20-3´2 1+4 20 min sin calor y sin albal + secar"
+    },
+    {
+        "Nombre": "Thais",
+        "Apellidos" : "Munuera",
+        "Direcion": "Donostia",
+        "Telefono": "639361331",
+        "Cumpleaños": "12/11/73",
+        "Fecha": "2/20/20",
+        "Servicio": "Color 25-3´1 + 5-3´2 1+3 aplicar todo 8 min/ mas tarde aplicar patillas 5 min"
+    },
+    {
+        "Nombre": "Tina",
+        "Apellidos" : "Bichot",
+        "Direcion": "PO Francia",
+        "Telefono": "33/601201988",
+        "Cumpleaños": "6/26/58",
+        "Fecha": "12/23/19",
+        "Servicio": "Corte + Barro 15-3´1 + 5-3´2 1+3 /arreglo de platas + hidratar 70+15+45+35",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Toñi",
+        "Apellidos" : "Botello",
+        "Direcion": "Donostia",
+        "Telefono": "649865444",
+        "Cumpleaños": "8/25/20",
+        "Fecha": "2/4/20",
+        "Servicio": "Corte + color retoque 40-7 a 18 v + hidratar + secar 70+25+15",
+        "Comentarios": "Cejas 5 a 20 vol"
+    },
+    {
+        "Nombre": "Txaro",
+        "Apellidos" : "Aranjuelo",
+        "Direcion": "Igueldo",
+        "Telefono": "676283446",
+        "Cumpleaños": "1/7/20",
+        "Fecha": "1/28/20",
+        "Servicio": "Corte + color 3/4-7 touch + 1/4-8 koleston a 20 vol + platas deco a 40v 110+15"
+    },
+    {
+        "Nombre": "Usoa",
+        "Apellidos" : "Jimenez de Aberasturi",
+        "Direcion": "Donostia",
+        "Telefono": "646216222",
+        "Cumpleaños": "12/25/75",
+        "Fecha": "1/17/20",
+        "Servicio": "Color platas retoque 12 a 40 v c/polvos + hidratar 95+15"
+    },
+    {
+        "Nombre": "Vanesa",
+        "Apellidos" : "Velez",
+        "Direcion": "Donostia",
+        "Telefono": "627444531",
+        "Fecha": "12/14/19",
+        "Servicio": "Corte",
+        "Comentarios": "Amiga de Maria Bailarina"
+    },
+    {
+        "Nombre": "Velia ",
+        "Apellidos" : "Amicarella",
+        "Direcion": "Donostia",
+        "Fecha": "3/5/20",
+        "Servicio": "Peinar",
+        "Comentarios": "Madre de Francesca"
+    },
+    {
+        "Nombre": "Vera",
+        "Apellidos" : "Munuera",
+        "Direcion": "Donostia",
+        "Servicio": "Corte",
+        "Comentarios": "Hija de Olatz"
+    },
+    {
+        "Nombre": "Veronica",
+        "Apellidos" : "Larrea",
+        "Direcion": "Donostia",
+        "Telefono": "667663727",
+        "Fecha": "12/12/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Vicente",
+        "Apellidos" : "Anglada",
+        "Direcion": "Donostia",
+        "Telefono": "607652067",
+        "Cumpleaños": "8/18/20",
+        "Fecha": "3/13/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Virginia",
+        "Apellidos" : "Etxenike",
+        "Direcion": "Donostia",
+        "Telefono": "620324718",
+        "Fecha": "1/8/20",
+        "Servicio": "Platas deco a 20v / 12 a 40v / 8 a 13v + hidratacion",
+        "Comentarios": "Hija de  Mª Jose"
+    },
+    {
+        "Nombre": "Virginia",
+        "Apellidos" : "Olivan Garcia",
+        "Direcion": "Donostia",
+        "Telefono": "653277577",
+        "Cumpleaños": "8/20/20",
+        "Fecha": "2/6/20",
+        "Servicio": "Color 1/4-8 + 1/2-7´4 + 1/2-7´3 a 20 vol"
+    },
+    {
+        "Nombre": "Xabi",
+        "Apellidos" : "Navarro",
+        "Direcion": "Donostia",
+        "Cumpleaños": "4/18/09",
+        "Fecha": "7/20/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Xabier",
+        "Apellidos" : "Camarero",
+        "Direcion": "Donostia",
+        "Telefono": "605711436",
+        "Fecha": "3/11/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Xabier",
+        "Apellidos" : "Echezurieta",
+        "Direcion": "Renteria",
+        "Telefono": "722723657",
+        "Cumpleaños": "1/9/97",
+        "Fecha": "12/30/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Xabier",
+        "Apellidos" : "Perez",
+        "Direcion": "Donostia",
+        "Fecha": "7/19/19",
+        "Servicio": "Corte sin lavado",
+        "Comentarios": "Hijo de Lierni / pelu Amparo madre"
+    },
+    {
+        "Nombre": "Yoane",
+        "Apellidos" : "Goenaga",
+        "Direcion": "Donostia",
+        "Telefono": "657799735",
+        "Fecha": "2/11/20",
+        "Servicio": "Corte + hidratacion 70+15"
+    },
+    {
+        "Nombre": "Yolanda",
+        "Apellidos" : "Aurtenetxe",
+        "Direcion": "Donostia",
+        "Fecha": "1/18/20",
+        "Servicio": "Corte + color barro 50-3´2 1+3 35 min secador",
+        "Comentarios": "Mujer de Xabier Camarero"
+    },
+    {
+        "Nombre": "Yolanda",
+        "Apellidos" : "Murugarren",
+        "Direcion": "Donostia",
+        "Telefono": "677621421",
+        "Fecha": "2/21/20",
+        "Servicio": "Corte + color 1 tubo 3 touch a 13 vol 65+40",
+        "Comentarios": "Amazonas hermana de July"
+    },
+    {
+        "Nombre": "Yolanda",
+        "Apellidos" : "Ugarte",
+        "Direcion": "Donostia",
+        "Telefono": "696911861",
+        "Cumpleaños": "9/1/57",
+        "Fecha": "1/17/20",
+        "Servicio": "Corte + Color 3/4-8 + 1/4-10 a 20 vol"
+    },
+    {
+        "Nombre": "Yolanda",
+        "Apellidos" : "Ureisti",
+        "Direcion": "Orio",
+        "Telefono": "644354108",
+        "Fecha": "3/16/18",
+        "Servicio": "Corte sin secado",
+        "Fecha2": "10/11/19",
+        "Servicio2": "Corte sin secado"
+    },
+    {
+         "Nombre": "Yon",
+         "Apellidos" : "Gracia",
+         "Direcion": "Donostia",
+         "Fecha": "3/10/20",
+         "Servicio": "Corte",
+         "Comentarios": "Hijo de Ager"
+     },
+    {
+        "Nombre": "Yon",
+        "Apellidos" : "Labaka",
+        "Direcion": "Urnieta",
+        "Telefono": "660925334",
+        "Cumpleaños": "5/16/79",
+        "Fecha": "3/5/20",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Yon",
+        "Apellidos" : "Navarro",
+        "Direcion": "Donostia",
+        "Telefono": "649426576",
+        "Cumpleaños": "3/5/74",
+        "Fecha": "10/30/19",
+        "Servicio": "Corte"
+    },
+    {
+        "Nombre": "Yubi",
+        "Apellidos" : "Picabea Takahashi",
+        "Direcion": "Donostia",
+        "Fecha": "11/8/19",
+        "Servicio": "Corte"
+    }
+]
+
+ 
+

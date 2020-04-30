@@ -43,6 +43,25 @@ class ServicesManager: NSObject {
         return services
     }
     
+    func getAllServicesForDay(beginingOfDay: Int64, endOfDay: Int64) -> [ServiceModel] {
+        var services: [ServiceModel] = []
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "fecha > %f AND fecha < %f", argumentArray: [beginingOfDay, endOfDay])
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    services.append(databaseHelper.parseServiceCoreObjectToServiceModel(coreObject: data))
+                }
+            } catch {
+            }
+        }
+
+        return services
+    }
+    
     func getServicesForClientId(clientId: Int64) -> [ServiceModel] {
         var services: [ServiceModel] = []
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
@@ -125,43 +144,12 @@ class ServicesManager: NSObject {
         return result
     }
     
-    func updateNombreYApellidosToService(serviceId: Int64, client: ClientModel) -> Bool {
-        let coreServices: [NSManagedObject] = getServiceFromDatabase(serviceId: serviceId)
-        
-        if coreServices.count != 0 {
-            let coreService: NSManagedObject = coreServices.first!
-            coreService.setValue(client.nombre, forKey: "nombre")
-            coreService.setValue(client.apellidos, forKey: "apellidos")
-        } else {
-            return false
-        }
-        
-        var result: Bool = false
-        backgroundContext.performAndWait {
-            do {
-                try backgroundContext.save()
-                result = true
-            } catch {
-            }
-        }
-        
-        return result
-    }
-    
     func getServicesForDay(date: Date) -> [ServiceModel] {
         let beginningOfDay: Int64 = Int64(AgendaFunctions.getBeginningOfDayFromDate(date: date).timeIntervalSince1970)
         let endOfDay: Int64 = Int64(AgendaFunctions.getEndOfDayFromDate(date: date).timeIntervalSince1970)
-        let allServices: [ServiceModel] = getAllServicesFromDatabase()
+        let allServices: [ServiceModel] = getAllServicesForDay(beginingOfDay: beginningOfDay, endOfDay: endOfDay)
         
-        var servicesForDay: [ServiceModel] = []
-        
-        for service in allServices {
-            if service.fecha > beginningOfDay && service.fecha < endOfDay {
-                servicesForDay.append(service)
-            }
-        }
-        
-        return servicesForDay
+        return allServices
     }
     
     func deleteService(service: ServiceModel) -> Bool {
@@ -184,6 +172,67 @@ class ServicesManager: NSObject {
             }
         }
 
+        return result
+    }
+    
+    func updateEmpleadoIdForServices(oldEmpleadoId: Int64, newEmpleadoId: Int64) {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "profesional = %f", argumentArray: [oldEmpleadoId])
+        var results: [NSManagedObject] = []
+        
+        backgroundContext.performAndWait {
+            do {
+                results = try backgroundContext.fetch(fetchRequest)
+                
+                for object in results {
+                    object.setValue(newEmpleadoId, forKey: "profesional")
+                }
+                
+                try backgroundContext.save()
+            } catch {
+            }
+        }
+    }
+    
+    func getServicesForEmpleado(empleadoId: Int64) -> [ServiceModel] {
+        var services: [ServiceModel] = []
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "profesional = %f", argumentArray: [empleadoId])
+        
+        mainContext.performAndWait {
+            do {
+                let results: [NSManagedObject] = try mainContext.fetch(fetchRequest)
+                for data in results {
+                    services.append(databaseHelper.parseServiceCoreObjectToServiceModel(coreObject: data))
+                }
+            } catch {
+                print("Error checking the client in database")
+            }
+        }
+        
+        return services
+    }
+    
+    func updateServicesForClientId(clientId: Int64) -> Bool {
+        let client: ClientModel = Constants.databaseManager.clientsManager.getClientFromDatabase(clientId: clientId)!
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "idCliente = %f", argumentArray: [clientId])
+        var result: Bool = false
+        backgroundContext.performAndWait {
+            do {
+                let results = try backgroundContext.fetch(fetchRequest)
+                for object in results {
+                    object.setValue(client.nombre, forKey: "nombre")
+                    object.setValue(client.apellidos, forKey: "apellidos")
+                }
+                
+                try backgroundContext.save()
+                result = true
+            } catch {
+                result = false
+            }
+        }
         return result
     }
 }

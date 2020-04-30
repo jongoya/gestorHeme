@@ -85,8 +85,18 @@ extension ServiciosViewController {
 }
 
 extension ServiciosViewController: CloudTipoServiciosProtocol {
-    func sincronisationFinished() {
-        tableRefreshControl.endRefreshing()
-        showServicios()
+    func tipoServiciosSincronizationFinished() {
+        print("EXITO CARGANDO TIPO SERVICIOS")
+        DispatchQueue.main.async {
+            self.tableRefreshControl.endRefreshing()
+            self.showServicios()
+        }
+    }
+    
+    func tipoServiciosSincronizationError(error: String) {
+        print("ERROR CARGANDO TIPO SERVICIOS")
+        DispatchQueue.main.async {
+            CommonFunctions.showGenericAlertMessage(mensaje: "Error cargando servicios", viewController: self)
+        }
     }
 }
