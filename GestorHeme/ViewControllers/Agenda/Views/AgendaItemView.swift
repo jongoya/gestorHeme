@@ -142,7 +142,7 @@ class AgendaItemView: UIView {
         clientNameLabel.translatesAutoresizingMaskIntoConstraints = false
         clientNameLabel.text = service.nombre + " " + service.apellidos
         clientNameLabel.textColor = .black
-        clientNameLabel.font = UIFont.systemFont(ofSize: 15)
+        clientNameLabel.font = .systemFont(ofSize: 16, weight: .semibold)
         serviceView.addSubview(clientNameLabel)
         
         let serviceName: UILabel = UILabel()

@@ -101,7 +101,7 @@
                                     <outlet property="delegate" destination="a2I-Ly-6dr" id="9OI-tR-fTO"/>
                                 </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxA-he-W19">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="pxA-he-W19">
                                 <rect key="frame" x="0.0" y="169" width="414" height="644"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gut-m4-dgG">
@@ -118,6 +118,9 @@
                                     <constraint firstItem="gut-m4-dgG" firstAttribute="leading" secondItem="pxA-he-W19" secondAttribute="leading" id="Xj2-he-ccR"/>
                                     <constraint firstItem="gut-m4-dgG" firstAttribute="height" secondItem="pxA-he-W19" secondAttribute="height" priority="250" id="uwd-bx-8BA"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="a2I-Ly-6dr" id="Rmi-yC-pHe"/>
+                                </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-g9-PWO">
                                 <rect key="frame" x="319" y="758" width="80" height="40"/>
@@ -239,7 +242,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1z-gO-zc1">
                                         <rect key="frame" x="214.5" y="10" width="85" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cierre caja" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COG-CH-Bxl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caja" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COG-CH-Bxl">
                                                 <rect key="frame" x="10" y="12" width="65" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
@@ -1213,11 +1216,18 @@
                         <viewLayoutGuide key="safeArea" id="Tyw-KK-S5F"/>
                     </view>
                     <navigationItem key="navigationItem" id="6qN-Xk-Q76">
-                        <barButtonItem key="rightBarButtonItem" image="checkmark" catalog="system" id="761-16-jrM">
-                            <connections>
-                                <action selector="didClickSaveServiceButton:" destination="a9Z-cd-ChF" id="dca-Of-VNm"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="checkmark" catalog="system" id="761-16-jrM">
+                                <connections>
+                                    <action selector="didClickSaveServiceButton:" destination="a9Z-cd-ChF" id="dca-Of-VNm"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="plus" catalog="system" id="vjr-c0-87G">
+                                <connections>
+                                    <action selector="didClickPlusButton:" destination="a9Z-cd-ChF" id="oOq-5e-dnv"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="fechaLabel" destination="YgK-8R-Xez" id="btS-sv-4jO"/>
@@ -1229,6 +1239,7 @@
                         <segue destination="idu-WZ-GS2" kind="show" identifier="ListSelectorIdentifier" id="eoI-MQ-e1M"/>
                         <segue destination="n2g-Uq-96L" kind="show" identifier="FieldIdentifier" id="J7k-o1-3tV"/>
                         <segue destination="5gj-tG-FCA" kind="show" identifier="ClientListIdentifier" id="x9X-xg-y17"/>
+                        <segue destination="t57-4g-Ljy" kind="show" identifier="AddClienteIdentifier" id="BaY-EP-OdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75W-hM-g3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3336,14 +3347,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="e84-Sd-Byj"/>
-        <segue reference="BjK-Pu-OVH"/>
-        <segue reference="f8k-sW-FV5"/>
-        <segue reference="OA7-dY-Js9"/>
+        <segue reference="J7k-o1-3tV"/>
+        <segue reference="bqv-hY-lp9"/>
+        <segue reference="eoI-MQ-e1M"/>
+        <segue reference="flB-J2-Sg8"/>
         <segue reference="0EN-DX-rnx"/>
-        <segue reference="J3B-aM-5Lx"/>
-        <segue reference="G0F-tq-SXm"/>
-        <segue reference="eyH-au-oZt"/>
+        <segue reference="3Mh-Dn-qla"/>
+        <segue reference="BaY-EP-OdM"/>
+        <segue reference="DJ4-Zc-b0t"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" catalog="system" width="128" height="124"/>

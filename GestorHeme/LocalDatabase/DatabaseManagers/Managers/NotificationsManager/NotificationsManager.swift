@@ -206,5 +206,9 @@ class NotificationsManager: NSObject {
         }
         
         Constants.cloudDatabaseManager.notificationManager.deleteOldNotifications()
+        
+        DispatchQueue.main.async {
+            Constants.rootController.setNotificationBarItemBadge()
+        }
     }
 }

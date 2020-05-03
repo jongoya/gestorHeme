@@ -11,7 +11,7 @@ import Foundation
 class CadenciaModel {
     var cadencia: String = ""
     var candenciaTime: Int64 = 0
-    let numberOfExtraDays: Int = 20
+    let percentageExtra: Double = 0.3
     
     init(cadencia: String) {
         self.cadencia = cadencia
@@ -50,80 +50,63 @@ class CadenciaModel {
     }
     
     private func cadenciaFor1Semana() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -7 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 7)
     }
     
     private func cadenciaFor2Semanas() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -15 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 15)
     }
     
     private func cadenciaFor3Semanas() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -21 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 21)
     }
     
     private func cadenciaFor1Mes() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -30 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 30)
     }
     
     private func cadenciaFor1Mes1Semana() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -37 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 37)
     }
     
     private func cadenciaFor1Mes2Semanas() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -45 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 45)
     }
     
     private func cadenciaFor1Mes3Semanas() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -51 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 51)
     }
     
     private func cadenciaFor2Meses() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -60 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 60)
     }
     
     private func cadenciaFor2Meses1Semana() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -67 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 67)
     }
     
     private func cadenciaFor2Meses2Semanas() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -75 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 75)
     }
     
     private func cadenciaFor2Meses3Semanas() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -81 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 81)
     }
     
     private func cadenciaFor3Meses() -> Int64 {
-        var dateComponent = DateComponents()
-        dateComponent.day = -90 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 90)
     }
     
     private func cadenciaForMasDe3Meses() -> Int64 {
+        return calculateCadenciaWithNumberOfDays(numberOfDays: 97)
+    }
+    
+    private func calculateCadenciaWithNumberOfDays(numberOfDays: Int) -> Int64 {
         var dateComponent = DateComponents()
-        dateComponent.day = -97 - numberOfExtraDays
-        return Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        dateComponent.day = -numberOfDays
+        let cadenciaDate: Int64 = Int64(Calendar.current.date(byAdding: dateComponent, to: Date())!.timeIntervalSince1970)
+        let diferencia = Int64(Date().timeIntervalSince1970) - cadenciaDate
+        
+        return cadenciaDate - Int64(Double(diferencia) * percentageExtra)
     }
 }

@@ -17,13 +17,6 @@ class RootViewController: UITabBarController {
         title = "Clientes"
         self.delegate = self
         Constants.rootController = self
-
-        NotificationFunctions.checkBirthdays()
-        NotificationFunctions.checkCierreCajas()
-        NotificationFunctions.checkClientCadencias()
-        NotificationFunctions.checkNotificacionesPersonalizadas()
-        Constants.databaseManager.notificationsManager.deleteOldNotifications()
-        
         setNotificationBarItemBadge()
     }
     

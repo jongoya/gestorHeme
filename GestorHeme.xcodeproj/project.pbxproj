@@ -101,6 +101,7 @@
 		FB9EED94244DC0E500B04E49 /* CloudEmpleadoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED93244DC0E500B04E49 /* CloudEmpleadoProtocol.swift */; };
 		FB9EED97244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED96244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift */; };
 		FB9EED9A244DC5E200B04E49 /* CloudServiceManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */; };
+		FBA783FD245C359000FDF557 /* AddClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA783FC245C359000FDF557 /* AddClientProtocol.swift */; };
 		FBAA2A8A243B45EF009DE78B /* MonthDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2A89243B45EF009DE78B /* MonthDayModel.swift */; };
 		FBAA2A90243B4956009DE78B /* AgendaFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAA2A8F243B4956009DE78B /* AgendaFunctions.swift */; };
 		FBAB77C82451C2FB001C5F4E /* StadisticaViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */; };
@@ -237,6 +238,7 @@
 		FB9EED93244DC0E500B04E49 /* CloudEmpleadoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudEmpleadoProtocol.swift; sourceTree = "<group>"; };
 		FB9EED96244DC2AE00B04E49 /* CloudTipoServiciosProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTipoServiciosProtocol.swift; sourceTree = "<group>"; };
 		FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudServiceManagerProtocol.swift; sourceTree = "<group>"; };
+		FBA783FC245C359000FDF557 /* AddClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClientProtocol.swift; sourceTree = "<group>"; };
 		FBAA2A89243B45EF009DE78B /* MonthDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDayModel.swift; sourceTree = "<group>"; };
 		FBAA2A8F243B4956009DE78B /* AgendaFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaFunctions.swift; sourceTree = "<group>"; };
 		FBAB77C72451C2FB001C5F4E /* StadisticaViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticaViewProtocol.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 		FB57F3002434951E00192230 /* AddClient */ = {
 			isa = PBXGroup;
 			children = (
+				FBA783FB245C357500FDF557 /* Protocols */,
 				FB57F3012434953500192230 /* AddClientViewController.swift */,
 			);
 			path = AddClient;
@@ -1003,6 +1006,14 @@
 			children = (
 				FB9EED99244DC5E200B04E49 /* CloudServiceManagerProtocol.swift */,
 				FBEA8503245AE263004E96FC /* CloudEliminarServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FBA783FB245C357500FDF557 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FBA783FC245C359000FDF557 /* AddClientProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1428,6 +1439,7 @@
 				FB3E4B63243648E9009DB88B /* ListSelectorCell.swift in Sources */,
 				FB5F7D7A243F290300503E9B /* NotificationFunctions.swift in Sources */,
 				FB6493FA24338C0900503627 /* SceneDelegate.swift in Sources */,
+				FBA783FD245C359000FDF557 /* AddClientProtocol.swift in Sources */,
 				FB3E4B6824364E60009DB88B /* AddServicioProtocol.swift in Sources */,
 				FB5F7D8A243F9D5A00503E9B /* HemeViewController.swift in Sources */,
 				FB9A8E1F24448CC400E0A9E4 /* ServiciosViewController.swift in Sources */,
@@ -1590,7 +1602,7 @@
 				CODE_SIGN_ENTITLEMENTS = GestorHeme/GestorHeme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = C3EK57386A;
 				INFOPLIST_FILE = GestorHeme/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -1598,7 +1610,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = jon.GestorHeme;
 				PRODUCT_NAME = Heme;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1615,7 +1627,7 @@
 				CODE_SIGN_ENTITLEMENTS = GestorHeme/GestorHeme.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = C3EK57386A;
 				INFOPLIST_FILE = GestorHeme/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
@@ -1623,7 +1635,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3;
+				MARKETING_VERSION = 2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = jon.GestorHeme;
 				PRODUCT_NAME = Heme;
 				PROVISIONING_PROFILE_SPECIFIER = "";

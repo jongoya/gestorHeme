@@ -28,8 +28,8 @@ class HemeViewController: UIViewController {
     func createObjectsForTableView() {
         hemeModels.removeAll()
         createCajaModel()
-        createCargarClientesModel()
-        createActualizarBackupHemeModel()
+        //createCargarClientesModel()
+        //createActualizarBackupHemeModel()
     }
     
     func createCajaModel() {
@@ -40,7 +40,7 @@ class HemeViewController: UIViewController {
         hemeModels.append(caja)
     }
     
-    func createCargarClientesModel() {
+    /*func createCargarClientesModel() {
         let caja: HemeModel = HemeModel()
         caja.nombreImagen = "cash"
         caja.titulo = "Cargar clientes"
@@ -54,7 +54,7 @@ class HemeViewController: UIViewController {
         caja.titulo = "Actualizar backup heme"
         caja.descripcion = "Actualizar backup de heme"
         hemeModels.append(caja)
-    }
+    }*/
     
     func openStadisticasViewController() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "StadisticasCaja", bundle:nil)

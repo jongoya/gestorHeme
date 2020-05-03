@@ -37,6 +37,10 @@ class NotificationsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         showNotifications()
+        
+        DispatchQueue.global().async {
+            NotificationFunctions.checkAllNotifications()
+        }
     }
     
     func showNotifications() {
@@ -251,6 +255,7 @@ extension NotificationsViewController: CloudNotificationProtocol {
         DispatchQueue.main.async {
             self.tableRefreshControl.endRefreshing()
             self.showNotifications()
+            Constants.rootController.setNotificationBarItemBadge()
         }
     }
     

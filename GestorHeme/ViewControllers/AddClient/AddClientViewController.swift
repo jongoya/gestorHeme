@@ -34,12 +34,20 @@ class AddClientViewController: UIViewController {
     var newClient: ClientModel = ClientModel()
     var servicios: [ServiceModel] = []
     var addServicioPreviousView: UIView!
+    var delegate: AddClientProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         CommonFunctions.customizeButton(button: addServicioView)
         title = "Añadir Cliente"
         addServicioPreviousView = observacionesView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if delegate != nil {
+            addServicioView.isHidden = true
+        }
     }
     
     func showServicio(servicio: ServiceModel) {
@@ -274,6 +282,10 @@ extension AddClientViewController: CloudClientManagerProtocol {
             
             DispatchQueue.main.async {
                 CommonFunctions.hideLoadingStateView()
+                if self.delegate != nil {
+                    self.delegate.clientAdded(client: self.newClient)
+                }
+                
                 self.navigationController!.popViewController(animated: true)
             }
         } else {

@@ -116,6 +116,10 @@ extension AgendaServiceViewController {
         checkFields()
     }
     
+    @IBAction func didClickPlusButton(_ sender: Any) {
+        performSegue(withIdentifier: "AddClienteIdentifier", sender: nil)
+    }
+    
     @objc func didClickBackButton(sender: UIBarButtonItem) {
         if !modificacionHecha {
             self.navigationController?.popViewController(animated: true)
@@ -146,6 +150,9 @@ extension AgendaServiceViewController {
             controller.allowMultiselection = (sender as! Int) == 2 ? true : false
         } else if segue.identifier == "ClientListIdentifier" {
             let controller: ClientListSelectorViewController = segue.destination as! ClientListSelectorViewController
+            controller.delegate = self
+        } else if segue.identifier == "AddClienteIdentifier" {
+            let controller: AddClientViewController = segue.destination as! AddClientViewController
             controller.delegate = self
         }
     }
@@ -291,5 +298,15 @@ extension AgendaServiceViewController: CloudEliminarNotificationsProtocol {
             CommonFunctions.hideLoadingStateView()
             CommonFunctions.showGenericAlertMessage(mensaje: "Error guardando el servicio", viewController: self)
         }
+    }
+}
+
+extension AgendaServiceViewController: AddClientProtocol {
+    func clientAdded(client: ClientModel) {
+        clientSeleced = client
+        newService.nombre = client.nombre
+        newService.apellidos = client.apellidos
+        nombreLabel.text = client.nombre + " " + client.apellidos
+        modificacionHecha = true
     }
 }

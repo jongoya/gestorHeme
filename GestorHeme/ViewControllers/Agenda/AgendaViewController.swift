@@ -454,6 +454,7 @@ extension AgendaViewController: CloudEliminarServiceProtocol {
     func serviceEliminado(service: ServiceModel) {
         if !Constants.databaseManager.servicesManager.deleteService(service: service) {
             DispatchQueue.main.async {
+                CommonFunctions.hideLoadingStateView()
                 CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando servicio, intentelo de nuevo", viewController: self)
             }
             return
@@ -473,5 +474,11 @@ extension AgendaViewController: CloudEliminarServiceProtocol {
             CommonFunctions.hideLoadingStateView()
             CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
         }
+    }
+}
+
+extension AgendaViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return scrollContentView
     }
 }

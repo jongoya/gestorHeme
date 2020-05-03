@@ -168,9 +168,15 @@ class CloudServiceManager {
         let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
-            if error != nil || results!.count == 0 {
+            if error != nil {
                 print("ERROR ELIMINANDO SERVICIO")
                 delegate.errorEliminandoService(error: error != nil ? error!.localizedDescription : "Error eliminando el servicio")
+                return
+            }
+            
+            if results!.count == 0 {
+                print("EXITO ELIMINANDO SERVICIO")
+                delegate.serviceEliminado(service: service)
                 return
             }
             

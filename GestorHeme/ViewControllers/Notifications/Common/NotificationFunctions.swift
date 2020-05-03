@@ -35,6 +35,10 @@ class NotificationFunctions: NSObject {
         if todayBirthdayUsers.count > 0 {
             createBirthdayNotification(users: todayBirthdayUsers)
         }
+        
+        DispatchQueue.main.async {
+            Constants.rootController.setNotificationBarItemBadge()
+        }
     }
     
     private static func getTodayBirthdayUsers() -> [BirthdayModel] {
@@ -145,6 +149,10 @@ class NotificationFunctions: NSObject {
         if !cierreCajaExist && serviciosExist {
             createCierreCajaNotification(fecha: yesterday)
         }
+        
+        DispatchQueue.main.async {
+            Constants.rootController.setNotificationBarItemBadge()
+        }
     }
     
     private static func createCierreCajaNotification(fecha: Date) {
@@ -186,16 +194,15 @@ class NotificationFunctions: NSObject {
     }
     
     static func checkClientCadencias() {
+        var clientesConCadenciaSuperada: [ClientModel] = []
         let clients: [ClientModel] = Constants.databaseManager.clientsManager.getAllClientsFromDatabase()
         let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionCadenciaIdentifier)
-        var clientesConCadenciaSuperada: [ClientModel] = []
         
         for client in clients {
             let cadencia: CadenciaModel = CadenciaModel(cadencia: client.cadenciaVisita)
-            let services = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: client.id).sorted(by: { $0.fecha < $1.fecha })
-            let cadenciaSuperada: Bool = aSuperadoCadencia(services: services, cadencia: cadencia, clientId: client.id)
+            let services = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: client.id)
             
-            if cadenciaSuperada {
+            if aSuperadoCadencia(services: services, cadencia: cadencia, clientId: client.id) {
                 if !hasClientANotification(notifications: notifications, clientId: client.id) {
                     clientesConCadenciaSuperada.append(client)
                 }
@@ -205,16 +212,21 @@ class NotificationFunctions: NSObject {
         if clientesConCadenciaSuperada.count > 0 {
             createCadenciaNotification(clientArray: clientesConCadenciaSuperada)
         }
+        
+        DispatchQueue.main.async {
+            Constants.rootController.setNotificationBarItemBadge()
+        }
     }
     
     private static func aSuperadoCadencia(services: [ServiceModel], cadencia: CadenciaModel, clientId: Int64) -> Bool {
         if services.count > 0 {
-            var aSuperadoCadencia: Bool = false
             for service in services {
-                aSuperadoCadencia = service.fecha < cadencia.candenciaTime
+                if service.fecha > cadencia.candenciaTime {
+                    return false
+                }
             }
             
-            return aSuperadoCadencia
+            return true
         } else {
             //si el usuario no tiene servicios, comparamos con la fecha de creación de usuario
             return clientId < cadencia.candenciaTime
@@ -269,6 +281,10 @@ class NotificationFunctions: NSObject {
         }
         
         Constants.cloudDatabaseManager.notificationManager.saveNotifications(notifications: notificaciones, delegate: nil)
+        
+        DispatchQueue.main.async {
+            Constants.rootController.setNotificationBarItemBadge()
+        }
     }
     
     private static func existsNotificacionPersonalizada(clientId: Int64) -> Bool {
@@ -280,5 +296,13 @@ class NotificationFunctions: NSObject {
         }
         
         return false
+    }
+    
+    static func checkAllNotifications() {
+        NotificationFunctions.checkBirthdays()
+        NotificationFunctions.checkCierreCajas()
+        NotificationFunctions.checkClientCadencias()
+        NotificationFunctions.checkNotificacionesPersonalizadas()
+        Constants.databaseManager.notificationsManager.deleteOldNotifications()
     }
 }

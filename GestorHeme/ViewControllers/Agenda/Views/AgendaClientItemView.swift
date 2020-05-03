@@ -61,7 +61,7 @@ class AgendaClientItemView: UIView {
         nombreCliente.translatesAutoresizingMaskIntoConstraints = false
         nombreCliente.text = cliente.nombre + " " + cliente.apellidos
         nombreCliente.textColor = .black
-        nombreCliente.font =  UIFont.systemFont(ofSize: 15)
+        nombreCliente.font = .systemFont(ofSize: 16, weight: .semibold)
         addSubview(nombreCliente)
     }
     
@@ -76,20 +76,16 @@ class AgendaClientItemView: UIView {
     
     func collectHorasCliente() -> String {
         let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: cliente.id)
-        let calendar = Calendar.current
-        
-        var horas: String = ""
+        var arrayHoras: [String] = []
         
         for service in services {
-            let date: Date = Date(timeIntervalSince1970: TimeInterval(service.fecha))
-            if !calendar.isDateInToday(date) {
-                continue
+            let fecha: String = AgendaFunctions.getHoursAndMinutesFromDate(date: Date(timeIntervalSince1970: TimeInterval(service.fecha)))
+            if !arrayHoras.contains(fecha) {
+                arrayHoras.append(fecha)
             }
-            
-            horas.append(AgendaFunctions.getHoursAndMinutesFromDate(date: Date(timeIntervalSince1970: TimeInterval(service.fecha))) + " ")
         }
         
-        return horas
+        return arrayHoras.joined(separator: ", ")
     }
     
     func setConstraints() {

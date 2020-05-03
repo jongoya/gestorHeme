@@ -74,8 +74,13 @@ class CloudEmpleadoManager {
         let query = CKQuery(recordType: tableName, predicate: predicate)
         
         publicDatabase.perform(query, inZoneWith: nil) {results, error in
-            if error != nil || results!.count == 0 {
+            if error != nil {
                 delegate.empleadoSincronizationError(error: error != nil ? error!.localizedDescription : "Error eliminando el empleado")
+                return
+            }
+            
+            if results!.count == 0 {
+                delegate.empleadoDeleted(empleado: empleado)
                 return
             }
             
