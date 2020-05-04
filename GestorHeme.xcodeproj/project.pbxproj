@@ -128,6 +128,8 @@
 		FBDF1BBB244F5A68004DDD3F /* CloudCierreCajaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BBA244F5A68004DDD3F /* CloudCierreCajaManager.swift */; };
 		FBDF1BBD244F6F20004DDD3F /* StadisticasCaja.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDF1BBC244F6F20004DDD3F /* StadisticasCaja.storyboard */; };
 		FBDF1BC0244F6FEE004DDD3F /* StadisticasCajaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDF1BBF244F6FEE004DDD3F /* StadisticasCajaViewController.swift */; };
+		FBE4C1C72460340F00351452 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE4C1C62460340F00351452 /* UserPreferences.swift */; };
+		FBE4C1CB2460422000351452 /* add_image.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE4C1CA2460421F00351452 /* add_image.png */; };
 		FBEA8502245AC657004E96FC /* CloudNotificacionPersonalizadaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA8501245AC657004E96FC /* CloudNotificacionPersonalizadaProtocol.swift */; };
 		FBEA8504245AE263004E96FC /* CloudEliminarServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA8503245AE263004E96FC /* CloudEliminarServiceProtocol.swift */; };
 		FBEA8507245AE5DE004E96FC /* CloudCierreCajaProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEA8506245AE5DE004E96FC /* CloudCierreCajaProtocol.swift */; };
@@ -266,6 +268,8 @@
 		FBDF1BBA244F5A68004DDD3F /* CloudCierreCajaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCierreCajaManager.swift; sourceTree = "<group>"; };
 		FBDF1BBC244F6F20004DDD3F /* StadisticasCaja.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StadisticasCaja.storyboard; sourceTree = "<group>"; };
 		FBDF1BBF244F6FEE004DDD3F /* StadisticasCajaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StadisticasCajaViewController.swift; sourceTree = "<group>"; };
+		FBE4C1C62460340F00351452 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		FBE4C1CA2460421F00351452 /* add_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_image.png; sourceTree = "<group>"; };
 		FBEA8501245AC657004E96FC /* CloudNotificacionPersonalizadaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudNotificacionPersonalizadaProtocol.swift; sourceTree = "<group>"; };
 		FBEA8503245AE263004E96FC /* CloudEliminarServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudEliminarServiceProtocol.swift; sourceTree = "<group>"; };
 		FBEA8506245AE5DE004E96FC /* CloudCierreCajaProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCierreCajaProtocol.swift; sourceTree = "<group>"; };
@@ -606,6 +610,7 @@
 				FB53D698245463E600331817 /* tiempo.png */,
 				FB8B4F0F2455B6F900A8097D /* campana.png */,
 				FB8B4F112455F19C00A8097D /* personalizada.png */,
+				FBE4C1CA2460421F00351452 /* add_image.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 			children = (
 				FB57F2F4243481D900192230 /* Constants.swift */,
 				FB3E4B5924364300009DB88B /* CommonFunctions.swift */,
+				FBE4C1C62460340F00351452 /* UserPreferences.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1277,6 +1283,7 @@
 			files = (
 				FB64940724338C0C00503627 /* LaunchScreen.storyboard in Resources */,
 				FB5F7D87243F91A100503E9B /* correo.png in Resources */,
+				FBE4C1CB2460422000351452 /* add_image.png in Resources */,
 				FB14CEDA2440AAC2000CBE77 /* empleado.png in Resources */,
 				FB75497D2434F3A70013A03F /* GoogleService-Info.plist in Resources */,
 				FBF3DF57244257A20015BD32 /* pincel.png in Resources */,
@@ -1371,6 +1378,7 @@
 				FB9DED0624499B9800614CD2 /* CloudEmpleadoManager.swift in Sources */,
 				FB5F7D6F243F1DBE00503E9B /* NotificationCell.swift in Sources */,
 				FBFB5F85244A0251000DC77F /* PickerSelectorProtocol.swift in Sources */,
+				FBE4C1C72460340F00351452 /* UserPreferences.swift in Sources */,
 				FB57F2FC2434857E00192230 /* ClientCell.swift in Sources */,
 				FB2B26D52456EC790017D9CA /* ClientesJsonManager.swift in Sources */,
 				FBEA8504245AE263004E96FC /* CloudEliminarServiceProtocol.swift in Sources */,

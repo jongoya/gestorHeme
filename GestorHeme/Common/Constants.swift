@@ -32,6 +32,9 @@ class Constants: NSObject {
     static let notificacionCajaCierreIdentifier: String = "cajaCierre"
     static let notificacionPersonalizadaIdentifier: String = "personalizada"
     
+    //Constante del backup
+    static let backupKey: String = "backup"
+    
     static let databaseManager: DatabaseManager = DatabaseManager()
     static var rootController: RootViewController!
     static let cloudDatabaseManager: CloudDatabaseManager = CloudDatabaseManager()

@@ -130,6 +130,7 @@ class ServicesManager: NSObject {
         coreService.setValue(service.fecha, forKey: "fecha")
         coreService.setValue(service.profesional, forKey: "profesional")
         coreService.setValue(service.servicio, forKey: "servicio")
+        coreService.setValue(service.precio, forKey: "precio")
         coreService.setValue(service.observacion, forKey: "observaciones")
         
         var result: Bool = false

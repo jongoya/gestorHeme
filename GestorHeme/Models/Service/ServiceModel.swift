@@ -18,4 +18,5 @@ class ServiceModel: NSObject {
     var profesional: Int64 = 0
     var servicio: [Int64] = []
     var observacion: String = ""
+    var precio: Double = 0.0
 }

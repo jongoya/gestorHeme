@@ -16,14 +16,16 @@ class AgendaClientItemView: UIView {
     
     var cliente: ClientModel!
     var delegate: ClientItemViewProtocol!
+    var presentDate:Date!
 
-    init(cliente: ClientModel, delegate: ClientItemViewProtocol) {
+    init(cliente: ClientModel, presentDate: Date, delegate: ClientItemViewProtocol) {
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .white
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clientClicked(_:))))
         self.cliente = cliente
         self.delegate = delegate
+        self.presentDate = presentDate
         customizeContentView()
         
         createContent()
@@ -75,7 +77,8 @@ class AgendaClientItemView: UIView {
     }
     
     func collectHorasCliente() -> String {
-        let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: cliente.id)
+        var services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForClientId(clientId: cliente.id)
+        services = filterServicesForDay(services: services)
         var arrayHoras: [String] = []
         
         for service in services {
@@ -86,6 +89,24 @@ class AgendaClientItemView: UIView {
         }
         
         return arrayHoras.joined(separator: ", ")
+    }
+    
+    func filterServicesForDay(services: [ServiceModel]) -> [ServiceModel] {
+        if services.count == 0 {
+            return []
+        }
+        
+        let beginingOfDay: Int64 = Int64(AgendaFunctions.getBeginningOfDayFromDate(date: presentDate).timeIntervalSince1970)
+        let endOfDay: Int64 = Int64(AgendaFunctions.getEndOfDayFromDate(date: presentDate).timeIntervalSince1970)
+        var todayServices: [ServiceModel] = []
+        
+        for service in services {
+            if service.fecha > beginingOfDay && service.fecha < endOfDay {
+                todayServices.append(service)
+            }
+        }
+        
+        return todayServices
     }
     
     func setConstraints() {

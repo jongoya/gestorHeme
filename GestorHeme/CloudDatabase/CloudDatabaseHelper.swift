@@ -23,6 +23,7 @@ class CloudDatabaseHelper: NSObject {
         cliente.cadenciaVisita = record.object(forKey: "CD_cadenciaVisita") as! String
         cliente.observaciones = record.object(forKey: "CD_observaciones") as! String
         cliente.notificacionPersonalizada = record.object(forKey: "CD_notificacionPersonalizada") as! Int64
+        cliente.imagen = record.object(forKey: "CD_imagen") as? String ?? ""
         
         return cliente
     }
@@ -72,6 +73,7 @@ class CloudDatabaseHelper: NSObject {
         servicio.profesional = record.object(forKey: "CD_profesional") as! Int64
         servicio.servicio = record.object(forKey: "CD_servicios") as! [Int64]
         servicio.observacion = record.object(forKey: "CD_observacion") as! String
+        servicio.precio = record.object(forKey: "CD_precio") as? Double ?? 0.0
         
         return servicio
     }
@@ -100,6 +102,7 @@ class CloudDatabaseHelper: NSObject {
         record.setValue(client.cadenciaVisita, forKey: "CD_cadenciaVisita")
         record.setValue(client.observaciones, forKey: "CD_observaciones")
         record.setValue(client.notificacionPersonalizada, forKey: "CD_notificacionPersonalizada")
+        record.setValue(client.imagen, forKey: "CD_imagen")
     }
     
     func setEmpleadoCKRecordVariables(empleado: EmpleadoModel, record: CKRecord) {
@@ -137,6 +140,7 @@ class CloudDatabaseHelper: NSObject {
         record.setValue(service.profesional, forKey: "CD_profesional")
         record.setValue(service.servicio, forKey: "CD_servicios")
         record.setValue(service.observacion, forKey: "CD_observacion")
+        record.setValue(service.precio, forKey: "CD_precio")
     }
     
     func setCierreCajaCKRecordVariables(cierreCaja: CierreCajaModel, record: CKRecord) {

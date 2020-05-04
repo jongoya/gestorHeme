@@ -15,6 +15,7 @@ class AddServicioViewController: UIViewController {
     @IBOutlet weak var professionalLabel: UILabel!
     @IBOutlet weak var servicioLabel: UILabel!
     @IBOutlet weak var observacionLabel: UILabel!
+    @IBOutlet weak var precioLabel: UILabel!
     
     var client: ClientModel!
     var service: ServiceModel = ServiceModel()
@@ -44,6 +45,7 @@ class AddServicioViewController: UIViewController {
         professionalLabel.text = Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: service.profesional)?.nombre
         servicioLabel.text = CommonFunctions.getServiciosStringFromServiciosArray(servicios: service.servicio)
         observacionLabel.text = service.observacion
+        precioLabel.text = String(format: "%.2f", service.precio) + " €"
         if service.observacion.count == 0 {
             observacionLabel.text = "Añade una observación"
         }
@@ -134,6 +136,33 @@ class AddServicioViewController: UIViewController {
             Constants.cloudDatabaseManager.notificationManager.deleteNotifications(notifications: notificacionesEliminar, notificationType: Constants.notificacionCadenciaIdentifier, clientId: client.id, delegate: self)
         }
     }
+    
+    func getTitleForInputReference(inputReference: Int) -> String {
+        switch inputReference {
+        case 0:
+            return "Precio"
+        default:
+            return "Observaciones"
+        }
+    }
+    
+    func getValueForInputReference(inputReference: Int) -> String {
+        switch inputReference {
+        case 0:
+            return String(format: "%.2f", service.precio)
+        default:
+            return service.observacion
+        }
+    }
+    
+    func getKeyboardTypeForInputReference(inputReference: Int) -> UIKeyboardType {
+        switch inputReference {
+        case 0:
+            return .decimalPad
+        default:
+            return .default
+        }
+    }
 }
 
 extension AddServicioViewController {
@@ -150,11 +179,15 @@ extension AddServicioViewController {
     }
     
     @IBAction func didClickObservacion(_ sender: Any) {
-        performSegue(withIdentifier: "FieldIdentifier", sender: 0)
+        performSegue(withIdentifier: "FieldIdentifier", sender: 1)
     }
     
     @IBAction func didClickSaveButton(_ sender: Any) {
         checkFields()
+    }
+    
+    @IBAction func didClickPrecioButton(_ sender: Any) {
+        performSegue(withIdentifier: "FieldIdentifier", sender: 0)
     }
     
     @objc func didClickBackButton(sender: UIBarButtonItem) {
@@ -189,9 +222,9 @@ extension AddServicioViewController {
             let controller: FieldViewController = segue.destination as! FieldViewController
             controller.inputReference = (sender as! Int)
             controller.delegate = self
-            controller.keyboardType = .default
-            controller.inputText = service.observacion
-            controller.title = "Observaciones"
+            controller.keyboardType = getKeyboardTypeForInputReference(inputReference: (sender as! Int))
+            controller.inputText = getValueForInputReference(inputReference: (sender as! Int))
+            controller.title = getTitleForInputReference(inputReference: (sender as! Int))
         } else if segue.identifier == "ListSelectorIdentifier" {
             let controller: ListSelectorViewController = segue.destination as! ListSelectorViewController
             controller.delegate = self
@@ -205,8 +238,17 @@ extension AddServicioViewController {
 extension AddServicioViewController: AddClientInputFieldProtocol {
     func textSaved(text: String, inputReference: Int) {
         modificacionHecha = true
-        service.observacion = text
-        observacionLabel.text = text
+        
+        switch inputReference {
+        case 0:
+            let value = text.replacingOccurrences(of: ",", with: ".")
+            precioLabel.text = value + " €"
+            service.precio = (value as NSString).doubleValue
+            break
+        default:
+            service.observacion = text
+            observacionLabel.text = text
+        }
     }
 }
 

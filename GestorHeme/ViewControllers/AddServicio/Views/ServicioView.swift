@@ -47,6 +47,7 @@ class ServicioView: UIView {
         addFieldForServiceField(serviceField: "Fecha", serviceValue: CommonFunctions.getDateAndTimeTypeStringFromDate(date: Date(timeIntervalSince1970: TimeInterval(servicio.fecha))))
         addFieldForServiceField(serviceField: "Profesional", serviceValue: Constants.databaseManager.empleadosManager.getEmpleadoFromDatabase(empleadoId: servicio.profesional)!.nombre)
         addFieldForServiceField(serviceField: "Servicio", serviceValue: CommonFunctions.getServiciosStringFromServiciosArray(servicios: servicio.servicio))
+        addFieldForServiceField(serviceField: "Precio", serviceValue: String(format: "%.2f", servicio.precio) + " €")
         
         addObservacionView()
         

@@ -14,6 +14,7 @@ class AgendaServiceViewController: UIViewController {
     @IBOutlet weak var profesionalLabel: UILabel!
     @IBOutlet weak var servicioLabel: UILabel!
     @IBOutlet weak var observacionesLabel: UILabel!
+    @IBOutlet weak var precioLabel: UILabel!
     
     var newService: ServiceModel = ServiceModel()
     var clientSeleced: ClientModel!
@@ -89,6 +90,33 @@ class AgendaServiceViewController: UIViewController {
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func getTitleForInputReference(inputReference: Int) -> String {
+        switch inputReference {
+        case 0:
+            return "Precio"
+        default:
+            return "Observaciones"
+        }
+    }
+    
+    func getValueForInputReference(inputReference: Int) -> String {
+        switch inputReference {
+        case 0:
+            return String(format: "%.2f", newService.precio)
+        default:
+            return newService.observacion
+        }
+    }
+    
+    func getKeyboardTypeForInputReference(inputReference: Int) -> UIKeyboardType {
+        switch inputReference {
+        case 0:
+            return .decimalPad
+        default:
+            return .default
+        }
+    }
 }
 
 extension AgendaServiceViewController {
@@ -120,6 +148,10 @@ extension AgendaServiceViewController {
         performSegue(withIdentifier: "AddClienteIdentifier", sender: nil)
     }
     
+    @IBAction func didClickPrecioField(_ sender: Any) {
+        performSegue(withIdentifier: "FieldIdentifier", sender: 0)
+    }
+    
     @objc func didClickBackButton(sender: UIBarButtonItem) {
         if !modificacionHecha {
             self.navigationController?.popViewController(animated: true)
@@ -139,9 +171,9 @@ extension AgendaServiceViewController {
             let controller: FieldViewController = segue.destination as! FieldViewController
             controller.inputReference = (sender as! Int)
             controller.delegate = self
-            controller.keyboardType = .default
-            controller.inputText = newService.observacion
-            controller.title = "Observaciones"
+            controller.keyboardType = getKeyboardTypeForInputReference(inputReference: (sender as! Int))
+            controller.inputText = getValueForInputReference(inputReference: (sender as! Int))
+            controller.title = getTitleForInputReference(inputReference: (sender as! Int))
         } else if segue.identifier == "ListSelectorIdentifier" {
             let controller: ListSelectorViewController = segue.destination as! ListSelectorViewController
             controller.delegate = self
@@ -192,9 +224,17 @@ extension AgendaServiceViewController: ListSelectorProtocol {
 
 extension AgendaServiceViewController: AddClientInputFieldProtocol {
     func textSaved(text: String, inputReference: Int) {
-        newService.observacion = text
-        observacionesLabel.text = text
         modificacionHecha = true
+        switch inputReference {
+        case 0:
+            let value = text.replacingOccurrences(of: ",", with: ".")
+            precioLabel.text = value + " €"
+            newService.precio = (value as NSString).doubleValue
+            break
+        default:
+            newService.observacion = text
+            observacionesLabel.text = text
+        }
     }
 }
 

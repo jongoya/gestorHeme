@@ -19,4 +19,5 @@ class ClientModel: NSObject {
     var cadenciaVisita: String = ""
     var observaciones: String = ""
     var notificacionPersonalizada: Int64 = 0
+    var imagen: String = ""
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class RootViewController: UITabBarController {
     @IBOutlet weak var rigthNavigationButton: UIBarButtonItem!
@@ -18,6 +19,7 @@ class RootViewController: UITabBarController {
         self.delegate = self
         Constants.rootController = self
         setNotificationBarItemBadge()
+        CommonFunctions.checkBackupState()
     }
     
     func setNotificationBarItemBadge() {
@@ -97,3 +99,11 @@ extension RootViewController: UITabBarControllerDelegate {
     }
 }
 
+extension RootViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+        if error == nil  && result == .sent {
+            UserPreferences.saveValueInUserDefaults(value: Int64(Date().timeIntervalSince1970), key: Constants.backupKey)
+        }
+    }
+}

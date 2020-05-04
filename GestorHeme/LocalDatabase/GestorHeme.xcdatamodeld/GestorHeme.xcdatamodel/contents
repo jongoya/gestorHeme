@@ -16,6 +16,7 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="fecha" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="idCliente" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="String"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
         <attribute name="notificacionPersonalizada" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="observaciones" optional="YES" attributeType="String"/>
@@ -47,6 +48,7 @@
         <attribute name="idServicio" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
         <attribute name="observaciones" optional="YES" attributeType="String"/>
+        <attribute name="precio" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="profesional" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="servicio" optional="YES" attributeType="Transformable"/>
     </entity>
@@ -56,10 +58,10 @@
     </entity>
     <elements>
         <element name="Caja" positionX="-54" positionY="99" width="128" height="148"/>
-        <element name="Cliente" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="Cliente" positionX="-63" positionY="-18" width="128" height="208"/>
         <element name="Empleado" positionX="-54" positionY="81" width="128" height="178"/>
         <element name="Notifications" positionX="-54" positionY="81" width="128" height="133"/>
-        <element name="Servicio" positionX="-45" positionY="63" width="128" height="163"/>
+        <element name="Servicio" positionX="-45" positionY="63" width="128" height="178"/>
         <element name="TipoServicios" positionX="-45" positionY="90" width="128" height="73"/>
     </elements>
 </model>

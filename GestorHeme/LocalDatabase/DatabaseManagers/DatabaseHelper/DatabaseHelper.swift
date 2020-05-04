@@ -23,6 +23,7 @@ class DatabaseHelper: NSObject {
         client.cadenciaVisita = coreObject.value(forKey: "cadenciaVisita") as! String
         client.observaciones = coreObject.value(forKey: "observaciones") as! String
         client.notificacionPersonalizada = coreObject.value(forKey: "notificacionPersonalizada") as! Int64
+        client.imagen = coreObject.value(forKey: "imagen") as! String
         
         return client
     }
@@ -38,6 +39,7 @@ class DatabaseHelper: NSObject {
         coreDataObject.setValue(newClient.cadenciaVisita, forKey: "cadenciaVisita")
         coreDataObject.setValue(newClient.observaciones, forKey: "observaciones")
         coreDataObject.setValue(newClient.notificacionPersonalizada, forKey: "notificacionPersonalizada")
+        coreDataObject.setValue(newClient.imagen, forKey: "imagen")
     }
     
     func parseServiceCoreObjectToServiceModel(coreObject: NSManagedObject) -> ServiceModel {
@@ -49,6 +51,7 @@ class DatabaseHelper: NSObject {
         service.fecha = coreObject.value(forKey: "fecha") as! Int64
         service.profesional = coreObject.value(forKey: "profesional") as! Int64
         service.servicio = coreObject.value(forKey: "servicio") as! [Int64]
+        service.precio = coreObject.value(forKey: "precio") as! Double
         service.observacion = coreObject.value(forKey: "observaciones") as! String
         
         return service
@@ -62,6 +65,7 @@ class DatabaseHelper: NSObject {
         coreDataObject.setValue(newService.fecha, forKey: "fecha")
         coreDataObject.setValue(newService.profesional, forKey: "profesional")
         coreDataObject.setValue(newService.servicio, forKey: "servicio")
+        coreDataObject.setValue(newService.precio, forKey: "precio")
         coreDataObject.setValue(newService.observacion, forKey: "observaciones")
     }
     
@@ -75,6 +79,7 @@ class DatabaseHelper: NSObject {
         coreClient.setValue(client.cadenciaVisita, forKey: "cadenciaVisita")
         coreClient.setValue(client.observaciones, forKey: "observaciones")
         coreClient.setValue(client.notificacionPersonalizada, forKey: "notificacionPersonalizada")
+        coreClient.setValue(client.imagen, forKey: "imagen")
     }
     
     func parseNotificationCoreObjectToNotificationModel(coreObject: NSManagedObject) -> NotificationModel {

@@ -184,7 +184,7 @@ class AgendaViewController: UIViewController {
                 continue
             }
             
-            let clientView: AgendaClientItemView = AgendaClientItemView(cliente: client!, delegate: self)
+            let clientView: AgendaClientItemView = AgendaClientItemView(cliente: client!, presentDate: presentDate, delegate: self)
             scrollContentView.addSubview(clientView)
             
             clientView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 15).isActive = true

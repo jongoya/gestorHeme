@@ -30,6 +30,8 @@ class AddClientViewController: UIViewController {
     @IBOutlet weak var cadenciaLabel: UILabel!
     @IBOutlet weak var observacionesLabel: UILabel!
     @IBOutlet weak var addServicioTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var clientImageView: UIImageView!
+    @IBOutlet weak var clientImageContainer: UIView!
     
     var newClient: ClientModel = ClientModel()
     var servicios: [ServiceModel] = []
@@ -48,6 +50,10 @@ class AddClientViewController: UIViewController {
         if delegate != nil {
             addServicioView.isHidden = true
         }
+    }
+    
+    func customizeImageView() {
+        clientImageView.layer.cornerRadius = 50
     }
     
     func showServicio(servicio: ServiceModel) {
@@ -141,6 +147,14 @@ extension AddClientViewController {
     
     @IBAction func didClickSaveClient(_ sender: Any) {
         checkFields()
+    }
+    
+    @IBAction func didClickClientImage(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
     }
 }
 
@@ -335,5 +349,18 @@ extension AddClientViewController: CloudServiceManagerProtocol {
             CommonFunctions.hideLoadingStateView()
             CommonFunctions.showGenericAlertMessage(mensaje: error, viewController: self)
         }
+    }
+}
+
+extension AddClientViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        customizeImageView()
+        let image = info[.originalImage] as! UIImage
+        let resizedImage = CommonFunctions.resizeImage(image: image, targetSize: CGSize(width: 150, height: 150))
+        self.clientImageView.image = resizedImage
+        let imageData: Data = resizedImage.pngData()!
+        let imageString: String = imageData.base64EncodedString()
+        newClient.imagen = imageString
     }
 }

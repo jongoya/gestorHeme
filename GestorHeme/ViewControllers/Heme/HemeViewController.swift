@@ -28,8 +28,6 @@ class HemeViewController: UIViewController {
     func createObjectsForTableView() {
         hemeModels.removeAll()
         createCajaModel()
-        //createCargarClientesModel()
-        //createActualizarBackupHemeModel()
     }
     
     func createCajaModel() {
@@ -39,22 +37,6 @@ class HemeViewController: UIViewController {
         caja.descripcion = "Las estadististicas de los cierres de caja de la peluqueria Heme"
         hemeModels.append(caja)
     }
-    
-    /*func createCargarClientesModel() {
-        let caja: HemeModel = HemeModel()
-        caja.nombreImagen = "cash"
-        caja.titulo = "Cargar clientes"
-        caja.descripcion = "Cargar clientes de heme"
-        hemeModels.append(caja)
-    }
-    
-    func createActualizarBackupHemeModel() {
-        let caja: HemeModel = HemeModel()
-        caja.nombreImagen = "cash"
-        caja.titulo = "Actualizar backup heme"
-        caja.descripcion = "Actualizar backup de heme"
-        hemeModels.append(caja)
-    }*/
     
     func openStadisticasViewController() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "StadisticasCaja", bundle:nil)
@@ -83,10 +65,6 @@ extension HemeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             identifyUser()
-        } else if indexPath.row == 1 {
-            ClientesJsonManager.parseClientesHeme()
-        }else if indexPath.row == 2 {
-            BackupManager.buildBackupJson()
         }
     }
 }

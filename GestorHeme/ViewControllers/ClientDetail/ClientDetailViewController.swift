@@ -24,6 +24,7 @@ class ClientDetailViewController: UIViewController {
     @IBOutlet weak var addServicioView: UIView!
     @IBOutlet weak var alarmView: UIView!
     @IBOutlet weak var alarmImageView: UIImageView!
+    @IBOutlet weak var clientImageView: UIImageView!
     
     var client: ClientModel!
     var services: [ServiceModel] = []
@@ -75,6 +76,14 @@ class ClientDetailViewController: UIViewController {
         
         if observacionesLabel.text!.count == 0 {
             observacionesLabel.text = "Añade una observación"
+        }
+        
+        if client.imagen.count > 0 {
+            let dataDecoded : Data = Data(base64Encoded: client.imagen, options: .ignoreUnknownCharacters)!
+            clientImageView.image = UIImage(data: dataDecoded)
+            clientImageView.layer.cornerRadius = 50
+        } else {
+            clientImageView.image = UIImage(named: "add_image")
         }
     }
     
@@ -231,6 +240,8 @@ class ClientDetailViewController: UIViewController {
         CommonFunctions.showLoadingStateView(descriptionText: "Actualizando cliente")
         Constants.cloudDatabaseManager.clientManager.updateClient(client: client, delegate: nil, notificationDelegate: self)
     }
+
+    
 }
 
 extension ClientDetailViewController {
@@ -276,6 +287,14 @@ extension ClientDetailViewController {
     
     @IBAction func didClickCallButton(_ sender: Any) {
         CommonFunctions.callPhone(telefono: client.telefono.replacingOccurrences(of: " ", with: ""))
+    }
+    
+    @IBAction func didClickImageView(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     @objc func refreshClient() {
@@ -571,6 +590,18 @@ extension ClientDetailViewController: CloudEliminarNotificationsProtocol {
             CommonFunctions.showGenericAlertMessage(mensaje: "Error eliminando notificación", viewController: self)
         }
     }
-    
-    
+}
+
+extension ClientDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        modificacionHecha = true
+        clientImageView.layer.cornerRadius = 50
+        let image = info[.originalImage] as! UIImage
+        let resizedImage = CommonFunctions.resizeImage(image: image, targetSize: CGSize(width: 150, height: 150))
+        self.clientImageView.image = resizedImage
+        let imageData: Data = resizedImage.pngData()!
+        let imageString: String = imageData.base64EncodedString()
+        client.imagen = imageString
+    }
 }

@@ -17,5 +17,16 @@ class ClientCell: UITableViewCell {
     func setupCell(client: ClientModel) {
         nameLabel.text = client.apellidos + ", " + client.nombre
         phoneLabel.text = "Telefono: " + client.telefono
+        
+        if client.imagen.count > 0 {
+            let dataDecoded : Data = Data(base64Encoded: client.imagen, options: .ignoreUnknownCharacters)!
+            imageCellView.image = UIImage(data: dataDecoded)
+            imageCellView.layer.cornerRadius = 30
+            imageCellView.contentMode = .scaleAspectFill
+        } else {
+            imageCellView.image = UIImage(named: "user_placeholder")
+            imageCellView.layer.cornerRadius = 0
+            imageCellView.contentMode = .scaleAspectFit
+        }
     }
 }
