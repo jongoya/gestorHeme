@@ -90,27 +90,28 @@ class EmpleadosManager: NSObject {
     }
     
     func updateEmpleado(empleado: EmpleadoModel) -> Bool {
-        let empleados: [NSManagedObject] = getCoreEmpleadoFromDatabase(empleadoId: empleado.empleadoId)
-        
-        if empleados.count == 0 {
-            return false
-        }
-        
-        let coreEmpleado: NSManagedObject = empleados.first!
-        coreEmpleado.setValue(empleado.redColorValue, forKey: "redColorValue")
-        coreEmpleado.setValue(empleado.greenColorValue, forKey: "greenColorValue")
-        coreEmpleado.setValue(empleado.blueColorValue, forKey: "blueColorValue")
-        coreEmpleado.setValue(empleado.nombre, forKey: "nombre")
-        coreEmpleado.setValue(empleado.apellidos, forKey: "apellidos")
-        coreEmpleado.setValue(empleado.fecha, forKey: "fecha")
-        coreEmpleado.setValue(empleado.telefono, forKey: "telefono")
-        coreEmpleado.setValue(empleado.email, forKey: "email")
-        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: EMPLEADOS_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "empleadoId = %f", argumentArray: [empleado.empleadoId])
+        var results: [NSManagedObject] = []
         var result: Bool = false
+        
         mainContext.performAndWait {
             do {
-                try mainContext.save()
-                result = true
+                results = try mainContext.fetch(fetchRequest)
+                
+                if results.count != 0 {
+                    let coreEmpleado: NSManagedObject = results.first!
+                    coreEmpleado.setValue(empleado.redColorValue, forKey: "redColorValue")
+                    coreEmpleado.setValue(empleado.greenColorValue, forKey: "greenColorValue")
+                    coreEmpleado.setValue(empleado.blueColorValue, forKey: "blueColorValue")
+                    coreEmpleado.setValue(empleado.nombre, forKey: "nombre")
+                    coreEmpleado.setValue(empleado.apellidos, forKey: "apellidos")
+                    coreEmpleado.setValue(empleado.fecha, forKey: "fecha")
+                    coreEmpleado.setValue(empleado.telefono, forKey: "telefono")
+                    coreEmpleado.setValue(empleado.email, forKey: "email")
+                    try mainContext.save()
+                    result = true
+                }
             } catch {
             }
         }

@@ -24,14 +24,14 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Acceso a la cámara para sacar foto al cliente</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Autneticación mediante FaceID</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Need microphone access for input</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>recognize speech</string>
-    <key>NSCameraUsageDescription</key>
-    <string>Acceso a la cámara para sacar foto al cliente</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

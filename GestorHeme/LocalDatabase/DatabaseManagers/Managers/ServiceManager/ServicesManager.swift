@@ -120,25 +120,27 @@ class ServicesManager: NSObject {
     }
     
     func updateServiceInDatabase(service: ServiceModel) -> Bool {
-        let services: [NSManagedObject] = getServiceFromDatabase(serviceId: service.serviceId)
-        
-        if services.count == 0 {
-            return false
-        }
-        
-        let coreService: NSManagedObject = services.first!
-        coreService.setValue(service.fecha, forKey: "fecha")
-        coreService.setValue(service.profesional, forKey: "profesional")
-        coreService.setValue(service.servicio, forKey: "servicio")
-        coreService.setValue(service.precio, forKey: "precio")
-        coreService.setValue(service.observacion, forKey: "observaciones")
-        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: SERVICES_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "idServicio = %f", argumentArray: [service.serviceId])
+        var results: [NSManagedObject] = []
         var result: Bool = false
+        
         mainContext.performAndWait {
             do {
-                try mainContext.save()
-                result = true
+                results = try mainContext.fetch(fetchRequest)
+                if results.count != 0 {
+                    let coreService: NSManagedObject = results.first!
+                    coreService.setValue(service.fecha, forKey: "fecha")
+                    coreService.setValue(service.profesional, forKey: "profesional")
+                    coreService.setValue(service.servicio, forKey: "servicio")
+                    coreService.setValue(service.precio, forKey: "precio")
+                    coreService.setValue(service.observacion, forKey: "observaciones")
+                    
+                    try mainContext.save()
+                    result = true
+                }
             } catch {
+                print("Error checking the client in database")
             }
         }
         

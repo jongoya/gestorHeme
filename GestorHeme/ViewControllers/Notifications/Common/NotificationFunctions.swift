@@ -71,7 +71,7 @@ class NotificationFunctions: NSObject {
     private static func getTodayNotifications() -> [NotificationModel] {
         var todayNotifications: [NotificationModel] = []
         
-        let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsFromDatabase()
+        let notifications: [NotificationModel] = Constants.databaseManager.notificationsManager.getAllNotificationsForType(type: Constants.notificacionCumpleIdentifier)
         let begginingOfDay: Int64 = Int64(getBeginningOfDayFromDate(date: Date()).timeIntervalSince1970)
         let endOfDay: Int64 = Int64(getEndOfDayFromDate(date: Date()).timeIntervalSince1970)
         for notification in notifications {

@@ -99,21 +99,21 @@ class ClientesManager: NSObject {
     }
     
     func updateClientInDatabase(client: ClientModel) -> Bool {
-        let clients: [NSManagedObject] = getCoreClientFromDatabase(clientId: client.id)
-        
-        if clients.count == 0 {
-            return false
-        }
-        
-        let coreClient: NSManagedObject = clients.first!
-        databaseHelper.updateClientObject(coreClient: coreClient, client: client)
-        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: CLIENTES_ENTITY_NAME)
+        fetchRequest.predicate = NSPredicate(format: "idCliente = %f", argumentArray: [client.id])
+        var results: [NSManagedObject] = []
         var result: Bool = false
         
         mainContext.performAndWait {
             do {
-                try mainContext.save()
-                result = true
+                results = try mainContext.fetch(fetchRequest)
+                
+                if results.count != 0 {
+                    let coreClient: NSManagedObject = results.first!
+                    databaseHelper.updateClientObject(coreClient: coreClient, client: client)
+                    try mainContext.save()
+                    result = true
+                }
             } catch {
             }
         }
