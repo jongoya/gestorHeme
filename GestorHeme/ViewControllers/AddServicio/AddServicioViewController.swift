@@ -149,7 +149,7 @@ class AddServicioViewController: UIViewController {
     func getValueForInputReference(inputReference: Int) -> String {
         switch inputReference {
         case 0:
-            return String(format: "%.2f", service.precio)
+            return service.precio > 0 ? String(format: "%.2f", service.precio) : ""
         default:
             return service.observacion
         }

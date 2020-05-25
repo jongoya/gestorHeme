@@ -103,7 +103,7 @@ class AgendaServiceViewController: UIViewController {
     func getValueForInputReference(inputReference: Int) -> String {
         switch inputReference {
         case 0:
-            return String(format: "%.2f", newService.precio)
+            return newService.precio > 0 ? String(format: "%.2f", newService.precio) : ""
         default:
             return newService.observacion
         }

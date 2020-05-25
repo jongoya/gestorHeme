@@ -232,6 +232,17 @@ class AgendaViewController: UIViewController {
         
         return nil
     }
+    
+    func ifServiciosHasPrecios() -> Bool {
+        let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForDay(date: presentDate)
+        for service: ServiceModel in services {
+            if service.precio < 1 {
+                return false
+            }
+        }
+        
+        return true
+    }
 }
 
 extension AgendaViewController {
@@ -272,7 +283,11 @@ extension AgendaViewController {
     }
     
     @objc func didClickCerrarCajaButton() {
-        performSegue(withIdentifier: "cierreCajaIdentifier", sender: nil)
+        if ifServiciosHasPrecios() {
+            performSegue(withIdentifier: "cierreCajaIdentifier", sender: nil)
+        } else {
+            CommonFunctions.showGenericAlertMessage(mensaje: "Debe incluir todos los precios en los servicios de hoy", viewController: self)
+        }
     }
 }
 

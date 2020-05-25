@@ -25,10 +25,27 @@ class CierreCajaViewController: UIViewController {
         title = "Cierre Caja"
         
         addSaveCierreCajaButton()
+        
+        fillFields()
     }
     
     func addSaveCierreCajaButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "checkmark"), style: .done, target: self, action: #selector(didClickSaveCierreCajaButton))
+    }
+    
+    func fillFields() {
+        let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForDay(date: presentDate)
+        numeroServiciosLabel.text = String(services.count)
+        totalCajaLabel.text = String(format: "%.2f", getTotalCajaFromServicios(servicios: services)) + " €"
+    }
+    
+    func getTotalCajaFromServicios(servicios: [ServiceModel]) -> Double {
+        var totalCaja: Double = 0.0
+        for servicio: ServiceModel in servicios {
+            totalCaja = totalCaja + servicio.precio
+        }
+        
+        return totalCaja
     }
     
     func getKeyboardTypeForField(inputReference: Int) -> UIKeyboardType {
