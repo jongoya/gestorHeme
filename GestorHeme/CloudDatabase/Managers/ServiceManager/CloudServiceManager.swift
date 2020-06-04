@@ -201,10 +201,10 @@ class CloudServiceManager {
                 delegate.serviceSincronizationError(error: error != nil ? error!.localizedDescription : "Error actualizando el servicio")
                 return
             }
+            let record: CKRecord = results!.first!
+            self.cloudDatabaseHelper.setServiceCKRecordVariables(service: service, record: record)
             
-            self.cloudDatabaseHelper.setServiceCKRecordVariables(service: service, record: results!.first!)
-            
-            self.publicDatabase.save(results!.first!, completionHandler: { (newRecord, error) in
+            self.publicDatabase.save(record, completionHandler: { (newRecord, error) in
                 if error != nil {
                     delegate.serviceSincronizationError(error: error!.localizedDescription)
                 } else {
@@ -212,6 +212,55 @@ class CloudServiceManager {
                 }
             })
         }
+    }
+    
+    func updateServices(services: [ServiceModel], delegate: CloudServiceManagerProtocol) {
+        var serviceIds: [Int64] = []
+        for service: ServiceModel in services {
+            serviceIds.append(service.serviceId)
+        }
+        
+        let predicate = NSPredicate(format: "CD_serviceId IN %@", serviceIds)
+        let query = CKQuery(recordType: tableName, predicate: predicate)
+        
+        publicDatabase.perform(query, inZoneWith: nil) {results, error in
+            if error != nil || results!.count == 0 {
+                delegate.serviceSincronizationError(error: error != nil ? error!.localizedDescription : "Error actualizando el servicio")
+                return
+            }
+            var recordsToUpdate: [CKRecord] = []
+            for record: CKRecord in results! {
+                let service: ServiceModel? = self.getServiceForServiceId(services: services, serviceId: record.value(forKey: "CD_serviceId") as! Int64)
+                if service != nil {
+                    self.cloudDatabaseHelper.setServiceCKRecordVariables(service: service!, record: record)
+                    recordsToUpdate.append(record)
+                }
+            }
+            
+            let operation: CKModifyRecordsOperation = CKModifyRecordsOperation()
+            operation.recordsToSave = recordsToUpdate
+            operation.savePolicy = .ifServerRecordUnchanged
+            
+            operation.modifyRecordsCompletionBlock = {savedRecords, deletedRecordIDs, error in
+                if error != nil {
+                    delegate.serviceSincronizationError(error: error!.localizedDescription)
+                } else {
+                    delegate.serviceSincronizationFinished()
+                }
+            }
+            
+            self.publicDatabase.add(operation)
+        }
+    }
+    
+    private func getServiceForServiceId(services: [ServiceModel], serviceId: Int64) -> ServiceModel? {
+        for service: ServiceModel in services {
+            if service.serviceId == serviceId {
+                return service
+            }
+        }
+        
+        return nil
     }
     
     private func deleteLocalServicesIfNeededForClient(cloudServices: [Int64], clientId: Int64) {
@@ -236,6 +285,12 @@ class CloudServiceManager {
         let localServices: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForDay(date: date)
         for localService: ServiceModel in localServices {
             if !cloudServices.contains(localService.serviceId) {
+                _ = Constants.databaseManager.servicesManager.deleteService(service: localService)
+            }
+        }
+        
+        if (cloudServices.count == 0) {
+            for localService: ServiceModel in localServices {
                 _ = Constants.databaseManager.servicesManager.deleteService(service: localService)
             }
         }

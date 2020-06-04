@@ -368,8 +368,10 @@ extension AgendaViewController: ClientItemViewProtocol {
 
 extension AgendaViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        presentDate = date
+        //Error de timezone o bug the la libreria, pero el date del calendar siempre devuelve un dia menos
+        presentDate = Calendar.current.date(byAdding: .hour, value: 12, to: date)!
         calendarVisible = false
+        print(presentDate)
         hideMonthCalendarView(withAnimationDuration: animationDuration)
         setDayCarousel()
         addAgenda(profesional: selectedProfesional)
@@ -411,7 +413,9 @@ extension AgendaViewController: iCarouselDataSource, iCarouselDelegate {
         let item: CarouselItem = carousel.itemView(at: index) as! CarouselItem
         item.highlightView()
         oldItem.unhightlightView()
+        //TODO verificar la fecha
         presentDate = item.date
+        print(presentDate)
         calendarVisible = false
         hideMonthCalendarView(withAnimationDuration: animationDuration)
         addAgenda(profesional: selectedProfesional)
@@ -420,7 +424,9 @@ extension AgendaViewController: iCarouselDataSource, iCarouselDelegate {
     func carouselDidEndDecelerating(_ carousel: iCarousel) {
         let item: CarouselItem = carousel.currentItemView as! CarouselItem
         item.highlightView()
+        //TODO verificar la fecha
         presentDate = item.date
+        print(presentDate)
         calendarVisible = false
         hideMonthCalendarView(withAnimationDuration: animationDuration)
         addAgenda(profesional: selectedProfesional)

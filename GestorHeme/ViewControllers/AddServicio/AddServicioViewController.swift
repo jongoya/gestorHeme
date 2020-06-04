@@ -28,6 +28,7 @@ class AddServicioViewController: UIViewController {
         title =  modifyService ? "Servicio" : "Nuevo Servicio"
         addBackButton()
         setMainValues()
+        print(service.serviceId)
     }
     
     func setMainValues() {

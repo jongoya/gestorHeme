@@ -398,7 +398,7 @@ extension ClientDetailViewController {
             service.apellidos = client.apellidos
         }
         
-        Constants.cloudDatabaseManager.serviceManager.saveServices(services: services, delegate: self)
+        Constants.cloudDatabaseManager.serviceManager.updateServices(services: services, delegate: self)
     }
 }
 

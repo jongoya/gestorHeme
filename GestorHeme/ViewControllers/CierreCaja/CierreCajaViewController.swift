@@ -37,6 +37,8 @@ class CierreCajaViewController: UIViewController {
         let services: [ServiceModel] = Constants.databaseManager.servicesManager.getServicesForDay(date: presentDate)
         numeroServiciosLabel.text = String(services.count)
         totalCajaLabel.text = String(format: "%.2f", getTotalCajaFromServicios(servicios: services)) + " €"
+        cierreCaja.numeroServicios = services.count
+        cierreCaja.totalCaja = getTotalCajaFromServicios(servicios: services)
     }
     
     func getTotalCajaFromServicios(servicios: [ServiceModel]) -> Double {

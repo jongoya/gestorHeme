@@ -225,7 +225,7 @@ class EmpleadosViewController: UIViewController {
             service.profesional = empleadoId
         }
         
-        Constants.cloudDatabaseManager.serviceManager.saveServices(services: servicios, delegate: self)
+        Constants.cloudDatabaseManager.serviceManager.updateServices(services: servicios, delegate: self)
     }
 }
 
